@@ -36,7 +36,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%AD%96%E7%95%A5%E8%BF%AD%E4%BB%A3.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E4%BB%B7%E5%80%BC%E8%BF%AD%E4%BB%A3.png">
 <meta property="article:published_time" content="2024-05-15T05:59:01.000Z">
-<meta property="article:modified_time" content="2024-05-16T07:01:10.447Z">
+<meta property="article:modified_time" content="2024-05-16T07:08:48.917Z">
 <meta property="article:author" content="Wenliang Liang">
 <meta property="article:tag" content="强化学习">
 <meta name="twitter:card" content="summary">
@@ -86,7 +86,7 @@
   <div class="content">
     <div class="top bread-nav footnote"><div class="left"><div class="flex-row" id="breadcrumb"><a class="cap breadcrumb" href="/">Home</a>
 <span class="sep"></span><a class="cap breadcrumb" href="/">Blog</a></div>
-<div class="flex-row" id="post-meta"><span class="text created">Posted on: <time datetime="2024-05-15T05:59:01.000Z">2024-05-15</time></span><span class="sep updated"></span><span class="text updated">Updated on: <time datetime="2024-05-16T07:01:10.447Z">2024-05-16</time></span></div></div></div>
+<div class="flex-row" id="post-meta"><span class="text created">Posted on: <time datetime="2024-05-15T05:59:01.000Z">2024-05-15</time></span><span class="sep updated"></span><span class="text updated">Updated on: <time datetime="2024-05-16T07:08:48.917Z">2024-05-16</time></span></div></div></div>
     
     <div class="bottom only-title">
       
@@ -100,14 +100,14 @@
   </div><article class="md-text content"><p><strong>知识点：马尔科夫决策过程，动态规划。</strong></p>
 <hr>
 <h2 id="马尔科夫决策过程">马尔科夫决策过程</h2>
-<p><strong><span style="color:blue;">马尔科夫过程</span></strong>: 一个具备马尔科夫性质的离散随机过程。</p>
-<p><strong><span style="color:blue;">马尔科夫性</span></strong>: 下一时刻的状态只与当前状态有关。即$P[S_{t+1}|S_{1},…,S_{t}]=P[S_{t+1}|S_{t}]$</p>
-<p><strong><span style="color:blue;">马尔科夫奖励函数</span></strong>: 把马尔科夫过程从 &lt;S, P&gt; 拓展到 &lt;S, P, R, γ&gt;。其中P 为状态转移矩阵，R 和 γ 分别表示奖励函数和奖励折扣因子。折扣因子越大，代表了智能体对长期性能指标考虑的程度越高（远视）；折扣因子越小，代表了智能体对长期性能指标考虑的程度越低（近视）。</p>
-<p><strong><span style="color:blue;">回报</span></strong>: 回报是一个轨迹的累积奖励，$G_{t} = R_{t+1} + \gamma R_{t+2} = \sum_{k=0}^{\infty } \gamma ^{k}R_{t+k+1}$</p>
-<p><strong><span style="color:blue;">价值函数</span></strong>：状态s的期望回报，$V(s) = E[G_{t}|S_{t}=s]$。</p>
-<p><strong>马尔科夫决策过程</strong>: 马尔可夫奖励过程的立即奖励只取决于状态(奖励值在节点上)，而马尔可夫决策过程的立即奖励与状态和动作都有关。即把马尔科夫过程从 &lt;S, P, R, γ&gt; 拓展到 &lt;S, A, P, R, γ&gt;。A是有限动作的集合。</p>
-<p><strong><span style="color:blue;">动作价值函数</span></strong>: 依赖于状态和刚刚执行的动作，是基于状态和动作的期望回报。$Q(s,a) = E[G_{t}|S_{t}=s, A_{t}=a]$。易知$V(s)=E_{a}[Q(s,a)]$。</p>
-<p><strong><span style="color:blue;">策略</span></strong>: 状态到行为的映射。</p>
+<p><strong><span style="color:purple;">马尔科夫过程</span></strong>: 一个具备马尔科夫性质的离散随机过程。</p>
+<p><strong><span style="color:purple;">马尔科夫性</span></strong>: 下一时刻的状态只与当前状态有关。即$P[S_{t+1}|S_{1},…,S_{t}]=P[S_{t+1}|S_{t}]$</p>
+<p><strong><span style="color:purple;">马尔科夫奖励函数</span></strong>: 把马尔科夫过程从 &lt;S, P&gt; 拓展到 &lt;S, P, R, γ&gt;。其中P 为状态转移矩阵，R 和 γ 分别表示奖励函数和奖励折扣因子。折扣因子越大，代表了智能体对长期性能指标考虑的程度越高（远视）；折扣因子越小，代表了智能体对长期性能指标考虑的程度越低（近视）。</p>
+<p><strong><span style="color:purple;">回报</span></strong>: 回报是一个轨迹的累积奖励，$G_{t} = R_{t+1} + \gamma R_{t+2} = \sum_{k=0}^{\infty } \gamma ^{k}R_{t+k+1}$</p>
+<p><strong><span style="color:purple;">价值函数</span></strong>：状态s的期望回报，$V(s) = E[G_{t}|S_{t}=s]$。</p>
+<p><strong><span style="color:purple;">马尔科夫决策过程</span></strong>: 马尔可夫奖励过程的立即奖励只取决于状态(奖励值在节点上)，而马尔可夫决策过程的立即奖励与状态和动作都有关。即把马尔科夫过程从 &lt;S, P, R, γ&gt; 拓展到 &lt;S, A, P, R, γ&gt;。A是有限动作的集合。</p>
+<p><strong><span style="color:purple;">动作价值函数</span></strong>: 依赖于状态和刚刚执行的动作，是基于状态和动作的期望回报。$Q(s,a) = E[G_{t}|S_{t}=s, A_{t}=a]$。易知$V(s)=E_{a}[Q(s,a)]$。</p>
+<p><strong><span style="color:purple;">策略</span></strong>: 状态到行为的映射。</p>
 <blockquote>
 <p>对于任何马尔科夫决策过程：</p>
 <ul>
@@ -116,7 +116,7 @@
 <li>所有的最优策略具有相同且最优的动作价值。</li>
 </ul>
 </blockquote>
-<p><strong><span style="color:blue;">贝尔曼方程</span></strong>：用于计算给定策略 π 时价值函数在策略指引下所采轨迹上的期望。</p>
+<p><strong><span style="color:purple;">贝尔曼方程</span></strong>：用于计算给定策略 π 时价值函数在策略指引下所采轨迹上的期望。</p>
 <div style="display: flex; justify-content: center; align-items: center;">
     <img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/截屏2024-05-16%2013.18.14.png" alt="图片1" style="width:350px; height:auto; margin-right: 2px;">
     <img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/截屏2024-05-16%2013.18.34.png" alt="图片2" style="width:250px; height:auto;">
@@ -126,34 +126,34 @@
     <img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/截屏2024-05-16 13.27.43.png" alt="图片4" style="width:300px; height:auto;">
 </div>
 </br>
-<p><strong><span style="color:blue;">最优价值函数</span></strong>:</p>
-<p>即使是在相同的状态和动作集合上，不同的策略也将会带来不同的价值函数。定义最优价值函数为<br>
-$$v_<em>(s) = \max_{π} v_π(s), ∀s ∈ S$$<br>
-最优动作价值函数：<br>
-$$q_</em>(s,a) = \max_{\pi} q_π(s,a), ∀s ∈ S, a ∈ A$$<br>
-则<br>
-$$v*(s) = \max_{a\sim \mathbf{A}} q_<em>(s, a)$$<br>
-$$q_</em>(s, a) = E[R_t + γv_*(S_{t+1}) | S_t = s, A_t = a]$$</p>
-<p><strong><span style="color:blue;">逆矩阵法求解贝尔曼方程</span></strong>：</p>
-<p>$$\mathbf{v}  = \mathbf{r} + γP\mathbf{v} $$<br>
-其中 <strong>v</strong> 和 <strong>r</strong> 矢量，P是状态转移概率矩阵。求解如下：<br>
-$$\mathbf{v} = (I − γP )^{-1}\mathbf{r}$$<br>
-复杂度为$O(n^{3})$，考虑其他方法进行求解，如<span style="color:red;">动态规划、蒙特卡洛估计、时序差分法</span>等。</p>
+<p><strong><span style="color:purple;">最优价值函数</span></strong>:</p>
+<p>即使是在相同的状态和动作集合上，不同的策略也将会带来不同的价值函数。定义最优价值函数为</p>
+<p>$$v_*(s) = \max_{π} v_π(s), ∀s ∈ S$$</p>
+<p>最优动作价值函数：</p>
+<p>$$q_*(s,a) = \max_{\pi} q_π(s,a), ∀s ∈ S, a ∈ A$$</p>
+<p>则</p>
+<p>$$v*(s) = \max_{a\sim \mathbf{A}} q_*(s, a)$$</p>
+<p>$$q_<em>(s, a) = E[R_t + γv_</em>(S_{t+1}) | S_t = s, A_t = a]$$</p>
+<p><strong><span style="color:purple;">逆矩阵法求解贝尔曼方程</span></strong>：</p>
+<p>$$\mathbf{v}  = \mathbf{r} + γP\mathbf{v} $$</p>
+<p>其中 <strong>v</strong> 和 <strong>r</strong> 矢量，P是状态转移概率矩阵。求解如下：</p>
+<p>$$\mathbf{v} = (I − γP )^{-1}\mathbf{r}$$</p>
+<p>复杂度为$O(n^{3})$，考虑其他方法进行求解，如<span style="color:red;">动态规划、蒙特卡洛估计、时序差分法</span>等。</p>
 <h2 id="动态规划">动态规划</h2>
 <p>用动态规划算法在 能够获取MDP完整的环境信息（包括状态动作空间、转移矩阵、奖励等）的基础上 求解最优策略。</p>
-<p><strong><span style="color:blue;">预测</span></strong>：给定一个MDP &lt;𝒮, 𝒜, 𝒫, ℛ, 𝛾&gt;和策略𝜋，输出基于当前策略𝜋的价值函数v。</p>
-<p><strong><span style="color:blue;">控制</span></strong>：给定一个MDP &lt;𝒮, 𝒜, 𝒫, ℛ, 𝛾&gt;，输出最优价值函数𝑣∗以及最优策略𝜋∗</p>
-<p><strong><span style="color:blue;">迭代策略评估</span></strong>： 预测问题，评估一个给定的策略$\pi$。</p>
+<p><strong><span style="color:purple;">预测</span></strong>：给定一个MDP &lt;𝒮, 𝒜, 𝒫, ℛ, 𝛾&gt;和策略𝜋，输出基于当前策略𝜋的价值函数v。</p>
+<p><strong><span style="color:purple;">控制</span></strong>：给定一个MDP &lt;𝒮, 𝒜, 𝒫, ℛ, 𝛾&gt;，输出最优价值函数𝑣∗以及最优策略𝜋∗</p>
+<p><strong><span style="color:purple;">迭代策略评估</span></strong>： 预测问题，评估一个给定的策略$\pi$。</p>
 <p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E8%BF%AD%E4%BB%A3%E7%AD%96%E7%95%A5%E8%AF%84%E4%BC%B0.png" alt="图片"><br>
 <img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%AD%96%E7%95%A5%E8%AF%84%E4%BC%B0.png" alt="图片"></p>
-<p><strong><span style="color:blue;">策略迭代</span></strong>：</p>
+<p><strong><span style="color:purple;">策略迭代</span></strong>：</p>
 <ul>
 <li>策略评估，在当前策略𝜋上迭代地计算𝑣值</li>
 <li>策略更新，根据𝑣值贪婪地更新策略</li>
 <li>如此反复多次，最终得到最优策略𝜋∗和最优状态价值函数𝑣∗<br>
 <img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%AD%96%E7%95%A5%E8%BF%AD%E4%BB%A3.png" alt="图片"></li>
 </ul>
-<p><strong><span style="color:blue;">价值迭代</span></strong>：<br>
+<p><strong><span style="color:purple;">价值迭代</span></strong>：<br>
 <img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E4%BB%B7%E5%80%BC%E8%BF%AD%E4%BB%A3.png" alt="图片"></p>
 <p><strong>参考资料</strong>：</p>
 <p>中国科学院大学强化学习课程课件</p>
