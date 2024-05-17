@@ -44,7 +44,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/A3C-1.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/A3C-2.png">
 <meta property="article:published_time" content="2024-05-15T05:58:11.000Z">
-<meta property="article:modified_time" content="2024-05-17T06:39:44.105Z">
+<meta property="article:modified_time" content="2024-05-17T06:51:04.089Z">
 <meta property="article:author" content="Wenliang Liang">
 <meta property="article:tag" content="强化学习">
 <meta name="twitter:card" content="summary">
@@ -94,7 +94,7 @@
   <div class="content">
     <div class="top bread-nav footnote"><div class="left"><div class="flex-row" id="breadcrumb"><a class="cap breadcrumb" href="/">Home</a>
 <span class="sep"></span><a class="cap breadcrumb" href="/">Blog</a></div>
-<div class="flex-row" id="post-meta"><span class="text created">Posted on: <time datetime="2024-05-15T05:58:11.000Z">2024-05-15</time></span><span class="sep updated"></span><span class="text updated">Updated on: <time datetime="2024-05-17T06:39:44.105Z">2024-05-17</time></span></div></div></div>
+<div class="flex-row" id="post-meta"><span class="text created">Posted on: <time datetime="2024-05-15T05:58:11.000Z">2024-05-15</time></span><span class="sep updated"></span><span class="text updated">Updated on: <time datetime="2024-05-17T06:51:04.089Z">2024-05-17</time></span></div></div></div>
     
     <div class="bottom only-title">
       
@@ -150,13 +150,11 @@
 <p>从一个分布d(s)中采样得到一个状态s，从s开始，按照策略𝜋采取一个行为a，得到即时奖励$r=R_{s,a}$。由于是单步过程，目标函数$J(\theta)$如下：</p>
 <p>$$<br>
 J(\pi) = \mathbb{E}<em>{\pi</em>\theta}\left[r \right] = \mathbb{E}<em>{\pi</em>\theta}\left[\sum_{t=0}^{\infty} \gamma^t R(s_t, a_t) \right] = \sum_{s \in S} d_{\pi_\theta}(s) \sum_{a \in A} \pi_\theta(s, a) R(s, a)<br>
-$$<br>
-</br><br>
-$$<br>
+$$</p>
+<p>$$<br>
 \nabla_\theta J(\theta) = \sum_{s \in S} d_{\pi_\theta}(s) \sum_{a \in A} \pi_\theta(s, a) \nabla_\theta \log \pi_\theta(s, a) R(s, a)<br>
-$$<br>
-</br><br>
-$$<br>
+$$</p>
+<p>$$<br>
 \nabla_\theta J(\theta) = \mathbb{E}<em>{d</em>{\pi_\theta}, \pi_\theta} [R(s, a) \nabla_\theta \log \pi_\theta(s, a)]<br>
 $$</p>
 <h2 id="2-策略梯度定理">2.策略梯度定理</h2>
