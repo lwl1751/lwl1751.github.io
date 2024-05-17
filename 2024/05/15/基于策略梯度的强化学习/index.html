@@ -27,17 +27,23 @@
 <meta property="og:site_name" content="Wenliang Liang">
 <meta property="og:description" content="强化学习可分为两大类：   value-based method(DP,MC,TD) 通过价值函数求解最优策略，求解出来的策略是确定性的，虽然可以通过$\epsilon$-贪心策略来获取一定的随机性。要求动作空间离散。   policy-based method 适用场景：随机策略；动作空间连续。 优点：具有更好的收敛性质。 缺点：通常会收敛到局部最优而非全局最优；评估一个策略通常不够高效并且具有">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E7%AD%96%E7%95%A5%E4%BC%98%E5%8C%96%E7%9B%AE%E6%A0%87.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E7%AD%96%E7%95%A5%E6%A2%AF%E5%BA%A6%E8%A7%A3%E6%9E%90%E8%AE%A1%E7%AE%97.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E7%AD%96%E7%95%A5%E7%9B%AE%E6%A0%87%E5%87%BD%E6%95%B01.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E7%AD%96%E7%95%A5%E7%9B%AE%E6%A0%87%E5%87%BD%E6%95%B02.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/score%E5%87%BD%E6%95%B0.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/softmax%E7%AD%96%E7%95%A52.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/softmax%E7%AD%96%E7%95%A5.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E9%AB%98%E6%96%AF%E7%AD%96%E7%95%A5.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E7%AD%96%E7%95%A5%E6%8E%A8%E7%90%861.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E7%AD%96%E7%95%A5%E6%8E%A8%E7%90%862.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E6%97%B6%E9%97%B4%E8%BF%9E%E7%BB%AD%E6%80%A71.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E6%97%B6%E9%97%B4%E8%BF%9E%E7%BB%AD%E6%80%A72.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/REINFORCE-1.png">
 <meta property="article:published_time" content="2024-05-15T05:58:11.000Z">
-<meta property="article:modified_time" content="2024-05-16T13:14:35.197Z">
+<meta property="article:modified_time" content="2024-05-17T05:16:12.237Z">
 <meta property="article:author" content="Wenliang Liang">
 <meta property="article:tag" content="强化学习">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E7%AD%96%E7%95%A5%E4%BC%98%E5%8C%96%E7%9B%AE%E6%A0%87.png">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E7%AD%96%E7%95%A5%E7%9B%AE%E6%A0%87%E5%87%BD%E6%95%B01.png">
   
   
   
@@ -83,7 +89,7 @@
   <div class="content">
     <div class="top bread-nav footnote"><div class="left"><div class="flex-row" id="breadcrumb"><a class="cap breadcrumb" href="/">Home</a>
 <span class="sep"></span><a class="cap breadcrumb" href="/">Blog</a></div>
-<div class="flex-row" id="post-meta"><span class="text created">Posted on: <time datetime="2024-05-15T05:58:11.000Z">2024-05-15</time></span><span class="sep updated"></span><span class="text updated">Updated on: <time datetime="2024-05-16T13:14:35.197Z">2024-05-16</time></span></div></div></div>
+<div class="flex-row" id="post-meta"><span class="text created">Posted on: <time datetime="2024-05-15T05:58:11.000Z">2024-05-15</time></span><span class="sep updated"></span><span class="text updated">Updated on: <time datetime="2024-05-17T05:16:12.237Z">2024-05-17</time></span></div></div></div>
     
     <div class="bottom only-title">
       
@@ -109,8 +115,12 @@
 </ul>
 <h2 id="1-基本原理">1.基本原理</h2>
 <p>由于策略实际上是一个概率分布，可以将策略参数化 $\pi(a|s,\theta)$ ，其中$\theta$ 是策略的参数。通过这种方式，可以将可见的已知状态泛化到未知的状态上。</p>
-<p><strong>策略目标函数</strong>：</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E7%AD%96%E7%95%A5%E4%BC%98%E5%8C%96%E7%9B%AE%E6%A0%87.png" alt="图片"></p>
+<p><strong>策略目标函数</strong>：在片段式的环境中，使用每个经历片段(episode)的平均总回报。在连续性的环境中，使用每一步的平均奖励。</p>
+<div style="display: flex; justify-content: center; align-items: center;">
+    <img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/策略目标函数1.png" alt="图片1" style="width:300px; height:auto; margin-right: 2px;">
+    <img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/策略目标函数2.png" alt="图片2" style="width:280px; height:auto;">
+</div>
+</br>
 <p>希望能够找到最大化$J(\theta)$的$\theta$，属于最优化问题，求解方法如下：</p>
 <ul>
 <li>不使用梯度的方法(Hill climbing, Simplex, 模拟退火, 遗传算法)</li>
@@ -118,20 +128,35 @@
 </ul>
 <p><strong>策略函数</strong>：</p>
 <ul>
-<li>softmax函数，离散型动作空间</li>
-<li>高斯策略函数，连续型动作空间</li>
+<li>softmax策略，离散型动作空间</li>
+<li>高斯策略策略，连续型动作空间</li>
+<li>线性函数策略，连续型动作空间，表示给定状态下确定性的动作，$a=\pi(s,\theta)$</li>
 </ul>
 <div style="display: flex; justify-content: center; align-items: center;">
-    <img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/策略梯度解析计算.png" alt="图片1" style="width:300px; height:auto; margin-right: 2px;">
+    <img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/score函数.png" alt="图片1" style="width:300px; height:auto; margin-right: 2px;">
     <img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/softmax策略2.png" alt="图片2" style="width:300px; height:auto;">
 </div>
 <div style="display: flex; justify-content: center; align-items: center;">
     <img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/softmax策略.png" alt="图片1" style="width:300px; height:auto; margin-right: 2px;">
     <img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/高斯策略.png" alt="图片2" style="width:300px; height:auto;">
 </div>
+</br>
+<p><strong>单步马尔可夫决策过程</strong>：从一个分布d(s)中采样得到一个状态s，从s开始，按照策略𝜋采取一个行为a，得到即时奖励$r=R_{s,a}$。由于是单步过程，目标函数$J(\theta)$如下：</p>
+<p>$$J(\pi) =\mathbb{E}<em>{\pi</em>\theta}\left[r \right]= \mathbb{E}<em>{\pi</em>\theta}\left[\sum_{t=0}^{\infty} \gamma^t R(s_t, a_t) \right]=\sum_{s \in S} d_{\pi_\theta}(s) \sum_{a \in A} \pi_\theta(s, a) R(s, a)$$</p>
+<p>$$\nabla_\theta J(\theta) = \sum_{s \in S} d^{\pi_\theta}(s) \sum_{a \in A} \pi_\theta(s, a) \nabla_\theta \log \pi_\theta(s, a) R(s, a)$$</p>
+<p>$$\nabla_\theta J(\theta) = \mathbb{E}<em>{d</em>{\pi_\theta}, \pi_\theta} [R(s, a) \nabla_\theta \log \pi_\theta(s, a)]$$</p>
 <h2 id="2-策略梯度定理">2.策略梯度定理</h2>
-<p>我们应该降低带来较低价值/奖励的动作出现的概率，提高带来较低价值/奖励的动作出现的概率。</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E7%AD%96%E7%95%A5%E6%8E%A8%E7%90%861.png" alt="图片"><br>
+<img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E7%AD%96%E7%95%A5%E6%8E%A8%E7%90%862.png" alt="图片"></p>
+<p>由于状态转移函数的存在，虽然训练用的轨迹都是由同一个策略生成的，但其两两差异仍十分显著，并且显然轨迹越长差异越大，决策中每一个微小的差异累积起来都会导致最后结果的极大差异。也就是数据有着较大的方差，这会导致使用均值计算期望的效果变差，并使算法难以收敛。</p>
+<p>改进方法：使用时序因果关系；加入基线。</p>
+<div style="display: flex; justify-content: center; align-items: center;">
+    <img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/时间连续性1.png" alt="图片1" style="width:300px; height:auto; margin-right: 2px;">
+    <img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/时间连续性2.png" alt="图片2" style="width:300px; height:auto;">
+</div>
 <h2 id="3-蒙特卡洛策略梯度-REINFORCE">3.蒙特卡洛策略梯度(REINFORCE)</h2>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/REINFORCE-1.png" alt="图片"></p>
+<p>使用蒙特卡洛策略梯度算法收敛速度慢，需要的迭代次数长，还存在较高的变异性，方差大。</p>
 <h2 id="4-Actor-Critic-算法-A3C">4.Actor-Critic 算法(A3C)</h2>
 <p>同时学习策略和价值函数。</p>
 <h2 id="5-异步优势演员-评论家算法-DDPG">5.异步优势演员-评论家算法(DDPG)</h2>
@@ -140,7 +165,8 @@
 <p>中国科学院大学林姝老师 强化学习课程课件</p>
 <p>深度强化学习：基础、研究与应用 (董豪 等)</p>
 <p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV16Y411f7Hp/?spm_id_from=333.337.search-card.all.click&amp;vd_source=514a3ed3ac370caf4facad7d6f4e1a2d">https://www.bilibili.com/video/BV16Y411f7Hp/?spm_id_from=333.337.search-card.all.click&amp;vd_source=514a3ed3ac370caf4facad7d6f4e1a2d</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1cR4y1R7KB/?spm_id_from=333.337.search-card.all.click&amp;vd_source=514a3ed3ac370caf4facad7d6f4e1a2d">https://www.bilibili.com/video/BV1cR4y1R7KB/?spm_id_from=333.337.search-card.all.click&amp;vd_source=514a3ed3ac370caf4facad7d6f4e1a2d</a></p>
+<p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/y1Rj3fIaXkNjEyakCqRSIg">https://mp.weixin.qq.com/s/y1Rj3fIaXkNjEyakCqRSIg</a></p>
+<p>Reinforcement Learning An Introduction (Adaptive Computation and Machine Learning series) (Sutton, Richard S., Barto, Andrew G.)</p>
 
 <div class="article-footer fs14">
     <section id="license">
