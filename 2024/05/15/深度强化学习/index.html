@@ -20,16 +20,32 @@
   <title>深度强化学习 - Wenliang Liang</title>
 
   
-    <meta property="og:type" content="article">
+    <meta name="description" content="强化学习从深度学习角度出发的挑战：  强化学习的奖励信号是有延迟的，而深度学习的输入输出是直接联系的 强化学习的序贯决策序列有很高的相关性，而深度学习的假设数据是独立同分布 强化学习的数据分布是会随着学习发生变化的，而深度学习的假设是底层分布固定的  1. DQN算法  1.1 DQN Deep Q-learning: DQN, Approximate $Q^*(s,a)$ by DQN,$Q(s">
+<meta property="og:type" content="article">
 <meta property="og:title" content="深度强化学习">
 <meta property="og:url" content="https://lwl1751.github.io/2024/05/15/%E6%B7%B1%E5%BA%A6%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/index.html">
 <meta property="og:site_name" content="Wenliang Liang">
+<meta property="og:description" content="强化学习从深度学习角度出发的挑战：  强化学习的奖励信号是有延迟的，而深度学习的输入输出是直接联系的 强化学习的序贯决策序列有很高的相关性，而深度学习的假设数据是独立同分布 强化学习的数据分布是会随着学习发生变化的，而深度学习的假设是底层分布固定的  1. DQN算法  1.1 DQN Deep Q-learning: DQN, Approximate $Q^*(s,a)$ by DQN,$Q(s">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/DQN-4.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/DQN-1.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/DQN-2.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/DQN-3.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/DQN-5.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/DQN-6.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/DQN-7.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/DQN-8.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/DQN-9.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/DQN-10.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/DDPG-1.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/PPO-1.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/SAC.png">
 <meta property="article:published_time" content="2024-05-15T06:01:14.000Z">
-<meta property="article:modified_time" content="2024-05-15T06:48:53.407Z">
+<meta property="article:modified_time" content="2024-05-17T13:03:37.751Z">
 <meta property="article:author" content="Wenliang Liang">
 <meta property="article:tag" content="强化学习">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/DQN-4.png">
   
   
   
@@ -62,7 +78,7 @@
 <div class="widgets">
 
 
-<widget class="widget-wrapper post-list"><div class="widget-header dis-select"><span class="name">Recent Update</span></div><div class="widget-body fs14"><a class="item title" href="/2024/05/15/%E8%BF%9E%E7%BB%AD%E7%8A%B6%E6%80%81%E7%B3%BB%E7%BB%9F%E5%9F%BA%E4%BA%8E%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/"><span class="title">连续状态系统基于模型的强化学习</span></a><a class="item title" href="/2024/05/15/%E5%9F%BA%E4%BA%8E%E7%AD%96%E7%95%A5%E6%A2%AF%E5%BA%A6%E7%9A%84%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/"><span class="title">基于策略梯度的强化学习</span></a><a class="item title" href="/2024/05/15/%E6%97%A0%E6%A8%A1%E5%9E%8B%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/"><span class="title">无模型强化学习</span></a><a class="item title" href="/2024/05/15/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"><span class="title">强化学习基础知识</span></a><a class="item title" href="/2024/05/15/%E5%A4%9A%E6%A8%A1%E6%80%81%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E5%BA%94%E7%94%A8/"><span class="title">多模态知识图谱应用</span></a><a class="item title" href="/2024/05/15/%E6%B7%B1%E5%BA%A6%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/"><span class="title">深度强化学习</span></a><a class="item title" href="/2024/05/14/%E8%92%99%E7%89%B9%E5%8D%A1%E6%B4%9B%E6%A0%91%E6%90%9C%E7%B4%A2/"><span class="title">蒙特卡洛树搜索</span></a><a class="item title" href="/2024/05/15/%E6%90%9C%E7%B4%A2/"><span class="title">搜索</span></a><a class="item title" href="/2024/05/15/%E7%9F%A5%E8%AF%86%E8%8E%B7%E5%8F%96/"><span class="title">知识获取</span></a><a class="item title" href="/2024/05/15/%E7%9F%A5%E8%AF%86%E6%8E%A8%E7%90%86/"><span class="title">知识推理</span></a></div></widget>
+<widget class="widget-wrapper post-list"><div class="widget-header dis-select"><span class="name">Recent Update</span></div><div class="widget-body fs14"><a class="item title" href="/2024/05/15/%E6%B7%B1%E5%BA%A6%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/"><span class="title">深度强化学习</span></a><a class="item title" href="/2024/05/15/%E5%9F%BA%E4%BA%8E%E7%AD%96%E7%95%A5%E6%A2%AF%E5%BA%A6%E7%9A%84%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/"><span class="title">基于策略梯度的强化学习</span></a><a class="item title" href="/2024/05/15/%E8%BF%9E%E7%BB%AD%E7%8A%B6%E6%80%81%E7%B3%BB%E7%BB%9F%E5%9F%BA%E4%BA%8E%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/"><span class="title">连续状态系统基于模型的强化学习</span></a><a class="item title" href="/2024/05/15/%E6%97%A0%E6%A8%A1%E5%9E%8B%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/"><span class="title">无模型强化学习</span></a><a class="item title" href="/2024/05/15/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"><span class="title">强化学习基础知识</span></a><a class="item title" href="/2024/05/15/%E5%A4%9A%E6%A8%A1%E6%80%81%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E5%BA%94%E7%94%A8/"><span class="title">多模态知识图谱应用</span></a><a class="item title" href="/2024/05/14/%E8%92%99%E7%89%B9%E5%8D%A1%E6%B4%9B%E6%A0%91%E6%90%9C%E7%B4%A2/"><span class="title">蒙特卡洛树搜索</span></a><a class="item title" href="/2024/05/15/%E6%90%9C%E7%B4%A2/"><span class="title">搜索</span></a><a class="item title" href="/2024/05/15/%E7%9F%A5%E8%AF%86%E8%8E%B7%E5%8F%96/"><span class="title">知识获取</span></a><a class="item title" href="/2024/05/15/%E7%9F%A5%E8%AF%86%E6%8E%A8%E7%90%86/"><span class="title">知识推理</span></a></div></widget>
 </div>
 
 </div></aside><div class="l_main" id="main">
@@ -75,7 +91,7 @@
   <div class="content">
     <div class="top bread-nav footnote"><div class="left"><div class="flex-row" id="breadcrumb"><a class="cap breadcrumb" href="/">Home</a>
 <span class="sep"></span><a class="cap breadcrumb" href="/">Blog</a></div>
-<div class="flex-row" id="post-meta"><span class="text created">Posted on: <time datetime="2024-05-15T06:01:14.000Z">2024-05-15</time></span><span class="sep updated"></span><span class="text updated">Updated on: <time datetime="2024-05-15T06:48:53.407Z">2024-05-15</time></span></div></div></div>
+<div class="flex-row" id="post-meta"><span class="text created">Posted on: <time datetime="2024-05-15T06:01:14.000Z">2024-05-15</time></span><span class="sep updated"></span><span class="text updated">Updated on: <time datetime="2024-05-17T13:03:37.751Z">2024-05-17</time></span></div></div></div>
     
     <div class="bottom only-title">
       
@@ -86,7 +102,77 @@
     </div>
     
   </div>
-  </div><article class="md-text content">
+  </div><article class="md-text content"><p>强化学习从深度学习角度出发的挑战：</p>
+<ul>
+<li>强化学习的奖励信号是有延迟的，而深度学习的输入输出是直接联系的</li>
+<li>强化学习的序贯决策序列有很高的相关性，而深度学习的假设数据是独立同分布</li>
+<li>强化学习的数据分布是会随着学习发生变化的，而深度学习的假设是底层分布固定的</li>
+</ul>
+<h2 id="1-DQN算法">1. DQN算法</h2>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/DQN-4.png" alt="图片"></p>
+<h3 id="1-1-DQN">1.1 DQN</h3>
+<p>Deep Q-learning: DQN, <strong>Approximate $Q^*(s,a)$ by DQN,$Q(s,a;w)$</strong></p>
+<p><strong>经历回放</strong>(experience replay): 在每个时间步t 中，DQN先将智能体获得的经验$(S_t, A_t, R_t, S_{t+1})$存入回放缓存中，然后从该缓存中均匀采样小批样本用于 Q-Learning 更新。主要作用是<strong>解决数据的相关性和非静态分布问题</strong>。</p>
+<p>DQN2015的改进：<strong>增加目标网络</strong>。目标网络通过使用旧参数生成 Q-Learning 目标，使目标值的产生不受最新参数的影响，从而大大减少发散和震荡的情况。</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/DQN-1.png" alt="图片"><br>
+<img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/DQN-2.png" alt="图片"><br>
+<img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/DQN-3.png" alt="图片"></p>
+<h3 id="1-2-Double-DQN-DDQN">1.2 Double-DQN, DDQN</h3>
+<p>Double DQN 是对 DQN 在减少过拟合方面的改进。这是由于DQN对动作值函数的max操作会引入一个正向的偏差，导致下一时刻的目标值存在过估计。</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/DQN-5.png" alt="图片"><br>
+<img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/DQN-6.png" alt="图片"></p>
+<h3 id="1-3-Prioritized-Experience-Replay-优先经验回放">1.3 Prioritized Experience Replay, 优先经验回放</h3>
+<p>采用优先级采样达到收敛所需的更新次数相比均匀采样要小很多，这也是进行优先经验池回放的原因。</p>
+<p><strong>1.3.1 样本优先级</strong>:</p>
+<p>样本优先级应满足两个条件：</p>
+<ul>
+<li>优先级在数值上应该和误差绝对值成单调递增关系，这是为了满足误差绝对值较大（即优先级较大）的样本获得更大的被抽样的机会；</li>
+<li>优先级数值应大于0，这是为了保证每一个样本都有机会被抽样，即抽样概率大于0。</li>
+</ul>
+<p>优先级可以分为<strong>基于比例的样本优先级</strong>，<strong>基于排序的样本优先级</strong>。如下图所示：</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/DQN-7.png" alt="图片"></p>
+<p><strong>1.3.2 随机优先级采样</strong>:</p>
+<p>采样方法：</p>
+<ul>
+<li>贪婪优先级采样，完全按照优先级去采样</li>
+<li>一致随机采样，均匀采样</li>
+<li>随机优先级采样，随机采样</li>
+</ul>
+<p>基本原则：</p>
+<ul>
+<li>样本被采样的概率应该和样本优先级成正相关关系</li>
+<li>每一个样本都应该有机会被采样，即被采样的概率大于0</li>
+</ul>
+<p>Sum-Tree随机优先级采样，属于基于比例的样本优先级：</p>
+<p>重要性采样</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/DQN-8.png" alt="图片"></p>
+<h3 id="1-4-Dueling-DQN">1.4 Dueling-DQN</h3>
+<p>算法原理：将动作值的计算分解成状态值和优势函数，$Q(s,a)=V(s)+A(s,a)$。</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/DQN-9.png" alt="图片"><br>
+<img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/DQN-10.png" alt="图片"></p>
+<h2 id="2-策略梯度方法DDPG">2. 策略梯度方法DDPG</h2>
+<h3 id="2-1-DPG-Deterministic-Policy-Gradient-确定性策略梯度">2.1 DPG, (Deterministic Policy Gradient) 确定性策略梯度</h3>
+<p>确定性策略：每一步的动作都是确定的，即$a=\mu_\theta(s)$。确定性策略梯度算法正是使用了确定性策略的策略梯度算法。</p>
+<h3 id="2-2-DDPG-Deep-Deterministic-Policy-Gradient">2.2 DDPG, (Deep Deterministic Policy Gradient)</h3>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/DDPG-1.png" alt="图片"></p>
+<p>几个trick：</p>
+<ul>
+<li>$\mu^{\prime}(s_t)=\mu(s_t|\theta_{t}^{\mu} + N)$ 添加了一个随迭代次数衰减的随机噪声，增加了动作空间的探索</li>
+<li>目标网络缓慢更新保证了训练的稳定性</li>
+<li>batch normalization 使得可以在不同的环境中获取的特征统一</li>
+</ul>
+<p>问题：值函数过估计；自举造成的偏差传播</p>
+<h3 id="2-3-PPO">2.3 PPO</h3>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/PPO-1.png" alt="图片"></p>
+<h3 id="2-4-SAC-Soft-Actoe-Critic">2.4 SAC, (Soft Actoe Critic)</h3>
+<p>熵：随机变量取各值时信息量的期望。</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/SAC.png" alt="图片"></p>
+<p><strong>参考资料</strong>：</p>
+<p>中国科学院大学林姝老师 强化学习课程课件</p>
+<p>深度强化学习：基础、研究与应用 (董豪 等)</p>
+<p>Reinforcement Learning An Introduction (Adaptive Computation and Machine Learning series) (Sutton, Richard S., Barto, Andrew G.)</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/QiangLong2017/Deep-Reiforcement-Learning">https://github.com/QiangLong2017/Deep-Reiforcement-Learning</a></p>
+
 <div class="article-footer fs14">
     <section id="license">
       <div class="header"><span>License</span></div>
@@ -106,7 +192,14 @@
 本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
 </div></footer>
 <div class="main-mask" onclick="sidebar.dismiss()"></div></div><aside class="l_right">
-</aside><div class='float-panel blur'>
+<div class="widgets">
+
+
+
+<widget class="widget-wrapper toc" id="data-toc" collapse="false"><div class="widget-header dis-select"><span class="name">On This Page</span><a class="cap-action" onclick="sidebar.toggleTOC()" ><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a></div><div class="widget-body"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-DQN%E7%AE%97%E6%B3%95"><span class="toc-text">1. DQN算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-DQN"><span class="toc-text">1.1 DQN</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-Double-DQN-DDQN"><span class="toc-text">1.2 Double-DQN, DDQN</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-Prioritized-Experience-Replay-%E4%BC%98%E5%85%88%E7%BB%8F%E9%AA%8C%E5%9B%9E%E6%94%BE"><span class="toc-text">1.3 Prioritized Experience Replay, 优先经验回放</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4-Dueling-DQN"><span class="toc-text">1.4 Dueling-DQN</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E7%AD%96%E7%95%A5%E6%A2%AF%E5%BA%A6%E6%96%B9%E6%B3%95DDPG"><span class="toc-text">2. 策略梯度方法DDPG</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-DPG-Deterministic-Policy-Gradient-%E7%A1%AE%E5%AE%9A%E6%80%A7%E7%AD%96%E7%95%A5%E6%A2%AF%E5%BA%A6"><span class="toc-text">2.1 DPG, (Deterministic Policy Gradient) 确定性策略梯度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-DDPG-Deep-Deterministic-Policy-Gradient"><span class="toc-text">2.2 DDPG, (Deep Deterministic Policy Gradient)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-PPO"><span class="toc-text">2.3 PPO</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-SAC-Soft-Actoe-Critic"><span class="toc-text">2.4 SAC, (Soft Actoe Critic)</span></a></li></ol></li></ol></div><div class="widget-footer">
+
+<a class="top" onclick="util.scrollTop()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 12c0-4.714 0-7.071 1.464-8.536C4.93 2 7.286 2 12 2c4.714 0 7.071 0 8.535 1.464C22 4.93 22 7.286 22 12c0 4.714 0 7.071-1.465 8.535C19.072 22 16.714 22 12 22s-7.071 0-8.536-1.465C2 19.072 2 16.714 2 12Z"/><path stroke-linecap="round" stroke-linejoin="round" d="m9 15.5l3-3l3 3m-6-4l3-3l3 3"/></g></svg><span>Scroll to Top</span></a><a class="buttom" onclick="util.scrollComment()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M10.46 1.25h3.08c1.603 0 2.86 0 3.864.095c1.023.098 1.861.3 2.6.752a5.75 5.75 0 0 1 1.899 1.899c.452.738.654 1.577.752 2.6c.095 1.004.095 2.261.095 3.865v1.067c0 1.141 0 2.036-.05 2.759c-.05.735-.153 1.347-.388 1.913a5.75 5.75 0 0 1-3.112 3.112c-.805.334-1.721.408-2.977.43a10.81 10.81 0 0 0-.929.036c-.198.022-.275.054-.32.08c-.047.028-.112.078-.224.232c-.121.166-.258.396-.476.764l-.542.916c-.773 1.307-2.69 1.307-3.464 0l-.542-.916a10.605 10.605 0 0 0-.476-.764c-.112-.154-.177-.204-.224-.232c-.045-.026-.122-.058-.32-.08c-.212-.023-.49-.03-.93-.037c-1.255-.021-2.171-.095-2.976-.429A5.75 5.75 0 0 1 1.688 16.2c-.235-.566-.338-1.178-.389-1.913c-.049-.723-.049-1.618-.049-2.76v-1.066c0-1.604 0-2.86.095-3.865c.098-1.023.3-1.862.752-2.6a5.75 5.75 0 0 1 1.899-1.899c.738-.452 1.577-.654 2.6-.752C7.6 1.25 8.857 1.25 10.461 1.25M6.739 2.839c-.914.087-1.495.253-1.959.537A4.25 4.25 0 0 0 3.376 4.78c-.284.464-.45 1.045-.537 1.96c-.088.924-.089 2.11-.089 3.761v1c0 1.175 0 2.019.046 2.685c.045.659.131 1.089.278 1.441a4.25 4.25 0 0 0 2.3 2.3c.515.214 1.173.294 2.429.316h.031c.398.007.747.013 1.037.045c.311.035.616.104.909.274c.29.17.5.395.682.645c.169.232.342.525.538.856l.559.944a.52.52 0 0 0 .882 0l.559-.944c.196-.331.37-.624.538-.856c.182-.25.392-.476.682-.645c.293-.17.598-.24.909-.274c.29-.032.639-.038 1.037-.045h.032c1.255-.022 1.913-.102 2.428-.316a4.25 4.25 0 0 0 2.3-2.3c.147-.352.233-.782.278-1.441c.046-.666.046-1.51.046-2.685v-1c0-1.651 0-2.837-.089-3.762c-.087-.914-.253-1.495-.537-1.959a4.25 4.25 0 0 0-1.403-1.403c-.464-.284-1.045-.45-1.96-.537c-.924-.088-2.11-.089-3.761-.089h-3c-1.651 0-2.837 0-3.762.089" clip-rule="evenodd"/><path fill="currentColor" d="M9 11a1 1 0 1 1-2 0a1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0a1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0a1 1 0 0 1 2 0"/></svg><span>Join Discussion</span></a></div></widget>
+</div></aside><div class='float-panel blur'>
   <button type='button' style='display:none' class='laptop-only rightbar-toggle mobile' onclick='sidebar.rightbar()'>
     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg>
   </button>
