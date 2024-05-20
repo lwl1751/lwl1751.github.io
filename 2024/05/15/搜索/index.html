@@ -37,7 +37,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/Alpha-Beta%20%E5%89%AA%E6%9E%9D1.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/Alpha-Beta%20%E5%89%AA%E6%9E%9D2.png">
 <meta property="article:published_time" content="2024-05-15T06:01:42.000Z">
-<meta property="article:modified_time" content="2024-05-20T11:37:53.858Z">
+<meta property="article:modified_time" content="2024-05-20T12:06:09.380Z">
 <meta property="article:author" content="Wenliang Liang">
 <meta property="article:tag" content="高级人工智能">
 <meta property="article:tag" content="搜索">
@@ -88,7 +88,7 @@
   <div class="content">
     <div class="top bread-nav footnote"><div class="left"><div class="flex-row" id="breadcrumb"><a class="cap breadcrumb" href="/">Home</a>
 <span class="sep"></span><a class="cap breadcrumb" href="/">Blog</a></div>
-<div class="flex-row" id="post-meta"><span class="text created">Posted on: <time datetime="2024-05-15T06:01:42.000Z">2024-05-15</time></span><span class="sep updated"></span><span class="text updated">Updated on: <time datetime="2024-05-20T11:37:53.858Z">2024-05-20</time></span></div></div></div>
+<div class="flex-row" id="post-meta"><span class="text created">Posted on: <time datetime="2024-05-15T06:01:42.000Z">2024-05-15</time></span><span class="sep updated"></span><span class="text updated">Updated on: <time datetime="2024-05-20T12:06:09.380Z">2024-05-20</time></span></div></div></div>
     
     <div class="bottom only-title">
       
@@ -184,10 +184,10 @@
 </ul>
 <p>适应度函数：</p>
 <ul>
-<li>原始适应度函数，直接将待求解问题的目标函数f(x)定义为遗传算法的适应度函数。</li>
-<li>标准适应度函数，</li>
+<li>原始适应度函数，直接将待求解问题的目标函数f(x)定义为遗传算法的适应度函数。它能够直接反映出待求解问题的最初求解目标但是有可能出现适应度值为负的情况。</li>
+<li>标准适应度函数。在遗传算法中，一般要求适应度函数非负，并其适应度值越大越好。这就往往需要对原始适应函数进行某种变换，将其转换为标准的度量方式，以满足进化操作的要求，这样所得到的适应度函数被称为标准适应度函数$f_{Normal}(x)$</li>
 </ul>
-<p>选择：</p>
+<p>选择：各个个体被选中的概率与其适应度大小成正比</p>
 <ul>
 <li>比例选择</li>
 <li>锦标赛选择</li>
@@ -195,16 +195,31 @@
 </ul>
 <p>交叉：</p>
 <ul>
-<li>单点交叉</li>
-<li>两点交叉</li>
-<li>多点交叉</li>
-<li>均匀交叉</li>
-<li>实值交叉</li>
+<li>
+<p>单点交叉，先在两个父代个体的编码串中随机设定一个交叉点，然后对这两个父代个体交叉点前面或后面部分的基因进行交换，并生成子代中的两个新的个体。</p>
+</li>
+<li>
+<p>两点交叉，先在两个父代个体的编码串中随机设定两个交叉点，然后再按这两个交叉点进行部分基因交换，生成子代中的两个新的个体。</p>
+</li>
+<li>
+<p>多点交叉，从两个父代个体中选择多个交叉点，然后交换这些交叉点之间的基因片段，从而产生新的个体。</p>
+</li>
+<li>
+<p>均匀交叉，父串中的每一位都是以相同的概率随机进行交叉的。</p>
+</li>
+<li>
+<p>实值交叉，在实数编码情况下所采用的交叉操作，可分为部分离散交叉、整体交叉。</p>
+<p>部分离散交叉: 先在两个父代个体的编码向量中随机选择一部分分量， 然后对这部分分量进行交换，生成子代中的两个新的个体。</p>
+<p>整体交叉: 对两个父代个体的编码向量中的所有分量，都以1/2的概率进行交换，从而生成子代中的两个新的个体。</p>
+</li>
+<li>
+<p>洗牌交叉，打乱之后再选择交叉点，再进行复原</p>
+</li>
 </ul>
 <p>变异：</p>
 <ul>
-<li>二进制变异</li>
-<li>实值变异</li>
+<li>二进制变异，随机地产生一个变异位，0-&gt;1，1-&gt;0</li>
+<li>实值变异，用另外一个在规定范围内的随机实数去替换原变异位置上的基因值，产生一个新的个体。</li>
 </ul>
 <h2 id="5-对抗搜索">5.对抗搜索</h2>
 <h3 id="5-1-Alpha-Beta算法">5.1 Alpha-Beta算法</h3>
