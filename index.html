@@ -1,23 +1,1316 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.2.0">
 
-{% block title %}{{ config.title }}{% if theme.index_with_subtitle and config.subtitle %} - {{config.subtitle }}{% endif %}{% endblock %}
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
 
-{% block page_class %}
-  {% if is_home() %}page-home{% endif -%}
-{% endblock %}
+<link rel="stylesheet" href="/css/main.css">
 
-{% block content %}
-  <section id="posts" class="posts-expand">
-    {% for post in page.posts %}
-      {{ post_template.render(post, true) }}
-    {% endfor %}
-  </section>
 
-  {% include '_partials/pagination.swig' %}
-{% endblock %}
 
-{% block sidebar %}
-  {{ sidebar_template.render(false) }}
-{% endblock %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha256-XOqroi11tY4EFQMR9ZYwZWKj5ZXiftSx36RRuC3anlA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"lwl1751.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta property="og:type" content="website">
+<meta property="og:title" content="Wenliang Liang">
+<meta property="og:url" content="https://lwl1751.github.io/index.html">
+<meta property="og:site_name" content="Wenliang Liang">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="Wenliang Liang">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://lwl1751.github.io/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":true,"isPost":false,"lang":"en","comments":"","permalink":"","path":"index.html","title":""}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Wenliang Liang</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Wenliang Liang</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Wenliang Liang</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">16</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://lwl1751.github.io/2024/05/25/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E7%9F%A5%E8%AF%86%E5%88%86%E6%9E%90%E3%80%81%E8%90%83%E5%8F%96%E4%B8%8E%E5%A2%9E%E5%BC%BA/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Wenliang Liang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wenliang Liang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Wenliang Liang">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/05/25/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E7%9F%A5%E8%AF%86%E5%88%86%E6%9E%90%E3%80%81%E8%90%83%E5%8F%96%E4%B8%8E%E5%A2%9E%E5%BC%BA/" class="post-title-link" itemprop="url">大模型知识分析、萃取与增强</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2024-05-25 21:14:50 / Modified: 21:19:05" itemprop="dateCreated datePublished" datetime="2024-05-25T21:14:50+08:00">2024-05-25</time>
+    </span>
+
+  
+    <span id="/2024/05/25/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E7%9F%A5%E8%AF%86%E5%88%86%E6%9E%90%E3%80%81%E8%90%83%E5%8F%96%E4%B8%8E%E5%A2%9E%E5%BC%BA/" class="post-meta-item leancloud_visitors" data-flag-title="大模型知识分析、萃取与增强" title="Views">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <pre><code>大模型中蕴含着大量的知识，但是知识的类型、数量和质量并不可控。
+
+知识分析实验表明，大模型自发学到了一些世界知识、常识知识，这些知识隐式地存储于模型参数中。
+
+课程考试复习使用。
+</code></pre>
+<h2 id="1-大模型的知识分析">1.大模型的知识分析</h2>
+<h3 id="1-1-知识探测">1.1 知识探测</h3>
+<ul>
+<li>
+<p><strong>知识探测</strong>：探测预训练语言模型掌握的知识。</p>
+</li>
+<li>
+<p><strong>实现方式</strong>：将三元组或问答对形式的世界知识转化为自然语言填空的形式，从而判断语言模型掌握知识的准确性。</p>
+</li>
+<li>
+<p><strong>预训练模型知识探测的良好性能主要来源于</strong>：</p>
+<ul>
+<li>提示语偏差，预测结果会受到提示词的影响，如 was born in [Mask] , 模型会猜测下一个词应该为地名。</li>
+<li>类别指导，类似于few shot learning，模型已经见过类似的问题。</li>
+<li>答案泄漏，基于上下文的推理。</li>
+</ul>
+</li>
+</ul>
+<h3 id="1-2-知识定位">1.2 知识定位</h3>
+<ul>
+<li><strong>知识定位</strong>：分析预训练语言模型中的知识存储机制，可分为层粒度与神经元粒度。</li>
+<li>大量事实知识存储在<strong>FNN模块</strong>中。</li>
+</ul>
+<h3 id="1-3-知识学习机理分析">1.3 知识学习机理分析</h3>
+<p>分析影响预训练语言模型学习效果的因素。</p>
+<ul>
+<li><strong>长尾知识</strong>：信息出现次数非常少，甚至只出现了一次。LLM对长尾知识的掌握并不充分，回答问题的准确度就会降低，可以通过扩大模型规模(scaling low)、检索增强来解决该问题。</li>
+<li><strong>共现频率</strong>：LLM更加倾向于预测共现频率更高的答案。如，对于问题“加拿大的首都是？”，在预训练语料中，（加拿大，多伦多）共同出现的频率要大于（加拿大，渥太华）出现的频率，于是模型倾向于输出共现频率更高的“多伦多”，而不是正确答案“渥太华”。</li>
+<li><strong>逆转诅咒</strong>，模型很难逆转思考，如 A is B 不能推出 B is A.</li>
+</ul>
+<h2 id="2-大模型的知识萃取">2.大模型的知识萃取</h2>
+<p>知识萃取是指利用特定方式诱导大模型，从中萃取出有用的显式符号化知识。</p>
+<h2 id="3-大模型的知识增强">3.大模型的知识增强</h2>
+<ul>
+<li>幻觉可以分为事实性现象（生成的内容不忠于既定的事实知识）和忠实性幻觉（生成的内容前后冲突）。</li>
+<li><strong>幻觉消除</strong>：清洗训练数据，解码方式改进，指令数据优化，外部知识增强。</li>
+<li><strong>知识增强</strong>：RAG，Fine-tuning。</li>
+<li>关于幻觉的知识，可以查看文献综述：《Survey on Factuality in Large Language Models: Knowledge, Retrieval and Domain-Specificity》</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E7%9F%A5%E8%AF%86%E5%A2%9E%E5%BC%BA_1.png" alt="图片"></p>
+<h3 id="3-1-RAG">3.1 RAG</h3>
+<ul>
+<li><strong>检索知识源</strong>
+<ul>
+<li>文档：检索粒度粗，知识覆盖度高，存在冗余信息。</li>
+<li>知识图谱：提供丰富的结构化信息，受限于图谱的覆盖度。</li>
+</ul>
+</li>
+<li><strong>检索方式</strong>
+<ul>
+<li>稀疏检索：简单词汇匹配，缺少上下文理解能力（BM25）</li>
+<li>稠密检索：将问题和文档编码为稠密向量，计算点积作为相似度（DPR）</li>
+<li>生成检索：直接使用大模型为问题生成相关文档，而不需要检索库</li>
+</ul>
+</li>
+<li><strong>检索时间</strong>
+<ul>
+<li>推理前检索一次：效率高，但相关度低</li>
+<li>推理过程中自适应地检索：平衡知识和效率，但是难以判断模型何时需要知识</li>
+<li>推理过程中每隔N个token检索一次：效率低，信息量大</li>
+</ul>
+</li>
+<li><strong>利用检索得到的知识进行推理</strong>
+<ul>
+<li>输入增强：使用简单，受限于上下文长度</li>
+<li>中间增强：需要重新训练模型，支持处理更多文档</li>
+<li>输出增强：对输出进行后修改，需要两次推理模型：第一次，模型直接输出答案。第二次，根据问题和答案，进行检索，对输出答案进行修改。</li>
+</ul>
+</li>
+<li><strong>知识拉锯战</strong>：由于错误信息，观点不同，以及知识进化的本质，知识冲突问题广泛存在于检索增强语言模型中。</li>
+<li><strong>知识冲突形式</strong>：
+<ul>
+<li>模型内部参数化知识和外部非参数化知识之间存在冲突。其中，使用外部知识回答的模型作为专家模型，依靠内部知识回答的模型作为业余模型。</li>
+<li>非参数化知识中真实、虚假以及无关证据之间存在冲突。其中，通过指令微调，使用真实证据回答的模型作为专家模型，使用虚假证据回答的模型作为业余模型。</li>
+</ul>
+</li>
+<li>Dunning-Kruger现象：人对于某些欠缺的能力反而会过度自信，对模型也同样适用。</li>
+</ul>
+<h2 id="4-大模型的工具增强">4.大模型的工具增强</h2>
+<ul>
+<li><strong>工具增强</strong>：让模型学会使用外部工具，以补充模型相关知识。</li>
+<li>相关论文：
+<ul>
+<li>Timo Schick, Toolformer: Language Models Can Teach Themselves to Use Tools, NeurIPS 2023。</li>
+<li>Yujia Qin, ToolLLM: Facilitating Large Language Models to Master 16000+ Real-world APIs, ICLR2024。</li>
+</ul>
+</li>
+</ul>
+<h2 id="5-参考资料">5.参考资料</h2>
+<p>中国科学院大学赵军老师 知识工程课程课件</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://lwl1751.github.io/2024/05/15/%E5%A4%9A%E6%A8%A1%E6%80%81%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E5%BA%94%E7%94%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Wenliang Liang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wenliang Liang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Wenliang Liang">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/05/15/%E5%A4%9A%E6%A8%A1%E6%80%81%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E5%BA%94%E7%94%A8/" class="post-title-link" itemprop="url">多模态知识图谱应用</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2024-05-15 15:32:04" itemprop="dateCreated datePublished" datetime="2024-05-15T15:32:04+08:00">2024-05-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-05-16 00:52:17" itemprop="dateModified" datetime="2024-05-16T00:52:17+08:00">2024-05-16</time>
+    </span>
+
+  
+    <span id="/2024/05/15/%E5%A4%9A%E6%A8%A1%E6%80%81%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E5%BA%94%E7%94%A8/" class="post-meta-item leancloud_visitors" data-flag-title="多模态知识图谱应用" title="Views">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>相比于单模态知识图谱，多模态知识图谱能够综合多种类型的数据，从而可以让智能体更深入的感知和理解真实的数据场景，因而多模态知识图谱在各个领域都有广泛的应用。如图像检索、模型推理与生成、模型预训练等。以电子商务为例，通过多模态产品图谱，可以对产品进行更细致的表示，再通过预训练，可以增强大型模型对电子商务领域的多模态知识理解，从而推动电子商务平台的发展。</p>
+<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E5%A4%9A%E6%A8%A1%E6%80%81%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E5%BA%94%E7%94%A81.png" alt="p1"></p>
+</br>
+<p>AliMe MKG是阿里提出的一种面向直播的知识图谱，与传统的知识图谱不同，它的目标是向顾客种草某一产品，而非解决顾客的问题。因此，它需要构建逻辑思维链，引导用户需求。例如，在该左图1的知识图谱示例中，“熬夜&quot;导致&quot;皮肤暗沉&quot;问题，这就需要&quot;皮肤白皙”，而含有&quot;甘草酸二钾&quot;成分的&quot;面膜&quot;产品适合相应的用户。</p>
+<p>在电商直播领域，这种知识图谱有两种应用：智能辅播和虚拟主播。智能辅播是在真人直播间构造了一个智能助理机器人，来协助主播去做商品介绍。比如说用户问的是口红，直播间内有多个口红，智能辅播就会将相关的信息展示出来给用户进行浏览，当用户点击确认，选择一个感兴趣的口红之后，辅播就会从知识图谱中抽取相应信息，以商品卡片信息的方式让用户和图片进行交互。除此之外，智能辅播还可以回答用户丰富的产品相关问题。比如用户问尺码的时候，辅播可以去推出文本介绍和对应的尺码图，用文本及图片来回答用户的咨询。</p>
+<p>虚拟主播则是一个智能的直播间虚拟人，通过自动生成图文剧本介绍商品，生成具有吸引力和认知的知识型短视频，从而可以影响客户的购买决策。因此，多模态的知识图谱可以促进电商的发展。</p>
+<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E5%A4%9A%E6%A8%A1%E6%80%81%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E5%BA%94%E7%94%A82.png" alt="p2"></p>
+</br>
+<p>另一个是医疗诊断的案例，这是一个基于多模态知识图谱的医疗健康问答系统示例。它首先利用多种方法获取用户提交数据的关键信息，并确定用户查询的主题意图，建立用户的知识需求模型。在知识匹配阶段，我们计算用户需求与医疗健康知识的相关度，并消除可能的歧义，最终向用户提供匹配度高的医疗健康知识。</p>
+<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E5%A4%9A%E6%A8%A1%E6%80%81%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E5%BA%94%E7%94%A83.png" alt="p3"></p>
+</br>
+<p><strong>参考资料</strong>:</p>
+<p>Chen Z, Zhang Y, Fang Y, et al. Knowledge Graphs Meet Multi-Modal Learning: A Comprehensive Survey[J]. arXiv preprint arXiv:2402.05391, 2024.</p>
+<p>Xu G, Chen H, Li F L, et al. Alime mkg: A multi-modal knowledge graph for live-streaming e-commerce[C]//Proceedings of the 30th ACM International Conference on Information &amp; Knowledge Management. 2021: 4808-4812.</p>
+<p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/rW9ezfkAgOHAsICYuiPq6A">https://mp.weixin.qq.com/s/rW9ezfkAgOHAsICYuiPq6A</a></p>
+<p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/bTqr5EEQD5_rModP8NR99g">https://mp.weixin.qq.com/s/bTqr5EEQD5_rModP8NR99g</a></p>
+<p>韩普,叶东宇,陈文祺,等.面向多模态医疗健康数据的知识组织模式研究[J].现代情报,2023,43(10):27-34+151.</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://lwl1751.github.io/2024/05/15/%E7%9F%A5%E8%AF%86%E6%8E%A8%E7%90%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Wenliang Liang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wenliang Liang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Wenliang Liang">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/05/15/%E7%9F%A5%E8%AF%86%E6%8E%A8%E7%90%86/" class="post-title-link" itemprop="url">知识推理</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2024-05-15 14:33:38" itemprop="dateCreated datePublished" datetime="2024-05-15T14:33:38+08:00">2024-05-15</time>
+    </span>
+
+  
+    <span id="/2024/05/15/%E7%9F%A5%E8%AF%86%E6%8E%A8%E7%90%86/" class="post-meta-item leancloud_visitors" data-flag-title="知识推理" title="Views">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://lwl1751.github.io/2024/05/15/%E7%9F%A5%E8%AF%86%E5%BB%BA%E6%A8%A1%E4%B8%8E%E7%9F%A5%E8%AF%86%E8%9E%8D%E5%90%88/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Wenliang Liang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wenliang Liang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Wenliang Liang">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/05/15/%E7%9F%A5%E8%AF%86%E5%BB%BA%E6%A8%A1%E4%B8%8E%E7%9F%A5%E8%AF%86%E8%9E%8D%E5%90%88/" class="post-title-link" itemprop="url">知识建模与知识融合</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2024-05-15 14:33:06" itemprop="dateCreated datePublished" datetime="2024-05-15T14:33:06+08:00">2024-05-15</time>
+    </span>
+
+  
+    <span id="/2024/05/15/%E7%9F%A5%E8%AF%86%E5%BB%BA%E6%A8%A1%E4%B8%8E%E7%9F%A5%E8%AF%86%E8%9E%8D%E5%90%88/" class="post-meta-item leancloud_visitors" data-flag-title="知识建模与知识融合" title="Views">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://lwl1751.github.io/2024/05/15/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Wenliang Liang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wenliang Liang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Wenliang Liang">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/05/15/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86/" class="post-title-link" itemprop="url">知识图谱数据管理</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2024-05-15 14:32:47" itemprop="dateCreated datePublished" datetime="2024-05-15T14:32:47+08:00">2024-05-15</time>
+    </span>
+
+  
+    <span id="/2024/05/15/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86/" class="post-meta-item leancloud_visitors" data-flag-title="知识图谱数据管理" title="Views">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://lwl1751.github.io/2024/05/15/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E6%9E%84%E5%BB%BA/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Wenliang Liang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wenliang Liang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Wenliang Liang">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/05/15/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E6%9E%84%E5%BB%BA/" class="post-title-link" itemprop="url">知识图谱构建</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2024-05-15 14:32:25" itemprop="dateCreated datePublished" datetime="2024-05-15T14:32:25+08:00">2024-05-15</time>
+    </span>
+
+  
+    <span id="/2024/05/15/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E6%9E%84%E5%BB%BA/" class="post-meta-item leancloud_visitors" data-flag-title="知识图谱构建" title="Views">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://lwl1751.github.io/2024/05/15/%E7%9F%A5%E8%AF%86%E8%8E%B7%E5%8F%96/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Wenliang Liang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wenliang Liang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Wenliang Liang">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/05/15/%E7%9F%A5%E8%AF%86%E8%8E%B7%E5%8F%96/" class="post-title-link" itemprop="url">知识获取</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2024-05-15 14:31:16" itemprop="dateCreated datePublished" datetime="2024-05-15T14:31:16+08:00">2024-05-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-05-20 14:22:25" itemprop="dateModified" datetime="2024-05-20T14:22:25+08:00">2024-05-20</time>
+    </span>
+
+  
+    <span id="/2024/05/15/%E7%9F%A5%E8%AF%86%E8%8E%B7%E5%8F%96/" class="post-meta-item leancloud_visitors" data-flag-title="知识获取" title="Views">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <pre><code>信息抽取：从自然语言文本中抽取指定类型的实体、关系、事件等事实信息，并形成结构化数据输出的文本处理技术。
+</code></pre>
+<h2 id="1-命名实体识别">1.命名实体识别</h2>
+<h3 id="1-1-基于词典的方法">1.1 基于词典的方法</h3>
+<p>典型方法包括正向匹配方法，反向匹配方法。原理：按照一定的策略将待分析的汉字串与一个充分大的词典中的词条进行匹配，若在词典中找到某个字符串，则匹配成功。</p>
+<h3 id="1-2-基于统计的方法">1.2 基于统计的方法</h3>
+<ul>
+<li>生成式方法，首先建立学习样本的生成模型，再利用模型对预测结果进行间接推理，如HMM。</li>
+<li>判别式方法，基于由字构词的命名实体识别理念，将NER问题转化为判别式分类问题(序列标注问题)，如Maxent，SVM，CRF，CNN，RNN，LSTM+CRF。</li>
+</ul>
+<h3 id="1-3-基于阅读理解的方法">1.3 基于阅读理解的方法</h3>
+<h3 id="1-4-基于模板生成的方法">1.4 基于模板生成的方法</h3>
+<h3 id="1-5-基于大模型的方法">1.5 基于大模型的方法</h3>
+<p>难点1: 任务形式差距。命名实体识别通常建模为序列标注任务，而大模型往往用于完成文本<br>
+生成任务。难点2: 大模型存在较为严重的幻觉问题。</p>
+<h2 id="2-关系知识抽取">2.关系知识抽取</h2>
+<h2 id="3-事件知识抽取">3.事件知识抽取</h2>
+<h2 id="4-脚本知识抽取">4.脚本知识抽取</h2>
+<h2 id="5-多粒度知识联合抽取">5.多粒度知识联合抽取</h2>
+<h2 id="6-参考资料">6.参考资料</h2>
+<p>中国科学院大学赵军老师 知识工程课程课件</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://lwl1751.github.io/2024/05/15/%E7%9F%A5%E8%AF%86%E8%AE%A1%E7%AE%97/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Wenliang Liang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wenliang Liang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Wenliang Liang">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/05/15/%E7%9F%A5%E8%AF%86%E8%AE%A1%E7%AE%97/" class="post-title-link" itemprop="url">知识计算</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2024-05-15 14:02:23" itemprop="dateCreated datePublished" datetime="2024-05-15T14:02:23+08:00">2024-05-15</time>
+    </span>
+
+  
+    <span id="/2024/05/15/%E7%9F%A5%E8%AF%86%E8%AE%A1%E7%AE%97/" class="post-meta-item leancloud_visitors" data-flag-title="知识计算" title="Views">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://lwl1751.github.io/2024/05/15/%E6%90%9C%E7%B4%A2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Wenliang Liang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wenliang Liang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Wenliang Liang">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/05/15/%E6%90%9C%E7%B4%A2/" class="post-title-link" itemprop="url">搜索</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2024-05-15 14:01:42" itemprop="dateCreated datePublished" datetime="2024-05-15T14:01:42+08:00">2024-05-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-05-20 20:06:09" itemprop="dateModified" datetime="2024-05-20T20:06:09+08:00">2024-05-20</time>
+    </span>
+
+  
+    <span id="/2024/05/15/%E6%90%9C%E7%B4%A2/" class="post-meta-item leancloud_visitors" data-flag-title="搜索" title="Views">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <pre><code>知识点：
+
+经典搜索算法：基于路径的搜索的问题。如盲目搜索，启发式搜索。
+
+局部搜索算法：最优化问题，没有初始状态，也没有终止状；并不需要到达这些解的路径。如爬山法，元启发算法。
+
+元启发式算法是启发式算法的改进，它是随机算法与局部搜索算法相结合的产物。如禁忌搜索算法(Tabu Search)，模拟退火算法(Simulated annealing)，遗传算法(Geneticalgorithm)。
+
+对抗搜索算法：也被称为博弈搜索，在一个竞争的环境中，智能体(agents)之间通过竞争实现相反的利益，一方最大化利益，另外一方最小化这个利益。如mini-max算法，Alpha-Beta算法、蒙特卡洛树。
+</code></pre>
+<h2 id="1-搜索算法基础">1.搜索算法基础</h2>
+<p>树搜索：</p>
+<ul>
+<li>结点：n.state, n.parent, n.action(父节点生成该节点时所采取的行动), n.path-cost(从初始状态到达该结点的路径消耗g(n))</li>
+<li>搜索策略：节点扩展到顺序</li>
+<li>策略评价标注：完备性，时间复杂度，空间复杂度，最优性</li>
+<li>复杂度表示：分子因子b，搜索树的中节点的最大分支树；深度d，目标结点所在的最浅深度；m，状态空间中，任何路径的最大长度</li>
+</ul>
+<p>图搜索：</p>
+<ul>
+<li>边缘(fringe)：待扩展的叶子结点，将状态空间分成已探索区域和未被探索区域。</li>
+</ul>
+<h2 id="2-盲目搜索">2.盲目搜索</h2>
+<p>只能使用访问过的结点的信息。如<strong>宽度优先搜索</strong>，<strong>深度优先搜索</strong>，<strong>一致代价搜索</strong>（扩展路径消耗g(n)最小的结点），<strong>深度受限搜索</strong>（对深度优先搜索设置最大深度的界限l），<strong>迭代加深的深度优先搜索</strong>（不断增大深度限制，并且每次重新开始深度受限搜索）。</p>
+<div style="text-align: center;">
+    <img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/盲目搜索.png" width="70%" alt="图片">
+</div>
+<h2 id="3-启发式搜索">3.启发式搜索</h2>
+<p>优先扩展最优的结点。评价函数：f = g + h。其中，g为一致代价，h为启发式函数，指的是结点n到目标结点的最小代价路径的代价估计值。</p>
+<ul>
+<li>贪婪算法：扩展离目标最近的结点，以期望很快找到解。f(n)=h(n)</li>
+<li>A* 算法：避免扩展代价已经很高的路径。f(n) = g(n) + h(n)</li>
+</ul>
+<blockquote>
+<p><strong>A* 算法:</strong></p>
+<p><strong>可采纳启发式</strong>：永远不会高估代价，即$h(n)\le h^*(n)$，且要求$h(n)\ge 0$。</p>
+<p>定理：如果h(n)是可采纳的，A*的树搜索版本是最优的。</p>
+<p><strong>一致的启发式</strong>：对于每个结点n和通过任一行动a生成的后继结点n’，从结点n到达目标的估计代价不大于从n到n’的单步代价与从n到目标的估计代价之和，即$h(n)\le c(n,a,n’) + h(n’)$。如果h(n)是一致的，那么沿着任何路径的f(n)是非递减的。</p>
+<p>定理：如果h(n)是一致的，那么A*的图搜索版本是最优的。</p>
+<p>松弛问题：对原问题移除一些限制，一个松弛问题的最优解的代价是原问题的一个可采纳、一致的启发式。</p>
+<p>松弛问题的最优解的代价不大于原问题最优解的代价。</p>
+</blockquote>
+<h2 id="4-局部搜索">4.局部搜索</h2>
+<p>局部搜索：找到满足条件的状态，不关心路径，从单个当前节点(而不是多条路径)出发，通常只移动到它的邻近状态。</p>
+<h3 id="4-1-爬山法">4.1 爬山法</h3>
+<p>属于贪婪法，不断向值增加的方向移动，容易到达局部极大值。为了克服局部极大值，可以采用随机重启爬山法，完备的概率接近1。</p>
+<h3 id="4-2-禁忌搜索算法">4.2 禁忌搜索算法</h3>
+<p>从一个初始可行解出发，选择一系列的特定搜索方向（移动）作为试探，选择实现让特定的<strong>目标函数值变化最多</strong>的移动。</p>
+<p>为了避免陷入局部最优解，TS搜索中采用了一种灵活的“记忆”技术，对已经进行的优化过程进行记录和选择，指导下一步的搜索方向，这就是Tabu表的建立。</p>
+<p>标记已经解得的局部最优解或求解过程，并在进一步的迭代中避开这些局部最优解或求解过程。局部搜索的缺点在于，太过于对某一局部区域以及其邻域的搜索，导致一叶障目。为了找到全局最优解，<strong>禁忌搜索就是对于找到的一部分局部最优解，有意识地避开它，从而或得更多的搜索区域。</strong></p>
+<div style="display: flex; justify-content: center; align-items: center;">
+    <img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/禁忌搜索2.png" alt="图片2" style="width:300px; height:auto; margin-right: 2px;">
+    <img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/禁忌搜索3.png" alt="图片3" style="width:300px; height:auto;">
+</div>
+<div style="display: flex; justify-content: center; align-items: center;">
+    <img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/禁忌搜索4.png" alt="图片4" style="width:300px; height:auto; margin-right: 2px;">
+    <img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/禁忌搜索5.png" alt="图片2" style="width:300px; height:auto;">
+</div>
+<h3 id="4-3-模拟退火算法">4.3 模拟退火算法</h3>
+<p>算法概述：</p>
+<ul>
+<li>若目标函数f在第i+1步移动后比第i步更优，即$f(Y(i+1))\le f(Y(i))$，则总是接受该移动。</li>
+<li>若$f(Y(i+1))&gt;f(Y(i))$，（即移动后的解比当前解要差），则以一定的概率接受移动，而且这个概率随着时间推移逐渐降低（逐渐降低才能趋向稳定）。</li>
+<li>Metroplis准则：温度越高，算法接受新解的概率就越高。</li>
+</ul>
+<div style="display: flex; justify-content: center; align-items: center;">
+    <img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/模拟退火1.png" alt="图片1" style="width:300px; height:auto; margin-right: 2px;">
+    <img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/模拟退火2.png" alt="图片2" style="width:300px; height:auto;">
+</div>
+<h3 id="4-4-遗传算法">4.4 遗传算法</h3>
+<p>基本思想：从初始种群出发，采用优胜劣汰、适者生存的自然法则选择个体，并通过杂交、变异来产生新一代种群，如此逐代进化，直到满足目标为止。</p>
+<ul>
+<li>种群：组候选解的集合，遗传算法正是通过种群的迭代进化，实现了最优解或者近似最优解。</li>
+<li>个体：一个个体对应一个解，也就是构成种群的基本单元。</li>
+<li>适应度函数:用来对种群中各个个体的环境适应性进行度量的函数，函数值是遗传算法实现优胜劣汰的主要依据。</li>
+<li>遗传操作：作用于种群而产生新的种群的操作。如选择、交叉、变异。</li>
+</ul>
+<p>遗传编码：</p>
+<ul>
+<li>二进制编码</li>
+<li>格雷编码，要求两个连续整数的编码之间只能有一个码位不同，其余码位都是完全相同的。</li>
+<li>符号编码，个体染色体编码串中的基因值取自一个无数值含义、而只有代码含义的符号集</li>
+</ul>
+<p>适应度函数：</p>
+<ul>
+<li>原始适应度函数，直接将待求解问题的目标函数f(x)定义为遗传算法的适应度函数。它能够直接反映出待求解问题的最初求解目标但是有可能出现适应度值为负的情况。</li>
+<li>标准适应度函数。在遗传算法中，一般要求适应度函数非负，并其适应度值越大越好。这就往往需要对原始适应函数进行某种变换，将其转换为标准的度量方式，以满足进化操作的要求，这样所得到的适应度函数被称为标准适应度函数$f_{Normal}(x)$</li>
+</ul>
+<p>选择：各个个体被选中的概率与其适应度大小成正比</p>
+<ul>
+<li>比例选择</li>
+<li>锦标赛选择</li>
+<li>轮盘赌选择</li>
+</ul>
+<p>交叉：</p>
+<ul>
+<li>
+<p>单点交叉，先在两个父代个体的编码串中随机设定一个交叉点，然后对这两个父代个体交叉点前面或后面部分的基因进行交换，并生成子代中的两个新的个体。</p>
+</li>
+<li>
+<p>两点交叉，先在两个父代个体的编码串中随机设定两个交叉点，然后再按这两个交叉点进行部分基因交换，生成子代中的两个新的个体。</p>
+</li>
+<li>
+<p>多点交叉，从两个父代个体中选择多个交叉点，然后交换这些交叉点之间的基因片段，从而产生新的个体。</p>
+</li>
+<li>
+<p>均匀交叉，父串中的每一位都是以相同的概率随机进行交叉的。</p>
+</li>
+<li>
+<p>实值交叉，在实数编码情况下所采用的交叉操作，可分为部分离散交叉、整体交叉。</p>
+<p>部分离散交叉: 先在两个父代个体的编码向量中随机选择一部分分量， 然后对这部分分量进行交换，生成子代中的两个新的个体。</p>
+<p>整体交叉: 对两个父代个体的编码向量中的所有分量，都以1/2的概率进行交换，从而生成子代中的两个新的个体。</p>
+</li>
+<li>
+<p>洗牌交叉，打乱之后再选择交叉点，再进行复原</p>
+</li>
+</ul>
+<p>变异：</p>
+<ul>
+<li>二进制变异，随机地产生一个变异位，0-&gt;1，1-&gt;0</li>
+<li>实值变异，用另外一个在规定范围内的随机实数去替换原变异位置上的基因值，产生一个新的个体。</li>
+</ul>
+<h2 id="5-对抗搜索">5.对抗搜索</h2>
+<h3 id="5-1-Alpha-Beta算法">5.1 Alpha-Beta算法</h3>
+<p>对mini-max算法的改进。剪枝本身不影响算法输出结果，但节点先后次序会影响剪枝效率。</p>
+<div style="display: flex; justify-content: center; align-items: center;">
+    <img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/Alpha-Beta 剪枝1.png" alt="图片1" style="width:300px; height:auto; margin-right: 2px;">
+    <img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/Alpha-Beta 剪枝2.png" alt="图片2" style="width:300px; height:auto;">
+</div>
+<h3 id="5-2-蒙特卡洛树">5.2 蒙特卡洛树</h3>
+<p>参看蒙特卡洛树搜索部分。</p>
+<h2 id="6-参考资料">6.参考资料</h2>
+<p>中国科学院大学李国荣老师 高级人工智能课程课件</p>
+<p>高级算法设计与分析 启发式算法 林海老师</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://lwl1751.github.io/2024/05/15/%E6%B7%B1%E5%BA%A6%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Wenliang Liang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wenliang Liang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Wenliang Liang">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/05/15/%E6%B7%B1%E5%BA%A6%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" class="post-title-link" itemprop="url">深度强化学习</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2024-05-15 14:01:14" itemprop="dateCreated datePublished" datetime="2024-05-15T14:01:14+08:00">2024-05-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-05-17 21:03:37" itemprop="dateModified" datetime="2024-05-17T21:03:37+08:00">2024-05-17</time>
+    </span>
+
+  
+    <span id="/2024/05/15/%E6%B7%B1%E5%BA%A6%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" class="post-meta-item leancloud_visitors" data-flag-title="深度强化学习" title="Views">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>强化学习从深度学习角度出发的挑战：</p>
+<ul>
+<li>强化学习的奖励信号是有延迟的，而深度学习的输入输出是直接联系的</li>
+<li>强化学习的序贯决策序列有很高的相关性，而深度学习的假设数据是独立同分布</li>
+<li>强化学习的数据分布是会随着学习发生变化的，而深度学习的假设是底层分布固定的</li>
+</ul>
+<h2 id="1-DQN算法">1. DQN算法</h2>
+<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/DQN-4.png" alt="图片"></p>
+<h3 id="1-1-DQN">1.1 DQN</h3>
+<p>Deep Q-learning: DQN, <strong>Approximate $Q^*(s,a)$ by DQN,$Q(s,a;w)$</strong></p>
+<p><strong>经历回放</strong>(experience replay): 在每个时间步t 中，DQN先将智能体获得的经验$(S_t, A_t, R_t, S_{t+1})$存入回放缓存中，然后从该缓存中均匀采样小批样本用于 Q-Learning 更新。主要作用是<strong>解决数据的相关性和非静态分布问题</strong>。</p>
+<p>DQN2015的改进：<strong>增加目标网络</strong>。目标网络通过使用旧参数生成 Q-Learning 目标，使目标值的产生不受最新参数的影响，从而大大减少发散和震荡的情况。</p>
+<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/DQN-1.png" alt="图片"><br>
+<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/DQN-2.png" alt="图片"><br>
+<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/DQN-3.png" alt="图片"></p>
+<h3 id="1-2-Double-DQN-DDQN">1.2 Double-DQN, DDQN</h3>
+<p>Double DQN 是对 DQN 在减少过拟合方面的改进。这是由于DQN对动作值函数的max操作会引入一个正向的偏差，导致下一时刻的目标值存在过估计。</p>
+<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/DQN-5.png" alt="图片"><br>
+<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/DQN-6.png" alt="图片"></p>
+<h3 id="1-3-Prioritized-Experience-Replay-优先经验回放">1.3 Prioritized Experience Replay, 优先经验回放</h3>
+<p>采用优先级采样达到收敛所需的更新次数相比均匀采样要小很多，这也是进行优先经验池回放的原因。</p>
+<p><strong>1.3.1 样本优先级</strong>:</p>
+<p>样本优先级应满足两个条件：</p>
+<ul>
+<li>优先级在数值上应该和误差绝对值成单调递增关系，这是为了满足误差绝对值较大（即优先级较大）的样本获得更大的被抽样的机会；</li>
+<li>优先级数值应大于0，这是为了保证每一个样本都有机会被抽样，即抽样概率大于0。</li>
+</ul>
+<p>优先级可以分为<strong>基于比例的样本优先级</strong>，<strong>基于排序的样本优先级</strong>。如下图所示：</p>
+<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/DQN-7.png" alt="图片"></p>
+<p><strong>1.3.2 随机优先级采样</strong>:</p>
+<p>采样方法：</p>
+<ul>
+<li>贪婪优先级采样，完全按照优先级去采样</li>
+<li>一致随机采样，均匀采样</li>
+<li>随机优先级采样，随机采样</li>
+</ul>
+<p>基本原则：</p>
+<ul>
+<li>样本被采样的概率应该和样本优先级成正相关关系</li>
+<li>每一个样本都应该有机会被采样，即被采样的概率大于0</li>
+</ul>
+<p>Sum-Tree随机优先级采样，属于基于比例的样本优先级：</p>
+<p>重要性采样</p>
+<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/DQN-8.png" alt="图片"></p>
+<h3 id="1-4-Dueling-DQN">1.4 Dueling-DQN</h3>
+<p>算法原理：将动作值的计算分解成状态值和优势函数，$Q(s,a)=V(s)+A(s,a)$。</p>
+<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/DQN-9.png" alt="图片"><br>
+<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/DQN-10.png" alt="图片"></p>
+<h2 id="2-策略梯度方法DDPG">2. 策略梯度方法DDPG</h2>
+<h3 id="2-1-DPG-Deterministic-Policy-Gradient-确定性策略梯度">2.1 DPG, (Deterministic Policy Gradient) 确定性策略梯度</h3>
+<p>确定性策略：每一步的动作都是确定的，即$a=\mu_\theta(s)$。确定性策略梯度算法正是使用了确定性策略的策略梯度算法。</p>
+<h3 id="2-2-DDPG-Deep-Deterministic-Policy-Gradient">2.2 DDPG, (Deep Deterministic Policy Gradient)</h3>
+<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/DDPG-1.png" alt="图片"></p>
+<p>几个trick：</p>
+<ul>
+<li>$\mu^{\prime}(s_t)=\mu(s_t|\theta_{t}^{\mu} + N)$ 添加了一个随迭代次数衰减的随机噪声，增加了动作空间的探索</li>
+<li>目标网络缓慢更新保证了训练的稳定性</li>
+<li>batch normalization 使得可以在不同的环境中获取的特征统一</li>
+</ul>
+<p>问题：值函数过估计；自举造成的偏差传播</p>
+<h3 id="2-3-PPO">2.3 PPO</h3>
+<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/PPO-1.png" alt="图片"></p>
+<h3 id="2-4-SAC-Soft-Actoe-Critic">2.4 SAC, (Soft Actoe Critic)</h3>
+<p>熵：随机变量取各值时信息量的期望。</p>
+<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/SAC.png" alt="图片"></p>
+<p><strong>参考资料</strong>：</p>
+<p>中国科学院大学林姝老师 强化学习课程课件</p>
+<p>深度强化学习：基础、研究与应用 (董豪 等)</p>
+<p>Reinforcement Learning An Introduction (Adaptive Computation and Machine Learning series) (Sutton, Richard S., Barto, Andrew G.)</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/QiangLong2017/Deep-Reiforcement-Learning">https://github.com/QiangLong2017/Deep-Reiforcement-Learning</a></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" title="Next page" aria-label="Next page" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Wenliang Liang</span>
+  </div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+  <script class="next-config" data-name="leancloud_visitors" type="application/json">{"enable":true,"app_id":"6ieMWL8aehEDaEpjdHW0DeNF-gzGzoHsz","app_key":"Mgs4Kqy1weoeOHYaL2Zh40z0","server_url":null,"security":true}</script>
+  <script src="/js/third-party/statistics/lean-analytics.js"></script>
+
+
+
+</body>
+</html>

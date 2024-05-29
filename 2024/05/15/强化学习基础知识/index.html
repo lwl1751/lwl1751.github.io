@@ -1,37 +1,371 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.2.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
 
 
-{% block title %}{{ page.title }} | {{ config.title }}{% endblock %}
 
-{% block page_class %}page-post-detail{% endblock %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha256-XOqroi11tY4EFQMR9ZYwZWKj5ZXiftSx36RRuC3anlA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"lwl1751.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="知识点：马尔科夫决策过程，动态规划。  马尔科夫决策过程 马尔科夫过程: 一个具备马尔科夫性质的离散随机过程。 马尔科夫性: 下一时刻的状态只与当前状态有关。即$P[S_{t+1}|S_{1},…,S_{t}]&#x3D;P[S_{t+1}|S_{t}]$ 马尔科夫奖励函数: 把马尔科夫过程从 &lt;S, P&gt; 拓展到 &lt;S, P, R, γ&gt;。其中P 为状态转移矩阵，R 和 γ 分别表">
+<meta property="og:type" content="article">
+<meta property="og:title" content="强化学习基础知识">
+<meta property="og:url" content="https://lwl1751.github.io/2024/05/15/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/index.html">
+<meta property="og:site_name" content="Wenliang Liang">
+<meta property="og:description" content="知识点：马尔科夫决策过程，动态规划。  马尔科夫决策过程 马尔科夫过程: 一个具备马尔科夫性质的离散随机过程。 马尔科夫性: 下一时刻的状态只与当前状态有关。即$P[S_{t+1}|S_{1},…,S_{t}]&#x3D;P[S_{t+1}|S_{t}]$ 马尔科夫奖励函数: 把马尔科夫过程从 &lt;S, P&gt; 拓展到 &lt;S, P, R, γ&gt;。其中P 为状态转移矩阵，R 和 γ 分别表">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E6%88%AA%E5%B1%8F2024-05-16%2013.18.14.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E6%88%AA%E5%B1%8F2024-05-16%2013.18.34.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E6%88%AA%E5%B1%8F2024-05-16%2013.27.29.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E6%88%AA%E5%B1%8F2024-05-16%2013.27.43.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E8%BF%AD%E4%BB%A3%E7%AD%96%E7%95%A5%E8%AF%84%E4%BC%B0.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%AD%96%E7%95%A5%E8%AF%84%E4%BC%B0.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%AD%96%E7%95%A5%E8%BF%AD%E4%BB%A3.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E4%BB%B7%E5%80%BC%E8%BF%AD%E4%BB%A3.png">
+<meta property="article:published_time" content="2024-05-15T05:59:01.000Z">
+<meta property="article:modified_time" content="2024-05-16T10:28:29.194Z">
+<meta property="article:author" content="Wenliang Liang">
+<meta property="article:tag" content="强化学习">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E6%88%AA%E5%B1%8F2024-05-16%2013.18.14.png">
 
 
-{% block content %}
+<link rel="canonical" href="https://lwl1751.github.io/2024/05/15/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">
 
-  <div id="posts" class="posts-expand">
-    {{ post_template.render(page) }}
 
-    <div class="post-spread">
-      {% if theme.jiathis %}
-        {% include '_partials/share/jiathis.swig' %}
-      {% elseif theme.baidushare %}
-        {% include '_partials/share/baidushare.swig' %}
-      {% elseif theme.add_this_id %}
-        {% include '_partials/share/add-this.swig' %}
-      {% elseif theme.duoshuo_shortname and theme.duoshuo_share %}
-        {% include '_partials/share/duoshuo_share.swig' %}
-      {% endif %}
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://lwl1751.github.io/2024/05/15/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/","path":"2024/05/15/强化学习基础知识/","title":"强化学习基础知识"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>强化学习基础知识 | Wenliang Liang</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
     </div>
   </div>
 
-{% endblock %}
+  <div class="site-meta">
 
-{% block sidebar %}
-  {{ sidebar_template.render(true) }}
-{% endblock %}
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Wenliang Liang</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
 
-{% block script_extra %}
-  {% include '_scripts/pages/post-details.swig' %}
-{% endblock %}
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A9%AC%E5%B0%94%E7%A7%91%E5%A4%AB%E5%86%B3%E7%AD%96%E8%BF%87%E7%A8%8B"><span class="nav-number">1.</span> <span class="nav-text">马尔科夫决策过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92"><span class="nav-number">2.</span> <span class="nav-text">动态规划</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Wenliang Liang</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">16</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://lwl1751.github.io/2024/05/15/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Wenliang Liang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wenliang Liang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="强化学习基础知识 | Wenliang Liang">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          强化学习基础知识
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2024-05-15 13:59:01" itemprop="dateCreated datePublished" datetime="2024-05-15T13:59:01+08:00">2024-05-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-05-16 18:28:29" itemprop="dateModified" datetime="2024-05-16T18:28:29+08:00">2024-05-16</time>
+    </span>
+
+  
+    <span id="/2024/05/15/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" class="post-meta-item leancloud_visitors" data-flag-title="强化学习基础知识" title="Views">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p><strong>知识点：马尔科夫决策过程，动态规划。</strong></p>
+<hr>
+<h2 id="马尔科夫决策过程">马尔科夫决策过程</h2>
+<p><strong><span style="color:purple;">马尔科夫过程</span></strong>: 一个具备马尔科夫性质的离散随机过程。</p>
+<p><strong><span style="color:purple;">马尔科夫性</span></strong>: 下一时刻的状态只与当前状态有关。即$P[S_{t+1}|S_{1},…,S_{t}]=P[S_{t+1}|S_{t}]$</p>
+<p><strong><span style="color:purple;">马尔科夫奖励函数</span></strong>: 把马尔科夫过程从 &lt;S, P&gt; 拓展到 &lt;S, P, R, γ&gt;。其中P 为状态转移矩阵，R 和 γ 分别表示奖励函数和奖励折扣因子。折扣因子越大，代表了智能体对长期性能指标考虑的程度越高（远视）；折扣因子越小，代表了智能体对长期性能指标考虑的程度越低（近视）。</p>
+<p><strong><span style="color:purple;">回报</span></strong>: 回报是一个轨迹的累积奖励，$G_{t} = R_{t+1} + \gamma R_{t+2} = \sum_{k=0}^{\infty } \gamma ^{k}R_{t+k+1}$</p>
+<p><strong><span style="color:purple;">价值函数</span></strong>：状态s的期望回报，$V(s) = E[G_{t}|S_{t}=s]$。</p>
+<p><strong><span style="color:purple;">马尔科夫决策过程</span></strong>: 马尔可夫奖励过程的立即奖励只取决于状态(奖励值在节点上)，而马尔可夫决策过程的立即奖励与状态和动作都有关。即把马尔科夫过程从 &lt;S, P, R, γ&gt; 拓展到 &lt;S, A, P, R, γ&gt;。A是有限动作的集合。</p>
+<p><strong><span style="color:purple;">动作价值函数</span></strong>: 依赖于状态和刚刚执行的动作，是基于状态和动作的期望回报。$Q(s,a) = E[G_{t}|S_{t}=s, A_{t}=a]$。易知$V(s)=E_{a}[Q(s,a)]$。</p>
+<p><strong><span style="color:purple;">策略</span></strong>: 状态到行为的映射。</p>
+<blockquote>
+<p>对于任何马尔科夫决策过程：</p>
+<ul>
+<li>总是存在一个最优策略$\pi^*$，比任何其他策略更好或至少相等。</li>
+<li>所有的最优策略有相同且最优的价值。</li>
+<li>所有的最优策略具有相同且最优的动作价值。</li>
+</ul>
+</blockquote>
+<p><strong><span style="color:purple;">贝尔曼方程</span></strong>：用于计算给定策略 π 时价值函数在策略指引下所采轨迹上的期望。</p>
+<div style="display: flex; justify-content: center; align-items: center;">
+    <img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/截屏2024-05-16%2013.18.14.png" alt="图片1" style="width:350px; height:auto; margin-right: 2px;">
+    <img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/截屏2024-05-16%2013.18.34.png" alt="图片2" style="width:250px; height:auto;">
+</div>
+<div style="display: flex; justify-content: center; align-items: center;">
+    <img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/截屏2024-05-16 13.27.29.png" alt="图片3" style="width:300px; height:auto; margin-right: 2px;">
+    <img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/截屏2024-05-16 13.27.43.png" alt="图片4" style="width:300px; height:auto;">
+</div>
+</br>
+<p><strong><span style="color:purple;">最优价值函数</span></strong>:</p>
+<p>即使是在相同的状态和动作集合上，不同的策略也将会带来不同的价值函数。定义最优价值函数为</p>
+<p>$$v_*(s) = \max_{π} v_π(s), ∀s ∈ S$$</p>
+<p>最优动作价值函数：</p>
+<p>$$q_*(s,a) = \max_{\pi} q_π(s,a), ∀s ∈ S, a ∈ A$$</p>
+<p>则</p>
+<p>$$v*(s) = \max_{a\sim \mathbf{A}} q_*(s, a)$$</p>
+<p>$$q_<em>(s, a) = E[R_t + γv_</em>(S_{t+1}) | S_t = s, A_t = a]$$</p>
+<p><strong><span style="color:purple;">逆矩阵法求解贝尔曼方程</span></strong>：</p>
+<p>$$\mathbf{v}  = \mathbf{r} + γP\mathbf{v} $$</p>
+<p>其中 <strong>v</strong> 和 <strong>r</strong> 矢量，P是状态转移概率矩阵。求解如下：</p>
+<p>$$\mathbf{v} = (I − γP )^{-1}\mathbf{r}$$</p>
+<p>复杂度为$O(n^{3})$，考虑其他方法进行求解，如<span style="color:red;">动态规划、蒙特卡洛估计、时序差分法</span>等。</p>
+<h2 id="动态规划">动态规划</h2>
+<p>用动态规划算法在 能够获取MDP完整的环境信息（包括状态动作空间、转移矩阵、奖励等）的基础上 求解最优策略。</p>
+<p><strong><span style="color:purple;">预测</span></strong>：给定一个MDP &lt;𝒮, 𝒜, 𝒫, ℛ, 𝛾&gt;和策略𝜋，输出基于当前策略𝜋的价值函数v。</p>
+<p><strong><span style="color:purple;">控制</span></strong>：给定一个MDP &lt;𝒮, 𝒜, 𝒫, ℛ, 𝛾&gt;，输出最优价值函数𝑣∗以及最优策略𝜋∗</p>
+<p><strong><span style="color:purple;">迭代策略评估</span></strong>： 预测问题，评估一个给定的策略$\pi$。</p>
+<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E8%BF%AD%E4%BB%A3%E7%AD%96%E7%95%A5%E8%AF%84%E4%BC%B0.png" alt="图片"><br>
+<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%AD%96%E7%95%A5%E8%AF%84%E4%BC%B0.png" alt="图片"></p>
+<p><strong><span style="color:purple;">策略迭代</span></strong>：</p>
+<ul>
+<li>策略评估，在当前策略𝜋上迭代地计算𝑣值</li>
+<li>策略更新，根据𝑣值贪婪地更新策略</li>
+<li>如此反复多次，最终得到最优策略𝜋∗和最优状态价值函数𝑣∗<br>
+<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%AD%96%E7%95%A5%E8%BF%AD%E4%BB%A3.png" alt="图片"></li>
+</ul>
+<p><strong><span style="color:purple;">价值迭代</span></strong>：<br>
+<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E4%BB%B7%E5%80%BC%E8%BF%AD%E4%BB%A3.png" alt="图片"></p>
+<p><strong>参考资料</strong>：</p>
+<p>中国科学院大学 林姝老师 强化学习课程课件</p>
+<p>深度强化学习：基础、研究与应用 (董豪 等)</p>
+<p>Reinforcement Learning An Introduction (Adaptive Computation and Machine Learning series) (Sutton, Richard S., Barto, Andrew G.)</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" rel="tag"># 强化学习</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/05/15/%E5%9F%BA%E4%BA%8E%E7%AD%96%E7%95%A5%E6%A2%AF%E5%BA%A6%E7%9A%84%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" rel="prev" title="基于策略梯度的强化学习">
+                  <i class="fa fa-angle-left"></i> 基于策略梯度的强化学习
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2024/05/15/%E8%BF%9E%E7%BB%AD%E7%8A%B6%E6%80%81%E7%B3%BB%E7%BB%9F%E5%9F%BA%E4%BA%8E%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" rel="next" title="连续状态系统基于模型的强化学习">
+                  连续状态系统基于模型的强化学习 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Wenliang Liang</span>
+  </div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+  <script class="next-config" data-name="leancloud_visitors" type="application/json">{"enable":true,"app_id":"6ieMWL8aehEDaEpjdHW0DeNF-gzGzoHsz","app_key":"Mgs4Kqy1weoeOHYaL2Zh40z0","server_url":null,"security":true}</script>
+  <script src="/js/third-party/statistics/lean-analytics.js"></script>
+
+
+
+</body>
+</html>
