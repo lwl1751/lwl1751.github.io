@@ -197,11 +197,14 @@
 
       
           <blockquote>
-<p>对于大规模的MDP问题，不希望使用查表（Table Lookup）的方式，通过<strong>函数近似</strong>来估计实际的价值函数的方式，既节约了资源，又能达到泛化的效果。</p>
+<p>对于大规模的MDP问题，不希望使用查表（Table
+Lookup）的方式，通过<strong>函数近似</strong>来估计实际的价值函数的方式，既节约了资源，又能达到泛化的效果。</p>
 <ul>
-<li>$\hat{v}(s,w) = v_\pi (s)$</li>
-<li>$\hat{q}(s,a,w) = q_\pi (s,a)$</li>
-<li>$\hat{\pi}(a,s,w) = \pi (a|s)$</li>
+<li><span class="math inline">\(\hat{v}(s,w) = v_\pi (s)\)</span></li>
+<li><span class="math inline">\(\hat{q}(s,a,w) = q_\pi
+(s,a)\)</span></li>
+<li><span class="math inline">\(\hat{\pi}(a,s,w) = \pi
+(a|s)\)</span></li>
 </ul>
 <p><strong>函数近似器</strong></p>
 <ul>
@@ -212,28 +215,47 @@
 <li>傅立叶/小波变换</li>
 </ul>
 </blockquote>
-<h2 id="1-价值函数近似-Value-Fuction-Approximation-VFA">1. 价值函数近似, Value Fuction Approximation, VFA</h2>
+<h2 id="价值函数近似-value-fuction-approximation-vfa">1. 价值函数近似,
+Value Fuction Approximation, VFA</h2>
 <p>近似函数逼近的类型：</p>
 <ul>
-<li>input: s, output: $\hat{v}(s,w)$</li>
-<li>input: s, output: $\hat{q}(s,a,w)$</li>
-<li>input: s, output: $\hat{q}(s,a_1,w),\dots,\hat{q}(s,a_m,w)$</li>
+<li>input: s, output: <span
+class="math inline">\(\hat{v}(s,w)\)</span></li>
+<li>input: s, output: <span
+class="math inline">\(\hat{q}(s,a,w)\)</span></li>
+<li>input: s, output: <span
+class="math inline">\(\hat{q}(s,a_1,w),\dots,\hat{q}(s,a_m,w)\)</span></li>
 </ul>
-<h3 id="1-1-线性函数近似">1.1 线性函数近似</h3>
-<p>近似价值函数: $\hat{v}(s,w)=x(s)^Tw$</p>
-<p>目标函数: 均方误差。由于实际的价值函数不可知，用样本近似期望损失。</p>
-<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E5%80%BC%E5%87%BD%E6%95%B0%E8%BF%91%E4%BC%BC2.png" alt="图片"></p>
-<h3 id="1-2-神经网络值函数近似">1.2 神经网络值函数近似</h3>
+<h3 id="线性函数近似">1.1 线性函数近似</h3>
+<p>近似价值函数: <span
+class="math inline">\(\hat{v}(s,w)=x(s)^Tw\)</span></p>
+<p>目标函数:
+均方误差。由于实际的价值函数不可知，用样本近似期望损失。</p>
+<figure>
+<img
+src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/值函数近似2.png"
+alt="图片" />
+<figcaption aria-hidden="true">图片</figcaption>
+</figure>
+<h3 id="神经网络值函数近似">1.2 神经网络值函数近似</h3>
 <p>参看 深度强化学习 部分。</p>
-<h3 id="1-3-基于模型的近似值迭代算法">1.3 基于模型的近似值迭代算法</h3>
-<h3 id="1-4-模型无关的近似值迭代算法">1.4 模型无关的近似值迭代算法</h3>
-<h2 id="2-近似策略迭代">2. 近似策略迭代</h2>
-<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E5%80%BC%E5%87%BD%E6%95%B0%E8%BF%91%E4%BC%BC1.png" alt="图片"></p>
+<h3 id="基于模型的近似值迭代算法">1.3 基于模型的近似值迭代算法</h3>
+<h3 id="模型无关的近似值迭代算法">1.4 模型无关的近似值迭代算法</h3>
+<h2 id="近似策略迭代">2. 近似策略迭代</h2>
+<figure>
+<img
+src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/值函数近似1.png"
+alt="图片" />
+<figcaption aria-hidden="true">图片</figcaption>
+</figure>
 <p><strong>参考资料</strong>：</p>
 <p>中国科学院大学林姝老师 强化学习课程课件</p>
 <p>深度强化学习：基础、研究与应用 (董豪 等)</p>
-<p>Reinforcement Learning An Introduction (Adaptive Computation and Machine Learning series) (Sutton, Richard S., Barto, Andrew G.)</p>
-<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV11V411f7bi/?spm_id_from=333.337.search-card.all.click&amp;vd_source=514a3ed3ac370caf4facad7d6f4e1a2d">https://www.bilibili.com/video/BV11V411f7bi/?spm_id_from=333.337.search-card.all.click&amp;vd_source=514a3ed3ac370caf4facad7d6f4e1a2d</a></p>
+<p>Reinforcement Learning An Introduction (Adaptive Computation and
+Machine Learning series) (Sutton, Richard S., Barto, Andrew G.)</p>
+<p><a
+target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV11V411f7bi/?spm_id_from=333.337.search-card.all.click&amp;vd_source=514a3ed3ac370caf4facad7d6f4e1a2d"
+class="uri">https://www.bilibili.com/video/BV11V411f7bi/?spm_id_from=333.337.search-card.all.click&amp;vd_source=514a3ed3ac370caf4facad7d6f4e1a2d</a></p>
 
       
     </div>
@@ -299,67 +321,111 @@
 
       
           <p><strong>知识点：马尔科夫决策过程，动态规划。</strong></p>
-<hr>
+<hr />
 <h2 id="马尔科夫决策过程">马尔科夫决策过程</h2>
-<p><strong><span style="color:purple;">马尔科夫过程</span></strong>: 一个具备马尔科夫性质的离散随机过程。</p>
-<p><strong><span style="color:purple;">马尔科夫性</span></strong>: 下一时刻的状态只与当前状态有关。即$P[S_{t+1}|S_{1},…,S_{t}]=P[S_{t+1}|S_{t}]$</p>
-<p><strong><span style="color:purple;">马尔科夫奖励函数</span></strong>: 把马尔科夫过程从 &lt;S, P&gt; 拓展到 &lt;S, P, R, γ&gt;。其中P 为状态转移矩阵，R 和 γ 分别表示奖励函数和奖励折扣因子。折扣因子越大，代表了智能体对长期性能指标考虑的程度越高（远视）；折扣因子越小，代表了智能体对长期性能指标考虑的程度越低（近视）。</p>
-<p><strong><span style="color:purple;">回报</span></strong>: 回报是一个轨迹的累积奖励，$G_{t} = R_{t+1} + \gamma R_{t+2} = \sum_{k=0}^{\infty } \gamma ^{k}R_{t+k+1}$</p>
-<p><strong><span style="color:purple;">价值函数</span></strong>：状态s的期望回报，$V(s) = E[G_{t}|S_{t}=s]$。</p>
-<p><strong><span style="color:purple;">马尔科夫决策过程</span></strong>: 马尔可夫奖励过程的立即奖励只取决于状态(奖励值在节点上)，而马尔可夫决策过程的立即奖励与状态和动作都有关。即把马尔科夫过程从 &lt;S, P, R, γ&gt; 拓展到 &lt;S, A, P, R, γ&gt;。A是有限动作的集合。</p>
-<p><strong><span style="color:purple;">动作价值函数</span></strong>: 依赖于状态和刚刚执行的动作，是基于状态和动作的期望回报。$Q(s,a) = E[G_{t}|S_{t}=s, A_{t}=a]$。易知$V(s)=E_{a}[Q(s,a)]$。</p>
-<p><strong><span style="color:purple;">策略</span></strong>: 状态到行为的映射。</p>
+<p><strong><span style="color:purple;">马尔科夫过程</span></strong>:
+一个具备马尔科夫性质的离散随机过程。</p>
+<p><strong><span style="color:purple;">马尔科夫性</span></strong>:
+下一时刻的状态只与当前状态有关。即<span
+class="math inline">\(P[S_{t+1}|S_{1},...,S_{t}]=P[S_{t+1}|S_{t}]\)</span></p>
+<p><strong><span style="color:purple;">马尔科夫奖励函数</span></strong>:
+把马尔科夫过程从 &lt;S, P&gt; 拓展到 &lt;S, P, R, γ&gt;。其中P
+为状态转移矩阵，R 和 γ
+分别表示奖励函数和奖励折扣因子。折扣因子越大，代表了智能体对长期性能指标考虑的程度越高（远视）；折扣因子越小，代表了智能体对长期性能指标考虑的程度越低（近视）。</p>
+<p><strong><span style="color:purple;">回报</span></strong>:
+回报是一个轨迹的累积奖励，<span class="math inline">\(G_{t} = R_{t+1} +
+\gamma R_{t+2} = \sum_{k=0}^{\infty } \gamma ^{k}R_{t+k+1}\)</span></p>
+<p><strong><span
+style="color:purple;">价值函数</span></strong>：状态s的期望回报，<span
+class="math inline">\(V(s) = E[G_{t}|S_{t}=s]\)</span>。</p>
+<p><strong><span style="color:purple;">马尔科夫决策过程</span></strong>:
+马尔可夫奖励过程的立即奖励只取决于状态(奖励值在节点上)，而马尔可夫决策过程的立即奖励与状态和动作都有关。即把马尔科夫过程从
+&lt;S, P, R, γ&gt; 拓展到 &lt;S, A, P, R, γ&gt;。A是有限动作的集合。</p>
+<p><strong><span style="color:purple;">动作价值函数</span></strong>:
+依赖于状态和刚刚执行的动作，是基于状态和动作的期望回报。<span
+class="math inline">\(Q(s,a) = E[G_{t}|S_{t}=s,
+A_{t}=a]\)</span>。易知<span
+class="math inline">\(V(s)=E_{a}[Q(s,a)]\)</span>。</p>
+<p><strong><span style="color:purple;">策略</span></strong>:
+状态到行为的映射。</p>
 <blockquote>
 <p>对于任何马尔科夫决策过程：</p>
 <ul>
-<li>总是存在一个最优策略$\pi^*$，比任何其他策略更好或至少相等。</li>
+<li>总是存在一个最优策略<span
+class="math inline">\(\pi^*\)</span>，比任何其他策略更好或至少相等。</li>
 <li>所有的最优策略有相同且最优的价值。</li>
 <li>所有的最优策略具有相同且最优的动作价值。</li>
 </ul>
 </blockquote>
-<p><strong><span style="color:purple;">贝尔曼方程</span></strong>：用于计算给定策略 π 时价值函数在策略指引下所采轨迹上的期望。</p>
-<div style="display: flex; justify-content: center; align-items: center;">
-    <img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/截屏2024-05-16%2013.18.14.png" alt="图片1" style="width:350px; height:auto; margin-right: 2px;">
-    <img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/截屏2024-05-16%2013.18.34.png" alt="图片2" style="width:250px; height:auto;">
+<p><strong><span
+style="color:purple;">贝尔曼方程</span></strong>：用于计算给定策略 π
+时价值函数在策略指引下所采轨迹上的期望。</p>
+<div
+style="display: flex; justify-content: center; align-items: center;">
+<pre><code>&lt;img src=&quot;https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/截屏2024-05-16%2013.18.14.png&quot; alt=&quot;图片1&quot; style=&quot;width:350px; height:auto; margin-right: 2px;&quot;&gt;
+&lt;img src=&quot;https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/截屏2024-05-16%2013.18.34.png&quot; alt=&quot;图片2&quot; style=&quot;width:250px; height:auto;&quot;&gt;</code></pre>
 </div>
-<div style="display: flex; justify-content: center; align-items: center;">
-    <img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/截屏2024-05-16 13.27.29.png" alt="图片3" style="width:300px; height:auto; margin-right: 2px;">
-    <img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/截屏2024-05-16 13.27.43.png" alt="图片4" style="width:300px; height:auto;">
+<div
+style="display: flex; justify-content: center; align-items: center;">
+<pre><code>&lt;img src=&quot;https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/截屏2024-05-16 13.27.29.png&quot; alt=&quot;图片3&quot; style=&quot;width:300px; height:auto; margin-right: 2px;&quot;&gt;
+&lt;img src=&quot;https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/截屏2024-05-16 13.27.43.png&quot; alt=&quot;图片4&quot; style=&quot;width:300px; height:auto;&quot;&gt;</code></pre>
 </div>
-</br>
+<p></br></p>
 <p><strong><span style="color:purple;">最优价值函数</span></strong>:</p>
 <p>即使是在相同的状态和动作集合上，不同的策略也将会带来不同的价值函数。定义最优价值函数为</p>
-<p>$$v_*(s) = \max_{π} v_π(s), ∀s ∈ S$$</p>
+<p><span class="math display">\[v_*(s) = \max_{π} v_π(s), ∀s ∈
+S\]</span></p>
 <p>最优动作价值函数：</p>
-<p>$$q_*(s,a) = \max_{\pi} q_π(s,a), ∀s ∈ S, a ∈ A$$</p>
+<p><span class="math display">\[q_*(s,a) = \max_{\pi} q_π(s,a), ∀s ∈ S,
+a ∈ A\]</span></p>
 <p>则</p>
-<p>$$v*(s) = \max_{a\sim \mathbf{A}} q_*(s, a)$$</p>
-<p>$$q_<em>(s, a) = E[R_t + γv_</em>(S_{t+1}) | S_t = s, A_t = a]$$</p>
-<p><strong><span style="color:purple;">逆矩阵法求解贝尔曼方程</span></strong>：</p>
-<p>$$\mathbf{v}  = \mathbf{r} + γP\mathbf{v} $$</p>
-<p>其中 <strong>v</strong> 和 <strong>r</strong> 矢量，P是状态转移概率矩阵。求解如下：</p>
-<p>$$\mathbf{v} = (I − γP )^{-1}\mathbf{r}$$</p>
-<p>复杂度为$O(n^{3})$，考虑其他方法进行求解，如<span style="color:red;">动态规划、蒙特卡洛估计、时序差分法</span>等。</p>
+<p><span class="math display">\[v*(s) = \max_{a\sim \mathbf{A}} q_*(s,
+a)\]</span></p>
+<p><span class="math display">\[q_*(s, a) = E[R_t + γv_*(S_{t+1}) | S_t
+= s, A_t = a]\]</span></p>
+<p><strong><span
+style="color:purple;">逆矩阵法求解贝尔曼方程</span></strong>：</p>
+<p><span class="math display">\[\mathbf{v}  = \mathbf{r} + γP\mathbf{v}
+\]</span></p>
+<p>其中 <strong>v</strong> 和 <strong>r</strong>
+矢量，P是状态转移概率矩阵。求解如下：</p>
+<p><span class="math display">\[\mathbf{v} = (I − γP
+)^{-1}\mathbf{r}\]</span></p>
+<p>复杂度为<span
+class="math inline">\(O(n^{3})\)</span>，考虑其他方法进行求解，如<span
+style="color:red;">动态规划、蒙特卡洛估计、时序差分法</span>等。</p>
 <h2 id="动态规划">动态规划</h2>
-<p>用动态规划算法在 能够获取MDP完整的环境信息（包括状态动作空间、转移矩阵、奖励等）的基础上 求解最优策略。</p>
-<p><strong><span style="color:purple;">预测</span></strong>：给定一个MDP &lt;𝒮, 𝒜, 𝒫, ℛ, 𝛾&gt;和策略𝜋，输出基于当前策略𝜋的价值函数v。</p>
-<p><strong><span style="color:purple;">控制</span></strong>：给定一个MDP &lt;𝒮, 𝒜, 𝒫, ℛ, 𝛾&gt;，输出最优价值函数𝑣∗以及最优策略𝜋∗</p>
-<p><strong><span style="color:purple;">迭代策略评估</span></strong>： 预测问题，评估一个给定的策略$\pi$。</p>
-<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E8%BF%AD%E4%BB%A3%E7%AD%96%E7%95%A5%E8%AF%84%E4%BC%B0.png" alt="图片"><br>
-<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%AD%96%E7%95%A5%E8%AF%84%E4%BC%B0.png" alt="图片"></p>
+<p>用动态规划算法在
+能够获取MDP完整的环境信息（包括状态动作空间、转移矩阵、奖励等）的基础上
+求解最优策略。</p>
+<p><strong><span style="color:purple;">预测</span></strong>：给定一个MDP
+&lt;𝒮, 𝒜, 𝒫, ℛ, 𝛾&gt;和策略𝜋，输出基于当前策略𝜋的价值函数v。</p>
+<p><strong><span style="color:purple;">控制</span></strong>：给定一个MDP
+&lt;𝒮, 𝒜, 𝒫, ℛ, 𝛾&gt;，输出最优价值函数𝑣∗以及最优策略𝜋∗</p>
+<p><strong><span style="color:purple;">迭代策略评估</span></strong>：
+预测问题，评估一个给定的策略<span
+class="math inline">\(\pi\)</span>。</p>
+<p><img
+src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/迭代策略评估.png"
+alt="图片" /> <img
+src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/动态规划策略评估.png"
+alt="图片" /></p>
 <p><strong><span style="color:purple;">策略迭代</span></strong>：</p>
 <ul>
 <li>策略评估，在当前策略𝜋上迭代地计算𝑣值</li>
 <li>策略更新，根据𝑣值贪婪地更新策略</li>
-<li>如此反复多次，最终得到最优策略𝜋∗和最优状态价值函数𝑣∗<br>
-<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%AD%96%E7%95%A5%E8%BF%AD%E4%BB%A3.png" alt="图片"></li>
+<li>如此反复多次，最终得到最优策略𝜋∗和最优状态价值函数𝑣∗ <img
+src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/动态规划策略迭代.png"
+alt="图片" /></li>
 </ul>
-<p><strong><span style="color:purple;">价值迭代</span></strong>：<br>
-<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E4%BB%B7%E5%80%BC%E8%BF%AD%E4%BB%A3.png" alt="图片"></p>
+<p><strong><span style="color:purple;">价值迭代</span></strong>： <img
+src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/动态规划价值迭代.png"
+alt="图片" /></p>
 <p><strong>参考资料</strong>：</p>
 <p>中国科学院大学 林姝老师 强化学习课程课件</p>
 <p>深度强化学习：基础、研究与应用 (董豪 等)</p>
-<p>Reinforcement Learning An Introduction (Adaptive Computation and Machine Learning series) (Sutton, Richard S., Barto, Andrew G.)</p>
+<p>Reinforcement Learning An Introduction (Adaptive Computation and
+Machine Learning series) (Sutton, Richard S., Barto, Andrew G.)</p>
 
       
     </div>
@@ -426,92 +492,120 @@
       
           <p>强化学习可分为两大类：</p>
 <ul>
-<li>
-<p><strong>value-based method</strong>(DP,MC,TD)</p>
-<p>通过价值函数求解最优策略，求解出来的策略是确定性的，虽然可以通过$\epsilon$-贪心策略来获取一定的随机性。要求动作空间离散。</p>
-</li>
-<li>
-<p><strong>policy-based method</strong></p>
+<li><p><strong>value-based method</strong>(DP,MC,TD)</p>
+<p>通过价值函数求解最优策略，求解出来的策略是确定性的，虽然可以通过<span
+class="math inline">\(\epsilon\)</span>-贪心策略来获取一定的随机性。要求动作空间离散。</p></li>
+<li><p><strong>policy-based method</strong></p>
 <p>适用场景：随机策略；动作空间连续。</p>
 <p>优点：具有更好的收敛性质。</p>
-<p>缺点：通常会收敛到局部最优而非全局最优；评估一个策略通常不够高效并且具有较大的方差。</p>
-</li>
+<p>缺点：通常会收敛到局部最优而非全局最优；评估一个策略通常不够高效并且具有较大的方差。</p></li>
 </ul>
-<h2 id="1-基本原理">1.基本原理</h2>
-<p>由于策略实际上是一个概率分布，可以将策略参数化 $\pi(a|s,\theta)$ ，其中$\theta$ 是策略的参数。通过这种方式，可以将可见的已知状态泛化到未知的状态上。</p>
-<h3 id="1-1-策略目标函数">1.1 策略目标函数</h3>
+<h2 id="基本原理">1.基本原理</h2>
+<p>由于策略实际上是一个概率分布，可以将策略参数化 <span
+class="math inline">\(\pi(a|s,\theta)\)</span> ，其中<span
+class="math inline">\(\theta\)</span>
+是策略的参数。通过这种方式，可以将可见的已知状态泛化到未知的状态上。</p>
+<h3 id="策略目标函数">1.1 策略目标函数</h3>
 <p>在片段式的环境中，使用每个经历片段(episode)的平均总回报。在连续性的环境中，使用每一步的平均奖励。</p>
-<div style="display: flex; justify-content: center; align-items: center;">
-    <img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/策略目标函数1.png" alt="图片1" style="width:300px; height:auto; margin-right: 2px;">
-    <img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/策略目标函数2.png" alt="图片2" style="width:280px; height:auto;">
+<div
+style="display: flex; justify-content: center; align-items: center;">
+<pre><code>&lt;img src=&quot;https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/策略目标函数1.png&quot; alt=&quot;图片1&quot; style=&quot;width:300px; height:auto; margin-right: 2px;&quot;&gt;
+&lt;img src=&quot;https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/策略目标函数2.png&quot; alt=&quot;图片2&quot; style=&quot;width:280px; height:auto;&quot;&gt;</code></pre>
 </div>
-</br>
-<p>希望能够找到最大化$J(\theta)$的$\theta$，属于最优化问题，求解方法如下：</p>
+<p></br></p>
+<p>希望能够找到最大化<span
+class="math inline">\(J(\theta)\)</span>的<span
+class="math inline">\(\theta\)</span>，属于最优化问题，求解方法如下：</p>
 <ul>
 <li>不使用梯度的方法(Hill climbing, Simplex, 模拟退火, 遗传算法)</li>
 <li>使用梯度的方法更高效(梯度下降, 共轭梯度, 拟牛顿法)</li>
 </ul>
-<h3 id="1-2-策略函数">1.2 策略函数</h3>
+<h3 id="策略函数">1.2 策略函数</h3>
 <ul>
 <li>softmax策略，离散型动作空间</li>
 <li>高斯策略策略，连续型动作空间</li>
-<li>线性函数策略，连续型动作空间，表示给定状态下确定性的动作，$a=\pi(s,\theta)$</li>
+<li>线性函数策略，连续型动作空间，表示给定状态下确定性的动作，<span
+class="math inline">\(a=\pi(s,\theta)\)</span></li>
 </ul>
-<div style="display: flex; justify-content: center; align-items: center;">
-    <img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/score函数.png" alt="图片1" style="width:300px; height:auto; margin-right: 2px;">
-    <img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/softmax策略2.png" alt="图片2" style="width:300px; height:auto;">
+<div
+style="display: flex; justify-content: center; align-items: center;">
+<pre><code>&lt;img src=&quot;https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/score函数.png&quot; alt=&quot;图片1&quot; style=&quot;width:300px; height:auto; margin-right: 2px;&quot;&gt;
+&lt;img src=&quot;https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/softmax策略2.png&quot; alt=&quot;图片2&quot; style=&quot;width:300px; height:auto;&quot;&gt;</code></pre>
 </div>
-<div style="display: flex; justify-content: center; align-items: center;">
-    <img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/softmax策略.png" alt="图片1" style="width:300px; height:auto; margin-right: 2px;">
-    <img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/高斯策略.png" alt="图片2" style="width:300px; height:auto;">
+<div
+style="display: flex; justify-content: center; align-items: center;">
+<pre><code>&lt;img src=&quot;https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/softmax策略.png&quot; alt=&quot;图片1&quot; style=&quot;width:300px; height:auto; margin-right: 2px;&quot;&gt;
+&lt;img src=&quot;https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/高斯策略.png&quot; alt=&quot;图片2&quot; style=&quot;width:300px; height:auto;&quot;&gt;</code></pre>
 </div>
-<h3 id="1-3-单步马尔可夫决策过程">1.3 单步马尔可夫决策过程</h3>
-<p>从一个分布d(s)中采样得到一个状态s，从s开始，按照策略𝜋采取一个行为a，得到即时奖励$r=R_{s,a}$。由于是单步过程，目标函数为<br>
-<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E5%8D%95%E6%AD%A5%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB%E5%86%B3%E7%AD%96%E5%85%AC%E5%BC%8F.png" alt="图片"></p>
-<h2 id="2-策略梯度定理">2.策略梯度定理</h2>
+<h3 id="单步马尔可夫决策过程">1.3 单步马尔可夫决策过程</h3>
+<p>从一个分布d(s)中采样得到一个状态s，从s开始，按照策略𝜋采取一个行为a，得到即时奖励<span
+class="math inline">\(r=R_{s,a}\)</span>。由于是单步过程，目标函数为
+<img
+src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/单步马尔可夫决策公式.png"
+alt="图片" /></p>
+<h2 id="策略梯度定理">2.策略梯度定理</h2>
 <div style="display: flex; justify-content: center;">
-    <img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/策略推理1.png" width="70%" alt="图片">
+<pre><code>&lt;img src=&quot;https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/策略推理1.png&quot; width=&quot;70%&quot; alt=&quot;图片&quot;&gt;</code></pre>
 </div>
-<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E7%AD%96%E7%95%A5%E6%8E%A8%E7%90%862.png" alt="图片"></p>
+<figure>
+<img
+src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/策略推理2.png"
+alt="图片" />
+<figcaption aria-hidden="true">图片</figcaption>
+</figure>
 <p>由于状态转移函数的存在，虽然训练用的轨迹都是由同一个策略生成的，但其两两差异仍十分显著，并且显然轨迹越长差异越大，决策中每一个微小的差异累积起来都会导致最后结果的极大差异。也就是数据有着较大的方差，这会导致使用均值计算期望的效果变差，并使算法难以收敛。</p>
 <p><strong>改进方法：使用时序因果关系；加入基线。</strong></p>
-<div style="display: flex; justify-content: center; align-items: center;">
-    <img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/时间连续性1.png" alt="图片1" style="width:300px; height:auto; margin-right: 2px;">
-    <img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/时间连续性2.png" alt="图片2" style="width:300px; height:auto;">
+<div
+style="display: flex; justify-content: center; align-items: center;">
+<pre><code>&lt;img src=&quot;https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/时间连续性1.png&quot; alt=&quot;图片1&quot; style=&quot;width:300px; height:auto; margin-right: 2px;&quot;&gt;
+&lt;img src=&quot;https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/时间连续性2.png&quot; alt=&quot;图片2&quot; style=&quot;width:300px; height:auto;&quot;&gt;</code></pre>
 </div>
-<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E5%8A%A0%E5%85%A5%E5%9F%BA%E7%BA%BF1.png" alt="图片"><br>
-<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E5%8A%A0%E5%85%A5%E5%9F%BA%E7%BA%BF2.png" alt="图片"></p>
-<h2 id="3-蒙特卡洛策略梯度-REINFORCE">3.蒙特卡洛策略梯度(REINFORCE)</h2>
-<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/REINFORCE-1.png" alt="图片"><br>
-<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/REINFORCE2.png" alt="图片"></p>
-<h2 id="4-Actor-Critic-算法-A2C">4. Actor-Critic 算法(A2C)</h2>
+<p><img
+src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/加入基线1.png"
+alt="图片" /> <img
+src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/加入基线2.png"
+alt="图片" /></p>
+<h2 id="蒙特卡洛策略梯度reinforce">3.蒙特卡洛策略梯度(REINFORCE)</h2>
+<p><img
+src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/REINFORCE-1.png"
+alt="图片" /> <img
+src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/REINFORCE2.png"
+alt="图片" /></p>
+<h2 id="actor-critic-算法a2c">4. Actor-Critic 算法(A2C)</h2>
 <p><strong>actor --&gt; policy network</strong>，决定采取哪个动作</p>
 <ul>
-<li>$\pi(a|s;\theta)$</li>
+<li><span class="math inline">\(\pi(a|s;\theta)\)</span></li>
 <li>input: state s</li>
 <li>output: probability distribution over the actions</li>
 <li>训练目标： 增加状态值函数 state-value</li>
 </ul>
-<p>c<strong>ritic --&gt; value network</strong>，只负责评估动作的好坏</p>
+<p>c<strong>ritic --&gt; value
+network</strong>，只负责评估动作的好坏</p>
 <ul>
-<li>$q(s,a;w)$</li>
+<li><span class="math inline">\(q(s,a;w)\)</span></li>
 <li>input: state s and action a</li>
 <li>output: approximate action-value(scalar)</li>
 <li>训练目标： 使价值评估的更精准，接近于实际环境的return</li>
 </ul>
 <div style="display: flex; justify-content: center;">
-    <img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/A3C-1.png" width="80%" alt="图片">
+<pre><code>&lt;img src=&quot;https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/A3C-1.png&quot; width=&quot;80%&quot; alt=&quot;图片&quot;&gt;</code></pre>
 </div>
 <div style="display: flex; justify-content: center;">
-    <img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/A3C-2.png" width="80%" alt="图片">
+<pre><code>&lt;img src=&quot;https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/A3C-2.png&quot; width=&quot;80%&quot; alt=&quot;图片&quot;&gt;</code></pre>
 </div>
 <p><strong>参考资料</strong>：</p>
 <p>中国科学院大学林姝老师 强化学习课程课件</p>
 <p>深度强化学习：基础、研究与应用 (董豪 等)</p>
-<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV16Y411f7Hp/?spm_id_from=333.337.search-card.all.click&amp;vd_source=514a3ed3ac370caf4facad7d6f4e1a2d">https://www.bilibili.com/video/BV16Y411f7Hp/?spm_id_from=333.337.search-card.all.click&amp;vd_source=514a3ed3ac370caf4facad7d6f4e1a2d</a></p>
-<p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/y1Rj3fIaXkNjEyakCqRSIg">https://mp.weixin.qq.com/s/y1Rj3fIaXkNjEyakCqRSIg</a></p>
-<p>Reinforcement Learning An Introduction (Adaptive Computation and Machine Learning series) (Sutton, Richard S., Barto, Andrew G.)</p>
-<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Sq4y1q7sw/?spm_id_from=333.337.search-card.all.click&amp;vd_source=514a3ed3ac370caf4facad7d6f4e1a2d">https://www.bilibili.com/video/BV1Sq4y1q7sw/?spm_id_from=333.337.search-card.all.click&amp;vd_source=514a3ed3ac370caf4facad7d6f4e1a2d</a></p>
+<p><a
+target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV16Y411f7Hp/?spm_id_from=333.337.search-card.all.click&amp;vd_source=514a3ed3ac370caf4facad7d6f4e1a2d"
+class="uri">https://www.bilibili.com/video/BV16Y411f7Hp/?spm_id_from=333.337.search-card.all.click&amp;vd_source=514a3ed3ac370caf4facad7d6f4e1a2d</a></p>
+<p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/y1Rj3fIaXkNjEyakCqRSIg"
+class="uri">https://mp.weixin.qq.com/s/y1Rj3fIaXkNjEyakCqRSIg</a></p>
+<p>Reinforcement Learning An Introduction (Adaptive Computation and
+Machine Learning series) (Sutton, Richard S., Barto, Andrew G.)</p>
+<p><a
+target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Sq4y1q7sw/?spm_id_from=333.337.search-card.all.click&amp;vd_source=514a3ed3ac370caf4facad7d6f4e1a2d"
+class="uri">https://www.bilibili.com/video/BV1Sq4y1q7sw/?spm_id_from=333.337.search-card.all.click&amp;vd_source=514a3ed3ac370caf4facad7d6f4e1a2d</a></p>
 
       
     </div>
@@ -591,57 +685,91 @@
 <li>Q值迭代 (Q-learning)</li>
 </ul>
 </blockquote>
-<hr>
-<h2 id="1-无模型价值学习评估">1. 无模型价值学习评估</h2>
-<h3 id="1-1-蒙特卡洛方法">1.1 蒙特卡洛方法</h3>
-<p>蒙特卡洛方法是一种<strong>基于样本</strong>的方法，不需要知道环境的所有信息。只需基于过去的经验就可以学习。具体来说，给定一个策略 π，通过对 π 产生的回报取平均值来评估状态价值函数。这样就有两种估算方式: <strong>首次蒙特卡罗</strong>(First-Visit Monte Carlo)和<strong>每次蒙特卡罗</strong>(Every-Visit Monte Carlo)。首次蒙特卡罗只考虑每一个回合中第一次到状态 s 的访问，而每次蒙特卡罗就是考虑每次到状态 s 的访问。</p>
-<p>注意的是，和动态规划不同的是，蒙特卡罗不使用<strong>自举(Bootstrapping)</strong>，也就是说，它不用其他状态的估算来估算当前的状态值。<br>
-<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E9%A6%96%E6%AC%A1%E8%92%99%E7%89%B9%E5%8D%A1%E6%B4%9B%E8%AE%BF%E9%97%AE.png" alt="图片"></p>
+<hr />
+<h2 id="无模型价值学习评估">1. 无模型价值学习评估</h2>
+<h3 id="蒙特卡洛方法">1.1 蒙特卡洛方法</h3>
+<p>蒙特卡洛方法是一种<strong>基于样本</strong>的方法，不需要知道环境的所有信息。只需基于过去的经验就可以学习。具体来说，给定一个策略
+π，通过对 π 产生的回报取平均值来评估状态价值函数。这样就有两种估算方式:
+<strong>首次蒙特卡罗</strong>(First-Visit Monte
+Carlo)和<strong>每次蒙特卡罗</strong>(Every-Visit Monte
+Carlo)。首次蒙特卡罗只考虑每一个回合中第一次到状态 s
+的访问，而每次蒙特卡罗就是考虑每次到状态 s 的访问。</p>
+<p>注意的是，和动态规划不同的是，蒙特卡罗不使用<strong>自举(Bootstrapping)</strong>，也就是说，它不用其他状态的估算来估算当前的状态值。
+<img
+src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/首次蒙特卡洛访问.png"
+alt="图片" /></p>
 <p>离线学习：智能体从预先收集好的数据中进行学习。</p>
 <p>在线学习：智能体通过与环境实时交互来获取知识和经验。</p>
-<h3 id="1-2-时序差分学习">1.2 时序差分学习</h3>
-<p>时序差分学习方法同蒙特卡洛方法一样是不基于模型的，不需要马尔可夫决策过程的知识。但是时序差分学习方法可以直接从经历的不完整经历片段中学习，它通过**自举(bootstrap)**猜测经历片段的结果并不断更新猜测。即时序差分学习方法可以在每一次经历的过程中进行学习，而蒙特卡洛方法只能等到每次经历完全结束时才能进行学习。</p>
-<p>$$𝑉(𝑆_{𝑡}) ← 𝑉(𝑆_{𝑡}) + 𝛼(𝐺_t − 𝑉(𝑆_{𝑡}))$$</p>
+<h3 id="时序差分学习">1.2 时序差分学习</h3>
+<p>时序差分学习方法同蒙特卡洛方法一样是不基于模型的，不需要马尔可夫决策过程的知识。但是时序差分学习方法可以直接从经历的不完整经历片段中学习，它通过<strong>自举(bootstrap)</strong>猜测经历片段的结果并不断更新猜测。即时序差分学习方法可以在每一次经历的过程中进行学习，而蒙特卡洛方法只能等到每次经历完全结束时才能进行学习。</p>
+<p><span class="math display">\[𝑉(𝑆_{𝑡}) ← 𝑉(𝑆_{𝑡}) + 𝛼(𝐺_t −
+𝑉(𝑆_{𝑡}))\]</span></p>
 <div style="display: flex; justify-content: center;">
-    <img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/TD.png" width="50%" alt="图片">
+<pre><code>&lt;img src=&quot;https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/TD.png&quot; width=&quot;50%&quot; alt=&quot;图片&quot;&gt;</code></pre>
 </div>
 <p>对TD(0)，即one-step TD:</p>
-<p>$$𝑉(𝑆_{𝑡}) ← 𝑉(𝑆_{𝑡}) + 𝛼(𝑅_{𝑡+1} + 𝛾𝑉(𝑆_{t+1}) − 𝑉(𝑆_{𝑡}))$$</p>
-<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/Sarsa%E4%BB%B7%E5%80%BC%E8%AF%84%E4%BC%B0.png" alt="图片"></p>
-<p>这个算法又被叫做<strong>SARSA</strong>，因为用到了 $(S_t, A_{𝑡}, R_{𝑡+1}, S_{𝑡+1}, A_{𝑡+1})$。</p>
+<p><span class="math display">\[𝑉(𝑆_{𝑡}) ← 𝑉(𝑆_{𝑡}) + 𝛼(𝑅_{𝑡+1} +
+𝛾𝑉(𝑆_{t+1}) − 𝑉(𝑆_{𝑡}))\]</span></p>
+<figure>
+<img
+src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/Sarsa价值评估.png"
+alt="图片" />
+<figcaption aria-hidden="true">图片</figcaption>
+</figure>
+<p>这个算法又被叫做<strong>SARSA</strong>，因为用到了 <span
+class="math inline">\((S_t, A_{𝑡}, R_{𝑡+1}, S_{𝑡+1},
+A_{𝑡+1})\)</span>。</p>
 <ul>
 <li>蒙特卡洛方法没有偏倚，是对当前状态实际价值的无偏估计，但有着较高的变异性，且对初始值不敏感。</li>
-<li>时序差分方法方差更低, 但有一定程度的偏差，对初始值较敏感，通常比蒙特卡洛方法更高效。</li>
+<li>时序差分方法方差更低,
+但有一定程度的偏差，对初始值较敏感，通常比蒙特卡洛方法更高效。</li>
 </ul>
-<h3 id="1-3-TD-𝝀">1.3 TD(𝝀)</h3>
+<h3 id="td𝝀">1.3 TD(𝝀)</h3>
 <div style="display: flex; justify-content: center;">
-    <img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/步数对TD的影响.png" width="90%" alt="图片">
+<pre><code>&lt;img src=&quot;https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/步数对TD的影响.png&quot; width=&quot;90%&quot; alt=&quot;图片&quot;&gt;</code></pre>
 </div>
-</br>
-<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/TDn_1.png" alt="图片"><br>
-<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/TDn_2.png" alt="图片"><br>
-<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/TDn_3.png" alt="图片"><br>
-<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/TDn-4.png" alt="图片"></p>
-<h2 id="2-无模型策略优化控制">2.无模型策略优化控制</h2>
-<h3 id="2-1-蒙特卡洛策略迭代">2.1 蒙特卡洛策略迭代</h3>
+<p></br></p>
+<p><img
+src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/TDn_1.png"
+alt="图片" /> <img
+src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/TDn_2.png"
+alt="图片" /> <img
+src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/TDn_3.png"
+alt="图片" /> <img
+src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/TDn-4.png"
+alt="图片" /></p>
+<h2 id="无模型策略优化控制">2.无模型策略优化控制</h2>
+<h3 id="蒙特卡洛策略迭代">2.1 蒙特卡洛策略迭代</h3>
 <div style="display: flex; justify-content: center;">
-    <img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/MTCS策略迭代.png" width="70%" alt="图片">
+<pre><code>&lt;img src=&quot;https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/MTCS策略迭代.png&quot; width=&quot;70%&quot; alt=&quot;图片&quot;&gt;</code></pre>
 </div>
-<h3 id="2-2-时序差分策略迭代（SARSA）">2.2 时序差分策略迭代（SARSA）</h3>
-<p>$$G_{t:t+n} = R_{t+1} + γR_{t+2} + \dot + γ^{n−1}R_{t+n} + γ^nQ_{t+n−1}(S_{t+n}, A_{t+n})$$</p>
-<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/sarsa-n.png" alt="图片"></p>
+<h3 id="时序差分策略迭代sarsa">2.2 时序差分策略迭代（SARSA）</h3>
+<p><span class="math display">\[G_{t:t+n} = R_{t+1} + γR_{t+2} + \dot +
+γ^{n−1}R_{t+n} + γ^nQ_{t+n−1}(S_{t+n}, A_{t+n})\]</span></p>
+<figure>
+<img
+src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/sarsa-n.png"
+alt="图片" />
+<figcaption aria-hidden="true">图片</figcaption>
+</figure>
 <div style="display: flex; justify-content: center;">
-    <img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/sarsa-lambda.png" width="80%" alt="图片">
+<pre><code>&lt;img src=&quot;https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/sarsa-lambda.png&quot; width=&quot;80%&quot; alt=&quot;图片&quot;&gt;</code></pre>
 </div>
-<h3 id="2-3-Q值迭代-Q-learning">2.3 Q值迭代 (Q-learning)</h3>
+<h3 id="q值迭代-q-learning">2.3 Q值迭代 (Q-learning)</h3>
 <p>Sarsa --&gt; on-policy</p>
 <p>Q-learning --&gt; off-policy</p>
-<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/Q-learning%E7%AD%96%E7%95%A5%E8%BF%AD%E4%BB%A3.png" alt="图片"></p>
+<figure>
+<img
+src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/Q-learning策略迭代.png"
+alt="图片" />
+<figcaption aria-hidden="true">图片</figcaption>
+</figure>
 <p><strong>参考资料</strong>：</p>
 <p>中国科学院大学林姝老师 强化学习课程课件</p>
 <p>深度强化学习：基础、研究与应用 (董豪 等)</p>
 <p>强化学习入门——从原理到实践，叶强</p>
-<p>Reinforcement Learning An Introduction (Adaptive Computation and Machine Learning series) (Sutton, Richard S., Barto, Andrew G.)</p>
+<p>Reinforcement Learning An Introduction (Adaptive Computation and
+Machine Learning series) (Sutton, Richard S., Barto, Andrew G.)</p>
 
       
     </div>
@@ -707,6 +835,7 @@
 
       
           
+
       
     </div>
 

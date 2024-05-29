@@ -20,36 +20,18 @@
     var CONFIG = {"hostname":"lwl1751.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":true,"nav":null,"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="强化学习可分为两大类：   value-based method(DP,MC,TD) 通过价值函数求解最优策略，求解出来的策略是确定性的，虽然可以通过$\epsilon$-贪心策略来获取一定的随机性。要求动作空间离散。   policy-based method 适用场景：随机策略；动作空间连续。 优点：具有更好的收敛性质。 缺点：通常会收敛到局部最优而非全局最优；评估一个策略通常不够高效并且具有">
+  <meta name="description" content="强化学习可分为两大类：  value-based method(DP,MC,TD) 通过价值函数求解最优策略，求解出来的策略是确定性的，虽然可以通过\(\epsilon\)-贪心策略来获取一定的随机性。要求动作空间离散。 policy-based method 适用场景：随机策略；动作空间连续。 优点：具有更好的收敛性质。 缺点：通常会收敛到局部最优而非全局最优；评估一个策略通常不够高效并且具有较">
 <meta property="og:type" content="article">
 <meta property="og:title" content="基于策略梯度的强化学习">
 <meta property="og:url" content="https://lwl1751.github.io/2024/05/15/%E5%9F%BA%E4%BA%8E%E7%AD%96%E7%95%A5%E6%A2%AF%E5%BA%A6%E7%9A%84%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/index.html">
 <meta property="og:site_name" content="Wenliang Liang">
-<meta property="og:description" content="强化学习可分为两大类：   value-based method(DP,MC,TD) 通过价值函数求解最优策略，求解出来的策略是确定性的，虽然可以通过$\epsilon$-贪心策略来获取一定的随机性。要求动作空间离散。   policy-based method 适用场景：随机策略；动作空间连续。 优点：具有更好的收敛性质。 缺点：通常会收敛到局部最优而非全局最优；评估一个策略通常不够高效并且具有">
+<meta property="og:description" content="强化学习可分为两大类：  value-based method(DP,MC,TD) 通过价值函数求解最优策略，求解出来的策略是确定性的，虽然可以通过\(\epsilon\)-贪心策略来获取一定的随机性。要求动作空间离散。 policy-based method 适用场景：随机策略；动作空间连续。 优点：具有更好的收敛性质。 缺点：通常会收敛到局部最优而非全局最优；评估一个策略通常不够高效并且具有较">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E7%AD%96%E7%95%A5%E7%9B%AE%E6%A0%87%E5%87%BD%E6%95%B01.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E7%AD%96%E7%95%A5%E7%9B%AE%E6%A0%87%E5%87%BD%E6%95%B02.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/score%E5%87%BD%E6%95%B0.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/softmax%E7%AD%96%E7%95%A52.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/softmax%E7%AD%96%E7%95%A5.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E9%AB%98%E6%96%AF%E7%AD%96%E7%95%A5.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E5%8D%95%E6%AD%A5%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB%E5%86%B3%E7%AD%96%E5%85%AC%E5%BC%8F.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E7%AD%96%E7%95%A5%E6%8E%A8%E7%90%861.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E7%AD%96%E7%95%A5%E6%8E%A8%E7%90%862.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E6%97%B6%E9%97%B4%E8%BF%9E%E7%BB%AD%E6%80%A71.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E6%97%B6%E9%97%B4%E8%BF%9E%E7%BB%AD%E6%80%A72.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E5%8A%A0%E5%85%A5%E5%9F%BA%E7%BA%BF1.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E5%8A%A0%E5%85%A5%E5%9F%BA%E7%BA%BF2.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/REINFORCE-1.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/REINFORCE2.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/A3C-1.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/A3C-2.png">
 <meta property="article:published_time" content="2024-05-15T05:58:11.000Z">
 <meta property="article:modified_time" content="2024-05-17T11:38:19.676Z">
 <meta property="article:author" content="Wenliang Liang">
 <meta property="article:tag" content="强化学习">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E7%AD%96%E7%95%A5%E7%9B%AE%E6%A0%87%E5%87%BD%E6%95%B01.png">
 
 <link rel="canonical" href="https://lwl1751.github.io/2024/05/15/%E5%9F%BA%E4%BA%8E%E7%AD%96%E7%95%A5%E6%A2%AF%E5%BA%A6%E7%9A%84%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/">
 
@@ -228,92 +210,120 @@
       
         <p>强化学习可分为两大类：</p>
 <ul>
-<li>
-<p><strong>value-based method</strong>(DP,MC,TD)</p>
-<p>通过价值函数求解最优策略，求解出来的策略是确定性的，虽然可以通过$\epsilon$-贪心策略来获取一定的随机性。要求动作空间离散。</p>
-</li>
-<li>
-<p><strong>policy-based method</strong></p>
+<li><p><strong>value-based method</strong>(DP,MC,TD)</p>
+<p>通过价值函数求解最优策略，求解出来的策略是确定性的，虽然可以通过<span
+class="math inline">\(\epsilon\)</span>-贪心策略来获取一定的随机性。要求动作空间离散。</p></li>
+<li><p><strong>policy-based method</strong></p>
 <p>适用场景：随机策略；动作空间连续。</p>
 <p>优点：具有更好的收敛性质。</p>
-<p>缺点：通常会收敛到局部最优而非全局最优；评估一个策略通常不够高效并且具有较大的方差。</p>
-</li>
+<p>缺点：通常会收敛到局部最优而非全局最优；评估一个策略通常不够高效并且具有较大的方差。</p></li>
 </ul>
-<h2 id="1-基本原理">1.基本原理</h2>
-<p>由于策略实际上是一个概率分布，可以将策略参数化 $\pi(a|s,\theta)$ ，其中$\theta$ 是策略的参数。通过这种方式，可以将可见的已知状态泛化到未知的状态上。</p>
-<h3 id="1-1-策略目标函数">1.1 策略目标函数</h3>
+<h2 id="基本原理">1.基本原理</h2>
+<p>由于策略实际上是一个概率分布，可以将策略参数化 <span
+class="math inline">\(\pi(a|s,\theta)\)</span> ，其中<span
+class="math inline">\(\theta\)</span>
+是策略的参数。通过这种方式，可以将可见的已知状态泛化到未知的状态上。</p>
+<h3 id="策略目标函数">1.1 策略目标函数</h3>
 <p>在片段式的环境中，使用每个经历片段(episode)的平均总回报。在连续性的环境中，使用每一步的平均奖励。</p>
-<div style="display: flex; justify-content: center; align-items: center;">
-    <img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/策略目标函数1.png" alt="图片1" style="width:300px; height:auto; margin-right: 2px;">
-    <img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/策略目标函数2.png" alt="图片2" style="width:280px; height:auto;">
+<div
+style="display: flex; justify-content: center; align-items: center;">
+<pre><code>&lt;img src=&quot;https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/策略目标函数1.png&quot; alt=&quot;图片1&quot; style=&quot;width:300px; height:auto; margin-right: 2px;&quot;&gt;
+&lt;img src=&quot;https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/策略目标函数2.png&quot; alt=&quot;图片2&quot; style=&quot;width:280px; height:auto;&quot;&gt;</code></pre>
 </div>
-</br>
-<p>希望能够找到最大化$J(\theta)$的$\theta$，属于最优化问题，求解方法如下：</p>
+<p></br></p>
+<p>希望能够找到最大化<span
+class="math inline">\(J(\theta)\)</span>的<span
+class="math inline">\(\theta\)</span>，属于最优化问题，求解方法如下：</p>
 <ul>
 <li>不使用梯度的方法(Hill climbing, Simplex, 模拟退火, 遗传算法)</li>
 <li>使用梯度的方法更高效(梯度下降, 共轭梯度, 拟牛顿法)</li>
 </ul>
-<h3 id="1-2-策略函数">1.2 策略函数</h3>
+<h3 id="策略函数">1.2 策略函数</h3>
 <ul>
 <li>softmax策略，离散型动作空间</li>
 <li>高斯策略策略，连续型动作空间</li>
-<li>线性函数策略，连续型动作空间，表示给定状态下确定性的动作，$a=\pi(s,\theta)$</li>
+<li>线性函数策略，连续型动作空间，表示给定状态下确定性的动作，<span
+class="math inline">\(a=\pi(s,\theta)\)</span></li>
 </ul>
-<div style="display: flex; justify-content: center; align-items: center;">
-    <img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/score函数.png" alt="图片1" style="width:300px; height:auto; margin-right: 2px;">
-    <img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/softmax策略2.png" alt="图片2" style="width:300px; height:auto;">
+<div
+style="display: flex; justify-content: center; align-items: center;">
+<pre><code>&lt;img src=&quot;https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/score函数.png&quot; alt=&quot;图片1&quot; style=&quot;width:300px; height:auto; margin-right: 2px;&quot;&gt;
+&lt;img src=&quot;https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/softmax策略2.png&quot; alt=&quot;图片2&quot; style=&quot;width:300px; height:auto;&quot;&gt;</code></pre>
 </div>
-<div style="display: flex; justify-content: center; align-items: center;">
-    <img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/softmax策略.png" alt="图片1" style="width:300px; height:auto; margin-right: 2px;">
-    <img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/高斯策略.png" alt="图片2" style="width:300px; height:auto;">
+<div
+style="display: flex; justify-content: center; align-items: center;">
+<pre><code>&lt;img src=&quot;https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/softmax策略.png&quot; alt=&quot;图片1&quot; style=&quot;width:300px; height:auto; margin-right: 2px;&quot;&gt;
+&lt;img src=&quot;https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/高斯策略.png&quot; alt=&quot;图片2&quot; style=&quot;width:300px; height:auto;&quot;&gt;</code></pre>
 </div>
-<h3 id="1-3-单步马尔可夫决策过程">1.3 单步马尔可夫决策过程</h3>
-<p>从一个分布d(s)中采样得到一个状态s，从s开始，按照策略𝜋采取一个行为a，得到即时奖励$r=R_{s,a}$。由于是单步过程，目标函数为<br>
-<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E5%8D%95%E6%AD%A5%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB%E5%86%B3%E7%AD%96%E5%85%AC%E5%BC%8F.png" alt="图片"></p>
-<h2 id="2-策略梯度定理">2.策略梯度定理</h2>
+<h3 id="单步马尔可夫决策过程">1.3 单步马尔可夫决策过程</h3>
+<p>从一个分布d(s)中采样得到一个状态s，从s开始，按照策略𝜋采取一个行为a，得到即时奖励<span
+class="math inline">\(r=R_{s,a}\)</span>。由于是单步过程，目标函数为
+<img
+src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/单步马尔可夫决策公式.png"
+alt="图片" /></p>
+<h2 id="策略梯度定理">2.策略梯度定理</h2>
 <div style="display: flex; justify-content: center;">
-    <img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/策略推理1.png" width="70%" alt="图片">
+<pre><code>&lt;img src=&quot;https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/策略推理1.png&quot; width=&quot;70%&quot; alt=&quot;图片&quot;&gt;</code></pre>
 </div>
-<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E7%AD%96%E7%95%A5%E6%8E%A8%E7%90%862.png" alt="图片"></p>
+<figure>
+<img
+src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/策略推理2.png"
+alt="图片" />
+<figcaption aria-hidden="true">图片</figcaption>
+</figure>
 <p>由于状态转移函数的存在，虽然训练用的轨迹都是由同一个策略生成的，但其两两差异仍十分显著，并且显然轨迹越长差异越大，决策中每一个微小的差异累积起来都会导致最后结果的极大差异。也就是数据有着较大的方差，这会导致使用均值计算期望的效果变差，并使算法难以收敛。</p>
 <p><strong>改进方法：使用时序因果关系；加入基线。</strong></p>
-<div style="display: flex; justify-content: center; align-items: center;">
-    <img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/时间连续性1.png" alt="图片1" style="width:300px; height:auto; margin-right: 2px;">
-    <img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/时间连续性2.png" alt="图片2" style="width:300px; height:auto;">
+<div
+style="display: flex; justify-content: center; align-items: center;">
+<pre><code>&lt;img src=&quot;https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/时间连续性1.png&quot; alt=&quot;图片1&quot; style=&quot;width:300px; height:auto; margin-right: 2px;&quot;&gt;
+&lt;img src=&quot;https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/时间连续性2.png&quot; alt=&quot;图片2&quot; style=&quot;width:300px; height:auto;&quot;&gt;</code></pre>
 </div>
-<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E5%8A%A0%E5%85%A5%E5%9F%BA%E7%BA%BF1.png" alt="图片"><br>
-<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E5%8A%A0%E5%85%A5%E5%9F%BA%E7%BA%BF2.png" alt="图片"></p>
-<h2 id="3-蒙特卡洛策略梯度-REINFORCE">3.蒙特卡洛策略梯度(REINFORCE)</h2>
-<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/REINFORCE-1.png" alt="图片"><br>
-<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/REINFORCE2.png" alt="图片"></p>
-<h2 id="4-Actor-Critic-算法-A2C">4. Actor-Critic 算法(A2C)</h2>
+<p><img
+src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/加入基线1.png"
+alt="图片" /> <img
+src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/加入基线2.png"
+alt="图片" /></p>
+<h2 id="蒙特卡洛策略梯度reinforce">3.蒙特卡洛策略梯度(REINFORCE)</h2>
+<p><img
+src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/REINFORCE-1.png"
+alt="图片" /> <img
+src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/REINFORCE2.png"
+alt="图片" /></p>
+<h2 id="actor-critic-算法a2c">4. Actor-Critic 算法(A2C)</h2>
 <p><strong>actor --&gt; policy network</strong>，决定采取哪个动作</p>
 <ul>
-<li>$\pi(a|s;\theta)$</li>
+<li><span class="math inline">\(\pi(a|s;\theta)\)</span></li>
 <li>input: state s</li>
 <li>output: probability distribution over the actions</li>
 <li>训练目标： 增加状态值函数 state-value</li>
 </ul>
-<p>c<strong>ritic --&gt; value network</strong>，只负责评估动作的好坏</p>
+<p>c<strong>ritic --&gt; value
+network</strong>，只负责评估动作的好坏</p>
 <ul>
-<li>$q(s,a;w)$</li>
+<li><span class="math inline">\(q(s,a;w)\)</span></li>
 <li>input: state s and action a</li>
 <li>output: approximate action-value(scalar)</li>
 <li>训练目标： 使价值评估的更精准，接近于实际环境的return</li>
 </ul>
 <div style="display: flex; justify-content: center;">
-    <img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/A3C-1.png" width="80%" alt="图片">
+<pre><code>&lt;img src=&quot;https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/A3C-1.png&quot; width=&quot;80%&quot; alt=&quot;图片&quot;&gt;</code></pre>
 </div>
 <div style="display: flex; justify-content: center;">
-    <img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/A3C-2.png" width="80%" alt="图片">
+<pre><code>&lt;img src=&quot;https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/A3C-2.png&quot; width=&quot;80%&quot; alt=&quot;图片&quot;&gt;</code></pre>
 </div>
 <p><strong>参考资料</strong>：</p>
 <p>中国科学院大学林姝老师 强化学习课程课件</p>
 <p>深度强化学习：基础、研究与应用 (董豪 等)</p>
-<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV16Y411f7Hp/?spm_id_from=333.337.search-card.all.click&amp;vd_source=514a3ed3ac370caf4facad7d6f4e1a2d">https://www.bilibili.com/video/BV16Y411f7Hp/?spm_id_from=333.337.search-card.all.click&amp;vd_source=514a3ed3ac370caf4facad7d6f4e1a2d</a></p>
-<p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/y1Rj3fIaXkNjEyakCqRSIg">https://mp.weixin.qq.com/s/y1Rj3fIaXkNjEyakCqRSIg</a></p>
-<p>Reinforcement Learning An Introduction (Adaptive Computation and Machine Learning series) (Sutton, Richard S., Barto, Andrew G.)</p>
-<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Sq4y1q7sw/?spm_id_from=333.337.search-card.all.click&amp;vd_source=514a3ed3ac370caf4facad7d6f4e1a2d">https://www.bilibili.com/video/BV1Sq4y1q7sw/?spm_id_from=333.337.search-card.all.click&amp;vd_source=514a3ed3ac370caf4facad7d6f4e1a2d</a></p>
+<p><a
+target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV16Y411f7Hp/?spm_id_from=333.337.search-card.all.click&amp;vd_source=514a3ed3ac370caf4facad7d6f4e1a2d"
+class="uri">https://www.bilibili.com/video/BV16Y411f7Hp/?spm_id_from=333.337.search-card.all.click&amp;vd_source=514a3ed3ac370caf4facad7d6f4e1a2d</a></p>
+<p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/y1Rj3fIaXkNjEyakCqRSIg"
+class="uri">https://mp.weixin.qq.com/s/y1Rj3fIaXkNjEyakCqRSIg</a></p>
+<p>Reinforcement Learning An Introduction (Adaptive Computation and
+Machine Learning series) (Sutton, Richard S., Barto, Andrew G.)</p>
+<p><a
+target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Sq4y1q7sw/?spm_id_from=333.337.search-card.all.click&amp;vd_source=514a3ed3ac370caf4facad7d6f4e1a2d"
+class="uri">https://www.bilibili.com/video/BV1Sq4y1q7sw/?spm_id_from=333.337.search-card.all.click&amp;vd_source=514a3ed3ac370caf4facad7d6f4e1a2d</a></p>
 
     </div>
 
@@ -398,7 +408,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86"><span class="nav-number">1.</span> <span class="nav-text">1.基本原理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-%E7%AD%96%E7%95%A5%E7%9B%AE%E6%A0%87%E5%87%BD%E6%95%B0"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 策略目标函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-%E7%AD%96%E7%95%A5%E5%87%BD%E6%95%B0"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 策略函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-%E5%8D%95%E6%AD%A5%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB%E5%86%B3%E7%AD%96%E8%BF%87%E7%A8%8B"><span class="nav-number">1.3.</span> <span class="nav-text">1.3 单步马尔可夫决策过程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E7%AD%96%E7%95%A5%E6%A2%AF%E5%BA%A6%E5%AE%9A%E7%90%86"><span class="nav-number">2.</span> <span class="nav-text">2.策略梯度定理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E8%92%99%E7%89%B9%E5%8D%A1%E6%B4%9B%E7%AD%96%E7%95%A5%E6%A2%AF%E5%BA%A6-REINFORCE"><span class="nav-number">3.</span> <span class="nav-text">3.蒙特卡洛策略梯度(REINFORCE)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-Actor-Critic-%E7%AE%97%E6%B3%95-A2C"><span class="nav-number">4.</span> <span class="nav-text">4. Actor-Critic 算法(A2C)</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86"><span class="nav-number">1.</span> <span class="nav-text">1.基本原理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AD%96%E7%95%A5%E7%9B%AE%E6%A0%87%E5%87%BD%E6%95%B0"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 策略目标函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AD%96%E7%95%A5%E5%87%BD%E6%95%B0"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 策略函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%95%E6%AD%A5%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB%E5%86%B3%E7%AD%96%E8%BF%87%E7%A8%8B"><span class="nav-number">1.3.</span> <span class="nav-text">1.3 单步马尔可夫决策过程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AD%96%E7%95%A5%E6%A2%AF%E5%BA%A6%E5%AE%9A%E7%90%86"><span class="nav-number">2.</span> <span class="nav-text">2.策略梯度定理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%92%99%E7%89%B9%E5%8D%A1%E6%B4%9B%E7%AD%96%E7%95%A5%E6%A2%AF%E5%BA%A6reinforce"><span class="nav-number">3.</span> <span class="nav-text">3.蒙特卡洛策略梯度(REINFORCE)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#actor-critic-%E7%AE%97%E6%B3%95a2c"><span class="nav-number">4.</span> <span class="nav-text">4. Actor-Critic 算法(A2C)</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
