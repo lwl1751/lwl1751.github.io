@@ -2,6 +2,28 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://lwl1751.github.io/2024/05/15/%E5%9F%BA%E4%BA%8E%E7%AD%96%E7%95%A5%E6%A2%AF%E5%BA%A6%E7%9A%84%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/</loc>
+    
+    <lastmod>2024-05-30T04:41:48.723Z</lastmod>
+    
+    <date>1715752691000</date>
+    <title>基于策略梯度的强化学习 | Wenliang Liang</title>
+    
+    <desc>强化学习可分为两大类： value-based method(DP,MC,TD) 通过价值函数求解最优策略，求解出来的策略是确定性的，虽然可以通过\(\epsilon\)-贪心策略来获取一定的随机性。要求动作空间离散。 policy-based method 适用场景：随机策略；动作空间连续。 优点：具有更好的收敛性质。 缺点：通常会收敛到局部最优而非全局最优；评估一个策略通常不够高效并且具有较大</desc>
+  </url>
+  
+  <url>
+    <loc>https://lwl1751.github.io/2024/05/15/%E5%A4%9A%E6%A8%A1%E6%80%81%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E5%BA%94%E7%94%A8/</loc>
+    
+    <lastmod>2024-05-30T04:40:53.439Z</lastmod>
+    
+    <date>1715758324000</date>
+    <title>多模态知识图谱应用 | Wenliang Liang</title>
+    
+    <desc>相比于单模态知识图谱，多模态知识图谱能够综合多种类型的数据，从而可以让智能体更深入的感知和理解真实的数据场景，因而多模态知识图谱在各个领域都有广泛的应用。如图像检索、模型推理与生成、模型预训练等。以电子商务为例，通过多模态产品图谱，可以对产品进行更细致的表示，再通过预训练，可以增强大型模型对电子商务领域的多模态知识理解，从而推动电子商务平台的发展。</desc>
+  </url>
+  
+  <url>
     <loc>https://lwl1751.github.io/2024/05/25/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E7%9F%A5%E8%AF%86%E5%88%86%E6%9E%90%E3%80%81%E8%90%83%E5%8F%96%E4%B8%8E%E5%A2%9E%E5%BC%BA/</loc>
     
     <lastmod>2024-05-30T04:36:36.489Z</lastmod>
@@ -57,17 +79,6 @@
   </url>
   
   <url>
-    <loc>https://lwl1751.github.io/2024/05/15/%E5%9F%BA%E4%BA%8E%E7%AD%96%E7%95%A5%E6%A2%AF%E5%BA%A6%E7%9A%84%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/</loc>
-    
-    <lastmod>2024-05-17T11:38:19.676Z</lastmod>
-    
-    <date>1715752691000</date>
-    <title>基于策略梯度的强化学习 | Wenliang Liang</title>
-    
-    <desc></desc>
-  </url>
-  
-  <url>
     <loc>https://lwl1751.github.io/2024/05/15/%E8%BF%9E%E7%BB%AD%E7%8A%B6%E6%80%81%E7%B3%BB%E7%BB%9F%E5%9F%BA%E4%BA%8E%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/</loc>
     
     <lastmod>2024-05-17T08:58:39.463Z</lastmod>
@@ -96,17 +107,6 @@
     
     <date>1715752741000</date>
     <title>强化学习基础知识 | Wenliang Liang</title>
-    
-    <desc></desc>
-  </url>
-  
-  <url>
-    <loc>https://lwl1751.github.io/2024/05/15/%E5%A4%9A%E6%A8%A1%E6%80%81%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E5%BA%94%E7%94%A8/</loc>
-    
-    <lastmod>2024-05-15T16:52:17.924Z</lastmod>
-    
-    <date>1715758324000</date>
-    <title>多模态知识图谱应用 | Wenliang Liang</title>
     
     <desc></desc>
   </url>

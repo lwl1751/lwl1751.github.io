@@ -28,7 +28,7 @@
 <meta property="og:description" content="强化学习可分为两大类：  value-based method(DP,MC,TD) 通过价值函数求解最优策略，求解出来的策略是确定性的，虽然可以通过\(\epsilon\)-贪心策略来获取一定的随机性。要求动作空间离散。 policy-based method 适用场景：随机策略；动作空间连续。 优点：具有更好的收敛性质。 缺点：通常会收敛到局部最优而非全局最优；评估一个策略通常不够高效并且具有较">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2024-05-15T05:58:11.000Z">
-<meta property="article:modified_time" content="2024-05-17T11:38:19.676Z">
+<meta property="article:modified_time" content="2024-05-30T04:41:48.723Z">
 <meta property="article:author" content="Wenliang Liang">
 <meta property="article:tag" content="强化学习">
 <meta name="twitter:card" content="summary">
@@ -187,7 +187,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2024-05-17 19:38:19" itemprop="dateModified" datetime="2024-05-17T19:38:19+08:00">2024-05-17</time>
+                <time title="Modified: 2024-05-30 12:41:48" itemprop="dateModified" datetime="2024-05-30T12:41:48+08:00">2024-05-30</time>
               </span>
 
           
@@ -218,6 +218,7 @@ class="math inline">\(\epsilon\)</span>-贪心策略来获取一定的随机性�
 <p>优点：具有更好的收敛性质。</p>
 <p>缺点：通常会收敛到局部最优而非全局最优；评估一个策略通常不够高效并且具有较大的方差。</p></li>
 </ul>
+<span id="more"></span>
 <h2 id="基本原理">1.基本原理</h2>
 <p>由于策略实际上是一个概率分布，可以将策略参数化 <span
 class="math inline">\(\pi(a|s,\theta)\)</span> ，其中<span
@@ -527,6 +528,59 @@ class="uri">https://www.bilibili.com/video/BV1Sq4y1q7sw/?spm_id_from=333.337.sea
   
 
   
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 
