@@ -28,7 +28,7 @@
 <meta property="og:description" content="强化学习可分为两大类：  value-based method(DP,MC,TD) 通过价值函数求解最优策略，求解出来的策略是确定性的，虽然可以通过\(\epsilon\)-贪心策略来获取一定的随机性。要求动作空间离散。 policy-based method 适用场景：随机策略；动作空间连续。 优点：具有更好的收敛性质。 缺点：通常会收敛到局部最优而非全局最优；评估一个策略通常不够高效并且具有较">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2024-05-15T05:58:11.000Z">
-<meta property="article:modified_time" content="2024-05-30T04:41:48.723Z">
+<meta property="article:modified_time" content="2024-05-30T06:32:53.249Z">
 <meta property="article:author" content="Wenliang Liang">
 <meta property="article:tag" content="强化学习">
 <meta name="twitter:card" content="summary">
@@ -187,7 +187,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2024-05-30 12:41:48" itemprop="dateModified" datetime="2024-05-30T12:41:48+08:00">2024-05-30</time>
+                <time title="Modified: 2024-05-30 14:32:53" itemprop="dateModified" datetime="2024-05-30T14:32:53+08:00">2024-05-30</time>
               </span>
 
           
@@ -534,6 +534,7 @@ class="uri">https://www.bilibili.com/video/BV1Sq4y1q7sw/?spm_id_from=333.337.sea
   if (typeof MathJax === 'undefined') {
     window.MathJax = {
       loader: {
+          load: ['[tex]/mhchem'],
         source: {
           '[tex]/amsCd': '[tex]/amscd',
           '[tex]/AMScd': '[tex]/amscd'
@@ -541,6 +542,7 @@ class="uri">https://www.bilibili.com/video/BV1Sq4y1q7sw/?spm_id_from=333.337.sea
       },
       tex: {
         inlineMath: {'[+]': [['$', '$']]},
+          packages: {'[+]': ['mhchem']},
         tags: 'ams'
       },
       options: {
