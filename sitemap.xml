@@ -2,6 +2,83 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://lwl1751.github.io/2024/05/12/how-to-build-up-a-blog/</loc>
+    
+    <lastmod>2024-05-30T06:25:01.406Z</lastmod>
+    
+    <date>1715504622000</date>
+    <title>how to build up a blog | Wenliang Liang</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
+    <loc>https://lwl1751.github.io/2024/05/15/%E7%9F%A5%E8%AF%86%E8%8E%B7%E5%8F%96/</loc>
+    
+    <lastmod>2024-05-30T06:24:41.619Z</lastmod>
+    
+    <date>1715754676000</date>
+    <title>知识获取 | Wenliang Liang</title>
+    
+    <desc>信息抽取：从自然语言文本中抽取指定类型的实体、关系、事件等事实信息，并形成结构化数据输出的文本处理技术。</desc>
+  </url>
+  
+  <url>
+    <loc>https://lwl1751.github.io/2024/05/15/%E6%97%A0%E6%A8%A1%E5%9E%8B%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/</loc>
+    
+    <lastmod>2024-05-30T06:24:22.485Z</lastmod>
+    
+    <date>1715752657000</date>
+    <title>无模型强化学习 | Wenliang Liang</title>
+    
+    <desc>知识点 1.无模型价值学习评估 蒙特卡洛方法 时序差分学习 TD(𝝀) 2.无模型策略优化控制 蒙特卡洛策略迭代 时序差分策略迭代（SARSA） Q值迭代 (Q-learning)</desc>
+  </url>
+  
+  <url>
+    <loc>https://lwl1751.github.io/2024/05/15/%E6%90%9C%E7%B4%A2/</loc>
+    
+    <lastmod>2024-05-30T06:24:05.503Z</lastmod>
+    
+    <date>1715752902000</date>
+    <title>搜索 | Wenliang Liang</title>
+    
+    <desc>知识点： 经典搜索算法：基于路径的搜索的问题。如盲目搜索，启发式搜索。 局部搜索算法：最优化问题，没有初始状态，也没有终止状；并不需要到达这些解的路径。如爬山法，元启发算法。 元启发式算法是启发式算法的改进，它是随机算法与局部搜索算法相结合的产物。如禁忌搜索算法(Tabu Search)，模拟退火算法(Simulated annealing)，遗传算法(Geneticalgorithm)。 对抗搜</desc>
+  </url>
+  
+  <url>
+    <loc>https://lwl1751.github.io/2024/05/15/%E6%B7%B1%E5%BA%A6%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/</loc>
+    
+    <lastmod>2024-05-30T06:23:53.141Z</lastmod>
+    
+    <date>1715752874000</date>
+    <title>深度强化学习 | Wenliang Liang</title>
+    
+    <desc>强化学习从深度学习角度出发的挑战： 强化学习的奖励信号是有延迟的，而深度学习的输入输出是直接联系的 强化学习的序贯决策序列有很高的相关性，而深度学习的假设数据是独立同分布 强化学习的数据分布是会随着学习发生变化的，而深度学习的假设是底层分布固定的</desc>
+  </url>
+  
+  <url>
+    <loc>https://lwl1751.github.io/2024/05/15/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</loc>
+    
+    <lastmod>2024-05-30T06:23:40.116Z</lastmod>
+    
+    <date>1715752741000</date>
+    <title>强化学习基础知识 | Wenliang Liang</title>
+    
+    <desc>知识点：马尔科夫决策过程，动态规划。</desc>
+  </url>
+  
+  <url>
+    <loc>https://lwl1751.github.io/2024/05/15/%E8%BF%9E%E7%BB%AD%E7%8A%B6%E6%80%81%E7%B3%BB%E7%BB%9F%E5%9F%BA%E4%BA%8E%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/</loc>
+    
+    <lastmod>2024-05-30T06:23:26.163Z</lastmod>
+    
+    <date>1715752850000</date>
+    <title>连续状态系统基于模型的强化学习 | Wenliang Liang</title>
+    
+    <desc>对于大规模的MDP问题，不希望使用查表（Table Lookup）的方式，通过函数近似来估计实际的价值函数的方式，既节约了资源，又能达到泛化的效果。 \(\hat{v}(s,w) = v_\pi (s)\) \(\hat{q}(s,a,w) = q_\pi (s,a)\) \(\hat{\pi}(a,s,w) = \pi (a|s)\) 函数近似器 特征的线性组合 神经网络 决策树 最近邻方法 傅</desc>
+  </url>
+  
+  <url>
     <loc>https://lwl1751.github.io/2024/05/15/%E5%A4%9A%E6%A8%A1%E6%80%81%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E5%BA%94%E7%94%A8/</loc>
     
     <lastmod>2024-05-30T06:00:40.725Z</lastmod>
@@ -41,72 +118,6 @@
     
     <date>1717000411000</date>
     <title>tags | Wenliang Liang</title>
-    
-    <desc></desc>
-  </url>
-  
-  <url>
-    <loc>https://lwl1751.github.io/2024/05/15/%E6%90%9C%E7%B4%A2/</loc>
-    
-    <lastmod>2024-05-20T12:06:09.380Z</lastmod>
-    
-    <date>1715752902000</date>
-    <title>搜索 | Wenliang Liang</title>
-    
-    <desc></desc>
-  </url>
-  
-  <url>
-    <loc>https://lwl1751.github.io/2024/05/15/%E7%9F%A5%E8%AF%86%E8%8E%B7%E5%8F%96/</loc>
-    
-    <lastmod>2024-05-20T06:22:25.596Z</lastmod>
-    
-    <date>1715754676000</date>
-    <title>知识获取 | Wenliang Liang</title>
-    
-    <desc></desc>
-  </url>
-  
-  <url>
-    <loc>https://lwl1751.github.io/2024/05/15/%E6%B7%B1%E5%BA%A6%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/</loc>
-    
-    <lastmod>2024-05-17T13:03:37.751Z</lastmod>
-    
-    <date>1715752874000</date>
-    <title>深度强化学习 | Wenliang Liang</title>
-    
-    <desc></desc>
-  </url>
-  
-  <url>
-    <loc>https://lwl1751.github.io/2024/05/15/%E8%BF%9E%E7%BB%AD%E7%8A%B6%E6%80%81%E7%B3%BB%E7%BB%9F%E5%9F%BA%E4%BA%8E%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/</loc>
-    
-    <lastmod>2024-05-17T08:58:39.463Z</lastmod>
-    
-    <date>1715752850000</date>
-    <title>连续状态系统基于模型的强化学习 | Wenliang Liang</title>
-    
-    <desc></desc>
-  </url>
-  
-  <url>
-    <loc>https://lwl1751.github.io/2024/05/15/%E6%97%A0%E6%A8%A1%E5%9E%8B%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/</loc>
-    
-    <lastmod>2024-05-16T11:18:39.843Z</lastmod>
-    
-    <date>1715752657000</date>
-    <title>无模型强化学习 | Wenliang Liang</title>
-    
-    <desc></desc>
-  </url>
-  
-  <url>
-    <loc>https://lwl1751.github.io/2024/05/15/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</loc>
-    
-    <lastmod>2024-05-16T10:28:29.194Z</lastmod>
-    
-    <date>1715752741000</date>
-    <title>强化学习基础知识 | Wenliang Liang</title>
     
     <desc></desc>
   </url>
@@ -173,17 +184,6 @@
     
     <date>1715752943000</date>
     <title>知识计算 | Wenliang Liang</title>
-    
-    <desc></desc>
-  </url>
-  
-  <url>
-    <loc>https://lwl1751.github.io/2024/05/12/how-to-build-up-a-blog/</loc>
-    
-    <lastmod>2024-05-12T12:03:52.520Z</lastmod>
-    
-    <date>1715504622000</date>
-    <title>how to build up a blog | Wenliang Liang</title>
     
     <desc></desc>
   </url>
