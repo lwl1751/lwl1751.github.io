@@ -27,11 +27,14 @@
 <meta property="og:site_name" content="Wenliang Liang">
 <meta property="og:description" content="对于大规模的MDP问题，不希望使用查表（Table Lookup）的方式，通过函数近似来估计实际的价值函数的方式，既节约了资源，又能达到泛化的效果。  \(\hat{v}(s,w) &#x3D; v_\pi (s)\) \(\hat{q}(s,a,w) &#x3D; q_\pi (s,a)\) \(\hat{\pi}(a,s,w) &#x3D; \pi (a|s)\)  函数近似器  特征的线性组合 神经网络 决策树 最近邻">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E5%80%BC%E5%87%BD%E6%95%B0%E8%BF%91%E4%BC%BC2.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E5%80%BC%E5%87%BD%E6%95%B0%E8%BF%91%E4%BC%BC1.png">
 <meta property="article:published_time" content="2024-05-15T06:00:50.000Z">
 <meta property="article:modified_time" content="2024-05-30T06:23:26.163Z">
 <meta property="article:author" content="Wenliang Liang">
 <meta property="article:tag" content="强化学习">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E5%80%BC%E5%87%BD%E6%95%B0%E8%BF%91%E4%BC%BC2.png">
 
 <link rel="canonical" href="https://lwl1751.github.io/2024/05/15/%E8%BF%9E%E7%BB%AD%E7%8A%B6%E6%80%81%E7%B3%BB%E7%BB%9F%E5%9F%BA%E4%BA%8E%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/">
 
@@ -231,22 +234,16 @@ Lookup）的方式，通过<strong>函数近似</strong>来估计实际的价值
 Value Fuction Approximation, VFA</h2>
 <p>近似函数逼近的类型：</p>
 <ul>
-<li>input: s, output: <span
-class="math inline">\(\hat{v}(s,w)\)</span></li>
-<li>input: s, output: <span
-class="math inline">\(\hat{q}(s,a,w)\)</span></li>
-<li>input: s, output: <span
-class="math inline">\(\hat{q}(s,a_1,w),\dots,\hat{q}(s,a_m,w)\)</span></li>
+<li>input: s, output: <span class="math inline">\(\hat{v}(s,w)\)</span></li>
+<li>input: s, output: <span class="math inline">\(\hat{q}(s,a,w)\)</span></li>
+<li>input: s, output: <span class="math inline">\(\hat{q}(s,a_1,w),\dots,\hat{q}(s,a_m,w)\)</span></li>
 </ul>
 <h3 id="线性函数近似">1.1 线性函数近似</h3>
-<p>近似价值函数: <span
-class="math inline">\(\hat{v}(s,w)=x(s)^Tw\)</span></p>
+<p>近似价值函数: <span class="math inline">\(\hat{v}(s,w)=x(s)^Tw\)</span></p>
 <p>目标函数:
 均方误差。由于实际的价值函数不可知，用样本近似期望损失。</p>
 <figure>
-<img
-src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/值函数近似2.png"
-alt="图片" />
+<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/值函数近似2.png" alt="图片">
 <figcaption aria-hidden="true">图片</figcaption>
 </figure>
 <h3 id="神经网络值函数近似">1.2 神经网络值函数近似</h3>
@@ -255,9 +252,7 @@ alt="图片" />
 <h3 id="模型无关的近似值迭代算法">1.4 模型无关的近似值迭代算法</h3>
 <h2 id="近似策略迭代">2. 近似策略迭代</h2>
 <figure>
-<img
-src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/值函数近似1.png"
-alt="图片" />
+<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/值函数近似1.png" alt="图片">
 <figcaption aria-hidden="true">图片</figcaption>
 </figure>
 <p><strong>参考资料</strong>：</p>
@@ -265,9 +260,7 @@ alt="图片" />
 <p>深度强化学习：基础、研究与应用 (董豪 等)</p>
 <p>Reinforcement Learning An Introduction (Adaptive Computation and
 Machine Learning series) (Sutton, Richard S., Barto, Andrew G.)</p>
-<p><a
-target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV11V411f7bi/?spm_id_from=333.337.search-card.all.click&amp;vd_source=514a3ed3ac370caf4facad7d6f4e1a2d"
-class="uri">https://www.bilibili.com/video/BV11V411f7bi/?spm_id_from=333.337.search-card.all.click&amp;vd_source=514a3ed3ac370caf4facad7d6f4e1a2d</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV11V411f7bi/?spm_id_from=333.337.search-card.all.click&amp;vd_source=514a3ed3ac370caf4facad7d6f4e1a2d" class="uri">https://www.bilibili.com/video/BV11V411f7bi/?spm_id_from=333.337.search-card.all.click&amp;vd_source=514a3ed3ac370caf4facad7d6f4e1a2d</a></p>
 
     </div>
 

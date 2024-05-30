@@ -246,12 +246,9 @@ h。其中，g为一致代价，h为启发式函数，指的是结点n到目标�
 </ul>
 <blockquote>
 <p><strong>A* 算法:</strong></p>
-<p><strong>可采纳启发式</strong>：永远不会高估代价，即<span
-class="math inline">\(h(n)\le h^*(n)\)</span>，且要求<span
-class="math inline">\(h(n)\ge 0\)</span>。</p>
+<p><strong>可采纳启发式</strong>：永远不会高估代价，即<span class="math inline">\(h(n)\le h^*(n)\)</span>，且要求<span class="math inline">\(h(n)\ge 0\)</span>。</p>
 <p>定理：如果h(n)是可采纳的，A*的树搜索版本是最优的。</p>
-<p><strong>一致的启发式</strong>：对于每个结点n和通过任一行动a生成的后继结点n'，从结点n到达目标的估计代价不大于从n到n'的单步代价与从n到目标的估计代价之和，即<span
-class="math inline">\(h(n)\le c(n,a,n&#39;) +
+<p><strong>一致的启发式</strong>：对于每个结点n和通过任一行动a生成的后继结点n'，从结点n到达目标的估计代价不大于从n到n'的单步代价与从n到目标的估计代价之和，即<span class="math inline">\(h(n)\le c(n,a,n&#39;) +
 h(n&#39;)\)</span>。如果h(n)是一致的，那么沿着任何路径的f(n)是非递减的。</p>
 <p>定理：如果h(n)是一致的，那么A*的图搜索版本是最优的。</p>
 <p>松弛问题：对原问题移除一些限制，一个松弛问题的最优解的代价是原问题的一个可采纳、一致的启发式。</p>
@@ -265,28 +262,23 @@ h(n&#39;)\)</span>。如果h(n)是一致的，那么沿着任何路径的f(n)是
 <p>从一个初始可行解出发，选择一系列的特定搜索方向（移动）作为试探，选择实现让特定的<strong>目标函数值变化最多</strong>的移动。</p>
 <p>为了避免陷入局部最优解，TS搜索中采用了一种灵活的“记忆”技术，对已经进行的优化过程进行记录和选择，指导下一步的搜索方向，这就是Tabu表的建立。</p>
 <p>标记已经解得的局部最优解或求解过程，并在进一步的迭代中避开这些局部最优解或求解过程。局部搜索的缺点在于，太过于对某一局部区域以及其邻域的搜索，导致一叶障目。为了找到全局最优解，<strong>禁忌搜索就是对于找到的一部分局部最优解，有意识地避开它，从而或得更多的搜索区域。</strong></p>
-<div
-style="display: flex; justify-content: center; align-items: center;">
+<div style="display: flex; justify-content: center; align-items: center;">
 <pre><code>&lt;img src=&quot;https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/禁忌搜索2.png&quot; alt=&quot;图片2&quot; style=&quot;width:300px; height:auto; margin-right: 2px;&quot;&gt;
 &lt;img src=&quot;https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/禁忌搜索3.png&quot; alt=&quot;图片3&quot; style=&quot;width:300px; height:auto;&quot;&gt;</code></pre>
 </div>
-<div
-style="display: flex; justify-content: center; align-items: center;">
+<div style="display: flex; justify-content: center; align-items: center;">
 <pre><code>&lt;img src=&quot;https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/禁忌搜索4.png&quot; alt=&quot;图片4&quot; style=&quot;width:300px; height:auto; margin-right: 2px;&quot;&gt;
 &lt;img src=&quot;https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/禁忌搜索5.png&quot; alt=&quot;图片2&quot; style=&quot;width:300px; height:auto;&quot;&gt;</code></pre>
 </div>
 <h3 id="模拟退火算法">4.3 模拟退火算法</h3>
 <p>算法概述：</p>
 <ul>
-<li>若目标函数f在第i+1步移动后比第i步更优，即<span
-class="math inline">\(f(Y(i+1))\le
+<li>若目标函数f在第i+1步移动后比第i步更优，即<span class="math inline">\(f(Y(i+1))\le
 f(Y(i))\)</span>，则总是接受该移动。</li>
-<li>若<span
-class="math inline">\(f(Y(i+1))&gt;f(Y(i))\)</span>，（即移动后的解比当前解要差），则以一定的概率接受移动，而且这个概率随着时间推移逐渐降低（逐渐降低才能趋向稳定）。</li>
+<li>若<span class="math inline">\(f(Y(i+1))&gt;f(Y(i))\)</span>，（即移动后的解比当前解要差），则以一定的概率接受移动，而且这个概率随着时间推移逐渐降低（逐渐降低才能趋向稳定）。</li>
 <li>Metroplis准则：温度越高，算法接受新解的概率就越高。</li>
 </ul>
-<div
-style="display: flex; justify-content: center; align-items: center;">
+<div style="display: flex; justify-content: center; align-items: center;">
 <pre><code>&lt;img src=&quot;https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/模拟退火1.png&quot; alt=&quot;图片1&quot; style=&quot;width:300px; height:auto; margin-right: 2px;&quot;&gt;
 &lt;img src=&quot;https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/模拟退火2.png&quot; alt=&quot;图片2&quot; style=&quot;width:300px; height:auto;&quot;&gt;</code></pre>
 </div>
@@ -307,8 +299,7 @@ style="display: flex; justify-content: center; align-items: center;">
 <p>适应度函数：</p>
 <ul>
 <li>原始适应度函数，直接将待求解问题的目标函数f(x)定义为遗传算法的适应度函数。它能够直接反映出待求解问题的最初求解目标但是有可能出现适应度值为负的情况。</li>
-<li>标准适应度函数。在遗传算法中，一般要求适应度函数非负，并其适应度值越大越好。这就往往需要对原始适应函数进行某种变换，将其转换为标准的度量方式，以满足进化操作的要求，这样所得到的适应度函数被称为标准适应度函数<span
-class="math inline">\(f_{Normal}(x)\)</span></li>
+<li>标准适应度函数。在遗传算法中，一般要求适应度函数非负，并其适应度值越大越好。这就往往需要对原始适应函数进行某种变换，将其转换为标准的度量方式，以满足进化操作的要求，这样所得到的适应度函数被称为标准适应度函数<span class="math inline">\(f_{Normal}(x)\)</span></li>
 </ul>
 <p>选择：各个个体被选中的概率与其适应度大小成正比</p>
 <ul>
@@ -337,8 +328,7 @@ class="math inline">\(f_{Normal}(x)\)</span></li>
 <h2 id="对抗搜索">5.对抗搜索</h2>
 <h3 id="alpha-beta算法">5.1 Alpha-Beta算法</h3>
 <p>对mini-max算法的改进。剪枝本身不影响算法输出结果，但节点先后次序会影响剪枝效率。</p>
-<div
-style="display: flex; justify-content: center; align-items: center;">
+<div style="display: flex; justify-content: center; align-items: center;">
 <pre><code>&lt;img src=&quot;https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/Alpha-Beta 剪枝1.png&quot; alt=&quot;图片1&quot; style=&quot;width:300px; height:auto; margin-right: 2px;&quot;&gt;
 &lt;img src=&quot;https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/Alpha-Beta 剪枝2.png&quot; alt=&quot;图片2&quot; style=&quot;width:300px; height:auto;&quot;&gt;</code></pre>
 </div>
