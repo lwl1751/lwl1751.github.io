@@ -2,25 +2,47 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://lwl1751.github.io/2024/05/15/%E5%9F%BA%E4%BA%8E%E7%AD%96%E7%95%A5%E6%A2%AF%E5%BA%A6%E7%9A%84%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/</loc>
+    <loc>https://lwl1751.github.io/2024/05/15/%E6%97%A0%E6%A8%A1%E5%9E%8B%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/</loc>
     
-    <lastmod>2024-05-30T08:51:26.517Z</lastmod>
+    <lastmod>2024-05-30T09:07:38.722Z</lastmod>
     
-    <date>1715752691000</date>
-    <title>基于策略梯度的强化学习 | Wenliang Liang</title>
+    <date>1715752657000</date>
+    <title>无模型强化学习 | Wenliang Liang</title>
     
-    <desc>强化学习可分为两大类： value-based method(DP,MC,TD) 通过价值函数求解最优策略，求解出来的策略是确定性的，虽然可以通过\(\epsilon\)-贪心策略来获取一定的随机性。要求动作空间离散。 policy-based method 适用场景：随机策略；动作空间连续。 优点：具有更好的收敛性质。 缺点：通常会收敛到局部最优而非全局最优；评估一个策略通常不够高效并且具有较大</desc>
+    <desc>知识点 1.无模型价值学习评估 蒙特卡洛方法 时序差分学习 TD(𝝀) 2.无模型策略优化控制 蒙特卡洛策略迭代 时序差分策略迭代（SARSA） Q值迭代 (Q-learning)</desc>
   </url>
   
   <url>
     <loc>https://lwl1751.github.io/2024/05/15/%E6%90%9C%E7%B4%A2/</loc>
     
-    <lastmod>2024-05-30T07:07:12.279Z</lastmod>
+    <lastmod>2024-05-30T09:05:14.128Z</lastmod>
     
     <date>1715752902000</date>
     <title>搜索 | Wenliang Liang</title>
     
     <desc>知识点： 经典搜索算法：基于路径的搜索的问题。如盲目搜索，启发式搜索。 局部搜索算法：最优化问题，没有初始状态，也没有终止状；并不需要到达这些解的路径。如爬山法，元启发算法。 元启发式算法是启发式算法的改进，它是随机算法与局部搜索算法相结合的产物。如禁忌搜索算法(Tabu Search)，模拟退火算法(Simulated annealing)，遗传算法(Geneticalgorithm)。 对抗搜</desc>
+  </url>
+  
+  <url>
+    <loc>https://lwl1751.github.io/2024/05/15/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</loc>
+    
+    <lastmod>2024-05-30T09:00:54.762Z</lastmod>
+    
+    <date>1715752741000</date>
+    <title>强化学习基础知识 | Wenliang Liang</title>
+    
+    <desc>知识点：马尔科夫决策过程，动态规划。</desc>
+  </url>
+  
+  <url>
+    <loc>https://lwl1751.github.io/2024/05/15/%E5%9F%BA%E4%BA%8E%E7%AD%96%E7%95%A5%E6%A2%AF%E5%BA%A6%E7%9A%84%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/</loc>
+    
+    <lastmod>2024-05-30T08:58:57.038Z</lastmod>
+    
+    <date>1715752691000</date>
+    <title>基于策略梯度的强化学习 | Wenliang Liang</title>
+    
+    <desc>强化学习可分为两大类： value-based method(DP,MC,TD) 通过价值函数求解最优策略，求解出来的策略是确定性的，虽然可以通过\(\epsilon\)-贪心策略来获取一定的随机性。要求动作空间离散。 policy-based method 适用场景：随机策略；动作空间连续。 优点：具有更好的收敛性质。 缺点：通常会收敛到局部最优而非全局最优；评估一个策略通常不够高效并且具有较大</desc>
   </url>
   
   <url>
@@ -32,17 +54,6 @@
     <title>深度强化学习 | Wenliang Liang</title>
     
     <desc>强化学习从深度学习角度出发的挑战： 强化学习的奖励信号是有延迟的，而深度学习的输入输出是直接联系的 强化学习的序贯决策序列有很高的相关性，而深度学习的假设数据是独立同分布 强化学习的数据分布是会随着学习发生变化的，而深度学习的假设是底层分布固定的</desc>
-  </url>
-  
-  <url>
-    <loc>https://lwl1751.github.io/2024/05/15/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</loc>
-    
-    <lastmod>2024-05-30T07:06:46.901Z</lastmod>
-    
-    <date>1715752741000</date>
-    <title>强化学习基础知识 | Wenliang Liang</title>
-    
-    <desc>知识点：马尔科夫决策过程，动态规划。</desc>
   </url>
   
   <url>
@@ -87,17 +98,6 @@
     <title>知识获取 | Wenliang Liang</title>
     
     <desc>信息抽取：从自然语言文本中抽取指定类型的实体、关系、事件等事实信息，并形成结构化数据输出的文本处理技术。</desc>
-  </url>
-  
-  <url>
-    <loc>https://lwl1751.github.io/2024/05/15/%E6%97%A0%E6%A8%A1%E5%9E%8B%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/</loc>
-    
-    <lastmod>2024-05-30T06:24:22.485Z</lastmod>
-    
-    <date>1715752657000</date>
-    <title>无模型强化学习 | Wenliang Liang</title>
-    
-    <desc>知识点 1.无模型价值学习评估 蒙特卡洛方法 时序差分学习 TD(𝝀) 2.无模型策略优化控制 蒙特卡洛策略迭代 时序差分策略迭代（SARSA） Q值迭代 (Q-learning)</desc>
   </url>
   
   <url>
