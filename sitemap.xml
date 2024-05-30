@@ -2,6 +2,17 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://lwl1751.github.io/2024/05/15/%E6%B7%B1%E5%BA%A6%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/</loc>
+    
+    <lastmod>2024-05-30T15:43:38.310Z</lastmod>
+    
+    <date>1715752874000</date>
+    <title>深度强化学习 | Wenliang Liang</title>
+    
+    <desc>强化学习从深度学习角度出发的挑战： 强化学习的奖励信号是有延迟的，而深度学习的输入输出是直接联系的 强化学习的序贯决策序列有很高的相关性，而深度学习的假设数据是独立同分布 强化学习的数据分布是会随着学习发生变化的，而深度学习的假设是底层分布固定的</desc>
+  </url>
+  
+  <url>
     <loc>https://lwl1751.github.io/2024/05/15/%E5%9F%BA%E4%BA%8E%E7%AD%96%E7%95%A5%E6%A2%AF%E5%BA%A6%E7%9A%84%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/</loc>
     
     <lastmod>2024-05-30T12:21:28.527Z</lastmod>
@@ -43,17 +54,6 @@
     <title>强化学习基础知识 | Wenliang Liang</title>
     
     <desc>知识点：马尔科夫决策过程，动态规划。</desc>
-  </url>
-  
-  <url>
-    <loc>https://lwl1751.github.io/2024/05/15/%E6%B7%B1%E5%BA%A6%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/</loc>
-    
-    <lastmod>2024-05-30T07:06:57.932Z</lastmod>
-    
-    <date>1715752874000</date>
-    <title>深度强化学习 | Wenliang Liang</title>
-    
-    <desc>强化学习从深度学习角度出发的挑战： 强化学习的奖励信号是有延迟的，而深度学习的输入输出是直接联系的 强化学习的序贯决策序列有很高的相关性，而深度学习的假设数据是独立同分布 强化学习的数据分布是会随着学习发生变化的，而深度学习的假设是底层分布固定的</desc>
   </url>
   
   <url>
