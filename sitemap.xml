@@ -2,6 +2,17 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://lwl1751.github.io/2024/05/15/%E5%9F%BA%E4%BA%8E%E7%AD%96%E7%95%A5%E6%A2%AF%E5%BA%A6%E7%9A%84%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/</loc>
+    
+    <lastmod>2024-05-30T12:21:28.527Z</lastmod>
+    
+    <date>1715752691000</date>
+    <title>基于策略梯度的强化学习 | Wenliang Liang</title>
+    
+    <desc>强化学习可分为两大类： value-based method(DP,MC,TD) 通过价值函数求解最优策略，求解出来的策略是确定性的，虽然可以通过\(\epsilon\)-贪心策略来获取一定的随机性。要求动作空间离散。 policy-based method 适用场景：随机策略；动作空间连续。 优点：具有更好的收敛性质。 缺点：通常会收敛到局部最优而非全局最优；评估一个策略通常不够高效并且具有较大</desc>
+  </url>
+  
+  <url>
     <loc>https://lwl1751.github.io/2024/05/15/%E6%97%A0%E6%A8%A1%E5%9E%8B%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/</loc>
     
     <lastmod>2024-05-30T12:01:26.698Z</lastmod>
@@ -32,17 +43,6 @@
     <title>强化学习基础知识 | Wenliang Liang</title>
     
     <desc>知识点：马尔科夫决策过程，动态规划。</desc>
-  </url>
-  
-  <url>
-    <loc>https://lwl1751.github.io/2024/05/15/%E5%9F%BA%E4%BA%8E%E7%AD%96%E7%95%A5%E6%A2%AF%E5%BA%A6%E7%9A%84%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/</loc>
-    
-    <lastmod>2024-05-30T08:58:57.038Z</lastmod>
-    
-    <date>1715752691000</date>
-    <title>基于策略梯度的强化学习 | Wenliang Liang</title>
-    
-    <desc>强化学习可分为两大类： value-based method(DP,MC,TD) 通过价值函数求解最优策略，求解出来的策略是确定性的，虽然可以通过\(\epsilon\)-贪心策略来获取一定的随机性。要求动作空间离散。 policy-based method 适用场景：随机策略；动作空间连续。 优点：具有更好的收敛性质。 缺点：通常会收敛到局部最优而非全局最优；评估一个策略通常不够高效并且具有较大</desc>
   </url>
   
   <url>
