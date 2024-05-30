@@ -2,23 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://lwl1751.github.io/2024/05/25/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E7%9F%A5%E8%AF%86%E5%88%86%E6%9E%90%E3%80%81%E8%90%83%E5%8F%96%E4%B8%8E%E5%A2%9E%E5%BC%BA/</loc>
+    
+    <lastmod>2024-05-30T04:36:36.489Z</lastmod>
+    
+    <date>1716642890000</date>
+    <title>大模型知识分析、萃取与增强 | Wenliang Liang</title>
+    
+    <desc>大模型中蕴含着大量的知识，但是知识的类型、数量和质量并不可控。 知识分析实验表明，大模型自发学到了一些世界知识、常识知识，这些知识隐式地存储于模型参数中。 课程考试复习使用。</desc>
+  </url>
+  
+  <url>
     <loc>https://lwl1751.github.io/tags/index.html</loc>
     
     <lastmod>2024-05-29T16:34:38.198Z</lastmod>
     
     <date>1717000411000</date>
     <title>tags | Wenliang Liang</title>
-    
-    <desc></desc>
-  </url>
-  
-  <url>
-    <loc>https://lwl1751.github.io/2024/05/25/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E7%9F%A5%E8%AF%86%E5%88%86%E6%9E%90%E3%80%81%E8%90%83%E5%8F%96%E4%B8%8E%E5%A2%9E%E5%BC%BA/</loc>
-    
-    <lastmod>2024-05-25T13:19:05.380Z</lastmod>
-    
-    <date>1716642890000</date>
-    <title>大模型知识分析、萃取与增强 | Wenliang Liang</title>
     
     <desc></desc>
   </url>
