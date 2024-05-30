@@ -2,6 +2,17 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://lwl1751.github.io/2024/05/15/%E5%9F%BA%E4%BA%8E%E7%AD%96%E7%95%A5%E6%A2%AF%E5%BA%A6%E7%9A%84%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/</loc>
+    
+    <lastmod>2024-05-30T08:51:26.517Z</lastmod>
+    
+    <date>1715752691000</date>
+    <title>基于策略梯度的强化学习 | Wenliang Liang</title>
+    
+    <desc>强化学习可分为两大类： value-based method(DP,MC,TD) 通过价值函数求解最优策略，求解出来的策略是确定性的，虽然可以通过\(\epsilon\)-贪心策略来获取一定的随机性。要求动作空间离散。 policy-based method 适用场景：随机策略；动作空间连续。 优点：具有更好的收敛性质。 缺点：通常会收敛到局部最优而非全局最优；评估一个策略通常不够高效并且具有较大</desc>
+  </url>
+  
+  <url>
     <loc>https://lwl1751.github.io/2024/05/15/%E6%90%9C%E7%B4%A2/</loc>
     
     <lastmod>2024-05-30T07:07:12.279Z</lastmod>
@@ -43,17 +54,6 @@
     <title>连续状态系统基于模型的强化学习 | Wenliang Liang</title>
     
     <desc>对于大规模的MDP问题，不希望使用查表（Table Lookup）的方式，通过函数近似来估计实际的价值函数的方式，既节约了资源，又能达到泛化的效果。 \(\hat{v}(s,w) = v_\pi (s)\) \(\hat{q}(s,a,w) = q_\pi (s,a)\) \(\hat{\pi}(a,s,w) = \pi (a|s)\) 函数近似器 特征的线性组合 神经网络 决策树 最近邻方法 傅</desc>
-  </url>
-  
-  <url>
-    <loc>https://lwl1751.github.io/2024/05/15/%E5%9F%BA%E4%BA%8E%E7%AD%96%E7%95%A5%E6%A2%AF%E5%BA%A6%E7%9A%84%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/</loc>
-    
-    <lastmod>2024-05-30T06:32:53.249Z</lastmod>
-    
-    <date>1715752691000</date>
-    <title>基于策略梯度的强化学习 | Wenliang Liang</title>
-    
-    <desc>强化学习可分为两大类： value-based method(DP,MC,TD) 通过价值函数求解最优策略，求解出来的策略是确定性的，虽然可以通过\(\epsilon\)-贪心策略来获取一定的随机性。要求动作空间离散。 policy-based method 适用场景：随机策略；动作空间连续。 优点：具有更好的收敛性质。 缺点：通常会收敛到局部最优而非全局最优；评估一个策略通常不够高效并且具有较大</desc>
   </url>
   
   <url>
