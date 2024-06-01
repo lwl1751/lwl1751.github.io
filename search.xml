@@ -995,4 +995,113 @@ j}=\sum_{k=1}^{m} \Delta \tau_{i j}^{k}\end{array}\]</span></p>
         <tag>高级人工智能</tag>
       </tags>
   </entry>
+  <entry>
+    <title>数值化知识表示</title>
+    <url>/2024/06/01/%E6%95%B0%E5%80%BC%E5%8C%96%E7%9F%A5%E8%AF%86%E8%A1%A8%E7%A4%BA/</url>
+    <content><![CDATA[
+]]></content>
+      <tags>
+        <tag>知识工程</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>符号化知识表示</title>
+    <url>/2024/06/01/%E7%AC%A6%E5%8F%B7%E5%8C%96%E7%9F%A5%E8%AF%86%E8%A1%A8%E7%A4%BA/</url>
+    <content><![CDATA[<blockquote>
+<p>四种知识建模方式：严格结构化符号表示，松散结构化/自由形式
+符号表示，数值化表示，数值与符号融合表示。</p>
+<p>表示方法的衡量：表达能力、推理能力、计算能力、可读性。</p>
+<p>目前的语义网革命并不是在科学上有革命性的突破，而大部分是工程上的挑战，其中标准化、规模化、系统开发与集成、用户交互等都是语义网技术面临的挑战。</p>
+<p>课程复习使用。</p>
+</blockquote>
+<h2 id="一.-经典知识表示理论">一. 经典知识表示理论</h2>
+<h3 id="产生式规则">1.1 产生式规则</h3>
+<ul>
+<li><p><strong>产生式规则</strong>：用于表示事物之间的因果关系。</p></li>
+<li><p><strong>确定性规则</strong>：P-&gt;Q。</p></li>
+<li><p><strong>不确定性规则</strong>：P-&gt;Q(置信度)。当事实与前提条件不能精确匹配时，按照置信度的要求模糊匹配，并按特定算法将不确定性传递到结论。</p></li>
+<li><p><strong>产生式系统</strong>：由数据库、规则库和推理机三部分组成。</p></li>
+</ul>
+<blockquote>
+<p>数据库：用来存放问题的初始状态、已知事实、推理的中间结果和最终结论等。</p>
+<p>规则库：用来存放与求解问题有关的所有规则。</p>
+<p>推理机：用来控制整个系统的运行，决定问题求解的线路，包括匹配、冲突消解、路径解释等。</p>
+<p>正向推理：类似于命题逻辑（查看<a href="https://lwl1751.github.io/2024/05/15/%E7%9F%A5%E8%AF%86%E8%AE%A1%E7%AE%97/">知识计算</a>）中的前向链接，从事实出发，通过规则获取结论。</p>
+<p>反向推理：类似于命题逻辑中的反向链接，从目标出发，反向使用规则，求得已知事实</p>
+</blockquote>
+<figure>
+<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/知识表示1.png" alt="图片">
+<figcaption aria-hidden="true">图片</figcaption>
+</figure>
+<h3 id="语义网络">1.2 语义网络</h3>
+<ul>
+<li><p><strong>语义网络</strong>：一种将相关概念联系起来的 有向图表示的
+知识系统。</p></li>
+<li><p><strong>语义基元</strong>：语义网络中最基本的语义单元，用三元组形式表示，&lt;节点1，关系，节点2&gt;。</p></li>
+<li><p><strong>语义网络系统</strong>：由知识库和推理机组成。</p></li>
+<li><p><strong>优点</strong>：使用直观的图结构来描述知识，表达自然，而且方便于计算机的存储和检索，有较为成熟的应用。</p></li>
+<li><p><strong>缺点</strong>：由于缺少形式化的语义定义，不同的语义网络之间难以互相操作，表示不完善。推理过程复杂。</p></li>
+</ul>
+<h3 id="框架">1.3 框架</h3>
+<p>框架是一种描述所论对象属性的数据结构。</p>
+<ul>
+<li><strong>框架名</strong>：用来指代某一类或某一个对象。</li>
+<li><strong>槽</strong>：用来表示对象的某个方面的属性，<strong>语义网络中的三元组也可看作槽结构</strong>。</li>
+<li><strong>侧面</strong>：从不同侧面描述某个属性。</li>
+<li><strong>值</strong>：槽/侧面的取值。</li>
+<li><strong>类型</strong>：类框架，实例框架。</li>
+<li><strong>层次结构</strong>：子类-subclass of-&gt;父类，示例-instance
+of-&gt;类。</li>
+<li><strong>推理</strong>：继承推理（下层框架继承上层框架的信息），匹配推理（安装条件进行推理）。</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/知识表示2.png" alt="图片"> <img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/知识表示3.png" alt="图片"></p>
+<h3 id="脚本">1.4 脚本</h3>
+<p>脚本与框架类似，由一组槽组成，用来表示特定领域内一些事件的发生序列。但脚本表示的知识有明确的时间或因果顺序，因此它描述的是一个<strong>过程</strong>而非静态知识。</p>
+<p>脚本的结构化表示包括：进入条件，角色，道具，场景，结果。</p>
+<h3 id="一阶谓词逻辑">1.5 一阶谓词逻辑</h3>
+<p>由于语义网络、框架、脚本缺少形式化定义，不同网络之间难以相互操作，且推理过程复杂。因此引入了一阶谓词逻辑。参看<a href="https://lwl1751.github.io/2024/05/15/%E7%9F%A5%E8%AF%86%E8%AE%A1%E7%AE%97/">知识计算</a>。</p>
+<figure>
+<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/知识表示4.png" alt="图片">
+<figcaption aria-hidden="true">图片</figcaption>
+</figure>
+<h3 id="描述逻辑">1.6 描述逻辑</h3>
+<p>通过<strong>概念类别</strong>来描述物理世界，没有一阶谓词逻辑中变量和谓词的概念，但具有形式化定义。描述逻辑有概念描述、属性、个体三个基础部分组成。</p>
+<ul>
+<li><strong>概念描述</strong>：表示一类事物。</li>
+<li><strong>概念构造器</strong>：用两个概念描述构造出一个新的概念，有交集构造器、并集构造器、否定构造器。</li>
+<li><strong>属性</strong>：作用于概念，必须搭配全称量词 <span class="math inline">\(\forall\)</span>，或存在量词 <span class="math inline">\(\exists\)</span>使用。</li>
+<li><strong>个体</strong>：概念示例。</li>
+<li><strong>知识库</strong>：包括术语（TBox，描述概念定义、公理），断言（ABox，描述个体知识）两部分。</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/知识表示5.png" alt="图片"> <img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/知识表示6.png" alt="图片"></p>
+<h2 id="二.语义网的知识描述体系">二.语义网的知识描述体系</h2>
+<ul>
+<li><strong>本质</strong>：以Web数据的内容（即语义）为核心，用机器能够理解和处理的方式链接起来的海量分布式数据库。</li>
+<li><strong>特征</strong>：Web上的事物拥有唯一的URI（通用资源标识符），事物之间存在显示链接，事物链接又具有不同的语义类型。</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/知识表示7.png" alt="图片"> <img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/知识表示8.png" alt="图片"></p>
+<ul>
+<li><strong>XML</strong>：由起始标签、元素内容和结尾标签构成，并且元素具有嵌套结构，同时没有约束嵌套的深度。</li>
+<li><strong>RDF</strong>：Resource Description
+Framework。由于XML只定义了文档结构和数据类型，没有定义数据的语义，机器仍然无法理解文档的内容。为了让应用程序理解数据的语义，定义了RDF。RDF利用Web标识符（URI）来标识事物，并通过指定的属性和相应的值描述资源的性质或资源之间的关系。</li>
+</ul>
+<figure>
+<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/知识表示9.png" alt="图片">
+<figcaption aria-hidden="true">图片</figcaption>
+</figure>
+<p>注意：RDF并不是一种语言，只是一种书写规范。</p>
+<ul>
+<li><p><strong>RDFs</strong> <img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/知识表示10.png" alt="图片"></p></li>
+<li><p><strong>OWL</strong>: Web Ontology
+Language，相比于RDFS，添加了更多用于描述类和属性的建模原语，支持更加丰富的语义表达并支持推理。</p></li>
+<li><p><strong>RIF</strong>: Rule Interchange
+Format，一种不同的规则语言和推理引擎之间的交换格式。</p></li>
+</ul>
+<h2 id="三.-参考资料">三. 参考资料</h2>
+<p>中国科学院大学陈玉博老师 知识工程 课程课件</p>
+]]></content>
+      <tags>
+        <tag>知识工程</tag>
+      </tags>
+  </entry>
 </search>
