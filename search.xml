@@ -998,7 +998,54 @@ j}=\sum_{k=1}^{m} \Delta \tau_{i j}^{k}\end{array}\]</span></p>
   <entry>
     <title>数值化知识表示</title>
     <url>/2024/06/01/%E6%95%B0%E5%80%BC%E5%8C%96%E7%9F%A5%E8%AF%86%E8%A1%A8%E7%A4%BA/</url>
-    <content><![CDATA[
+    <content><![CDATA[<pre><code>语言模型发展四范式：形式语言模型，统计语言模型，神经语言模型，预训练语言模型。
+
+课程复习使用。
+</code></pre>
+<h2 id="一-语言的分布表示">一. 语言的分布表示</h2>
+<ul>
+<li>
+<p><strong>Harris分布假说</strong>：上下文相似的词，其语义也相似。认为词的语义可以根据上下文统计获得，词之间的相似性可以通过向量距离衡量。</p>
+</li>
+<li>
+<p><strong>word2vect</strong>: 词嵌入，上下文预测目标词</p>
+</li>
+<li>
+<p><strong>CBOW</strong>：目标词预测上下文。</p>
+</li>
+</ul>
+<h2 id="二-知识的分布表示">二. 知识的分布表示</h2>
+<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E6%95%B0%E5%80%BC%E5%8C%96%E7%9F%A5%E8%AF%86%E8%A1%A8%E7%A4%BA1.png" alt="图片"></p>
+<ul>
+<li>
+<p>打分函数：</p>
+<p>位移距离模型。位移距离模型 (translational distance models)：基于位移假设，即头尾实体的表示存在位移关系，采用基于“头尾实体表示的位移”与“关系表示”的距离作为打分函数来衡量三元组成立的可能性。</p>
+<p>语义匹配模型。无上述假设，直接利用头实体、关系和尾实体的数值表示进行计算，采用基于相似度的打分函数来衡量三元组成立的可能性。</p>
+</li>
+<li>
+<p>模型训练：</p>
+<p>封闭世界假设，但凡未在知识图谱中出现的事实都是错误的。</p>
+<p>开放世界假设，知识图谱只包括正确的事实，那些不在其中出现的事实要么是错误的，要么是缺失的。</p>
+</li>
+</ul>
+<h2 id="三-预训练语言模型">三. 预训练语言模型</h2>
+<ul>
+<li>Elmo: Embeddings from Language Models，首次使用大规模语料训练一个两层双向的RNN。</li>
+<li>Bert: Bidirectional Encoder Representations from Transformers, transformer结构的encoder。</li>
+<li>GPT: Generative Pre-Training,transformer结构的decoder。</li>
+<li>In-context learning, CoT, few-shot learning, SFT, RLHF。由于对llm 部分比较了解，此处省略。</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E6%95%B0%E5%80%BC%E5%8C%96%E7%9F%A5%E8%AF%86%E8%A1%A8%E7%A4%BA2.png" alt="图片"></p>
+<h2 id="四-讨论：预训练语言模型能否作为世界模型">四. 讨论：预训练语言模型能否作为世界模型</h2>
+<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E6%95%B0%E5%80%BC%E5%8C%96%E7%9F%A5%E8%AF%86%E8%A1%A8%E7%A4%BA3.png" alt="图片"></p>
+<p>相关论文：</p>
+<p>Language Models Represent Space and Time, ICLR2024, MIT.</p>
+<p>Reasoning with Language Model is Planning with World Model, EMNLP 2023, US San Diego.</p>
+<p>Language Models Meet World Models, AAAI 2024, UC San Diego</p>
+<h2 id="五-讨论：预训练语言模型能否作为知识库">五. 讨论：预训练语言模型能否作为知识库</h2>
+<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E6%95%B0%E5%80%BC%E5%8C%96%E7%9F%A5%E8%AF%86%E8%A1%A8%E7%A4%BA4.png" alt="图片"></p>
+<h2 id="六-参考文献">六. 参考文献</h2>
+<p>中国科学院大学赵军老师 知识工程 课程课件</p>
 ]]></content>
       <tags>
         <tag>知识工程</tag>
