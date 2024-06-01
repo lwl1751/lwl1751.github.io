@@ -2,6 +2,50 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://lwl1751.github.io/2024/05/15/%E7%9F%A5%E8%AF%86%E6%8E%A8%E7%90%86/</loc>
+    
+    <lastmod>2024-06-01T13:44:36.281Z</lastmod>
+    
+    <date>1715754818000</date>
+    <title>知识推理 | Wenliang Liang</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
+    <loc>https://lwl1751.github.io/2024/05/15/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86/</loc>
+    
+    <lastmod>2024-06-01T13:44:24.601Z</lastmod>
+    
+    <date>1715754767000</date>
+    <title>知识图谱数据管理 | Wenliang Liang</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
+    <loc>https://lwl1751.github.io/2024/05/15/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E6%9E%84%E5%BB%BA/</loc>
+    
+    <lastmod>2024-06-01T13:44:12.714Z</lastmod>
+    
+    <date>1715754745000</date>
+    <title>知识图谱构建 | Wenliang Liang</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
+    <loc>https://lwl1751.github.io/2024/05/15/%E7%9F%A5%E8%AF%86%E5%BB%BA%E6%A8%A1%E4%B8%8E%E7%9F%A5%E8%AF%86%E8%9E%8D%E5%90%88/</loc>
+    
+    <lastmod>2024-06-01T13:43:56.330Z</lastmod>
+    
+    <date>1715754786000</date>
+    <title>知识建模与知识融合 | Wenliang Liang</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
     <loc>https://lwl1751.github.io/2024/06/01/%E6%95%B0%E5%80%BC%E5%8C%96%E7%9F%A5%E8%AF%86%E8%A1%A8%E7%A4%BA/</loc>
     
     <lastmod>2024-06-01T13:40:47.682Z</lastmod>
@@ -173,50 +217,6 @@
     
     <date>1715666450000</date>
     <title>蒙特卡洛树搜索 | Wenliang Liang</title>
-    
-    <desc></desc>
-  </url>
-  
-  <url>
-    <loc>https://lwl1751.github.io/2024/05/15/%E7%9F%A5%E8%AF%86%E6%8E%A8%E7%90%86/</loc>
-    
-    <lastmod>2024-05-15T06:33:38.254Z</lastmod>
-    
-    <date>1715754818000</date>
-    <title>知识推理 | Wenliang Liang</title>
-    
-    <desc></desc>
-  </url>
-  
-  <url>
-    <loc>https://lwl1751.github.io/2024/05/15/%E7%9F%A5%E8%AF%86%E5%BB%BA%E6%A8%A1%E4%B8%8E%E7%9F%A5%E8%AF%86%E8%9E%8D%E5%90%88/</loc>
-    
-    <lastmod>2024-05-15T06:33:06.032Z</lastmod>
-    
-    <date>1715754786000</date>
-    <title>知识建模与知识融合 | Wenliang Liang</title>
-    
-    <desc></desc>
-  </url>
-  
-  <url>
-    <loc>https://lwl1751.github.io/2024/05/15/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86/</loc>
-    
-    <lastmod>2024-05-15T06:32:47.028Z</lastmod>
-    
-    <date>1715754767000</date>
-    <title>知识图谱数据管理 | Wenliang Liang</title>
-    
-    <desc></desc>
-  </url>
-  
-  <url>
-    <loc>https://lwl1751.github.io/2024/05/15/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E6%9E%84%E5%BB%BA/</loc>
-    
-    <lastmod>2024-05-15T06:32:25.250Z</lastmod>
-    
-    <date>1715754745000</date>
-    <title>知识图谱构建 | Wenliang Liang</title>
     
     <desc></desc>
   </url>
