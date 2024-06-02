@@ -648,11 +648,26 @@ Machine Learning series) (Sutton, Richard S., Barto, Andrew G.)</p>
   <entry>
     <title>知识图谱构建</title>
     <url>/2024/05/15/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E6%9E%84%E5%BB%BA/</url>
-    <content><![CDATA[<h2 id="一-领域知识图谱框架构建">一.领域知识图谱框架构建</h2>
-<h2 id="二-半结构化文本中的知识抽取">二.半结构化文本中的知识抽取</h2>
-<h2 id="三-非结构化文本中的知识抽取">三.非结构化文本中的知识抽取</h2>
-<h2 id="四-知识图谱众包构建">四.知识图谱众包构建</h2>
-<h2 id="五-知识图谱质量控制">五.知识图谱质量控制</h2>
+    <content><![CDATA[<h2 id="一-半结构化文本中的知识抽取">一.半结构化文本中的知识抽取</h2>
+<p>目标：从百科普通条目半结构化网页中抽取实体属性名以及实体属性值。</p>
+<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E6%9E%84%E5%BB%BA1.png" alt="图片"><br>
+<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E6%9E%84%E5%BB%BA2.png" alt="图片"></p>
+<h2 id="二-非结构化文本中的知识抽取">二.非结构化文本中的知识抽取</h2>
+<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E6%9E%84%E5%BB%BA3.png" alt="图片"></p>
+<h2 id="三-知识图谱众包构建">三.知识图谱众包构建</h2>
+<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E6%9E%84%E5%BB%BA4.png" alt="图片"><br>
+<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E6%9E%84%E5%BB%BA5.png" alt="图片"></p>
+<h2 id="四-知识图谱质量控制">四.知识图谱质量控制</h2>
+<p>知识图谱的质量控制指的是如何通过技术手段来确保知识图谱中知识的质量。</p>
+<p><strong>评估思路</strong>：</p>
+<ul>
+<li>内检：利用知识图谱的内部知识进行综合推理，得到新的缺失知识，也可以发现相互矛盾的错误知识等。</li>
+<li>外检：从外部知识源获得信息，然后结合知识图谱内部的知识进行比对，从而补全、修正或者更新知识图谱中的知识。</li>
+</ul>
+<p><strong>评估指标</strong>：准确性，一致性，完整性，时效性。</p>
+<p><strong>评估方法</strong>：人工抽样检测法，一致性检测法，基于外部知识的对比评估法。</p>
+<h2 id="五-参考资料">五.参考资料</h2>
+<p>中国科学院大学陈玉博老师 知识工程课程课件</p>
 ]]></content>
       <tags>
         <tag>知识工程</tag>
@@ -700,12 +715,12 @@ Machine Learning series) (Sutton, Richard S., Barto, Andrew G.)</p>
 <p>难点1: 任务形式差距。命名实体识别通常建模为序列标注任务，而大模型往往用于完成文本<br>
 生成任务。难点2: 大模型存在较为严重的幻觉问题。</p>
 <h2 id="2-关系知识抽取">2.关系知识抽取</h2>
-<p>关系抽取：旨在自动识别由一对概念和联系这对概念的关系构成的相关三元组。</p>
+<p>关系抽取：旨在自动识别由一对概念和联系这对概念的关系构成的相关三元组。如CEO(比尔盖茨，微软)。</p>
 <p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E7%9F%A5%E8%AF%86%E8%8E%B7%E5%8F%961.png" alt="图片"></p>
 <h2 id="3-事件知识抽取">3.事件知识抽取</h2>
-<h2 id="4-脚本知识抽取">4.脚本知识抽取</h2>
-<h2 id="5-多粒度知识联合抽取">5.多粒度知识联合抽取</h2>
-<h2 id="6-参考资料">6.参考资料</h2>
+<p>事件是发生在某个特定的时间点或时间段、某个特定的地域范围内，由一个或者多个角色参与的一个或者多个动作组成的事情或者状态的改变。</p>
+<p>事件关系：共指，时序，因果，子事件。</p>
+<h2 id="4-参考资料">4.参考资料</h2>
 <p>中国科学院大学赵军老师 知识工程课程课件</p>
 ]]></content>
       <tags>
