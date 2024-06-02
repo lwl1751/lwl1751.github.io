@@ -708,10 +708,37 @@ Network）模块存储了大量知识。</p>
   <entry>
     <title>知识建模与知识融合</title>
     <url>/2024/05/15/%E7%9F%A5%E8%AF%86%E5%BB%BA%E6%A8%A1%E4%B8%8E%E7%9F%A5%E8%AF%86%E8%9E%8D%E5%90%88/</url>
-    <content><![CDATA[<h2 id="一-知识建模">一.知识建模</h2>
-<h3 id="1-1-知识体系">1.1 知识体系</h3>
-<h2 id="二-知识融合">二.知识融合</h2>
-<h2 id="三-大模型的知识融合">三.大模型的知识融合</h2>
+    <content><![CDATA[<pre><code>课程复习使用，这章没有进行细致整理。
+
+一. 知识建模
+
+1.1 知识体系概述
+
+1.2 典型知识体系
+
+1.3 知识体系手工建模方法
+
+1.4 知识体系自动建模方法
+
+二. 知识融合
+
+2.1 知识融合概述
+
+2.2 知识体系融合方法
+
+2.3 知识实例融合方法
+
+三. 大模型中的知识融合
+
+3.1 大模型对齐技术概述
+
+3.2大模型对齐方法</code></pre>
+<h2 id="一.-知识建模-知识融合">一. 知识建模 &amp; 知识融合</h2>
+<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/知识建模_知识融合1.png" alt="图片"> <img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/知识建模_知识融合2.png" alt="图片"> <img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/知识建模_知识融合3.png" alt="图片"> <img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/知识建模_知识融合4.png" alt="图片"> <img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/知识建模_知识融合5.png" alt="图片"> <img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/知识建模_知识融合6.png" alt="图片"> <img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/知识建模_知识融合7.png" alt="图片"> <img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/知识建模_知识融合8.png" alt="图片"> <img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/知识建模_知识融合9.png" alt="图片"> <img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/知识建模_知识融合10.png" alt="图片"> <img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/知识建模_知识融合11.png" alt="图片"> <img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/知识建模_知识融合12.png" alt="图片"> <img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/知识建模_知识融合13.png" alt="图片"> <img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/知识建模_知识融合14.png" alt="图片"> <img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/知识建模_知识融合15.png" alt="图片"></p>
+<h2 id="二.大模型的知识融合">二.大模型的知识融合</h2>
+<p>SFT，RLHF，DPO。</p>
+<h2 id="三.参考资料">三.参考资料</h2>
+<p>中国科学院大学陈玉博老师 知识工程课程课件</p>
 ]]></content>
       <tags>
         <tag>知识工程</tag>
