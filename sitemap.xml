@@ -2,6 +2,17 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://lwl1751.github.io/2024/05/15/%E6%90%9C%E7%B4%A2/</loc>
+    
+    <lastmod>2024-06-02T13:41:42.308Z</lastmod>
+    
+    <date>1715752902000</date>
+    <title>搜索 | Wenliang Liang</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
     <loc>https://lwl1751.github.io/2024/06/02/%E9%AB%98%E7%BA%A7%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%A4%8D%E4%B9%A0%E7%BB%AA%E8%AE%BA-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E9%83%A8%E5%88%86/</loc>
     
     <lastmod>2024-06-02T13:17:03.062Z</lastmod>
@@ -208,17 +219,6 @@
     <title>无模型强化学习 | Wenliang Liang</title>
     
     <desc>知识点 1.无模型价值学习评估 蒙特卡洛方法 时序差分学习 TD(𝝀) 2.无模型策略优化控制 蒙特卡洛策略迭代 时序差分策略迭代（SARSA） Q值迭代 (Q-learning)</desc>
-  </url>
-  
-  <url>
-    <loc>https://lwl1751.github.io/2024/05/15/%E6%90%9C%E7%B4%A2/</loc>
-    
-    <lastmod>2024-05-30T09:05:14.128Z</lastmod>
-    
-    <date>1715752902000</date>
-    <title>搜索 | Wenliang Liang</title>
-    
-    <desc>知识点： 经典搜索算法：基于路径的搜索的问题。如盲目搜索，启发式搜索。 局部搜索算法：最优化问题，没有初始状态，也没有终止状；并不需要到达这些解的路径。如爬山法，元启发算法。 元启发式算法是启发式算法的改进，它是随机算法与局部搜索算法相结合的产物。如禁忌搜索算法(Tabu Search)，模拟退火算法(Simulated annealing)，遗传算法(Geneticalgorithm)。 对抗搜</desc>
   </url>
   
   <url>
