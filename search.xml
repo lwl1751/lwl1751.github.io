@@ -827,40 +827,69 @@ Network）模块存储了大量知识。</p>
   <entry>
     <title>知识计算</title>
     <url>/2024/05/15/%E7%9F%A5%E8%AF%86%E8%AE%A1%E7%AE%97/</url>
-    <content><![CDATA[<h2 id="一-命题逻辑"><a href="#一-命题逻辑" class="headerlink" title="一. 命题逻辑"></a>一. 命题逻辑</h2><h3 id="1-1-基本概念"><a href="#1-1-基本概念" class="headerlink" title="1.1 基本概念"></a>1.1 基本概念</h3><p><span style="color: purple;">知识库</span>：KB, 利用形式化语言定义的句子的集合。</p>
+    <content><![CDATA[<h2 id="一.-命题逻辑">一. 命题逻辑</h2>
+<h3 id="基本概念">1.1 基本概念</h3>
+<p><span style="color: purple;">知识库</span>：KB,
+利用形式化语言定义的句子的集合。</p>
 <p><span style="color: purple;">逻辑</span>：用于表示信息的形式化语言。</p>
 <p><span style="color: purple;">语法</span>：句子的形式化结构。</p>
 <p><span style="color: purple;">语义</span>：语句在每个可能模型中的真值。</p>
-<p><span style="color: purple;">模型</span>： m, m是语句 $\alpha$ 的一个模型，表示语句在模型m 中为真，也称m 满足 $\alpha$。</p>
+<p><span style="color: purple;">模型</span>： m, m是语句 <span class="math inline">\(\alpha\)</span> 的一个模型，表示语句在模型m
+中为真，也称m 满足 <span class="math inline">\(\alpha\)</span>。</p>
 <p><span style="color: purple;">逻辑</span>：用于表示信息的形式语言。</p>
-<p><span style="color: purple;">逻辑蕴涵</span>：某语句在逻辑上跟随另一个语句，如 $\alpha \models \beta$，当且仅当在 $\alpha$ 为真的模型中，$\beta$ 也为真，即 $M(\alpha) \subseteq M(\beta)$。同样的，对于知识库 $KB \models \alpha$，则有 $M(KB) \subseteq M(\alpha)$。如果算法i 可以根据KB推导出 $\alpha$，记为 $KB\vdash _i \alpha$。</p>
+<p><span style="color: purple;">逻辑蕴涵</span>：某语句在逻辑上跟随另一个语句，如
+<span class="math inline">\(\alpha \models \beta\)</span>，当且仅当在
+<span class="math inline">\(\alpha\)</span> 为真的模型中，<span class="math inline">\(\beta\)</span> 也为真，即 <span class="math inline">\(M(\alpha) \subseteq
+M(\beta)\)</span>。同样的，对于知识库 <span class="math inline">\(KB
+\models \alpha\)</span>，则有 <span class="math inline">\(M(KB)
+\subseteq M(\alpha)\)</span>。如果算法i 可以根据KB推导出 <span class="math inline">\(\alpha\)</span>，记为 <span class="math inline">\(KB\vdash _i \alpha\)</span>。</p>
 <p><span style="color: purple;">可靠性</span>：只能生成被蕴含的语句。即永远不会返回一个错误的结果。</p>
 <p><span style="color: purple;">完备性</span>：生成所有被蕴含的语句。即返回的结果总能覆盖所有正确的解。</p>
 <p><span style="color: purple;">命题逻辑</span>：应用一套形式化规则对以符号表示的描述性陈述进行推理的系统。</p>
-<p><span style="color: purple;">原子命题</span>：一个或真或假的描述性陈述语句，并且无法再分解为更简单的命题<br><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/命题逻辑3.png" alt="图片"><br><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/命题逻辑1.png" alt="图片"></p>
-<p>理解：$S_1$ 不成立时，相当于 $S_1$ 为空集，空集可以被其他所有集合包含，因此 $S_1$ 不成立时 $S_1 \Rightarrow S_2$ 为真。</p>
-<p><span style="color: purple;">逻辑等价</span>：命题p 和命题q 在所有情况下都具有相同的真假结果。<br><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/命题逻辑2.png" alt="图片"></p>
+<p><span style="color: purple;">原子命题</span>：一个或真或假的描述性陈述语句，并且无法再分解为更简单的命题
+<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/命题逻辑3.png" alt="图片"> <img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/命题逻辑1.png" alt="图片"></p>
+<p>理解：<span class="math inline">\(S_1\)</span> 不成立时，相当于 <span class="math inline">\(S_1\)</span>
+为空集，空集可以被其他所有集合包含，因此 <span class="math inline">\(S_1\)</span> 不成立时 <span class="math inline">\(S_1 \Rightarrow S_2\)</span> 为真。</p>
+<p><span style="color: purple;">逻辑等价</span>：命题p 和命题q
+在所有情况下都具有相同的真假结果。 <img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/命题逻辑2.png" alt="图片"></p>
 <p><span style="color: purple;">有效性</span>：一个句子在所有模型中都为真，则句子是有效的。</p>
 <p><span style="color: purple;">可满足性</span>：一个句子在某些模型中为真。</p>
-<h3 id="1-2-归结原理"><a href="#1-2-归结原理" class="headerlink" title="1.2 归结原理"></a>1.2 归结原理</h3><p><strong>合取范式</strong>，也被称为CNF范式，以文字析取式的合取式表达的语句。</p>
-<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/命题逻辑4.png" alt="图片"></p>
+<h3 id="归结原理">1.2 归结原理</h3>
+<p><strong>合取范式</strong>，也被称为CNF范式，以文字析取式的合取式表达的语句。</p>
+<figure>
+<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/命题逻辑4.png" alt="图片">
+<figcaption aria-hidden="true">图片</figcaption>
+</figure>
 <p>假言推理</p>
 <p>在命题逻辑中，归结规则是可靠的、完备的。</p>
-<p><strong>反证法</strong>：证明：$KB\vdash  \alpha$，只需证明$KB\wedge \neg \alpha$不可满足。</p>
-<p><strong>子句集S 的归结闭包$RC(S)$</strong>：对S 中的子句或其派生子句反复使用归结规则而生成的所有子句的集合。</p>
+<p><strong>反证法</strong>：证明：<span class="math inline">\(KB\vdash  \alpha\)</span>，只需证明<span class="math inline">\(KB\wedge \neg \alpha\)</span>不可满足。</p>
+<p><strong>子句集S 的归结闭包<span class="math inline">\(RC(S)\)</span></strong>：对S
+中的子句或其派生子句反复使用归结规则而生成的所有子句的集合。</p>
 <p><strong>限定子句</strong>：是受限形式的一种，它是指恰好只有一个正文字的析取式。</p>
 <p><strong>Horn子句</strong>：包含至多一个正文字的析取式。用Horn子句判定蕴涵需要的时间与知识库的大小呈线性关系。如前向链接与反向链接。</p>
-<p><strong>前向链接</strong>：如果蕴含式的所有前提已知，那么就把它的结论添加到已知事实集，真到查询q 被添加或者无法进一步推理。</p>
-<p><strong>反向链接</strong>：从查询q 开始推理。如果查询q 为真，那么无须任何操作。否则寻找知识库中那些能以q 为结论的蕴含式。如果其中某个蕴含式的所有前提都能证明为真，那么q 为真。</p>
-<h2 id="二-谓词逻辑"><a href="#二-谓词逻辑" class="headerlink" title="二. 谓词逻辑"></a>二. 谓词逻辑</h2><p><strong>命题逻辑的局限性</strong>： 在命题逻辑中，每个陈述句是最基本的单位（即原子命题），无法对原子命题进行分解。因此，在命题逻辑中，不能表达<strong>局部与整体、一般与个别</strong>的关系，即使不同原子命题蕴含个体、群体和关系等内在丰富语义。</p>
+<p><strong>前向链接</strong>：如果蕴含式的所有前提已知，那么就把它的结论添加到已知事实集，真到查询q
+被添加或者无法进一步推理。</p>
+<p><strong>反向链接</strong>：从查询q 开始推理。如果查询q
+为真，那么无须任何操作。否则寻找知识库中那些能以q
+为结论的蕴含式。如果其中某个蕴含式的所有前提都能证明为真，那么q
+为真。</p>
+<h2 id="二.-谓词逻辑">二. 谓词逻辑</h2>
+<p><strong>命题逻辑的局限性</strong>：
+在命题逻辑中，每个陈述句是最基本的单位（即原子命题），无法对原子命题进行分解。因此，在命题逻辑中，不能表达<strong>局部与整体、一般与个别</strong>的关系，即使不同原子命题蕴含个体、群体和关系等内在丰富语义。</p>
 <p><strong>谓词逻辑</strong>：将原子命题进一步细化，分解出<strong>个体、谓词和量词</strong>，来表达个体与总体的内在联系和数量关系。</p>
 <p><strong>谓词</strong>：刻画个体属性或者描述个体之间关系存在性的元素,值域为{True,False}。</p>
-<p><strong>量词</strong>：全称量词 $\forall$，存在量词 $\exists$。</p>
+<p><strong>量词</strong>：全称量词 <span class="math inline">\(\forall\)</span>，存在量词 <span class="math inline">\(\exists\)</span>。</p>
 <p><strong>量词对偶</strong>：全称量词与存在量词可以相互转换，互相表示。</p>
-<h2 id="三-不确定性推理"><a href="#三-不确定性推理" class="headerlink" title="三. 不确定性推理"></a>三. 不确定性推理</h2><p><strong>效用</strong>：对不同决策结果的偏好。决策理论 = 概率理论 + 效用理论。</p>
+<h2 id="三.-不确定性推理">三. 不确定性推理</h2>
+<p><strong>效用</strong>：对不同决策结果的偏好。决策理论 = 概率理论 +
+效用理论。</p>
 <p><strong>不确定性推理</strong>：从不确定的初始证据出发，通过运用不确定性知识，推导出具有一定程度不确定性但合理的结论的思维过程。</p>
-<p><strong>贝叶斯网</strong>：一个有向无环图模型，用简单的条件分布描述复杂的联合分布。其中，每个结点有一个条件概率分布$P(X_i | Parents(X_i))$，量化其父结点对该结点的影响。所有条件概率构成条件概率表。</p>
-<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/知识计算5.png" alt="图片"></p>
+<p><strong>贝叶斯网</strong>：一个有向无环图模型，用简单的条件分布描述复杂的联合分布。其中，每个结点有一个条件概率分布<span class="math inline">\(P(X_i |
+Parents(X_i))\)</span>，量化其父结点对该结点的影响。所有条件概率构成条件概率表。</p>
+<figure>
+<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/知识计算5.png" alt="图片">
+<figcaption aria-hidden="true">图片</figcaption>
+</figure>
 <p><strong>贝叶斯网独立条件</strong>：一个结点的概率只与其父结点有关，与其它祖先结点无关。判断贝叶斯网是否独立可以利用贝叶斯球快速判断(通过、反弹、截止)。</p>
 <p><strong>马尔科夫毯</strong>：一个结点的父结点、子结点、子结点的父结点。</p>
 <p><strong>贝叶斯球算法</strong>：</p>
@@ -872,9 +901,15 @@ Network）模块存储了大量知识。</p>
 
 截止：当前结点阻止贝叶斯球继续运动。
 
-贝叶斯球规则：未知结点：父-&gt;子，子-&gt;父/子 。已知结点：父-&gt;父，子-&gt;截止。
-</code></pre><p><strong>枚举推理（精确推理</strong>）：所有的变量集合X ,所有的证据变量集合E ,查询变量Q ,隐藏变量集合H = X - E- Q。则$P(Q|E=e)=\alpha P(Q,E=e)=\alpha\sum_{H=h} (Q,E=e,H=h)$</p>
-<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/知识计算6.png" alt="图片"><br><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/知识计算7.png" alt="图片"><br><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/知识计算8.png" alt="图片"></p>
+贝叶斯球规则：未知结点：父-&gt;子，子-&gt;父/子 。已知结点：父-&gt;父，子-&gt;截止。</code></pre>
+<figure>
+<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/知识计算9.png" alt="图片">
+<figcaption aria-hidden="true">图片</figcaption>
+</figure>
+<p><strong>枚举推理（精确推理</strong>）：所有的变量集合X
+,所有的证据变量集合E ,查询变量Q ,隐藏变量集合H = X - E- Q。则<span class="math inline">\(P(Q|E=e)=\alpha P(Q,E=e)=\alpha\sum_{H=h}
+(Q,E=e,H=h)\)</span></p>
+<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/知识计算6.png" alt="图片"> <img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/知识计算7.png" alt="图片"> <img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/知识计算8.png" alt="图片"></p>
 <p><strong>变量消元</strong>：降低贝叶斯网推理复杂度。</p>
 <p><strong>近似推理</strong>：抽取样本形成采样分布，通过该分布近似后验概率。</p>
 <blockquote>
@@ -902,10 +937,14 @@ Network）模块存储了大量知识。</p>
 
 优点：在高维空间中通常比其他采样方法更有效，因为它逐维采样。适合于复杂模型。
 
-缺点：收敛速度慢。依赖于条件独立性假设：需要模型条件分布容易计算。
-</code></pre><p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/吉布斯采样1.png" alt="图片"></p>
-<h2 id="四-参考资料"><a href="#四-参考资料" class="headerlink" title="四. 参考资料"></a>四. 参考资料</h2><p>中国科学院大学高级人工智能，李国荣老师，课程课件</p>
-<p><a href="https://www.bilibili.com/video/BV1ZY4y1J78y/?spm_id_from=333.788&amp;vd_source=514a3ed3ac370caf4facad7d6f4e1a2d">https://www.bilibili.com/video/BV1ZY4y1J78y/?spm_id_from=333.788&amp;vd_source=514a3ed3ac370caf4facad7d6f4e1a2d</a></p>
+缺点：收敛速度慢。依赖于条件独立性假设：需要模型条件分布容易计算。</code></pre>
+<figure>
+<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/吉布斯采样1.png" alt="图片">
+<figcaption aria-hidden="true">图片</figcaption>
+</figure>
+<h2 id="四.-参考资料">四. 参考资料</h2>
+<p>中国科学院大学高级人工智能，李国荣老师，课程课件</p>
+<p><a href="https://www.bilibili.com/video/BV1ZY4y1J78y/?spm_id_from=333.788&amp;vd_source=514a3ed3ac370caf4facad7d6f4e1a2d" class="uri">https://www.bilibili.com/video/BV1ZY4y1J78y/?spm_id_from=333.788&amp;vd_source=514a3ed3ac370caf4facad7d6f4e1a2d</a></p>
 ]]></content>
       <tags>
         <tag>高级人工智能</tag>
@@ -1072,13 +1111,22 @@ j}=\sum_{k=1}^{m} \Delta \tau_{i j}^{k}\end{array}\]</span></p>
 <figcaption aria-hidden="true">图片</figcaption>
 </figure>
 <ul>
-<li><strong>算法终止条件</strong>：迭代次数，最佳位置连续为更新的次数，适应度函数的值达到预期要求。</li>
-<li><strong>优化</strong>：对惯性项加上一个权重</li>
-<li><strong>优点</strong>：收敛速度快，所需微粒群规模较小</li>
-<li><strong>缺点</strong>：不保证收敛到全局最优解</li>
+<li><p><strong>算法终止条件</strong>：迭代次数，最佳位置连续为更新的次数，适应度函数的值达到预期要求。</p></li>
+<li><p><strong>优化</strong>：对惯性项加上一个权重</p></li>
+<li><p><strong>优点</strong>：收敛速度快，所需微粒群规模较小</p></li>
+<li><p><strong>缺点</strong>：不保证收敛到全局最优解</p>
+<p>蚁群算法和粒子群算法的相同点：都基于自然界的生物行为；都使用多个个体（蚂蚁或粒子）组成的群体来寻找全局最优解；都可用于解决各种优化问题；都是不确定算法。</p></li>
 </ul>
+<figure>
+<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/粒子群算法3.png" alt="图片">
+<figcaption aria-hidden="true">图片</figcaption>
+</figure>
 <h2 id="三.-博弈">三. 博弈</h2>
 <ul>
+<li><p><strong>局中人</strong>：在博弈中有权决定自己行动方案的博弈参加者。重要假设：局中人是自私的理性人。</p></li>
+<li><p><strong>策略</strong>：博弈中可供局中人选择的行动方案。</p></li>
+<li><p><strong>策略集合</strong>：局中人可以选择的策略的集合。</p></li>
+<li><p><strong>局势</strong>：所有局中人选择的策略形成的策略组。</p></li>
 <li><p><strong>博弈类型</strong></p>
 <p>静态博弈（同时选择策略） vs 动态博弈（按顺序选择策略）</p>
 <p>竞争博弈（炒股） vs 合作博弈（结盟）</p>
@@ -1090,14 +1138,32 @@ j}=\sum_{k=1}^{m} \Delta \tau_{i j}^{k}\end{array}\]</span></p>
 从这组决策中获得的收益，则称策略 𝑠 是局中人1对局中人2的策略 t
 的最佳应对。</p></li>
 <li><p><strong>最优策略</strong>：如果一个局中人的某个策略对其它局中人的任何策略都是最佳应对，那么这个策略就是该局中人的占优策略。</p></li>
-<li><p><strong>纳什均衡</strong>：如果一个局势下，每个局中人的策略都是相对其他局中人当前策略的最佳应对，则称该局势是一个纳什均衡。也就是博弈进入了僵局。</p></li>
-<li><p><strong>混合策略</strong>：每个局中人以某个概率分布在其策略集合中选择策略。</p></li>
-<li><p><strong>混合策略纳什均衡</strong>：给定其他局中人的策略选择概率分布的情况下，
-当前局中人选择任意一个(纯)策略获得的期望效用相等。</p></li>
-<li><p><strong>纳什定理</strong>：任何有限博弈都至少存在一个纳什均衡。但寻找博弈的纳什均衡是困难的。</p></li>
-<li><p><strong>帕累托最优</strong>：对于一组策略选择(局势)，若不存在其他策略选择
-使<strong>所有参与者</strong>得到至少和目前一样高的回报，且至少一个参与者会得到严格较高的回报，则这组策略选择为帕累托最优。</p></li>
-<li><p><strong>社会最优</strong>：使参与者的回报之和最大的策略选择(局势)。社会最优的结果一定也是帕累托最优的结果，但帕累托最优不一定是社会最优。</p></li>
+<li><p><strong>纳什均衡</strong>：如果一个局势下，每个局中人的策略都是相对其他局中人当前策略的最佳应对，则称该局势是一个纳什均衡。也就是博弈进入了僵局。不存在纯策略的纳什均衡。</p></li>
+</ul>
+<figure>
+<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/博弈7.png" alt="图片">
+<figcaption aria-hidden="true">图片</figcaption>
+</figure>
+<ul>
+<li><strong>混合策略</strong>：每个局中人以某个概率分布在其策略集合中选择策略。</li>
+<li><strong>混合策略纳什均衡</strong>：给定其他局中人的策略选择概率分布的情况下，
+当前局中人选择任意一个(纯)策略获得的期望效用相等。</li>
+<li><strong>纳什定理</strong>：任何有限博弈都至少存在一个纳什均衡。但寻找博弈的纳什均衡是困难的。</li>
+</ul>
+<figure>
+<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/博弈6.png" alt="图片">
+<figcaption aria-hidden="true">图片</figcaption>
+</figure>
+<ul>
+<li><strong>帕累托最优</strong>：对于一组策略选择(局势)，若不存在其他策略选择
+使<strong>所有参与者</strong>得到至少和目前一样高的回报，且至少一个参与者会得到严格较高的回报，则这组策略选择为帕累托最优。</li>
+<li><strong>社会最优</strong>：使参与者的回报之和最大的策略选择(局势)。社会最优的结果一定也是帕累托最优的结果，但帕累托最优不一定是社会最优。</li>
+</ul>
+<figure>
+<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/博弈5.png" alt="图片">
+<figcaption aria-hidden="true">图片</figcaption>
+</figure>
+<ul>
 <li><p><strong>机制设计</strong>：设计一个博弈，使其达到预期结果，如实现社会最优。</p></li>
 <li><p><strong>maxmin策略</strong>，以我为主，最小化损失，抑制风险 <img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/博弈1.png" alt="图片"></p></li>
 <li><p><strong>minmax策略</strong>，抑制对手 <img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/博弈2.png" alt="图片"></p></li>
@@ -1128,6 +1194,7 @@ j}=\sum_{k=1}^{m} \Delta \tau_{i j}^{k}\end{array}\]</span></p>
 </ul>
 <h2 id="四.-参考资料">四. 参考资料</h2>
 <p>中国科学院大学 计院高级人工智能课程课件</p>
+<p><a href="https://www.zhihu.com/question/633226340/answer/3466364119" class="uri">https://www.zhihu.com/question/633226340/answer/3466364119</a></p>
 ]]></content>
       <tags>
         <tag>高级人工智能</tag>
