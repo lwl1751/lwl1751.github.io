@@ -733,9 +733,13 @@ Network）模块存储了大量知识。</p>
 3.1 大模型对齐技术概述
 
 3.2大模型对齐方法
-</code></pre><h2 id="一-知识建模-amp-知识融合"><a href="#一-知识建模-amp-知识融合" class="headerlink" title="一. 知识建模 &amp; 知识融合"></a>一. 知识建模 &amp; 知识融合</h2><p>…</p>
-<h2 id="二-大模型的知识融合"><a href="#二-大模型的知识融合" class="headerlink" title="二.大模型的知识融合"></a>二.大模型的知识融合</h2><p>SFT，RLHF，DPO。</p>
-<h2 id="三-参考资料"><a href="#三-参考资料" class="headerlink" title="三.参考资料"></a>三.参考资料</h2><p>中国科学院大学陈玉博老师 知识工程课程课件</p>
+</code></pre>
+<h2 id="一-知识建模-知识融合">一. 知识建模 &amp; 知识融合</h2>
+<p><a href="(https://lwl1751.github.io/pdf/%E7%9F%A5%E8%AF%86%E5%BB%BA%E6%A8%A1_%E7%9F%A5%E8%AF%86%E8%9E%8D%E5%90%88_%E6%8B%BC%E6%8E%A5.pdf)">查看对应ppt</a></p>
+<h2 id="二-大模型的知识融合">二.大模型的知识融合</h2>
+<p>SFT，RLHF，DPO。</p>
+<h2 id="三-参考资料">三.参考资料</h2>
+<p>中国科学院大学陈玉博老师 知识工程课程课件</p>
 ]]></content>
       <tags>
         <tag>知识工程</tag>
@@ -745,7 +749,9 @@ Network）模块存储了大量知识。</p>
     <title>知识推理</title>
     <url>/2024/05/15/%E7%9F%A5%E8%AF%86%E6%8E%A8%E7%90%86/</url>
     <content><![CDATA[<pre><code>知识工程的生命周期：知识表示，知识建模，知识融合，知识管理，知识推理，知识应用。
-</code></pre><h2 id="一-知识推理概述"><a href="#一-知识推理概述" class="headerlink" title="一.知识推理概述"></a>一.知识推理概述</h2><p>概念区分：<strong>推理 reasoning</strong>，指的是通过已知知识推断出未知知识的过程。而<strong>推断 inference</strong> 是推理的一个步骤，指的是神经网络中的前向计算。</p>
+</code></pre>
+<h2 id="一-知识推理概述">一.知识推理概述</h2>
+<p>概念区分：<strong>推理 reasoning</strong>，指的是通过已知知识推断出未知知识的过程。而<strong>推断 inference</strong> 是推理的一个步骤，指的是神经网络中的前向计算。</p>
 <p><strong>按新知识推出途径的分类</strong>：</p>
 <ul>
 <li>归纳推理（特殊-&gt;一般），归纳推理所推出的结论没有包含在前提内容中。这种由个别事物或现象推出一般性知识的过程，是增加新知识的过程。</li>
@@ -776,20 +782,36 @@ Network）模块存储了大量知识。</p>
 <li>数值推理，使用数值计算，尤其是向量矩阵计算的方法，捕捉知识图谱上隐式的关联，模拟推理的进行。</li>
 </ul>
 <p><strong>应用</strong>：知识图谱补全，知识问答，搜索与推荐，行业应用。</p>
-<h2 id="二-演绎推理：推理具体事实，一般-gt-特殊"><a href="#二-演绎推理：推理具体事实，一般-gt-特殊" class="headerlink" title="二.演绎推理：推理具体事实，一般-&gt;特殊"></a>二.演绎推理：推理具体事实，一般-&gt;特殊</h2><ul>
+<h2 id="二-演绎推理：推理具体事实，一般-特殊">二.演绎推理：推理具体事实，一般-&gt;特殊</h2>
+<ul>
 <li>经典逻辑推理：命题逻辑推理。</li>
 <li>基于产生式规则的推理</li>
 <li>基于概率逻辑学习的推理：马尔可夫逻辑网</li>
 <li>自然语言演绎推理。</li>
 </ul>
-<h2 id="三-归纳推理：学习推理规则"><a href="#三-归纳推理：学习推理规则" class="headerlink" title="三.归纳推理：学习推理规则"></a>三.归纳推理：学习推理规则</h2><h2 id="四-基于深度学习的知识推理方法"><a href="#四-基于深度学习的知识推理方法" class="headerlink" title="四.基于深度学习的知识推理方法"></a>四.基于深度学习的知识推理方法</h2><ul>
+<h2 id="三-归纳推理：学习推理规则">三.归纳推理：学习推理规则</h2>
+<ul>
+<li>归纳推理概述</li>
+<li>归纳推理逻辑程序设计</li>
+<li>路径排序算法（PRA）</li>
+<li>关联规则挖掘算法（AMIE）</li>
+</ul>
+<h2 id="四-基于深度学习的知识推理方法">四.基于深度学习的知识推理方法</h2>
+<ul>
 <li>基于表示学习</li>
 <li>基于强化学习</li>
 </ul>
-<h2 id="五-大模型的推理方法"><a href="#五-大模型的推理方法" class="headerlink" title="五.大模型的推理方法"></a>五.大模型的推理方法</h2><p>相比于传统方法的优势：由于LLM本身已经具备了出色的各类能力（e.g. 工具调用、知识生<br>成等），因此LLM推理相比于传统推理有更多的形式和种类；CoT工作指出可以简单通过ICL的方式激发LLM的推理能力，因此与传统方式的大量训练相比，LLM的推理成本低、效率高、泛化性强。</p>
+<p><a href="https://lwl1751.github.io/pdf/%E7%9F%A5%E8%AF%86%E6%8E%A8%E7%90%86_%E6%8B%BC%E6%8E%A5.pdf">查看 演绎推理，归纳推理，基于深度学习的知识推理方法 对应PPT</a></p>
+<h2 id="五-大模型的推理方法">五.大模型的推理方法</h2>
+<p>相比于传统方法的优势：由于LLM本身已经具备了出色的各类能力（e.g. 工具调用、知识生<br>
+成等），因此LLM推理相比于传统推理有更多的形式和种类；CoT工作指出可以简单通过ICL的方式激发LLM的推理能力，因此与传统方式的大量训练相比，LLM的推理成本低、效率高、泛化性强。</p>
 <p>相比于传统方法的劣势：部分LLM为黑盒模型，只能调整输入输出，推理过程的不透明度更高；LLM参数量大，幻觉现象严重，导致推理的输出更不可控且不稳定。</p>
-<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/知识推理1.png" alt="图片"><br><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/知识推理2.png" alt="图片"><br><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/知识推理3.png" alt="图片"><br><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/知识推理4.png" alt="图片"></p>
-<h2 id="六-参考资料"><a href="#六-参考资料" class="headerlink" title="六.参考资料"></a>六.参考资料</h2><p>中国科学院大学老师 知识工程课程课件</p>
+<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E7%9F%A5%E8%AF%86%E6%8E%A8%E7%90%861.png" alt="图片"><br>
+<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E7%9F%A5%E8%AF%86%E6%8E%A8%E7%90%862.png" alt="图片"><br>
+<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E7%9F%A5%E8%AF%86%E6%8E%A8%E7%90%863.png" alt="图片"><br>
+<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E7%9F%A5%E8%AF%86%E6%8E%A8%E7%90%864.png" alt="图片"></p>
+<h2 id="六-参考资料">六.参考资料</h2>
+<p>中国科学院大学老师 知识工程课程课件</p>
 ]]></content>
       <tags>
         <tag>知识工程</tag>
