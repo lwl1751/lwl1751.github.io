@@ -2,6 +2,72 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://lwl1751.github.io/2024/06/02/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E4%BA%A4%E4%BA%92%E5%A4%84%E7%90%86/</loc>
+    
+    <lastmod>2024-06-06T07:35:41.609Z</lastmod>
+    
+    <date>1717312941000</date>
+    <title>分布式系统中的交互处理 | Wenliang Liang</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
+    <loc>https://lwl1751.github.io/2024/06/02/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E6%95%85%E9%9A%9C%E5%A4%84%E7%90%86/</loc>
+    
+    <lastmod>2024-06-06T06:22:42.049Z</lastmod>
+    
+    <date>1717312965000</date>
+    <title>分布式系统中的故障处理 | Wenliang Liang</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
+    <loc>https://lwl1751.github.io/2024/06/02/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/</loc>
+    
+    <lastmod>2024-06-06T06:19:16.367Z</lastmod>
+    
+    <date>1717312994000</date>
+    <title>分布式系统中的数据处理 | Wenliang Liang</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
+    <loc>https://lwl1751.github.io/2024/06/02/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1%E5%A4%84%E7%90%86/</loc>
+    
+    <lastmod>2024-06-06T06:05:49.734Z</lastmod>
+    
+    <date>1717313011000</date>
+    <title>分布式事务处理 | Wenliang Liang</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
+    <loc>https://lwl1751.github.io/2024/06/02/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%89%B9%E5%BE%81/</loc>
+    
+    <lastmod>2024-06-06T04:41:25.020Z</lastmod>
+    
+    <date>1717312893000</date>
+    <title>分布式系统的特征 | Wenliang Liang</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
+    <loc>https://lwl1751.github.io/2024/06/05/LLM%20%E5%A2%9E%E9%87%8F%E9%A2%84%E8%AE%AD%E7%BB%83/</loc>
+    
+    <lastmod>2024-06-05T13:52:50.841Z</lastmod>
+    
+    <date>1717575709000</date>
+    <title>LLM 增量预训练 | Wenliang Liang</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
     <loc>https://lwl1751.github.io/2024/05/31/%E7%BE%A4%E4%BD%93%E6%99%BA%E8%83%BD/</loc>
     
     <lastmod>2024-06-02T16:32:09.918Z</lastmod>
@@ -63,72 +129,6 @@
     
     <date>1715754818000</date>
     <title>知识推理 | Wenliang Liang</title>
-    
-    <desc></desc>
-  </url>
-  
-  <url>
-    <loc>https://lwl1751.github.io/2024/06/02/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1%E5%A4%84%E7%90%86/</loc>
-    
-    <lastmod>2024-06-02T07:23:31.114Z</lastmod>
-    
-    <date>1717313011000</date>
-    <title>分布式事务处理 | Wenliang Liang</title>
-    
-    <desc></desc>
-  </url>
-  
-  <url>
-    <loc>https://lwl1751.github.io/2024/06/02/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/</loc>
-    
-    <lastmod>2024-06-02T07:23:14.307Z</lastmod>
-    
-    <date>1717312994000</date>
-    <title>分布式系统中的数据处理 | Wenliang Liang</title>
-    
-    <desc></desc>
-  </url>
-  
-  <url>
-    <loc>https://lwl1751.github.io/2024/06/02/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E6%95%85%E9%9A%9C%E5%A4%84%E7%90%86/</loc>
-    
-    <lastmod>2024-06-02T07:22:45.339Z</lastmod>
-    
-    <date>1717312965000</date>
-    <title>分布式系统中的故障处理 | Wenliang Liang</title>
-    
-    <desc></desc>
-  </url>
-  
-  <url>
-    <loc>https://lwl1751.github.io/2024/06/02/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E4%BA%A4%E4%BA%92%E5%A4%84%E7%90%86/</loc>
-    
-    <lastmod>2024-06-02T07:22:21.160Z</lastmod>
-    
-    <date>1717312941000</date>
-    <title>分布式系统中的交互处理 | Wenliang Liang</title>
-    
-    <desc></desc>
-  </url>
-  
-  <url>
-    <loc>https://lwl1751.github.io/2024/06/02/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1%E7%9A%84%E5%85%B3%E6%B3%A8%E7%82%B9/</loc>
-    
-    <lastmod>2024-06-02T07:22:00.327Z</lastmod>
-    
-    <date>1717312920000</date>
-    <title>分布式系统设计的关注点 | Wenliang Liang</title>
-    
-    <desc></desc>
-  </url>
-  
-  <url>
-    <loc>https://lwl1751.github.io/2024/06/02/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%89%B9%E5%BE%81/</loc>
-    
-    <lastmod>2024-06-02T07:21:33.725Z</lastmod>
-    
-    <date>1717312893000</date>
-    <title>分布式系统的特征 | Wenliang Liang</title>
     
     <desc></desc>
   </url>

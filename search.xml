@@ -1359,38 +1359,81 @@ Format，一种不同的规则语言和推理引擎之间的交换格式。</p><
   <entry>
     <title>分布式事务处理</title>
     <url>/2024/06/02/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1%E5%A4%84%E7%90%86/</url>
-    <content><![CDATA[
+    <content><![CDATA[<p>事务的基本特性： ACID</p>
+<ul>
+<li>Atomic, 原子性</li>
+<li>Consistent, 一致性</li>
+<li>Isolated, </li>
+<li>Durable, 持久性</li>
+</ul>
+<p>事务的故障模型/Lampson</p>
+<p><img src alt="图片"></p>
+<h2 id="一-分布式事务简介"><a href="#一-分布式事务简介" class="headerlink" title="一.分布式事务简介"></a>一.分布式事务简介</h2><ul>
+<li><strong>分布式事务</strong>：访问由多个服务器管理的对象的事务。当一个分布式事务结束时，所有参与该事务的服务器必须全部提交，或全部放弃。</li>
+<li>参与者：分布式事务访问的每个服务器。每个事务参与者负责记录所有参与分布式事务的可恢复对象。</li>
+<li>协调者：一个服务器承担了协调者的角色，由它来保证在所有的服务器上获得同一结果。</li>
+<li>可恢复对象：能够在服务器崩溃后恢复的对象。</li>
+<li>协议：协调者、参与者的动作取决于它所遵循的协议。如两阶段提交协议(2PC)。</li>
+</ul>
+<h2 id="二-原子提交协议"><a href="#二-原子提交协议" class="headerlink" title="二.原子提交协议"></a>二.原子提交协议</h2><blockquote>
+<p><strong>两阶段原子提交协议</strong></p>
+</blockquote>
+<h2 id="三-分布式事务中的并发控制"><a href="#三-分布式事务中的并发控制" class="headerlink" title="三.分布式事务中的并发控制"></a>三.分布式事务中的并发控制</h2><p>串行等价性</p>
+<p>锁</p>
+<h2 id="四-分布式死锁"><a href="#四-分布式死锁" class="headerlink" title="四.分布式死锁"></a>四.分布式死锁</h2><p>锁超时</p>
+<p>全局等待图</p>
+<p>死锁检测</p>
+<p>假死锁</p>
+<p>边追逐方法</p>
+<p>Probes传递</p>
+<h2 id="五-分布式事务的恢复"><a href="#五-分布式事务的恢复" class="headerlink" title="五.分布式事务的恢复"></a>五.分布式事务的恢复</h2><p>脏事务读取</p>
+<p>过早写入</p>
+<p>意图列表</p>
+<p>日志</p>
 ]]></content>
+      <tags>
+        <tag>分布式系统</tag>
+      </tags>
   </entry>
   <entry>
     <title>分布式系统中的交互处理</title>
     <url>/2024/06/02/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E4%BA%A4%E4%BA%92%E5%A4%84%E7%90%86/</url>
-    <content><![CDATA[
-]]></content>
+    <content><![CDATA[<h2 id="一-进程组织"><a href="#一-进程组织" class="headerlink" title="一. 进程组织"></a>一. 进程组织</h2><h2 id="二-进程交互"><a href="#二-进程交互" class="headerlink" title="二. 进程交互"></a>二. 进程交互</h2><h3 id="2-1-一对一：P2P路由"><a href="#2-1-一对一：P2P路由" class="headerlink" title="2.1 一对一：P2P路由"></a>2.1 一对一：P2P路由</h3><h3 id="2-2-一对一：中间件通信协议"><a href="#2-2-一对一：中间件通信协议" class="headerlink" title="2.2 一对一：中间件通信协议"></a>2.2 一对一：中间件通信协议</h3><p>Remote Procedure Call (RPC)</p>
+<h3 id="2-3-一对多：传染病协议"><a href="#2-3-一对多：传染病协议" class="headerlink" title="2.3 一对多：传染病协议"></a>2.3 一对多：传染病协议</h3><h3 id="2-4-一对多：应用层组播"><a href="#2-4-一对多：应用层组播" class="headerlink" title="2.4 一对多：应用层组播"></a>2.4 一对多：应用层组播</h3><h2 id="三-进程协作"><a href="#三-进程协作" class="headerlink" title="三. 进程协作"></a>三. 进程协作</h2><h3 id="3-1-分布式互斥"><a href="#3-1-分布式互斥" class="headerlink" title="3.1 分布式互斥"></a>3.1 分布式互斥</h3><h3 id="3-2-选举"><a href="#3-2-选举" class="headerlink" title="3.2 选举"></a>3.2 选举</h3><h3 id="3-3-组通信中的排序组播"><a href="#3-3-组通信中的排序组播" class="headerlink" title="3.3 组通信中的排序组播"></a>3.3 组通信中的排序组播</h3>]]></content>
+      <tags>
+        <tag>分布式系统</tag>
+      </tags>
   </entry>
   <entry>
     <title>分布式系统中的数据处理</title>
     <url>/2024/06/02/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/</url>
-    <content><![CDATA[
+    <content><![CDATA[<h2 id="一-P2P-Lookup"><a href="#一-P2P-Lookup" class="headerlink" title="一.P2P Lookup"></a>一.P2P Lookup</h2><h3 id="1-1-Napster"><a href="#1-1-Napster" class="headerlink" title="1.1 Napster"></a>1.1 Napster</h3><h3 id="1-2-BitTorrent"><a href="#1-2-BitTorrent" class="headerlink" title="1.2 BitTorrent"></a>1.2 BitTorrent</h3><h3 id="1-3-Gnutella"><a href="#1-3-Gnutella" class="headerlink" title="1.3 Gnutella"></a>1.3 Gnutella</h3><h3 id="1-4-Pastry"><a href="#1-4-Pastry" class="headerlink" title="1.4 Pastry"></a>1.4 Pastry</h3><h3 id="1-5-Chord"><a href="#1-5-Chord" class="headerlink" title="1.5 Chord"></a>1.5 Chord</h3><h3 id="1-6-Kademlia"><a href="#1-6-Kademlia" class="headerlink" title="1.6 Kademlia"></a>1.6 Kademlia</h3><h2 id="二-复制和一致性"><a href="#二-复制和一致性" class="headerlink" title="二. 复制和一致性"></a>二. 复制和一致性</h2><h3 id="2-1-一致性模型"><a href="#2-1-一致性模型" class="headerlink" title="2.1 一致性模型"></a>2.1 一致性模型</h3><h3 id="2-2-数据为中心的一致性模型"><a href="#2-2-数据为中心的一致性模型" class="headerlink" title="2.2 数据为中心的一致性模型"></a>2.2 数据为中心的一致性模型</h3><h3 id="2-3-客户为中心的一致性模型"><a href="#2-3-客户为中心的一致性模型" class="headerlink" title="2.3 客户为中心的一致性模型"></a>2.3 客户为中心的一致性模型</h3><h3 id="2-4-复制管理"><a href="#2-4-复制管理" class="headerlink" title="2.4 复制管理"></a>2.4 复制管理</h3><p>副本服务器放置, Replica-server placement</p>
+<p>内容复制与放置, Content replication and placement</p>
+<p>内容分布, Content distribution</p>
+<h3 id="2-5-一致性协议"><a href="#2-5-一致性协议" class="headerlink" title="2.5 一致性协议"></a>2.5 一致性协议</h3><p>基于主要的协议, Primary-based protocols</p>
+<p>复制写协议, Replicated-write protocols</p>
+<p>案例：Raft</p>
 ]]></content>
+      <tags>
+        <tag>分布式系统</tag>
+      </tags>
   </entry>
   <entry>
     <title>分布式系统中的故障处理</title>
     <url>/2024/06/02/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E6%95%85%E9%9A%9C%E5%A4%84%E7%90%86/</url>
-    <content><![CDATA[
-]]></content>
+    <content><![CDATA[<h2 id="一-故障模型"><a href="#一-故障模型" class="headerlink" title="一.故障模型"></a>一.故障模型</h2><h2 id="二-可靠通信"><a href="#二-可靠通信" class="headerlink" title="二.可靠通信"></a>二.可靠通信</h2><p>2.1 可靠组播</p>
+<h2 id="三-协定问题"><a href="#三-协定问题" class="headerlink" title="三.协定问题"></a>三.协定问题</h2><h3 id="3-1-共识算法"><a href="#3-1-共识算法" class="headerlink" title="3.1 共识算法"></a>3.1 共识算法</h3><h3 id="3-2-拜占庭将军问题"><a href="#3-2-拜占庭将军问题" class="headerlink" title="3.2 拜占庭将军问题"></a>3.2 拜占庭将军问题</h3><h2 id="四-分布式恢复"><a href="#四-分布式恢复" class="headerlink" title="四.分布式恢复"></a>四.分布式恢复</h2><h3 id="4-1-后向恢复-检查点和日志"><a href="#4-1-后向恢复-检查点和日志" class="headerlink" title="4.1 后向恢复/检查点和日志"></a>4.1 后向恢复/检查点和日志</h3><h3 id="4-2-前向恢复-自稳定算法"><a href="#4-2-前向恢复-自稳定算法" class="headerlink" title="4.2 前向恢复/自稳定算法"></a>4.2 前向恢复/自稳定算法</h3>]]></content>
+      <tags>
+        <tag>分布式系统</tag>
+      </tags>
   </entry>
   <entry>
     <title>分布式系统的特征</title>
     <url>/2024/06/02/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%89%B9%E5%BE%81/</url>
-    <content><![CDATA[
-]]></content>
-  </entry>
-  <entry>
-    <title>分布式系统设计的关注点</title>
-    <url>/2024/06/02/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1%E7%9A%84%E5%85%B3%E6%B3%A8%E7%82%B9/</url>
-    <content><![CDATA[
-]]></content>
+    <content><![CDATA[<h2 id="一-基本概念"><a href="#一-基本概念" class="headerlink" title="一.基本概念"></a>一.基本概念</h2><h2 id="二-设计目标"><a href="#二-设计目标" class="headerlink" title="二.设计目标"></a>二.设计目标</h2><h2 id="三-分布式系统的时间"><a href="#三-分布式系统的时间" class="headerlink" title="三.分布式系统的时间"></a>三.分布式系统的时间</h2><h2 id="四-分布式系统的状态"><a href="#四-分布式系统的状态" class="headerlink" title="四.分布式系统的状态"></a>四.分布式系统的状态</h2><h2 id="五-参考资料"><a href="#五-参考资料" class="headerlink" title="五.参考资料"></a>五.参考资料</h2>]]></content>
+      <tags>
+        <tag>分布式系统</tag>
+      </tags>
   </entry>
   <entry>
     <title>高级人工智能复习绪论-机器学习部分</title>
@@ -1400,6 +1443,46 @@ Format，一种不同的规则语言和推理引擎之间的交换格式。</p><
 ]]></content>
       <tags>
         <tag>高级人工智能</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>LLM 增量预训练</title>
+    <url>/2024/06/05/LLM%20%E5%A2%9E%E9%87%8F%E9%A2%84%E8%AE%AD%E7%BB%83/</url>
+    <content><![CDATA[<h2 id="一-DeepSpeed"><a href="#一-DeepSpeed" class="headerlink" title="一.DeepSpeed"></a>一.DeepSpeed</h2><p>DeepSpeed 是由Mircrosoft 提供的<strong>分布式训练工具</strong>，DeepSpeed Zero（零冗余优化器）是大规模模型训练优化的技术，目的是<strong>减少模型的内存占用</strong>。<strong>Zero将模型参数分成三个部分</strong>：</p>
+<ul>
+<li>Optimizer States, 优化器在进行梯度更新的时候需要用到的数据</li>
+<li>Gradient, 在反向转播过程中产生的数据，其决定参数的更新方向</li>
+<li>Model Parameter, 模型参数，在模型训练过程中通过数据“学习”的信息</li>
+</ul>
+<p><strong>Zero 的级别如下</strong>：</p>
+<ul>
+<li>Zero-0, 不使用所有类型的分片，仅使用DeepSpeed作为DDP</li>
+<li>Zero-1, 分割Optimizer States， 减少4倍内存，通信容量和数据并行性相同</li>
+<li>Zero-2, 分割Optimizer States和Gradients，减少8倍内存，通信容量和数据并行性相同</li>
+<li>Zero-3, 分割Optimizer States、gradients、Parametes，内存减少与数据并行度呈线性关系。例如，在64个GPU（Nd=64）之间进行拆分将产生64倍的内存缩减。通信量有50%的适度增长</li>
+<li>Zero-Infinity, Zero-Infinity是Zero-3的扩展，它允许通过使用 NVMe 固态硬盘扩展 GPU 和 CPU 内存来训练大型模型</li>
+</ul>
+<h2 id="二-参数设置"><a href="#二-参数设置" class="headerlink" title="二. 参数设置"></a>二. 参数设置</h2><ul>
+<li>lr_scheduler_type：学习率变化策略。</li>
+<li>warmup_steps：warm up步数。学习率经过多少步，增长到指定的数值。</li>
+<li>optim：优化器。如Adam、Adamw。</li>
+<li>lora_rank：lora矩阵的秩。一般设置为8、16、32、64等。</li>
+<li>lora_alpha: lora中的缩放参数。一般设为16、32即可。</li>
+<li>target_modules: lora训练模块，q_proj、k_proj、v_proj、o_proj、up_proj、down_proj。</li>
+<li>fp16：使用使用fp16混合精度。V100建议开启。</li>
+<li>bf16：使用使用bf16混合精度。A100建议开启。</li>
+<li>preprocessing_num_workers：</li>
+<li>block_size：</li>
+<li>group_by_length：</li>
+<li>gradient_checkpointing：</li>
+<li>ddp_timeout：</li>
+<li>ddp_find_unused_parameters：</li>
+<li>evaluation_strategy：训练期间采用的评估策略，[‘no’,’steps’,’eppoch’]，[不评估，每个eval_step后评估，每个epoch后评估]</li>
+</ul>
+<h2 id="三-参考资料"><a href="#三-参考资料" class="headerlink" title="三.参考资料"></a>三.参考资料</h2><p><a href="https://mp.weixin.qq.com/s/qvhzagFFgNdtb3sSymhAdA">https://mp.weixin.qq.com/s/qvhzagFFgNdtb3sSymhAdA</a></p>
+]]></content>
+      <tags>
+        <tag>大模型</tag>
       </tags>
   </entry>
 </search>
