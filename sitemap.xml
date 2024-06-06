@@ -2,6 +2,17 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://lwl1751.github.io/2024/06/05/LLM%20%E5%A2%9E%E9%87%8F%E9%A2%84%E8%AE%AD%E7%BB%83/</loc>
+    
+    <lastmod>2024-06-06T15:04:42.684Z</lastmod>
+    
+    <date>1717575709000</date>
+    <title>LLM训练 | Wenliang Liang</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
     <loc>https://lwl1751.github.io/2024/06/02/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E6%95%85%E9%9A%9C%E5%A4%84%E7%90%86/</loc>
     
     <lastmod>2024-06-06T10:42:22.543Z</lastmod>
@@ -52,17 +63,6 @@
     
     <date>1717313011000</date>
     <title>分布式事务处理 | Wenliang Liang</title>
-    
-    <desc></desc>
-  </url>
-  
-  <url>
-    <loc>https://lwl1751.github.io/2024/06/05/LLM%20%E5%A2%9E%E9%87%8F%E9%A2%84%E8%AE%AD%E7%BB%83/</loc>
-    
-    <lastmod>2024-06-05T13:52:50.841Z</lastmod>
-    
-    <date>1717575709000</date>
-    <title>LLM 增量预训练 | Wenliang Liang</title>
     
     <desc></desc>
   </url>

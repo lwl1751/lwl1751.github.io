@@ -1555,9 +1555,10 @@ Openness：如果一个分布式系统是开放的，那么它提供的服务的
       </tags>
   </entry>
   <entry>
-    <title>LLM 增量预训练</title>
+    <title>LLM训练</title>
     <url>/2024/06/05/LLM%20%E5%A2%9E%E9%87%8F%E9%A2%84%E8%AE%AD%E7%BB%83/</url>
-    <content><![CDATA[<h2 id="一-DeepSpeed"><a href="#一-DeepSpeed" class="headerlink" title="一.DeepSpeed"></a>一.DeepSpeed</h2><p>DeepSpeed 是由Mircrosoft 提供的<strong>分布式训练工具</strong>，DeepSpeed Zero（零冗余优化器）是大规模模型训练优化的技术，目的是<strong>减少模型的内存占用</strong>。<strong>Zero将模型参数分成三个部分</strong>：</p>
+    <content><![CDATA[<h2 id="一-DeepSpeed">一.DeepSpeed</h2>
+<p>DeepSpeed 是由Mircrosoft 提供的<strong>分布式训练工具</strong>，DeepSpeed Zero（零冗余优化器）是大规模模型训练优化的技术，目的是<strong>减少模型的内存占用</strong>。<strong>Zero将模型参数分成三个部分</strong>：</p>
 <ul>
 <li>Optimizer States, 优化器在进行梯度更新的时候需要用到的数据</li>
 <li>Gradient, 在反向转播过程中产生的数据，其决定参数的更新方向</li>
@@ -1571,24 +1572,46 @@ Openness：如果一个分布式系统是开放的，那么它提供的服务的
 <li>Zero-3, 分割Optimizer States、gradients、Parametes，内存减少与数据并行度呈线性关系。例如，在64个GPU（Nd=64）之间进行拆分将产生64倍的内存缩减。通信量有50%的适度增长</li>
 <li>Zero-Infinity, Zero-Infinity是Zero-3的扩展，它允许通过使用 NVMe 固态硬盘扩展 GPU 和 CPU 内存来训练大型模型</li>
 </ul>
-<h2 id="二-参数设置"><a href="#二-参数设置" class="headerlink" title="二. 参数设置"></a>二. 参数设置</h2><ul>
-<li>lr_scheduler_type：学习率变化策略。</li>
-<li>warmup_steps：warm up步数。学习率经过多少步，增长到指定的数值。</li>
-<li>optim：优化器。如Adam、Adamw。</li>
+<h2 id="二-flash-attention">二.flash attention</h2>
+<p>…</p>
+<h2 id="三-shifted-sparse-attention">三.shifted sparse attention</h2>
+<p>…</p>
+<h2 id="四-参数设置">四. 参数设置</h2>
+<ul>
+<li>lr_scheduler_type：学习率变化策略。如[linear, cosine, cosine_with_restarts,polynomial,constant,constant_with_warmup,inverse_sqrt,reduce_lr_on_plateau]
+<ul>
+<li>linear, 学习率从一个较高的初始值开始，然后随着时间线性地减少到一个较低的值。</li>
+<li>cosine, 学习率按照余弦曲线的形状进行周期性调整，这种周期性的起伏有助于模型在不同的训练阶段探索参数空间。</li>
+<li>cosine_with_restarts, 这是余弦调整的一种变体，每当学习率达到一个周期的最低点时，会突然重置到最高点，然后再次减少。</li>
+<li>polynomial, 学习率按照一个多项式函数减少，通常是一个幂次递减的形式。</li>
+<li>constant_with_warmup, 开始时使用较低的学习率“预热”模型，然后切换到一个固定的较高学习率。</li>
+<li>inverse_sqrt, 学习率随训练步数的增加按逆平方根递减。</li>
+<li>reduce_lr_on_plateau, 当模型的验证性能不再提升时，自动减少学习率。</li>
+</ul>
+</li>
+<li>warmup_steps：warmup步数。学习率经过多少步，增长到指定的数值。</li>
+<li>warmup_ratio：用于指定线性warmup 占总训练步骤的比例，如果设置了warmup_steps，将会忽略warmup_ratio。</li>
+<li>weight_decay：权重衰减，防止模型过拟合。</li>
+<li>optim：优化器。<a href="https://mp.weixin.qq.com/s/nW6PpFsIbc0SwgI3QPKHFg">优化策略梯度下降算法：SGD、MBGD、Momentum、Adam、AdamW</a></li>
 <li>lora_rank：lora矩阵的秩。一般设置为8、16、32、64等。</li>
 <li>lora_alpha: lora中的缩放参数。一般设为16、32即可。</li>
-<li>target_modules: lora训练模块，q_proj、k_proj、v_proj、o_proj、up_proj、down_proj。</li>
+<li>target_modules: lora训练模块，q_proj、k_proj、v_proj、o_proj、up_proj、down_proj。分别对应自注意力机制中的查询、键、值和输出投影层，以及LoRA特有的上投影和下投影层。</li>
 <li>fp16：使用使用fp16混合精度。V100建议开启。</li>
 <li>bf16：使用使用bf16混合精度。A100建议开启。</li>
-<li>preprocessing_num_workers：</li>
-<li>block_size：</li>
-<li>group_by_length：</li>
-<li>gradient_checkpointing：</li>
-<li>ddp_timeout：</li>
-<li>ddp_find_unused_parameters：</li>
-<li>evaluation_strategy：训练期间采用的评估策略，[‘no’,’steps’,’eppoch’]，[不评估，每个eval_step后评估，每个epoch后评估]</li>
+<li>preprocessing_num_workers：数据预处理时的工作进程数量。</li>
+<li>block_size：块大小，即输入序列的最大长度。</li>
+<li>group_by_length：是否根据输入序列的长度进行分组。</li>
+<li>gradient_checkpointing：梯度检查点。</li>
+<li>ddp_timeout：ddp超时时间设置，若某些节点在规定时间内没有响应，则训练会报错并中止。</li>
+<li>ddp_find_unused_parameters：是否在DDP中寻找未使用的参数。如果模型中存在未被使用的参数，该选项可以帮助检测到，以避免不必要的计算和资源浪费。</li>
+<li>evaluation_strategy：训练期间采用的评估策略，[‘no’,‘steps’,‘eppoch’]，[不评估，每个eval_step后评估，每个epoch后评估]</li>
 </ul>
-<h2 id="三-参考资料"><a href="#三-参考资料" class="headerlink" title="三.参考资料"></a>三.参考资料</h2><p><a href="https://mp.weixin.qq.com/s/qvhzagFFgNdtb3sSymhAdA">https://mp.weixin.qq.com/s/qvhzagFFgNdtb3sSymhAdA</a></p>
+<h2 id="五-参数选取">五.参数选取</h2>
+<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/llm%E5%A2%9E%E9%87%8F%E9%A2%84%E8%AE%AD%E7%BB%834.png" alt="图片"></p>
+<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/llm增量预训练1.png" alt="图片" style="width:50%;">
+<h2 id="四-参考资料">四.参考资料</h2>
+<p><a href="https://mp.weixin.qq.com/s/qvhzagFFgNdtb3sSymhAdA">https://mp.weixin.qq.com/s/qvhzagFFgNdtb3sSymhAdA</a></p>
+<p><a href="http://t.csdnimg.cn/Z2S9h">http://t.csdnimg.cn/Z2S9h</a></p>
 ]]></content>
       <tags>
         <tag>大模型</tag>
