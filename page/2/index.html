@@ -51,7 +51,7 @@
   isHome: true,
   isHighlightShrink: false,
   isToc: false,
-  postUpdate: '2024-06-06 23:07:40'
+  postUpdate: '2024-06-12 18:35:20'
 }</script><script>(win=>{
       win.saveToLocal = {
         set: (key, value, ttl) => {
@@ -148,105 +148,7 @@
         }
       }
       detectApple()
-    })(window)</script><meta name="generator" content="Hexo 7.2.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/WechatIMG27.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">26</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">8</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url('https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/2347912.webp')"><nav id="nav"><span id="blog-info"><a href="/" title="Wenliang Liang"><span class="site-name">Wenliang Liang</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">Wenliang Liang</h1><div id="site-subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="https://github.com/lwl1751" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:wl687234@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info"><a class="article-title" href="/2024/05/25/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E7%9F%A5%E8%AF%86%E5%88%86%E6%9E%90%E3%80%81%E8%90%83%E5%8F%96%E4%B8%8E%E5%A2%9E%E5%BC%BA/" title="大模型知识分析、萃取与增强">大模型知识分析、萃取与增强</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-05-25T13:14:50.000Z" title="Created 2024-05-25 21:14:50">2024-05-25</time></span></div><div class="content">大模型中蕴含着大量的知识，但是知识的类型、数量和质量并不可控。
-
-知识分析实验表明，大模型自发学到了一些世界知识、常识知识，这些知识隐式地存储于模型参数中。
-
-课程考试复习使用。
-
-1.大模型的知识分析
-1.1 知识探测
-
-知识探测：探测预训练语言模型掌握的知识。
-实现方式：将三元组或问答对形式的世界知识转化为自然语言填空的形式，从而判断语言模型掌握知识的准确性。
-预训练模型知识探测的良好性能主要来源于：
-
-提示语偏差，预测结果会受到提示词的影响，如 was born in [Mask] ,
-模型会猜测下一个词应该为地名。
-类别指导，类似于few shot learning，模型已经见过类似的问题。
-答案泄漏，基于上下文的推理。
-
-
-1.2 知识定位
-
-知识定位：分析预训练语言模型中的知识存储机制，可分为层粒度与神经元粒度。
-大量事实知识存储在FNN模块中。
-
-1.3 知识学习机理分析
-分析影响预训练语言模型学习效果的因素。
-
-长尾知识：信息出现次数非常少，甚至只出现了一次。LLM对长尾知识的掌握并不充分，回答问题的准确度就会降低，可以通过扩大模型规模(scaling
-low)、检索增 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info"><a class="article-title" href="/2024/05/15/%E5%A4%9A%E6%A8%A1%E6%80%81%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E5%BA%94%E7%94%A8/" title="多模态知识图谱应用">多模态知识图谱应用</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-05-15T07:32:04.000Z" title="Created 2024-05-15 15:32:04">2024-05-15</time></span></div><div class="content">相比于单模态知识图谱，多模态知识图谱能够综合多种类型的数据，从而可以让智能体更深入的感知和理解真实的数据场景，因而多模态知识图谱在各个领域都有广泛的应用。如图像检索、模型推理与生成、模型预训练等。以电子商务为例，通过多模态产品图谱，可以对产品进行更细致的表示，再通过预训练，可以增强大型模型对电子商务领域的多模态知识理解，从而推动电子商务平台的发展。
-
-
-
-图片
-
-AliMe
-MKG是阿里提出的一种面向直播的知识图谱，与传统的知识图谱不同，它的目标是向顾客种草某一产品，而非解决顾客的问题。因此，它需要构建逻辑思维链，引导用户需求。例如，在该左图1的知识图谱示例中，"熬夜"导致"皮肤暗沉"问题，这就需要"皮肤白皙"，而含有"甘草酸二钾"成分的"面膜"产品适合相应的用户。
-在电商直播领域，这种知识图谱有两种应用：智能辅播和虚拟主播。智能辅播是在真人直播间构造了一个智能助理机器人，来协助主播去做商品介绍。比如说用户问的是口红，直播间内有多个口红，智能辅播就会将相关的信息展示出来给用户进行浏览，当用户点击确认，选择一个感兴趣的口红之后，辅播就会从知识图谱中抽取相应信息，以商品卡片信息的方式让用户 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/05/15/%E7%9F%A5%E8%AF%86%E6%8E%A8%E7%90%86/" title="知识推理">知识推理</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-05-15T06:33:38.000Z" title="Created 2024-05-15 14:33:38">2024-05-15</time></span></div><div class="content">知识工程的生命周期：知识表示，知识建模，知识融合，知识管理，知识推理，知识应用。
-
-一.知识推理概述
-概念区分：推理 reasoning，指的是通过已知知识推断出未知知识的过程。而推断 inference 是推理的一个步骤，指的是神经网络中的前向计算。
-按新知识推出途径的分类：
-
-归纳推理（特殊-&gt;一般），归纳推理所推出的结论没有包含在前提内容中。这种由个别事物或现象推出一般性知识的过程，是增加新知识的过程。
-演绎推理（一般-&gt;特殊），演绎推理只不过是将已有事实揭示出来，因此它不能增加新知识。
-缺省推理，也称默认推理，在知识不完全的情况下作出的推理，通常的形式：如果没有足够的证据证明结论不成立，则认为结论是正确的。
-溯因推理，也称反绎推理、反向推理。，是推理到最佳解释的过程。它是开始于事实的集合，并推导出其最佳解释的推理过程。
-
-按前提与结论的联系性质的分类：
-
-必然性推理，前提与结论有必然性联系，即前提蕴含结论。传统逻辑中通过直言命题变形的直接推理（换质法、换位法推理等）、通过命题间对应关系所进行的直接推理、三段论推理、各种假言推理、选言推理以及完全归纳推理等等，都属于必 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/05/15/%E7%9F%A5%E8%AF%86%E5%BB%BA%E6%A8%A1%E4%B8%8E%E7%9F%A5%E8%AF%86%E8%9E%8D%E5%90%88/" title="知识建模与知识融合">知识建模与知识融合</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-05-15T06:33:06.000Z" title="Created 2024-05-15 14:33:06">2024-05-15</time></span></div><div class="content">课程复习使用，这章没有进行细致整理。
-
-一. 知识建模
-
-1.1 知识体系概述
-
-1.2 典型知识体系
-
-1.3 知识体系手工建模方法
-
-1.4 知识体系自动建模方法
-
-二. 知识融合
-
-2.1 知识融合概述
-
-2.2 知识体系融合方法
-
-2.3 知识实例融合方法
-
-三. 大模型中的知识融合
-
-3.1 大模型对齐技术概述
-
-3.2大模型对齐方法
-一. 知识建模 &amp; 知识融合
-查看对应ppt
-二.大模型的知识融合
-SFT，RLHF，DPO。
-三.参考资料
-中国科学院大学陈玉博老师 知识工程课程课件
-</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/05/15/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86/" title="知识图谱数据管理">知识图谱数据管理</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-05-15T06:32:47.000Z" title="Created 2024-05-15 14:32:47">2024-05-15</time></span></div><div class="content">知识图谱的目标是构建一个能够刻画现实世界的知识库，为自动问答、信息检索等应用提供支撑。因此，对知识的持久化存储并提供对目标知识的高效检索/更新是合格的知识图谱（系统）必须具备的基本功能，也是知识图谱数据管理的主要研究内容。
-
-课程复习使用。
-一.符号化知识图谱数据管理
-1.1 知识图谱数据模型
-数据模型主要包含逻辑组织结构、操作、约束三部分，它决定了数据管理所采取的方法和策略，对于存储管理、查询处理、查询语言设计均至关重要。常见的数据模型有层次数据模型，网状数据模型，系数据模型。
-
-逻辑组织结构（数据结构）：描述数据的类型、内容、性质以及数据间的联系等。
-数据操作：描述在相应的数据结构上的操作类型和操作方式。
-数据约束：描述数据结构内数据间的语法、词义联系、他们之间的制约和依存关系，以及数据动态变化的规则，以保证数据的正确、有效和相容。
-
- 
-1.2 知识图谱数据的存储
-
-基于表结构的存储：关系数据库。
-基于图结构的存储：常见的图数据库存储系统，如Neo4j, OrientDB,
-HyperGraphDB, InfiniteGraph, InfoGrid.
-
-1.3 知识图谱数据的检索 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/05/15/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E6%9E%84%E5%BB%BA/" title="知识图谱构建">知识图谱构建</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-05-15T06:32:25.000Z" title="Created 2024-05-15 14:32:25">2024-05-15</time></span></div><div class="content">一.半结构化文本中的知识抽取
+    })(window)</script><meta name="generator" content="Hexo 7.2.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/WechatIMG27.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">21</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">7</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url('https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/2347912.webp')"><nav id="nav"><span id="blog-info"><a href="/" title="Wenliang Liang"><span class="site-name">Wenliang Liang</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">Wenliang Liang</h1><div id="site-subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="https://github.com/lwl1751" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:wl687234@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/05/15/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E6%9E%84%E5%BB%BA/" title="知识图谱构建">知识图谱构建</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-05-15T06:32:25.000Z" title="Created 2024-05-15 14:32:25">2024-05-15</time></span></div><div class="content">一.半结构化文本中的知识抽取
 目标：从百科普通条目半结构化网页中抽取实体属性名以及实体属性值。
 
 
@@ -340,7 +242,109 @@ Q-Learning
   
 1.2 Double-DQN, DDQN
 Double DQN 是对 DQN
-在减少过拟合方面的改进。这是由于DQN对动作值 ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/#content-inner">3</a><a class="extend next" rel="next" href="/page/3/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/WechatIMG27.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Wenliang Liang</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">26</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">8</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/lwl1751"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/lwl1751" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:wl687234@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/06/05/LLM%20%E5%A2%9E%E9%87%8F%E9%A2%84%E8%AE%AD%E7%BB%83/" title="LLM训练">LLM训练</a><time datetime="2024-06-05T08:21:49.000Z" title="Created 2024-06-05 16:21:49">2024-06-05</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/06/02/%E9%AB%98%E7%BA%A7%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%A4%8D%E4%B9%A0%E7%BB%AA%E8%AE%BA-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E9%83%A8%E5%88%86/" title="高级人工智能复习绪论-机器学习部分">高级人工智能复习绪论-机器学习部分</a><time datetime="2024-06-02T12:33:08.000Z" title="Created 2024-06-02 20:33:08">2024-06-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/06/02/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1%E5%A4%84%E7%90%86/" title="分布式事务处理">分布式事务处理</a><time datetime="2024-06-02T07:23:31.000Z" title="Created 2024-06-02 15:23:31">2024-06-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/06/02/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/" title="分布式系统中的数据处理">分布式系统中的数据处理</a><time datetime="2024-06-02T07:23:14.000Z" title="Created 2024-06-02 15:23:14">2024-06-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/06/02/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E6%95%85%E9%9A%9C%E5%A4%84%E7%90%86/" title="分布式系统中的故障处理">分布式系统中的故障处理</a><time datetime="2024-06-02T07:22:45.000Z" title="Created 2024-06-02 15:22:45">2024-06-02</time></div></div></div></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>Tags</span></div><div class="card-tag-cloud"><a href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B/" style="font-size: 1.2em; color: #999da3">大模型</a> <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/" style="font-size: 1.3em; color: #99a1ac">分布式系统</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E5%B7%A5%E7%A8%8B/" style="font-size: 1.5em; color: #99a9bf">知识工程</a> <a href="/tags/%E6%90%9C%E7%B4%A2/" style="font-size: 1.1em; color: #999">搜索</a> <a href="/tags/%E9%AB%98%E7%BA%A7%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" style="font-size: 1.3em; color: #99a1ac">高级人工智能</a> <a href="/tags/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" style="font-size: 1.4em; color: #99a5b6">强化学习</a> <a href="/tags/%E5%A4%9A%E6%A8%A1%E6%80%81/" style="font-size: 1.1em; color: #999">多模态</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/" style="font-size: 1.1em; color: #999">知识图谱</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>Archives</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/06/"><span class="card-archive-list-date">June 2024</span><span class="card-archive-list-count">9</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/05/"><span class="card-archive-list-date">May 2024</span><span class="card-archive-list-count">17</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">Article :</div><div class="item-count">26</div></div><div class="webinfo-item"><div class="item-name">UV :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">PV :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Last Update :</div><div class="item-count" id="last-push-date" data-lastPushDate="2024-06-06T15:07:40.179Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Wenliang Liang</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>window.typedJSFn = {
+在减少过拟合方面的改进。这是由于DQN对动作值 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/05/15/%E8%BF%9E%E7%BB%AD%E7%8A%B6%E6%80%81%E7%B3%BB%E7%BB%9F%E5%9F%BA%E4%BA%8E%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" title="连续状态系统基于模型的强化学习">连续状态系统基于模型的强化学习</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-05-15T06:00:50.000Z" title="Created 2024-05-15 14:00:50">2024-05-15</time></span></div><div class="content">
+对于大规模的MDP问题，不希望使用查表（Table
+Lookup）的方式，通过函数近似来估计实际的价值函数的方式，既节约了资源，又能达到泛化的效果。
+
+\(\hat{v}(s,w) = v_\pi (s)\)
+\(\hat{q}(s,a,w) = q_\pi
+(s,a)\)
+\(\hat{\pi}(a,s,w) = \pi
+(a|s)\)
+
+函数近似器
+
+特征的线性组合
+神经网络
+决策树
+最近邻方法
+傅立叶/小波变换 
+
+
+1. 价值函数近似,
+Value Fuction Approximation, VFA
+近似函数逼近的类型：
+
+input: s, output: \(\hat{v}(s,w)\)
+input: s, output: \(\hat{q}(s,a,w)\)
+input: s, output: \(\hat{q}(s,a_1,w),\dots,\hat{q}(s,a_m,w)\)
+
+1.1 线性函数近似
+近似价值函数: \(\hat{v}(s,w)=x(s)^Tw\)
+目标函数:
+均方误差。由于实际的价值函数不可知，用样本近似期望损失。
+
+
+图片
+
+1.2 神经网络值 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/05/15/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" title="强化学习基础知识">强化学习基础知识</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-05-15T05:59:01.000Z" title="Created 2024-05-15 13:59:01">2024-05-15</time></span></div><div class="content">知识点：马尔科夫决策过程，动态规划。
+
+
+马尔科夫决策过程
+马尔科夫过程:
+一个具备马尔科夫性质的离散随机过程。
+马尔科夫性:
+下一时刻的状态只与当前状态有关。即\(P[S_{t+1}|S_{1},...,S_{t}]=P[S_{t+1}|S_{t}]\)
+马尔科夫奖励函数:
+把马尔科夫过程从 &lt;S, P&gt; 拓展到 &lt;S, P, R, γ&gt;。其中P
+为状态转移矩阵，R 和 γ
+分别表示奖励函数和奖励折扣因子。折扣因子越大，代表了智能体对长期性能指标考虑的程度越高（远视）；折扣因子越小，代表了智能体对长期性能指标考虑的程度越低（近视）。
+回报:
+回报是一个轨迹的累积奖励，\(G_{t} = R_{t+1} +
+\gamma R_{t+2} = \sum_{k=0}^{\infty } \gamma ^{k}R_{t+k+1}\)
+价值函数：状态s的期望回报，\(V(s) = E[G_{t}|S_{t}=s]\)。
+马尔科夫决策过程:
+马尔可夫奖励过程的立即奖励只取决于状态(奖励值在节点上)，而马尔可夫决策过程的立即奖励与状态和动作都有关。即把马尔科夫过程从
+&lt ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/05/15/%E5%9F%BA%E4%BA%8E%E7%AD%96%E7%95%A5%E6%A2%AF%E5%BA%A6%E7%9A%84%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" title="基于策略梯度的强化学习">基于策略梯度的强化学习</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-05-15T05:58:11.000Z" title="Created 2024-05-15 13:58:11">2024-05-15</time></span></div><div class="content">强化学习可分为两大类：
+
+value-based method(DP,MC,TD)
+通过价值函数求解最优策略，求解出来的策略是确定性的，虽然可以通过\(\epsilon\)-贪心策略来获取一定的随机性。要求动作空间离散。
+policy-based method
+适用场景：随机策略；动作空间连续。
+优点：具有更好的收敛性质。
+缺点：通常会收敛到局部最优而非全局最优；评估一个策略通常不够高效并且具有较大的方差。
+
+
+1.基本原理
+由于策略实际上是一个概率分布，可以将策略参数化 \(\pi(a|s,\theta)\) ，其中\(\theta\)
+是策略的参数。通过这种方式，可以将可见的已知状态泛化到未知的状态上。
+1.1 策略目标函数
+在片段式的环境中，使用每个经历片段(episode)的平均总回报。在连续性的环境中，使用每一步的平均奖励。
+ 
+希望能够找到最大化\(J(\theta)\)的\(\theta\)，属于最优化问题，求解方法如下：
+
+不使用梯度的方法(Hill climbing, Simplex, 模拟退火, 遗传算法)
+使用梯度的方法更高效(梯度下降, 共轭梯度, 拟牛顿法)
+ ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/05/15/%E6%97%A0%E6%A8%A1%E5%9E%8B%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" title="无模型强化学习">无模型强化学习</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-05-15T05:57:37.000Z" title="Created 2024-05-15 13:57:37">2024-05-15</time></span></div><div class="content">
+知识点
+1.无模型价值学习评估
+
+蒙特卡洛方法
+时序差分学习
+TD(𝝀)
+
+2.无模型策略优化控制
+
+蒙特卡洛策略迭代
+时序差分策略迭代（SARSA）
+Q值迭代 (Q-learning) 
+
+
+1. 无模型价值学习评估
+1.1 蒙特卡洛方法
+蒙特卡洛方法是一种基于样本的方法，不需要知道环境的所有信息。只需基于过去的经验就可以学习。具体来说，给定一个策略
+π，通过对 π 产生的回报取平均值来评估状态价值函数。这样就有两种估算方式:
+首次蒙特卡罗(First-Visit Monte
+Carlo)和每次蒙特卡罗(Every-Visit Monte
+Carlo)。首次蒙特卡罗只考虑每一个回合中第一次到状态 s
+的访问，而每次蒙特卡罗就是考虑每次到状态 s 的访问。
+注意的是，和动态规划不同的是，蒙特卡罗不使用自举(Bootstrapping)，也就是说，它不用其他状态的估算来估算当前的状态值。
+
+离线学习：智能体从预先收集好的数据中进行学习。
+在线学习：智能体通过与环境实时交互来获取知识和经验。
+1.2 时序差分学习
+时序差分学习方法同蒙特卡洛方法一样是不基于模型的，不需要马尔可夫决策过程 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info"><a class="article-title" href="/2024/05/14/%E8%92%99%E7%89%B9%E5%8D%A1%E6%B4%9B%E6%A0%91%E6%90%9C%E7%B4%A2/" title="蒙特卡洛树搜索">蒙特卡洛树搜索</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-05-14T06:00:50.000Z" title="Created 2024-05-14 14:00:50">2024-05-14</time></span></div><div class="content">
+</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/#content-inner">3</a><a class="extend next" rel="next" href="/page/3/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/WechatIMG27.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Wenliang Liang</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">21</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">7</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/lwl1751"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/lwl1751" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:wl687234@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/06/05/LLM%20%E5%A2%9E%E9%87%8F%E9%A2%84%E8%AE%AD%E7%BB%83/" title="LLM训练">LLM训练</a><time datetime="2024-06-05T08:21:49.000Z" title="Created 2024-06-05 16:21:49">2024-06-05</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/06/02/%E9%AB%98%E7%BA%A7%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%A4%8D%E4%B9%A0%E7%BB%AA%E8%AE%BA-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E9%83%A8%E5%88%86/" title="高级人工智能复习绪论-机器学习部分">高级人工智能复习绪论-机器学习部分</a><time datetime="2024-06-02T12:33:08.000Z" title="Created 2024-06-02 20:33:08">2024-06-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/06/01/%E6%95%B0%E5%80%BC%E5%8C%96%E7%9F%A5%E8%AF%86%E8%A1%A8%E7%A4%BA/" title="数值化知识表示">数值化知识表示</a><time datetime="2024-06-01T10:28:24.000Z" title="Created 2024-06-01 18:28:24">2024-06-01</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/06/01/%E7%AC%A6%E5%8F%B7%E5%8C%96%E7%9F%A5%E8%AF%86%E8%A1%A8%E7%A4%BA/" title="符号化知识表示">符号化知识表示</a><time datetime="2024-06-01T10:28:24.000Z" title="Created 2024-06-01 18:28:24">2024-06-01</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/05/31/%E7%BE%A4%E4%BD%93%E6%99%BA%E8%83%BD/" title="群体智能">群体智能</a><time datetime="2024-05-31T07:32:13.000Z" title="Created 2024-05-31 15:32:13">2024-05-31</time></div></div></div></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>Tags</span></div><div class="card-tag-cloud"><a href="/tags/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/" style="font-size: 1.1em; color: #999">知识图谱</a> <a href="/tags/%E5%A4%9A%E6%A8%A1%E6%80%81/" style="font-size: 1.1em; color: #999">多模态</a> <a href="/tags/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" style="font-size: 1.4em; color: #99a5b6">强化学习</a> <a href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B/" style="font-size: 1.2em; color: #999da3">大模型</a> <a href="/tags/%E6%90%9C%E7%B4%A2/" style="font-size: 1.1em; color: #999">搜索</a> <a href="/tags/%E9%AB%98%E7%BA%A7%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" style="font-size: 1.3em; color: #99a1ac">高级人工智能</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E5%B7%A5%E7%A8%8B/" style="font-size: 1.5em; color: #99a9bf">知识工程</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>Archives</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/06/"><span class="card-archive-list-date">June 2024</span><span class="card-archive-list-count">4</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/05/"><span class="card-archive-list-date">May 2024</span><span class="card-archive-list-count">17</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">Article :</div><div class="item-count">21</div></div><div class="webinfo-item"><div class="item-name">UV :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">PV :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Last Update :</div><div class="item-count" id="last-push-date" data-lastPushDate="2024-06-12T10:35:20.756Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Wenliang Liang</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>window.typedJSFn = {
   init: (str) => {
     window.typed = new Typed('#subtitle', Object.assign({
       strings: str,
