@@ -1384,11 +1384,7 @@ Format，一种不同的规则语言和推理引擎之间的交换格式。</p><
 <li>Zero-3, 分割Optimizer States、gradients、Parametes，内存减少与数据并行度呈线性关系。例如，在64个GPU（Nd=64）之间进行拆分将产生64倍的内存缩减。通信量有50%的适度增长</li>
 <li>Zero-Infinity, Zero-Infinity是Zero-3的扩展，它允许通过使用 NVMe 固态硬盘扩展 GPU 和 CPU 内存来训练大型模型</li>
 </ul>
-<h2 id="二-flash-attention">二.flash attention</h2>
-<p>…</p>
-<h2 id="三-shifted-sparse-attention">三.shifted sparse attention</h2>
-<p>…</p>
-<h2 id="四-参数设置">四. 参数设置</h2>
+<h2 id="二-参数设置">二. 参数设置</h2>
 <ul>
 <li>lr_scheduler_type：学习率变化策略。如[linear, cosine, cosine_with_restarts,polynomial,constant,constant_with_warmup,inverse_sqrt,reduce_lr_on_plateau]
 <ul>
@@ -1418,10 +1414,7 @@ Format，一种不同的规则语言和推理引擎之间的交换格式。</p><
 <li>ddp_find_unused_parameters：是否在DDP中寻找未使用的参数。如果模型中存在未被使用的参数，该选项可以帮助检测到，以避免不必要的计算和资源浪费。</li>
 <li>evaluation_strategy：训练期间采用的评估策略，[‘no’,‘steps’,‘eppoch’]，[不评估，每个eval_step后评估，每个epoch后评估]</li>
 </ul>
-<h2 id="五-参数选取">五.参数选取</h2>
-<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/llm%E5%A2%9E%E9%87%8F%E9%A2%84%E8%AE%AD%E7%BB%834.png" alt="图片"></p>
-<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/llm增量预训练1.png" alt="图片" style="width:50%;">
-<h2 id="四-参考资料">四.参考资料</h2>
+<h2 id="三-参考资料">三.参考资料</h2>
 <p><a href="https://mp.weixin.qq.com/s/qvhzagFFgNdtb3sSymhAdA">https://mp.weixin.qq.com/s/qvhzagFFgNdtb3sSymhAdA</a></p>
 <p><a href="http://t.csdnimg.cn/Z2S9h">http://t.csdnimg.cn/Z2S9h</a></p>
 ]]></content>
@@ -1434,9 +1427,9 @@ Format，一种不同的规则语言和推理引擎之间的交换格式。</p><
     <url>/2024/06/24/%E5%9B%BE%E7%9A%84%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</url>
     <content><![CDATA[<pre><code>课程知识复习使用。
 </code></pre>
-<h2 id="基本概念">基本概念</h2>
+<h2 id="1-基本概念">1.基本概念</h2>
 <ul>
-<li><strong>图</strong>：一系列的点和对应的连接边</li>
+<li><strong>图</strong>：一系列的点和对应的连接边。</li>
 <li><strong>度数</strong>：顶点v的连接边数目。有向图中, 节点度数分为入度和出度。一个节点度数是其入度和出度的和。</li>
 <li><strong>连通图</strong>：对于一个无向图，任意两个顶点之间都存在一条路径，则称之为连通图，否则为非连通图。</li>
 <li><strong>最大连通区域</strong>：一个非连图由多个部分组成，其中规模最大的被称为最大连通区域。</li>
@@ -1449,7 +1442,7 @@ Format，一种不同的规则语言和推理引擎之间的交换格式。</p><
 <li><strong>图的表示</strong>：邻接矩阵，邻接表，压缩稀疏表达$（CSR）$。<br>
 <img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E5%9B%BE%E7%9A%84%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%863.png" alt="图片"></li>
 </ul>
-<h2 id="图的度量">图的度量</h2>
+<h2 id="2-图的度量">2.图的度量</h2>
 <p>对一张图进行度量的四种方式：度数分布，路径长度，聚集系数，连通分量。</p>
 <ul>
 <li>度数分布：图中度数的概率分布。对于有向图，需要考虑入度分布和出度分布。真实图的度数分布通常近似满足幂律分布，即度数大的节点非常少，度数小的节点占了绝大多数。</li>
@@ -1464,37 +1457,74 @@ Format，一种不同的规则语言和推理引擎之间的交换格式。</p><
 <ul>
 <li>连通分量：无向图的极大连通子图。</li>
 </ul>
-<h2 id="静态图生成模型">静态图生成模型</h2>
+<h2 id="3-静态图生成模型">3.静态图生成模型</h2>
 <p>给定待生成图的节点数 𝑁 和边数 𝑀，静态图生成模型一次性生成整张图。</p>
-<h3 id="Erdos-Renyi-模型-E-R-模型">Erdos-Renyi 模型,E-R 模型</h3>
+<h3 id="3-1Erdos-Renyi-模型-E-R-模型">3.1Erdos-Renyi 模型,E-R 模型</h3>
 <ul>
 <li>定义：𝐺(𝑁, 𝑝)，𝑁为图中节点总数，$p$为任意两个节点之间连边的概率。</li>
 <li>生成算法：首先生成$N$ 个节点，对每个节点的除它以外的$N-1$ 个节点，都以概率$p$ 连边。<br>
 <img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E5%9B%BE%E7%9A%84%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%862.png" alt="图片"><br>
 <img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E5%9B%BE%E7%9A%84%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%861.png" alt="图片"></li>
 </ul>
-<h3 id="Watts–Strogatz-小世界模型">Watts–Strogatz 小世界模型</h3>
+<h3 id="3-2Watts–Strogatz-小世界模型">3.2Watts–Strogatz 小世界模型</h3>
 <ul>
 <li>$k$-正则图：每个节点都有$k$个邻居的图。</li>
 <li>生成算法：首先生成$k$ 正则图，接着对每一条边以概率$p$ 将这条边的其中一个端点移到平均随机选取的节点上。</li>
 <li>当$p=0$时，生成图为$k$ 正则图；当$p=1$时，生成图为$E-R$ 图，此时边是随机生成的。</li>
 </ul>
-<h3 id="Kronecker-模型">Kronecker 模型</h3>
+<h3 id="3-3Kronecker-模型">3.3Kronecker 模型</h3>
 <p>递归的图生成模型，其基本思想是自相似性(self-similarity)，即通过在图的部分结构中模仿其整体结构的特征递归地生成图。递归地将图的整体结构代入到子结构中，在某种程度上模仿了真实社交网络图中社区的生⻓规律。</p>
-<h2 id="动态图生成模型">动态图生成模型</h2>
+<h2 id="4-动态图生成模型">4.动态图生成模型</h2>
 <p>给定待生成图的节点数$n$或边数$m$，模型建模节点和边逐步加入的过程。</p>
-<h3 id="Barabasi–Albert-BA-模型">Barabási–Albert (BA)模型</h3>
+<h3 id="4-1Barabasi–Albert-BA-模型">4.1Barabási–Albert (BA)模型</h3>
 <ul>
 <li>基本思想：假设图是以节点为中心不断增⻓的，通过不断增加节点来生成图。并且存在优先连接的现象，即一个节点当前 具有的度数越大，新增加的节点就越有可能与它连边。</li>
 <li>生成算法：首先生成有$m_0$ 个节点的随机图，接下来每一步生成一个新的节点，由它延伸出$m$ 条边，与之前已有的节点相连。每次连接都按照已有节点当前的度数来分配连边的概率。</li>
 </ul>
-<h3 id="以边为中心的优先连接模型">以边为中心的优先连接模型</h3>
+<h3 id="4-2以边为中心的优先连接模型">4.2以边为中心的优先连接模型</h3>
 <p>通过加入新边来实现图规模的增⻓。注意的是，每次边插入可能引入0 个、1 个或 2 个新节点。</p>
-<h2 id="参考资料">参考资料</h2>
+<h2 id="5-参考资料">5.参考资料</h2>
 <p>中国科学院大学邹磊老师，图数据管理与应用课程课件</p>
 ]]></content>
       <tags>
-        <tag>知识图谱</tag>
+        <tag>图</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>图表示学习</title>
+    <url>/2024/06/25/%E5%9B%BE%E8%A1%A8%E7%A4%BA%E5%AD%A6%E4%B9%A0/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>图系统</title>
+    <url>/2024/06/25/%E5%9B%BE%E7%B3%BB%E7%BB%9F/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>图算法</title>
+    <url>/2024/06/25/%E5%9B%BE%E7%AE%97%E6%B3%95/</url>
+    <content><![CDATA[<pre><code>课程知识复习使用。
+</code></pre>
+<h2 id="1-社区发现算法">1.社区发现算法</h2>
+<p>图中的社区是指一张图中的一些子图。这些子图内部顶点直接紧密相连，而子图内部节点与外部节点之间连接是稀疏的。社区发现算法是需要找到图中所有的社区，可以分为基于层级聚类的方法和基于边介数的方法。</p>
+<h3 id="1-1-基于层级聚类的方法">1.1 基于层级聚类的方法</h3>
+<ul>
+<li>点关联强度：衡量两点间的关联强度。
+<ul>
+<li>两点间独立路径数：能够连接两点的所有互不相交(没有公共节点)的简单路径总数，即为割点数目。</li>
+<li>全路径融合强度</li>
+</ul>
+</li>
+<li>算法流程</li>
+<li>衡量标准：模块度。</li>
+</ul>
+<h2 id="2-子图匹配">2.子图匹配</h2>
+<h2 id="3-图的可达性查询">3.图的可达性查询</h2>
+<h2 id="4-参考资料">4.参考资料</h2>
+<p>中国科学院大学邹磊老师，图数据管理与应用课程课件</p>
+]]></content>
+      <tags>
+        <tag>图</tag>
       </tags>
   </entry>
 </search>
