@@ -1501,22 +1501,17 @@ Format，一种不同的规则语言和推理引擎之间的交换格式。</p><
     <content><![CDATA[]]></content>
   </entry>
   <entry>
-    <title>图算法</title>
-    <url>/2024/06/25/%E5%9B%BE%E7%AE%97%E6%B3%95/</url>
+    <title>社区发现算法</title>
+    <url>/2024/06/25/%E7%A4%BE%E5%8C%BA%E5%8F%91%E7%8E%B0%E7%AE%97%E6%B3%95/</url>
     <content><![CDATA[<pre><code>课程知识复习使用。
-</code></pre>
-<h2 id="1-社区发现算法">1.社区发现算法</h2>
-<p>图中的社区是指一张图中的一些子图。这些子图内部顶点直接紧密相连，而子图内部节点与外部节点之间连接是稀疏的。社区发现算法是需要找到图中所有的社区，可以分为基于层级聚类的方法和基于边介数的方法。</p>
-<h3 id="1-1-基于层级聚类的方法">1.1 基于层级聚类的方法</h3>
-<ul>
-<li>点关联强度：衡量两点间的关联强度。
-<ul>
+</code></pre><p>图中的社区是指一张图中的一些子图。这些子图内部顶点直接紧密相连，而子图内部节点与外部节点之间连接是稀疏的。社区发现算法是需要找到图中所有的社区，可以分为基于层级聚类的方法和基于边介数的方法。</p>
+<h2 id="1-基于层级聚类的方法"><a href="#1-基于层级聚类的方法" class="headerlink" title="1. 基于层级聚类的方法"></a>1. 基于层级聚类的方法</h2><ul>
+<li>点关联强度：衡量两点间的关联强度。<ul>
 <li>两点间独立路径数：能够连接两点的所有互不相交(没有公共节点)的简单路径总数，即为割点数目。</li>
 <li>全路径融合强度：认为节点间的关联强度与所有路径都相关，路径长度越小，强度越大。</li>
 </ul>
 </li>
-<li>算法流程
-<ul>
+<li>算法流程<ul>
 <li>选定并计算关联强度</li>
 <li>初始化每个顶点为单个社区</li>
 <li>定义两个社区的关联强度为其间<strong>所有点对的关键强度平均值</strong></li>
@@ -1526,14 +1521,11 @@ Format，一种不同的规则语言和推理引擎之间的交换格式。</p><
 </li>
 <li>衡量标准：模块度，是评估社区结果质量高低的度量方法。模块度Q 计算如下：</li>
 </ul>
-<p>$$Q \propto  \sum_{s\in S} [ 社区s内部的实际边数 - 社区s内部的期望边数 ] $$</p>
-<p>模块度取值范围为[-1,1]，实践中，模块度达到0.3到0.7之间就说明划分质量很好。</p>
+<script type="math/tex; mode=display">Q \propto  \sum_{s\in S} [ 社区s内部的实际边数 - 社区s内部的期望边数 ]</script><p>模块度取值范围为[-1,1]，实践中，模块度达到0.3到0.7之间就说明划分质量很好。</p>
 <p>不足：对度数低的点的社区分配不友好。例如一个顶点如果只有一条边，则这个顶点理应分配在其唯一邻居所在的社区，然后基于层级聚类的方法中，该点同邻居的关联强度低，很容易被排斥在邻居所属社区之外。</p>
-<h3 id="1-2-基于边介数的方法">1.2 基于边介数的方法</h3>
-<ul>
+<h2 id="2-基于边介数的方法"><a href="#2-基于边介数的方法" class="headerlink" title="2. 基于边介数的方法"></a>2. 基于边介数的方法</h2><ul>
 <li>边介数：对于图上的一条边 $e$ 而言，$e$ 的介数是指图中所有点对的最短路径中，要经$e$ 的路径比例总和。</li>
-<li>算法流程：
-<ul>
+<li>算法流程：<ul>
 <li>计算所有边的介数</li>
 <li>移除介数最高边</li>
 <li>重新计算所有边的介数</li>
@@ -1541,40 +1533,23 @@ Format，一种不同的规则语言和推理引擎之间的交换格式。</p><
 </ul>
 </li>
 </ul>
-<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E7%A4%BE%E5%8C%BA%E5%8F%91%E7%8E%B0%E7%AE%97%E6%B3%951.png" alt="图片"></p>
-<h3 id="1-3-其它社区发现算法：BK-k-clique-k-core">1.3 其它社区发现算法：BK,k-clique,k-core</h3>
-<ul>
-<li>
-<p>团（完全图）：任意两个节点间都连接有边。</p>
+<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/社区发现算法1.png" alt="图片"></p>
+<h2 id="3-其它社区发现算法：BK-k-clique-k-core"><a href="#3-其它社区发现算法：BK-k-clique-k-core" class="headerlink" title="3. 其它社区发现算法：BK,k-clique,k-core"></a>3. 其它社区发现算法：BK,k-clique,k-core</h2><ul>
+<li>团（完全图）：任意两个节点间都连接有边。</li>
+<li>最大团：一个图中顶点数最多的团</li>
+<li>极大团：加入任何其它顶点都无法在图中构成更大的完全子图的团</li>
+<li><p>BK算法求解极大团：<br><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/社区发现算法2.png" alt="图片"></p>
 </li>
-<li>
-<p>最大团：一个图中顶点数最多的团</p>
+<li><p>k-clique算法，允许社区重叠，将发现的社区定义为团联。给定一个大于1的正整数k，由一系列k-团(节点数目为k的团)互相连接形成的子图称为k-团联。<br><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/社区发现算法3.png" alt="图片"></p>
 </li>
-<li>
-<p>极大团：加入任何其它顶点都无法在图中构成更大的完全子图的团</p>
-</li>
-<li>
-<p>BK算法求解极大团：<br>
-<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E7%A4%BE%E5%8C%BA%E5%8F%91%E7%8E%B0%E7%AE%97%E6%B3%952.png" alt="图片"></p>
-</li>
-<li>
-<p>k-clique算法，允许社区重叠，将发现的社区定义为团联。给定一个大于1的正整数k，由一系列k-团(节点数目为k的团)互相连接形成的子图称为k-团联。<br>
-<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E7%A4%BE%E5%8C%BA%E5%8F%91%E7%8E%B0%E7%AE%97%E6%B3%953.png" alt="图片"></p>
-</li>
-<li>
-<p>k-core算法：子图是连通的，且每个节点的度数均不小于k。<br>
-<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E7%A4%BE%E5%8C%BA%E5%8F%91%E7%8E%B0%E7%AE%97%E6%B3%954.png" alt="图片"></p>
+<li><p>k-core算法：子图是连通的，且每个节点的度数均不小于k。<br><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/社区发现算法4.png" alt="图片"></p>
 </li>
 </ul>
-<h3 id="1-4-社区搜索">1.4 社区搜索</h3>
-<p>社区发现是为了找到图G中所有的社区，然而社区搜索只需找到用户所关心的社区，如找到包含用户输入的查询点/查询点集合的社区。即在图G中找到一个连通子图H，且$f(H)$在所有可能子图的得分函数中值最大。得分函数$f(H)$定义为H中最小的节点度数。</p>
+<h2 id="4-社区搜索"><a href="#4-社区搜索" class="headerlink" title="4. 社区搜索"></a>4. 社区搜索</h2><p>社区发现是为了找到图G中所有的社区，然而社区搜索只需找到用户所关心的社区，如找到包含用户输入的查询点/查询点集合的社区。即在图G中找到一个连通子图H，且$f(H)$在所有可能子图的得分函数中值最大。得分函数$f(H)$定义为H中最小的节点度数。</p>
 <ul>
-<li>
-<p>贪心算法<br>
-<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E7%A4%BE%E5%8C%BA%E5%8F%91%E7%8E%B0%E7%AE%97%E6%B3%955.png" alt="图片"></p>
+<li><p>贪心算法<br><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/社区发现算法5.png" alt="图片"></p>
 </li>
-<li>
-<p>K-Truss算法：K-Truss要求子图H中任意一条边都被包含在至少(k-2)个不同的三角形中。</p>
+<li><p>K-Truss算法：K-Truss要求子图H中任意一条边都被包含在至少(k-2)个不同的三角形中。</p>
 <ul>
 <li>支持度,$sup(e,G)$：包含e的三⻆形数目</li>
 <li>子图 Trussness：子图H中所有边的最小支持度</li>
@@ -1583,20 +1558,11 @@ Format，一种不同的规则语言和推理引擎之间的交换格式。</p><
 </ul>
 </li>
 </ul>
-<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E7%A4%BE%E5%8C%BA%E5%8F%91%E7%8E%B0%E7%AE%97%E6%B3%956.png" alt="图片"><br>
-<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E7%A4%BE%E5%8C%BA%E5%8F%91%E7%8E%B0%E7%AE%97%E6%B3%957.png" alt="图片"></p>
-<h3 id="1-5-图划分">1.5 图划分</h3>
-<p>图的划分是将图切分为多个不相交的子集，每个子集称为一个分割，并希望各个子图的大小要相对均衡。</p>
-<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E7%A4%BE%E5%8C%BA%E5%8F%91%E7%8E%B0%E7%AE%97%E6%B3%958.png" alt="图片"><br>
-<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E7%A4%BE%E5%8C%BA%E5%8F%91%E7%8E%B0%E7%AE%97%E6%B3%959.png" alt="图片"></p>
+<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/社区发现算法6.png" alt="图片"><br><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/社区发现算法7.png" alt="图片"></p>
+<h3 id="5-图划分"><a href="#5-图划分" class="headerlink" title="5. 图划分"></a>5. 图划分</h3><p>图的划分是将图切分为多个不相交的子集，每个子集称为一个分割，并希望各个子图的大小要相对均衡。</p>
+<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/社区发现算法8.png" alt="图片"><br><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/社区发现算法9.png" alt="图片"></p>
 <p>KL 算法最大的问题是可扩展性太差，对于大图考虑所有可能的节点置换的时间复杂性太高。一种改进的算法则是METIS 算法: 通过对基于点边的融合来不断压缩原始图，当原图小到一定程度之后，再进行KL 等图分割算法，最后基于分割结果进行原图恢复。</p>
-<h2 id="2-子图匹配">2.子图匹配</h2>
-<h3 id="2-1-子图同构">2.1 子图同构</h3>
-<h3 id="2-2-Ullmann算法">2.2 Ullmann算法</h3>
-<h3 id="2-3-VF2算法">2.3 VF2算法</h3>
-<h2 id="3-图的可达性查询">3.图的可达性查询</h2>
-<h2 id="4-参考资料">4.参考资料</h2>
-<p>中国科学院大学邹磊老师，图数据管理与应用课程课件</p>
+<h2 id="6-参考资料"><a href="#6-参考资料" class="headerlink" title="6.参考资料"></a>6.参考资料</h2><p>中国科学院大学邹磊老师，图数据管理与应用课程课件</p>
 ]]></content>
       <tags>
         <tag>图</tag>
