@@ -951,16 +951,6 @@ Parents(X_i))\)</span>，量化其父结点对该结点的影响。所有条件�
       </tags>
   </entry>
   <entry>
-    <title>蒙特卡洛树搜索</title>
-    <url>/2024/05/14/%E8%92%99%E7%89%B9%E5%8D%A1%E6%B4%9B%E6%A0%91%E6%90%9C%E7%B4%A2/</url>
-    <content><![CDATA[
-]]></content>
-      <tags>
-        <tag>强化学习</tag>
-        <tag>高级人工智能</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>连续状态系统基于模型的强化学习</title>
     <url>/2024/05/15/%E8%BF%9E%E7%BB%AD%E7%8A%B6%E6%80%81%E7%B3%BB%E7%BB%9F%E5%9F%BA%E4%BA%8E%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/</url>
     <content><![CDATA[<blockquote>
@@ -1491,16 +1481,6 @@ Format，一种不同的规则语言和推理引擎之间的交换格式。</p><
       </tags>
   </entry>
   <entry>
-    <title>图表示学习</title>
-    <url>/2024/06/25/%E5%9B%BE%E8%A1%A8%E7%A4%BA%E5%AD%A6%E4%B9%A0/</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title>图系统</title>
-    <url>/2024/06/25/%E5%9B%BE%E7%B3%BB%E7%BB%9F/</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
     <title>社区发现算法</title>
     <url>/2024/06/25/%E7%A4%BE%E5%8C%BA%E5%8F%91%E7%8E%B0%E7%AE%97%E6%B3%95/</url>
     <content><![CDATA[<pre><code>课程知识复习使用。
@@ -1566,6 +1546,81 @@ Format，一种不同的规则语言和推理引擎之间的交换格式。</p><
 ]]></content>
       <tags>
         <tag>图</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Unifying Large Language Models and Knowledge Graphs: A Roadmap</title>
+    <url>/2024/07/06/Unifying-Large-Language-Models-and-Knowledge-Graphs-A-Roadmap/</url>
+    <content><![CDATA[<pre><code>类型：文献综述
+第一作者：Shirui Pan
+作者单位：Griffith University
+发表时间：2024/07
+发表期刊：IEEE TRANSACTIONS ON KNOWLEDGE AND DATA ENGINEERING
+关键内容：对 KG-enhanced LLMs, LLM-augmented KGs, Synergized LLMs + KGs 三种框架进行介绍</code></pre>
+<figure>
+<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/unifying_llm_kgs4.png" alt="图片">
+<figcaption aria-hidden="true">图片</figcaption>
+</figure>
+<h2 id="background">1. background</h2>
+<p>KGs的四种分类：百科全书式知识图谱、常识知识图谱、特定领域知识图谱和多模态知识图谱。</p>
+<figure>
+<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/unifying_llm_kgs2.png" alt="图片">
+<figcaption aria-hidden="true">图片</figcaption>
+</figure>
+<p>LLM 与 KGs 的优缺点对比：</p>
+<figure>
+<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/unifying_llm_kgs1.png" alt="图片">
+<figcaption aria-hidden="true">图片</figcaption>
+</figure>
+<p>其中，KGs 的缺点 Unseen
+Facts：知识图谱无法有效地对看不见的实体进行建模并表示新的事实知识。此外，知识图谱中丰富的文本信息常被忽略。</p>
+<p>LLM 与 KGs 的应用示例：</p>
+<figure>
+<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/unifying_llm_kgs3.png" alt="图片">
+<figcaption aria-hidden="true">图片</figcaption>
+</figure>
+<h2 id="kg-enhanced-llms">2. KG-enhanced LLMs</h2>
+<h3 id="kg-enhanced-llm-pre-training">2.1 KG-Enhanced LLM
+Pre-Training</h3>
+<blockquote>
+<p><strong>2.1.1 Integrating KGs into training objective</strong></p>
+</blockquote>
+<p>两种方式：</p>
+<ul>
+<li>在预训练中暴露更多的实体，通过改变词语的掩码概率实现。如GLM中，假定在知识图谱中一定跳数内可以到达的实体是较为重要的实体，并且在预训练期间会给予它们更高的掩码概率。而在SKEP中，通过词语的情感分配不同的掩码概率。</li>
+<li>更改训练训练的目标函数。如对ERNIE，目标为tokens到entity的对齐链接，如下图所示。对WKLM，首先用其他相同类型的实体替换文本中的实体，然后将它们输入
+LLM，训练目标为区分实体是否已被替换。</li>
+</ul>
+<figure>
+<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/unifying_llm_kgs5.png" alt="图片">
+<figcaption aria-hidden="true">图片</figcaption>
+</figure>
+<blockquote>
+<p><strong>2.1.2 Integrating KGs into LLM inputs</strong></p>
+</blockquote>
+<p>Colake中提出的集成方法如下图所示，需要注意的是：</p>
+<ul>
+<li>只有句子中的实体才能访问知识图谱中的三元组信息</li>
+<li>输入句子的 tokens 形成了完全图</li>
+<li>更多的关注热门实体，而忽视了低频和长尾实体。</li>
+</ul>
+<figure>
+<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/unifying_llm_kgs6.png" alt="图片">
+<figcaption aria-hidden="true">图片</figcaption>
+</figure>
+<blockquote>
+<p><strong>2.1.3 KGs Instruction-tuning</strong></p>
+</blockquote>
+<p>KG指令微调的目的不是向LLM注入事实知识，而是让LLM更好的理解KG的结构。具体分析见
+KG指令微调部分。</p>
+<h2 id="kg-enhanced-llm-inference">2.2 KG-Enhanced LLM Inference</h2>
+<p>虽然通过训练确实可以为LLM注入大量的知识，但是这些知识没有时效性，且模型训练需要消耗大量资源，因此可以借助KGs
+在LLM推理时注入知识。</p>
+]]></content>
+      <tags>
+        <tag>知识图谱</tag>
+        <tag>大模型</tag>
+        <tag>文献笔记</tag>
       </tags>
   </entry>
 </search>

@@ -2,6 +2,17 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://lwl1751.github.io/2024/07/06/Unifying-Large-Language-Models-and-Knowledge-Graphs-A-Roadmap/</loc>
+    
+    <lastmod>2024-07-05T17:39:47.898Z</lastmod>
+    
+    <date>1720200905000</date>
+    <title>Unifying Large Language Models and Knowledge Graphs: A Roadmap | Wenliang Liang</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
     <loc>https://lwl1751.github.io/2024/06/25/%E7%A4%BE%E5%8C%BA%E5%8F%91%E7%8E%B0%E7%AE%97%E6%B3%95/</loc>
     
     <lastmod>2024-06-29T07:59:13.455Z</lastmod>
@@ -30,28 +41,6 @@
     
     <date>1719239147000</date>
     <title>图的基础知识 | Wenliang Liang</title>
-    
-    <desc></desc>
-  </url>
-  
-  <url>
-    <loc>https://lwl1751.github.io/2024/06/25/%E5%9B%BE%E8%A1%A8%E7%A4%BA%E5%AD%A6%E4%B9%A0/</loc>
-    
-    <lastmod>2024-06-25T08:50:43.984Z</lastmod>
-    
-    <date>1719305443000</date>
-    <title>图表示学习 | Wenliang Liang</title>
-    
-    <desc></desc>
-  </url>
-  
-  <url>
-    <loc>https://lwl1751.github.io/2024/06/25/%E5%9B%BE%E7%B3%BB%E7%BB%9F/</loc>
-    
-    <lastmod>2024-06-25T08:50:31.789Z</lastmod>
-    
-    <date>1719305431000</date>
-    <title>图系统 | Wenliang Liang</title>
     
     <desc></desc>
   </url>
@@ -272,17 +261,6 @@
     
     <date>1717000411000</date>
     <title>tags | Wenliang Liang</title>
-    
-    <desc></desc>
-  </url>
-  
-  <url>
-    <loc>https://lwl1751.github.io/2024/05/14/%E8%92%99%E7%89%B9%E5%8D%A1%E6%B4%9B%E6%A0%91%E6%90%9C%E7%B4%A2/</loc>
-    
-    <lastmod>2024-05-15T06:48:36.803Z</lastmod>
-    
-    <date>1715666450000</date>
-    <title>蒙特卡洛树搜索 | Wenliang Liang</title>
     
     <desc></desc>
   </url>
