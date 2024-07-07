@@ -1788,13 +1788,13 @@ Engineering, 2024.</p>
 </ul>
 <h3 id="2-3-Self-supervised-Pre-training-Tasks">2.3 Self-supervised Pre-training Tasks</h3>
 <ul>
-<li>Prompt Relevance Inspection (PRI)，由于提示可以将事实知识注入 PLM，因此它们应该在语义上与上下文序列相关。因此，作者设计了一种提示相关性检查任务，增强了模型学习提示与句子相关性的能力。对于训练语料库中的每个句子 S，生成一组相关提示集 PS。并构造一个“正”提示集 Pos。 此外，对于每个句子 S，可以从 PS 中随机选择一个提示，并从该提示中随机选择一个实体，替换为 KB 中的任意实体。最后将更新的提示标记为否定提示，并添加到“负”提示集 Neg。利用这两个提示集</li>
+<li>Prompt Relevance Inspection (PRI)，由于提示可以将事实知识注入 PLM，因此它们应该在语义上与上下文序列相关。因此，作者设计了一种提示相关性检查任务，增强了模型学习提示与句子相关性的能力。对于训练语料库中的每个句子 S，生成一组相关提示集 PS。并构造一个“正”提示集 Pos。 此外，对于每个句子 S，可以从 PS 中随机选择一个提示，并从该提示中随机选择一个实体，替换为 KB 中的任意实体。最后将更新的提示标记为否定提示，并添加到“负”提示集 Neg。利用这两个提示集进行训练。</li>
 <li>Masked Prompt Modeling (MPM). 与传统的实体预测相比，有两点不同：一是搜索空间不同（不是在整个 PLM 词汇库上进行搜索，而是在上下文知识子图中进行搜索），二是训练数据集的构建（给定一个训练语料库，对于每个句子 S，生成一组相关提示集 PS，在任意选择的提示 P ∈ PS 中使用 [MASK] 标记随机屏蔽实体（主题实体除外），构成训练集用于模型训练）</li>
 </ul>
 <h2 id="3-实验">3. 实验</h2>
 <ul>
 <li>基座模型：RoBERTa-base</li>
-<li>数据集：使用的知识库是WikiData5M（，其中包括3,085,345个实体和822个关系类型。</li>
+<li>数据集：使用的知识库是WikiData5M，其中包括3,085,345个实体和822个关系类型。</li>
 <li>对比PLM选择：ERNIE-THU, KnowBERT, KEPLER, CoLAKE, K-Adapter, DKPLM。</li>
 <li>实验设置：Knowledge-aware Tasks(使用实体类型预测、关系提取和知识探测三个任务来评估模型性能)，Performance on General NLU Tasks，Knowledge Prompting Study，Ablation Study</li>
 </ul>
