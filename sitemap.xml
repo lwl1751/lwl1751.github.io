@@ -2,6 +2,17 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://lwl1751.github.io/2024/07/20/ChatKBQA-A-Generate-then-Retrieve-Framework-for-Knowledge-Base-Question-Answering-with-Fine-tuned-Large-Language-Models/</loc>
+    
+    <lastmod>2024-07-20T09:52:13.289Z</lastmod>
+    
+    <date>1721468997000</date>
+    <title>ChatKBQA: A Generate-then-Retrieve Framework for Knowledge Base Question Answering with Fine-tuned Large Language Models | Wenliang Liang</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
     <loc>https://lwl1751.github.io/2024/07/08/Ontology-enhanced-Prompt-tuning-for-Few-shot-Learning/</loc>
     
     <lastmod>2024-07-08T08:33:04.990Z</lastmod>

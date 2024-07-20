@@ -1902,4 +1902,81 @@ Engineering, 2024.</p>
         <tag>文献笔记</tag>
       </tags>
   </entry>
+  <entry>
+    <title>ChatKBQA: A Generate-then-Retrieve Framework for Knowledge Base Question Answering with Fine-tuned Large Language Models</title>
+    <url>/2024/07/20/ChatKBQA-A-Generate-then-Retrieve-Framework-for-Knowledge-Base-Question-Answering-with-Fine-tuned-Large-Language-Models/</url>
+    <content><![CDATA[<pre><code>第一作者：Haoran Luo, Haihong E
+作者单位：北京邮电大学
+发表时间：2024/5
+发表期刊：ACL 2024
+关键内容：将知识图谱与大模型结合。亮点：通常是先利用知识图谱进行检索，检索结果作为prompt的一部分输入到模型中。而ChatKBQA是先利用LLM生成逻辑形式，再通过无监督方法对实体和关系进行检索替换，从而提升答案的准确率。
+</code></pre>
+<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/ChatKBQA_3.png" alt="图1"></p>
+<h2 id="1-引言">1.引言</h2>
+<p>KBQA(Knowledge Base Question Answering) 主要有两个核心问题：知识检索、语义解析。</p>
+<ul>
+<li>知识检索(IR)：根据知识库中的问题定位最相关的实体、关系或三元组</li>
+<li>语义解析(SP)：将问题从非结构化自然语言转换为结构化逻辑形式，再将其转换为可执行的图查询，以获得精确的答案和可解释的路径</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/ChatKBQA_1.png" alt="图2"><br>
+retrieve-then-generate KBQA 框架：先对问题文本进行实体和关系的检索，再进行语义解析。它的不足在于：</p>
+<ul>
+<li>
+<p>检索效率低下</p>
+<p>Traditional methods first identify the span of candidate entities and then do entity retrieval and relation retrieval. Since the structure of natural language questions differs from KB facts, most approaches require training dedicated models for extraction and linking inefficiently.</p>
+</li>
+<li>
+<p>不正确的检索结果会导致错误的语义解析</p>
+<p>Previous methods have utilized retrieved triples also as input of reference to the seq2seq model along with the original question. However, since the retrieved triples are not always accurate, they adversely impact semantic parsing outcomes. Additionally, if there are numerous retrieved triples, the seq2seq model requires a much longer context length.</p>
+</li>
+<li>
+<p>多处理步骤使KBQA成为一项极其复杂的任务</p>
+<p>Previous work decomposed the KBQA task into multiple sub-tasks, forming a complex pipeline, which made reproduction and migration challenging.</p>
+</li>
+</ul>
+<h2 id="2-方法">2. 方法</h2>
+<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/ChatKBQA_2.png" alt="图3"></p>
+<p>无监督检索，它的原理是：首先计算实体与其它实体的相似度，保留前 k 个及概率大于阈值 t 的相似实体，对实体进行替换，再保留前 k 个及概率大于阈值 t 的相似实体。对关系的检索替换操作类似。</p>
+<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/ChatKBQA_4.png" alt="图4"></p>
+<h2 id="3-实验">3.实验</h2>
+<p>从以下几个角度开展实验：</p>
+<ul>
+<li>
+<p>Does ChatKBQA outperform other KBQA methods?</p>
+<p>在WebQSP与CWQ两个数据集上进行测试，将ChatKBQA模型与其它模型的效果进行对比。<br>
+<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/ChatKBQA_5.png" alt="图5"></p>
+</li>
+<li>
+<p>Does the main components of ChatKBQA work?</p>
+<p>消融实验，如下图(a)(b)所示<br>
+<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/ChatKBQA_6.png" alt="图6"></p>
+</li>
+<li>
+<p>Why use Generate-then-Retrieve method instead of Retrieve-then-Generate method?<br>
+<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/ChatKBQA_7.png" alt="图7"><br>
+Topk指标：前k个预测结果中有一个为正确即为正确。结果分析：检索得到的信息会有错误的干扰信息和增加指令的Max Token，这导致LLMs对原始问题的灾难性遗忘，增加了训练的难度。</p>
+</li>
+<li>
+<p>Why use fine-tuned open-source LLMs instead of calling ChatGPT or training traditional T5 models?</p>
+<p>结果如上图©所示。</p>
+</li>
+<li>
+<p>Does Generate-then-Retrieve method improve retrieval efficiency?</p>
+<p>为了体现&quot;Generate-then-Retrieve&quot;方法对检索效率的提升，将逻辑形式生成后的实体检索( ER )和关系检索( RR )与传统的自然语言问句检索( NL-R )进行比较。我们将检索的效率定义为待检索文本与检索答案集合之间的平均相似度范围[0,1]，通过不同的检索模型对其进行评分。结果如上图(d)所示。</p>
+</li>
+<li>
+<p>Does ChatKBQA has plug-and-play characteristics?<br>
+<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/ChatKBQA_8.png" alt="图8"><br>
+说明ChatKBQA框架可以适用于多种 基座模型+微调方法+检索方法 的组合搭配。</p>
+</li>
+</ul>
+<h2 id="4-参考文献">4. 参考文献</h2>
+<p>Luo H, Tang Z, Peng S, et al. Chatkbqa: A generate-then-retrieve framework for knowledge base question answering with fine-tuned large language models[J]. arXiv preprint arXiv:2310.08975, 2023.</p>
+]]></content>
+      <tags>
+        <tag>知识图谱</tag>
+        <tag>大模型</tag>
+        <tag>文献笔记</tag>
+      </tags>
+  </entry>
 </search>
