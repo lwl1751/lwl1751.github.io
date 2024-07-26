@@ -1900,7 +1900,8 @@ Topk指标：前k个预测结果中有一个为正确即为正确。结果分析
 <p>发表期刊：ICLR 2024</p>
 <p>关键内容：先利用LLM 生成与问题回答 有关的关系路径，再到KGs中进行检索（实体来自问题句子，关系来自LLM生成的关系），再利用检索到的推理路径进行模型推理。亮点在于：知识图谱中的实体会动态变化，而实体间的关系是较为稳定的，通过对KG中关系路径的检索得到可靠的知识作为模型的上下文输入。</p>
 </blockquote>
-<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/RoG1.png" alt="图1"></p>
+<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/RoG1.png" alt="图1"><br>
+<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/RoG6.png" alt="图2"></p>
 <h2 id="1-引言">1.引言</h2>
 <p>先前使用 KGs 和 LLMs 进行推理的方法有以下两种：</p>
 <ul>
@@ -1912,21 +1913,21 @@ Topk指标：前k个预测结果中有一个为正确即为正确。结果分析
 <ul>
 <li>
 <p>RoG与其它模型比较，其中，type 为LLM的模型并没有进行微调，同时为zero shot inference。RoG的基座模型为 LLaMA2-Chat-7B，微调数据集为WebQSP、CWQ、Freebase。<br>
-<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/RoG2.png" alt="图2"></p>
+<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/RoG2.png" alt="图3"></p>
 </li>
 <li>
 <p>消融实验。w/ random plan，从KGs中随机检索推理路径，并将其输入到推理模块中；w/ vote reasoning，采用多数投票，从检索到的推理路径中选择前5个答案。</p>
 </li>
 </ul>
-<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/RoG4.png" alt="图3"></p>
+<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/RoG4.png" alt="图4"></p>
 <ul>
 <li>
-<p>探究超参数——关系路径数量的影响。关键路径数量越多，召回率越高，但也引入更多噪声，精确度下降。<br>
-<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/RoG3.png" alt="图4"></p>
+<p>探究超参数——关系路径数量的影响。关系路径数量越多，召回率越高，但也引入更多噪声，精确度下降。<br>
+<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/RoG3.png" alt="图5"></p>
 </li>
 <li>
 <p>PLUG-AND-PLAY ROG PLANNING MODULE 的验证<br>
-<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/RoG5.png" alt="图5"></p>
+<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/RoG5.png" alt="图6"></p>
 </li>
 </ul>
 <h2 id="3-参考文献">3. 参考文献</h2>
@@ -1941,8 +1942,36 @@ Topk指标：前k个预测结果中有一个为正确即为正确。结果分析
   <entry>
     <title>HeCiX: Integrating Knowledge Graphs and Large Language Models for Biomedical Research</title>
     <url>/2024/07/26/HeCiX-Integrating-Knowledge-Graphs-and-Large-Language-Models-for-Biomedical-Research/</url>
-    <content><![CDATA[
+    <content><![CDATA[<blockquote>
+<p>第一作者：Prerana Sanjay Kulkarni</p>
+<p>作者单位：PES University</p>
+<p>发表时间：2024/7</p>
+<p>发表期刊：</p>
+<p>关键内容：利用Hetionet 和 ClinicalTrials.gov两个数据库构建了一个生物医药知识图谱，并将KGs与LLMs联合起来。首先利用LLM获取逻辑查询语句，在KGs中进行查询，将查询结果作为上下文输入进行模型推理，并利用LangChain实现流程化。</p>
+</blockquote>
+<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/HeCiX2.png" alt="图1"></p>
+<h2 id="1-引言">1.引言</h2>
+<p>Hetionet 数据库包含了关于疾病、基因和解剖学的大量领域知识，但缺乏关于先前进行的临床试验和实验的充分信息。相反，<a href="http://ClinicalTrials.gov">ClinicalTrials.gov</a> 数据库提供了大量关于临床试验和全球范围内进行的实验的信息，但它对疾病本身提供了有限的见解。对基础生物学和临床试验结果的理解之间的这种差异阻碍了有效的药物开发。因此作者构建了HeCiX KG。</p>
+<p>HeCiX-KG 只包含六种疾病，namely Vitiligo, Atopic Dermatitis, Alopecia Areata, melanoma, Epilepsy, and Hypothyroidism. 由6,509个节点和14,377条边组成。</p>
+<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/HeCiX1.png" alt="图2"></p>
+<p>注意这个方法与<a href="https://lwl1751.github.io/2024/07/26/REASONING-ON-GRAPHS-FAITHFUL-AND-INTERPRETABLE-LARGE-LANGUAGE-MODEL-REASONING/">RoG</a>的区别，RoG中首先要求LLM返回有助于解决问题的关系路径，在KGs上搜索到的检索结果作为模型推理输入，旨在让模型给出正确的回复。在HeCiX的pipeline中，检索结果作为输入，只是要求模型给出对结果的解释。</p>
+<h2 id="2-实验">2.实验</h2>
+<p>使用RAGAS 框架来评估模型的性能。该框架计算了几个关键指标：</p>
+<ul>
+<li>faithfulness, 生成答案相对于问题和上下文的事实一致性。</li>
+<li>answer relevance, 生成答案与问题的相关程度。</li>
+<li>context precision, 检索到的上下文信息与问题的相关性。</li>
+<li>context recall, 检索器获取回答问题所需的所有相关信息的能力。</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/HeCiX3.png" alt="图3"></p>
+<h2 id="3-参考文献">3. 参考文献</h2>
+<p>Kulkarni P S, Jain M, Sheshanarayana D, et al. HeCiX: Integrating Knowledge Graphs and Large Language Models for Biomedical Research[J]. arXiv preprint arXiv:2407.14030, 2024.</p>
 ]]></content>
+      <tags>
+        <tag>知识图谱</tag>
+        <tag>大模型</tag>
+        <tag>文献笔记</tag>
+      </tags>
   </entry>
   <entry>
     <title>UniMEL: A Unified Framework for Multimodal Entity Linking with Large Language Models</title>
