@@ -1982,7 +1982,22 @@ Topk指标：前k个预测结果中有一个为正确即为正确。结果分析
   <entry>
     <title>Self-Distillation Bridges Distribution Gap in Language Model Fine-Tuning</title>
     <url>/2024/07/26/Self-Distillation-Bridges-Distribution-Gap-in-Language-Model-Fine-Tuning/</url>
-    <content><![CDATA[
+    <content><![CDATA[<blockquote>
+<p>第一作者：Zhaorui Yang</p>
+<p>作者单位：浙江大学</p>
+<p>发表时间：2024/5</p>
+<p>发表期刊：ACL 2024</p>
+<p>关键内容：Self-Distillation Fine-Tuning (SDFT)，用模型生成的数据来对模型进行训练，弥补数据集与LLM分布的不同而导致微调带来的灾难性遗忘的问题。</p>
+</blockquote>
+<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/SDFT1.png" alt="图1"><br>
+<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/SDFT2.png" alt="图2"><br>
+<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/SDFT3.png" alt="图3"></p>
+<p>参考文献：Yang Z, Liu Q, Pang T, et al. Self-Distillation Bridges Distribution Gap in Language Model Fine-Tuning[J]. arXiv preprint arXiv:2402.13669, 2024.</p>
 ]]></content>
+      <tags>
+        <tag>知识图谱</tag>
+        <tag>大模型</tag>
+        <tag>文献笔记</tag>
+      </tags>
   </entry>
 </search>

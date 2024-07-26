@@ -2,6 +2,17 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://lwl1751.github.io/2024/07/26/Self-Distillation-Bridges-Distribution-Gap-in-Language-Model-Fine-Tuning/</loc>
+    
+    <lastmod>2024-07-26T09:46:05.330Z</lastmod>
+    
+    <date>1721971358000</date>
+    <title>Self-Distillation Bridges Distribution Gap in Language Model Fine-Tuning | Wenliang Liang</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
     <loc>https://lwl1751.github.io/2024/07/26/HeCiX-Integrating-Knowledge-Graphs-and-Large-Language-Models-for-Biomedical-Research/</loc>
     
     <lastmod>2024-07-26T08:36:45.599Z</lastmod>
@@ -195,17 +206,6 @@
     
     <date>1721971370000</date>
     <title>Augmenting large language models with chemistry tools | Wenliang Liang</title>
-    
-    <desc></desc>
-  </url>
-  
-  <url>
-    <loc>https://lwl1751.github.io/2024/07/26/Self-Distillation-Bridges-Distribution-Gap-in-Language-Model-Fine-Tuning/</loc>
-    
-    <lastmod>2024-07-26T05:22:38.285Z</lastmod>
-    
-    <date>1721971358000</date>
-    <title>Self-Distillation Bridges Distribution Gap in Language Model Fine-Tuning | Wenliang Liang</title>
     
     <desc></desc>
   </url>
