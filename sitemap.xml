@@ -2,6 +2,72 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://lwl1751.github.io/2024/07/26/UniMEL-A-Unified-Framework-for-Multimodal-Entity-Linkingwith-Large-Language-Models/</loc>
+    
+    <lastmod>2024-07-26T05:25:48.173Z</lastmod>
+    
+    <date>1721971548000</date>
+    <title>UniMEL: A Unified Framework for Multimodal Entity Linking with Large Language Models | Wenliang Liang</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
+    <loc>https://lwl1751.github.io/2024/07/26/Agent-Pro-Learning-to-Evolve-via-Policy-Level-Reflection-and-Optimization/</loc>
+    
+    <lastmod>2024-07-26T05:23:35.628Z</lastmod>
+    
+    <date>1721971415000</date>
+    <title>Agent-Pro: Learning to Evolve via Policy-Level Reflection and Optimization | Wenliang Liang</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
+    <loc>https://lwl1751.github.io/2024/07/26/Augmenting-large-language-models-with-chemistry-tools/</loc>
+    
+    <lastmod>2024-07-26T05:22:50.458Z</lastmod>
+    
+    <date>1721971370000</date>
+    <title>Augmenting large language models with chemistry tools | Wenliang Liang</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
+    <loc>https://lwl1751.github.io/2024/07/26/Self-Distillation-Bridges-Distribution-Gap-in-Language-Model-Fine-Tuning/</loc>
+    
+    <lastmod>2024-07-26T05:22:38.285Z</lastmod>
+    
+    <date>1721971358000</date>
+    <title>Self-Distillation Bridges Distribution Gap in Language Model Fine-Tuning | Wenliang Liang</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
+    <loc>https://lwl1751.github.io/2024/07/26/HeCiX-Integrating-Knowledge-Graphs-and-Large-Language-Models-for-Biomedical-Research/</loc>
+    
+    <lastmod>2024-07-26T05:22:21.941Z</lastmod>
+    
+    <date>1721971341000</date>
+    <title>HeCiX: Integrating Knowledge Graphs and Large Language Models for Biomedical Research | Wenliang Liang</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
+    <loc>https://lwl1751.github.io/2024/07/26/REASONING-ON-GRAPHS-FAITHFUL-AND-INTERPRETABLE-LARGE-LANGUAGE-MODEL-REASONING/</loc>
+    
+    <lastmod>2024-07-26T05:12:18.651Z</lastmod>
+    
+    <date>1721970738000</date>
+    <title>REASONING ON GRAPHS: FAITHFUL AND INTERPRETABLE LARGE LANGUAGE MODEL REASONING | Wenliang Liang</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
     <loc>https://lwl1751.github.io/2024/07/20/ChatKBQA-A-Generate-then-Retrieve-Framework-for-Knowledge-Base-Question-Answering-with-Fine-tuned-Large-Language-Models/</loc>
     
     <lastmod>2024-07-20T09:52:13.289Z</lastmod>

@@ -1979,4 +1979,40 @@ Topk指标：前k个预测结果中有一个为正确即为正确。结果分析
         <tag>文献笔记</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Agent-Pro: Learning to Evolve via Policy-Level Reflection and Optimization</title>
+    <url>/2024/07/26/Agent-Pro-Learning-to-Evolve-via-Policy-Level-Reflection-and-Optimization/</url>
+    <content><![CDATA[
+]]></content>
+  </entry>
+  <entry>
+    <title>Augmenting large language models with chemistry tools</title>
+    <url>/2024/07/26/Augmenting-large-language-models-with-chemistry-tools/</url>
+    <content><![CDATA[
+]]></content>
+  </entry>
+  <entry>
+    <title>REASONING ON GRAPHS: FAITHFUL AND INTERPRETABLE LARGE LANGUAGE MODEL REASONING</title>
+    <url>/2024/07/26/REASONING-ON-GRAPHS-FAITHFUL-AND-INTERPRETABLE-LARGE-LANGUAGE-MODEL-REASONING/</url>
+    <content><![CDATA[
+]]></content>
+  </entry>
+  <entry>
+    <title>HeCiX: Integrating Knowledge Graphs and Large Language Models for Biomedical Research</title>
+    <url>/2024/07/26/HeCiX-Integrating-Knowledge-Graphs-and-Large-Language-Models-for-Biomedical-Research/</url>
+    <content><![CDATA[
+]]></content>
+  </entry>
+  <entry>
+    <title>UniMEL: A Unified Framework for Multimodal Entity Linking with Large Language Models</title>
+    <url>/2024/07/26/UniMEL-A-Unified-Framework-for-Multimodal-Entity-Linkingwith-Large-Language-Models/</url>
+    <content><![CDATA[
+]]></content>
+  </entry>
+  <entry>
+    <title>Self-Distillation Bridges Distribution Gap in Language Model Fine-Tuning</title>
+    <url>/2024/07/26/Self-Distillation-Bridges-Distribution-Gap-in-Language-Model-Fine-Tuning/</url>
+    <content><![CDATA[
+]]></content>
+  </entry>
 </search>
