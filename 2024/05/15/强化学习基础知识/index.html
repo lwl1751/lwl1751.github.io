@@ -7,7 +7,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/WechatIMG6.jpg">
 <meta property="article:published_time" content="2024-05-15T05:59:01.000Z">
-<meta property="article:modified_time" content="2024-05-30T09:00:54.762Z">
+<meta property="article:modified_time" content="2024-07-26T07:27:49.200Z">
 <meta property="article:author" content="Wenliang Liang">
 <meta property="article:tag" content="强化学习">
 <meta name="twitter:card" content="summary">
@@ -56,7 +56,7 @@
   isHome: false,
   isHighlightShrink: false,
   isToc: true,
-  postUpdate: '2024-05-30 17:00:54'
+  postUpdate: '2024-07-26 15:27:49'
 }</script><script>(win=>{
       win.saveToLocal = {
         set: (key, value, ttl) => {
@@ -153,84 +153,64 @@
         }
       }
       detectApple()
-    })(window)</script><meta name="generator" content="Hexo 7.2.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/WechatIMG6.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">32</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">9</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/2347912.webp')"><nav id="nav"><span id="blog-info"><a href="/" title="Wenliang Liang"><span class="site-name">Wenliang Liang</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">强化学习基础知识</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2024-05-15T05:59:01.000Z" title="Created 2024-05-15 13:59:01">2024-05-15</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2024-05-30T09:00:54.762Z" title="Updated 2024-05-30 17:00:54">2024-05-30</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="强化学习基础知识"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p><strong>知识点：马尔科夫决策过程，动态规划。</strong></p>
+    })(window)</script><meta name="generator" content="Hexo 7.2.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/WechatIMG6.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">32</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">9</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/2347912.webp')"><nav id="nav"><span id="blog-info"><a href="/" title="Wenliang Liang"><span class="site-name">Wenliang Liang</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">强化学习基础知识</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2024-05-15T05:59:01.000Z" title="Created 2024-05-15 13:59:01">2024-05-15</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2024-07-26T07:27:49.200Z" title="Updated 2024-07-26 15:27:49">2024-07-26</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="强化学习基础知识"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p><strong>知识点：马尔科夫决策过程，动态规划。</strong></p>
 <hr>
 <span id="more"></span>
 <h2 id="马尔科夫决策过程">马尔科夫决策过程</h2>
-<p><strong><span style="color:purple;">马尔科夫过程</span></strong>:
-一个具备马尔科夫性质的离散随机过程。</p>
-<p><strong><span style="color:purple;">马尔科夫性</span></strong>:
-下一时刻的状态只与当前状态有关。即<span class="math inline">\(P[S_{t+1}|S_{1},...,S_{t}]=P[S_{t+1}|S_{t}]\)</span></p>
-<p><strong><span style="color:purple;">马尔科夫奖励函数</span></strong>:
-把马尔科夫过程从 &lt;S, P&gt; 拓展到 &lt;S, P, R, γ&gt;。其中P
-为状态转移矩阵，R 和 γ
-分别表示奖励函数和奖励折扣因子。折扣因子越大，代表了智能体对长期性能指标考虑的程度越高（远视）；折扣因子越小，代表了智能体对长期性能指标考虑的程度越低（近视）。</p>
-<p><strong><span style="color:purple;">回报</span></strong>:
-回报是一个轨迹的累积奖励，<span class="math inline">\(G_{t} = R_{t+1} +
-\gamma R_{t+2} = \sum_{k=0}^{\infty } \gamma ^{k}R_{t+k+1}\)</span></p>
-<p><strong><span style="color:purple;">价值函数</span></strong>：状态s的期望回报，<span class="math inline">\(V(s) = E[G_{t}|S_{t}=s]\)</span>。</p>
-<p><strong><span style="color:purple;">马尔科夫决策过程</span></strong>:
-马尔可夫奖励过程的立即奖励只取决于状态(奖励值在节点上)，而马尔可夫决策过程的立即奖励与状态和动作都有关。即把马尔科夫过程从
-&lt;S, P, R, γ&gt; 拓展到 &lt;S, A, P, R, γ&gt;。A是有限动作的集合。</p>
-<p><strong><span style="color:purple;">动作价值函数</span></strong>:
-依赖于状态和刚刚执行的动作，是基于状态和动作的期望回报。<span class="math inline">\(Q(s,a) = E[G_{t}|S_{t}=s,
-A_{t}=a]\)</span>。易知<span class="math inline">\(V(s)=E_{a}[Q(s,a)]\)</span>。</p>
-<p><strong><span style="color:purple;">策略</span></strong>:
-状态到行为的映射。</p>
+<p><strong><span style="color:purple;">马尔科夫过程</span></strong>: 一个具备马尔科夫性质的离散随机过程。</p>
+<p><strong><span style="color:purple;">马尔科夫性</span></strong>: 下一时刻的状态只与当前状态有关。即$P[S_{t+1}|S_{1},…,S_{t}]=P[S_{t+1}|S_{t}]$</p>
+<p><strong><span style="color:purple;">马尔科夫奖励函数</span></strong>: 把马尔科夫过程从 &lt;S, P&gt; 拓展到 &lt;S, P, R, γ&gt;。其中P 为状态转移矩阵，R 和 γ 分别表示奖励函数和奖励折扣因子。折扣因子越大，代表了智能体对长期性能指标考虑的程度越高（远视）；折扣因子越小，代表了智能体对长期性能指标考虑的程度越低（近视）。</p>
+<p><strong><span style="color:purple;">回报</span></strong>: 回报是一个轨迹的累积奖励，$G_{t} = R_{t+1} + \gamma R_{t+2} = \sum_{k=0}^{\infty } \gamma ^{k}R_{t+k+1}$</p>
+<p><strong><span style="color:purple;">价值函数</span></strong>：状态s的期望回报，$V(s) = E[G_{t}|S_{t}=s]$。</p>
+<p><strong><span style="color:purple;">马尔科夫决策过程</span></strong>: 马尔可夫奖励过程的立即奖励只取决于状态(奖励值在节点上)，而马尔可夫决策过程的立即奖励与状态和动作都有关。即把马尔科夫过程从 &lt;S, P, R, γ&gt; 拓展到 &lt;S, A, P, R, γ&gt;。A是有限动作的集合。</p>
+<p><strong><span style="color:purple;">动作价值函数</span></strong>: 依赖于状态和刚刚执行的动作，是基于状态和动作的期望回报。$Q(s,a) = E[G_{t}|S_{t}=s, A_{t}=a]$。易知$V(s)=E_{a}[Q(s,a)]$。</p>
+<p><strong><span style="color:purple;">策略</span></strong>: 状态到行为的映射。</p>
 <blockquote>
 <p>对于任何马尔科夫决策过程：</p>
 <ul>
-<li>总是存在一个最优策略<span class="math inline">\(\pi^*\)</span>，比任何其他策略更好或至少相等。</li>
+<li>总是存在一个最优策略$\pi^*$，比任何其他策略更好或至少相等。</li>
 <li>所有的最优策略有相同且最优的价值。</li>
 <li>所有的最优策略具有相同且最优的动作价值。</li>
 </ul>
 </blockquote>
-<p><strong><span style="color:purple;">贝尔曼方程</span></strong>：用于计算给定策略 π
-时价值函数在策略指引下所采轨迹上的期望。</p>
-<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/截屏2024-05-16%2013.18.14.png" alt="图片1"> <img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/截屏2024-05-16%2013.18.34.png" alt="图片2"> <img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/截屏2024-05-16%2013.27.29.png" alt="图片3"> <img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/截屏2024-05-16%2013.27.43.png" alt="图片4"></p>
+<p><strong><span style="color:purple;">贝尔曼方程</span></strong>：用于计算给定策略 π 时价值函数在策略指引下所采轨迹上的期望。</p>
+<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E6%88%AA%E5%B1%8F2024-05-16%2013.18.14.png" alt="图1"><br>
+<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E6%88%AA%E5%B1%8F2024-05-16%2013.18.34.png" alt="图2"><br>
+<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E6%88%AA%E5%B1%8F2024-05-16%2013.27.29.png" alt="图3"><br>
+<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E6%88%AA%E5%B1%8F2024-05-16%2013.27.43.png" alt="图4"></p>
 <p><strong><span style="color:purple;">最优价值函数</span></strong>:</p>
 <p>即使是在相同的状态和动作集合上，不同的策略也将会带来不同的价值函数。定义最优价值函数为</p>
-<p><span class="math display">\[v_*(s) = \max_{π} v_π(s), ∀s ∈
-S\]</span></p>
+<p>$$v_*(s) = \max_{π} v_π(s), ∀s ∈ S$$</p>
 <p>最优动作价值函数：</p>
-<p><span class="math display">\[q_*(s,a) = \max_{\pi} q_π(s,a), ∀s ∈ S,
-a ∈ A\]</span></p>
+<p>$$q_*(s,a) = \max_{\pi} q_π(s,a), ∀s ∈ S, a ∈ A$$</p>
 <p>则</p>
-<p><span class="math display">\[v*(s) = \max_{a\sim \mathbf{A}} q_*(s,
-a)\]</span></p>
-<p><span class="math display">\[q_*(s, a) = E[R_t + γv_*(S_{t+1}) | S_t
-= s, A_t = a]\]</span></p>
+<p>$$v*(s) = \max_{a\sim \mathbf{A}} q_*(s, a)$$</p>
+<p>$$q_<em>(s, a) = E[R_t + γv_</em>(S_{t+1}) | S_t = s, A_t = a]$$</p>
 <p><strong><span style="color:purple;">逆矩阵法求解贝尔曼方程</span></strong>：</p>
-<p><span class="math display">\[\mathbf{v}  = \mathbf{r} + γP\mathbf{v}
-\]</span></p>
-<p>其中 <strong>v</strong> 和 <strong>r</strong>
-矢量，P是状态转移概率矩阵。求解如下：</p>
-<p><span class="math display">\[\mathbf{v} = (I − γP
-)^{-1}\mathbf{r}\]</span></p>
-<p>复杂度为<span class="math inline">\(O(n^{3})\)</span>，考虑其他方法进行求解，如<span style="color:red;">动态规划、蒙特卡洛估计、时序差分法</span>等。</p>
+<p>$$\mathbf{v}  = \mathbf{r} + γP\mathbf{v} $$</p>
+<p>其中 <strong>v</strong> 和 <strong>r</strong> 矢量，P是状态转移概率矩阵。求解如下：</p>
+<p>$$\mathbf{v} = (I − γP )^{-1}\mathbf{r}$$</p>
+<p>复杂度为$O(n^{3})$，考虑其他方法进行求解，如<span style="color:red;">动态规划、蒙特卡洛估计、时序差分法</span>等。</p>
 <h2 id="动态规划">动态规划</h2>
-<p>用动态规划算法在
-能够获取MDP完整的环境信息（包括状态动作空间、转移矩阵、奖励等）的基础上
-求解最优策略。</p>
-<p><strong><span style="color:purple;">预测</span></strong>：给定一个MDP
-&lt;𝒮, 𝒜, 𝒫, ℛ, 𝛾&gt;和策略𝜋，输出基于当前策略𝜋的价值函数v。</p>
-<p><strong><span style="color:purple;">控制</span></strong>：给定一个MDP
-&lt;𝒮, 𝒜, 𝒫, ℛ, 𝛾&gt;，输出最优价值函数𝑣∗以及最优策略𝜋∗</p>
-<p><strong><span style="color:purple;">迭代策略评估</span></strong>：
-预测问题，评估一个给定的策略<span class="math inline">\(\pi\)</span>。</p>
-<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/迭代策略评估.png" alt="图片"> <img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/动态规划策略评估.png" alt="图片"></p>
+<p>用动态规划算法在 能够获取MDP完整的环境信息（包括状态动作空间、转移矩阵、奖励等）的基础上 求解最优策略。</p>
+<p><strong><span style="color:purple;">预测</span></strong>：给定一个MDP &lt;𝒮, 𝒜, 𝒫, ℛ, 𝛾&gt;和策略𝜋，输出基于当前策略𝜋的价值函数v。</p>
+<p><strong><span style="color:purple;">控制</span></strong>：给定一个MDP &lt;𝒮, 𝒜, 𝒫, ℛ, 𝛾&gt;，输出最优价值函数𝑣∗以及最优策略𝜋∗</p>
+<p><strong><span style="color:purple;">迭代策略评估</span></strong>： 预测问题，评估一个给定的策略$\pi$。</p>
+<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E8%BF%AD%E4%BB%A3%E7%AD%96%E7%95%A5%E8%AF%84%E4%BC%B0.png" alt="图5"><br>
+<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%AD%96%E7%95%A5%E8%AF%84%E4%BC%B0.png" alt="图6"></p>
 <p><strong><span style="color:purple;">策略迭代</span></strong>：</p>
 <ul>
 <li>策略评估，在当前策略𝜋上迭代地计算𝑣值</li>
 <li>策略更新，根据𝑣值贪婪地更新策略</li>
-<li>如此反复多次，最终得到最优策略𝜋∗和最优状态价值函数𝑣∗ <img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/动态规划策略迭代.png" alt="图片"></li>
+<li>如此反复多次，最终得到最优策略𝜋∗和最优状态价值函数𝑣∗<br>
+<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%AD%96%E7%95%A5%E8%BF%AD%E4%BB%A3.png" alt="图7"></li>
 </ul>
-<p><strong><span style="color:purple;">价值迭代</span></strong>： <img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/动态规划价值迭代.png" alt="图片"></p>
+<p><strong><span style="color:purple;">价值迭代</span></strong>：<br>
+<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E4%BB%B7%E5%80%BC%E8%BF%AD%E4%BB%A3.png" alt="图8"></p>
 <p><strong>参考资料</strong>：</p>
 <p>中国科学院大学 林姝老师 强化学习课程课件</p>
 <p>深度强化学习：基础、研究与应用 (董豪 等)</p>
-<p>Reinforcement Learning An Introduction (Adaptive Computation and
-Machine Learning series) (Sutton, Richard S., Barto, Andrew G.)</p>
+<p>Reinforcement Learning An Introduction (Adaptive Computation and Machine Learning series) (Sutton, Richard S., Barto, Andrew G.)</p>
 </article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a href="https://lwl1751.github.io">Wenliang Liang</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a href="https://lwl1751.github.io/2024/05/15/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">https://lwl1751.github.io/2024/05/15/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/">强化学习</a></div><div class="post_share"><div class="social-share" data-image="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/WechatIMG6.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2024/05/15/%E8%BF%9E%E7%BB%AD%E7%8A%B6%E6%80%81%E7%B3%BB%E7%BB%9F%E5%9F%BA%E4%BA%8E%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" title="连续状态系统基于模型的强化学习"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous</div><div class="prev_info">连续状态系统基于模型的强化学习</div></div></a></div><div class="next-post pull-right"><a href="/2024/05/15/%E5%9F%BA%E4%BA%8E%E7%AD%96%E7%95%A5%E6%A2%AF%E5%BA%A6%E7%9A%84%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" title="基于策略梯度的强化学习"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next</div><div class="next_info">基于策略梯度的强化学习</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/2024/05/15/%E5%9F%BA%E4%BA%8E%E7%AD%96%E7%95%A5%E6%A2%AF%E5%BA%A6%E7%9A%84%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" title="基于策略梯度的强化学习"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-05-15</div><div class="title">基于策略梯度的强化学习</div></div></a></div><div><a href="/2024/05/15/%E6%97%A0%E6%A8%A1%E5%9E%8B%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" title="无模型强化学习"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-05-15</div><div class="title">无模型强化学习</div></div></a></div><div><a href="/2024/05/15/%E6%B7%B1%E5%BA%A6%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" title="深度强化学习"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-05-15</div><div class="title">深度强化学习</div></div></a></div><div><a href="/2024/05/15/%E8%BF%9E%E7%BB%AD%E7%8A%B6%E6%80%81%E7%B3%BB%E7%BB%9F%E5%9F%BA%E4%BA%8E%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" title="连续状态系统基于模型的强化学习"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-05-15</div><div class="title">连续状态系统基于模型的强化学习</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/WechatIMG6.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Wenliang Liang</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">32</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">9</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/lwl1751"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/lwl1751" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:wl687234@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">雨浸风蚀的落寞与苍楚一定是水,静静地流过青春奋斗的日子和触摸理想的岁月。</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A9%AC%E5%B0%94%E7%A7%91%E5%A4%AB%E5%86%B3%E7%AD%96%E8%BF%87%E7%A8%8B"><span class="toc-number">1.</span> <span class="toc-text">马尔科夫决策过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92"><span class="toc-number">2.</span> <span class="toc-text">动态规划</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/07/26/UniMEL-A-Unified-Framework-for-Multimodal-Entity-Linkingwith-Large-Language-Models/" title="UniMEL: A Unified Framework for Multimodal Entity Linking with Large Language Models">UniMEL: A Unified Framework for Multimodal Entity Linking with Large Language Models</a><time datetime="2024-07-26T05:25:48.000Z" title="Created 2024-07-26 13:25:48">2024-07-26</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/07/26/Agent-Pro-Learning-to-Evolve-via-Policy-Level-Reflection-and-Optimization/" title="Agent-Pro: Learning to Evolve via Policy-Level Reflection and Optimization">Agent-Pro: Learning to Evolve via Policy-Level Reflection and Optimization</a><time datetime="2024-07-26T05:23:35.000Z" title="Created 2024-07-26 13:23:35">2024-07-26</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/07/26/Augmenting-large-language-models-with-chemistry-tools/" title="Augmenting large language models with chemistry tools">Augmenting large language models with chemistry tools</a><time datetime="2024-07-26T05:22:50.000Z" title="Created 2024-07-26 13:22:50">2024-07-26</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/07/26/Self-Distillation-Bridges-Distribution-Gap-in-Language-Model-Fine-Tuning/" title="Self-Distillation Bridges Distribution Gap in Language Model Fine-Tuning">Self-Distillation Bridges Distribution Gap in Language Model Fine-Tuning</a><time datetime="2024-07-26T05:22:38.000Z" title="Created 2024-07-26 13:22:38">2024-07-26</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/07/26/HeCiX-Integrating-Knowledge-Graphs-and-Large-Language-Models-for-Biomedical-Research/" title="HeCiX: Integrating Knowledge Graphs and Large Language Models for Biomedical Research">HeCiX: Integrating Knowledge Graphs and Large Language Models for Biomedical Research</a><time datetime="2024-07-26T05:22:21.000Z" title="Created 2024-07-26 13:22:21">2024-07-26</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Wenliang Liang</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
   window.MathJax = {
     tex: {

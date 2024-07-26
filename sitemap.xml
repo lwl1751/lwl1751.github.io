@@ -2,6 +2,160 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://lwl1751.github.io/2024/06/24/%E5%9B%BE%E7%9A%84%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</loc>
+    
+    <lastmod>2024-07-26T07:30:32.939Z</lastmod>
+    
+    <date>1719239147000</date>
+    <title>图的基础知识 | Wenliang Liang</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
+    <loc>https://lwl1751.github.io/2024/06/01/%E6%95%B0%E5%80%BC%E5%8C%96%E7%9F%A5%E8%AF%86%E8%A1%A8%E7%A4%BA/</loc>
+    
+    <lastmod>2024-07-26T07:30:13.313Z</lastmod>
+    
+    <date>1717237704000</date>
+    <title>数值化知识表示 | Wenliang Liang</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
+    <loc>https://lwl1751.github.io/2024/05/15/%E6%B7%B1%E5%BA%A6%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/</loc>
+    
+    <lastmod>2024-07-26T07:29:57.337Z</lastmod>
+    
+    <date>1715752874000</date>
+    <title>深度强化学习 | Wenliang Liang</title>
+    
+    <desc>强化学习从深度学习角度出发的挑战： 强化学习的奖励信号是有延迟的，而深度学习的输入输出是直接联系的 强化学习的序贯决策序列有很高的相关性，而深度学习的假设数据是独立同分布 强化学习的数据分布是会随着学习发生变化的，而深度学习的假设是底层分布固定的</desc>
+  </url>
+  
+  <url>
+    <loc>https://lwl1751.github.io/2024/06/25/%E7%A4%BE%E5%8C%BA%E5%8F%91%E7%8E%B0%E7%AE%97%E6%B3%95/</loc>
+    
+    <lastmod>2024-07-26T07:29:08.311Z</lastmod>
+    
+    <date>1719305414000</date>
+    <title>社区发现算法 | Wenliang Liang</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
+    <loc>https://lwl1751.github.io/2024/05/31/%E7%BE%A4%E4%BD%93%E6%99%BA%E8%83%BD/</loc>
+    
+    <lastmod>2024-07-26T07:28:30.620Z</lastmod>
+    
+    <date>1717140733000</date>
+    <title>群体智能 | Wenliang Liang</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
+    <loc>https://lwl1751.github.io/2024/05/15/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</loc>
+    
+    <lastmod>2024-07-26T07:27:49.200Z</lastmod>
+    
+    <date>1715752741000</date>
+    <title>强化学习基础知识 | Wenliang Liang</title>
+    
+    <desc>知识点：马尔科夫决策过程，动态规划。</desc>
+  </url>
+  
+  <url>
+    <loc>https://lwl1751.github.io/2024/05/15/%E8%BF%9E%E7%BB%AD%E7%8A%B6%E6%80%81%E7%B3%BB%E7%BB%9F%E5%9F%BA%E4%BA%8E%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/</loc>
+    
+    <lastmod>2024-07-26T07:27:23.260Z</lastmod>
+    
+    <date>1715752850000</date>
+    <title>连续状态系统基于模型的强化学习 | Wenliang Liang</title>
+    
+    <desc>对于大规模的MDP问题，不希望使用查表（Table Lookup）的方式，通过函数近似来估计实际的价值函数的方式，既节约了资源，又能达到泛化的效果。 $\hat{v}(s,w) = v_\pi (s)$ $\hat{q}(s,a,w) = q_\pi (s,a)$ $\hat{\pi}(a,s,w) = \pi (a|s)$ 函数近似器 特征的线性组合 神经网络 决策树 最近邻方法 傅立叶/小波变</desc>
+  </url>
+  
+  <url>
+    <loc>https://lwl1751.github.io/2024/05/15/%E5%9F%BA%E4%BA%8E%E7%AD%96%E7%95%A5%E6%A2%AF%E5%BA%A6%E7%9A%84%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/</loc>
+    
+    <lastmod>2024-07-26T07:27:04.731Z</lastmod>
+    
+    <date>1715752691000</date>
+    <title>基于策略梯度的强化学习 | Wenliang Liang</title>
+    
+    <desc>强化学习可分为两大类： value-based method(DP,MC,TD) 通过价值函数求解最优策略，求解出来的策略是确定性的，虽然可以通过$\epsilon$-贪心策略来获取一定的随机性。要求动作空间离散。 policy-based method 适用场景：随机策略；动作空间连续。 优点：具有更好的收敛性质。 缺点：通常会收敛到局部最优而非全局最优；评估一个策略通常不够高效并且具有较大的方</desc>
+  </url>
+  
+  <url>
+    <loc>https://lwl1751.github.io/2024/06/01/%E7%AC%A6%E5%8F%B7%E5%8C%96%E7%9F%A5%E8%AF%86%E8%A1%A8%E7%A4%BA/</loc>
+    
+    <lastmod>2024-07-26T07:24:59.082Z</lastmod>
+    
+    <date>1717237704000</date>
+    <title>符号化知识表示 | Wenliang Liang</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
+    <loc>https://lwl1751.github.io/2024/05/15/%E5%A4%9A%E6%A8%A1%E6%80%81%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E5%BA%94%E7%94%A8/</loc>
+    
+    <lastmod>2024-07-26T07:24:19.751Z</lastmod>
+    
+    <date>1715758324000</date>
+    <title>多模态知识图谱应用 | Wenliang Liang</title>
+    
+    <desc>相比于单模态知识图谱，多模态知识图谱能够综合多种类型的数据，从而可以让智能体更深入的感知和理解真实的数据场景，因而多模态知识图谱在各个领域都有广泛的应用。如图像检索、模型推理与生成、模型预训练等。以电子商务为例，通过多模态产品图谱，可以对产品进行更细致的表示，再通过预训练，可以增强大型模型对电子商务领域的多模态知识理解，从而推动电子商务平台的发展。</desc>
+  </url>
+  
+  <url>
+    <loc>https://lwl1751.github.io/2024/07/20/ChatKBQA-A-Generate-then-Retrieve-Framework-for-Knowledge-Base-Question-Answering-with-Fine-tuned-Large-Language-Models/</loc>
+    
+    <lastmod>2024-07-26T07:23:22.494Z</lastmod>
+    
+    <date>1721468997000</date>
+    <title>ChatKBQA: A Generate-then-Retrieve Framework for Knowledge Base Question Answering with Fine-tuned Large Language Models | Wenliang Liang</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
+    <loc>https://lwl1751.github.io/2024/07/06/Unifying-Large-Language-Models-and-Knowledge-Graphs-A-Roadmap/</loc>
+    
+    <lastmod>2024-07-26T07:22:56.118Z</lastmod>
+    
+    <date>1720200905000</date>
+    <title>Unifying Large Language Models and Knowledge Graphs: A Roadmap | Wenliang Liang</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
+    <loc>https://lwl1751.github.io/2024/07/08/Ontology-enhanced-Prompt-tuning-for-Few-shot-Learning/</loc>
+    
+    <lastmod>2024-07-26T07:22:18.396Z</lastmod>
+    
+    <date>1720425882000</date>
+    <title>Ontology-enhanced Prompt-tuning for Few-shot Learning | Wenliang Liang</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
+    <loc>https://lwl1751.github.io/2024/07/26/REASONING-ON-GRAPHS-FAITHFUL-AND-INTERPRETABLE-LARGE-LANGUAGE-MODEL-REASONING/</loc>
+    
+    <lastmod>2024-07-26T07:21:45.269Z</lastmod>
+    
+    <date>1721970738000</date>
+    <title>REASONING ON GRAPHS: FAITHFUL AND INTERPRETABLE LARGE LANGUAGE MODEL REASONING | Wenliang Liang</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
     <loc>https://lwl1751.github.io/2024/07/26/UniMEL-A-Unified-Framework-for-Multimodal-Entity-Linkingwith-Large-Language-Models/</loc>
     
     <lastmod>2024-07-26T05:25:48.173Z</lastmod>
@@ -57,39 +211,6 @@
   </url>
   
   <url>
-    <loc>https://lwl1751.github.io/2024/07/26/REASONING-ON-GRAPHS-FAITHFUL-AND-INTERPRETABLE-LARGE-LANGUAGE-MODEL-REASONING/</loc>
-    
-    <lastmod>2024-07-26T05:12:18.651Z</lastmod>
-    
-    <date>1721970738000</date>
-    <title>REASONING ON GRAPHS: FAITHFUL AND INTERPRETABLE LARGE LANGUAGE MODEL REASONING | Wenliang Liang</title>
-    
-    <desc></desc>
-  </url>
-  
-  <url>
-    <loc>https://lwl1751.github.io/2024/07/20/ChatKBQA-A-Generate-then-Retrieve-Framework-for-Knowledge-Base-Question-Answering-with-Fine-tuned-Large-Language-Models/</loc>
-    
-    <lastmod>2024-07-20T09:52:13.289Z</lastmod>
-    
-    <date>1721468997000</date>
-    <title>ChatKBQA: A Generate-then-Retrieve Framework for Knowledge Base Question Answering with Fine-tuned Large Language Models | Wenliang Liang</title>
-    
-    <desc></desc>
-  </url>
-  
-  <url>
-    <loc>https://lwl1751.github.io/2024/07/08/Ontology-enhanced-Prompt-tuning-for-Few-shot-Learning/</loc>
-    
-    <lastmod>2024-07-08T08:33:04.990Z</lastmod>
-    
-    <date>1720425882000</date>
-    <title>Ontology-enhanced Prompt-tuning for Few-shot Learning | Wenliang Liang</title>
-    
-    <desc></desc>
-  </url>
-  
-  <url>
     <loc>https://lwl1751.github.io/2024/07/07/Knowledge-Prompting-in-Pre-trained-Language-Model-for-Natural-Language-Understanding/</loc>
     
     <lastmod>2024-07-07T09:04:05.336Z</lastmod>
@@ -101,56 +222,12 @@
   </url>
   
   <url>
-    <loc>https://lwl1751.github.io/2024/07/06/Unifying-Large-Language-Models-and-Knowledge-Graphs-A-Roadmap/</loc>
-    
-    <lastmod>2024-07-06T09:56:38.774Z</lastmod>
-    
-    <date>1720200905000</date>
-    <title>Unifying Large Language Models and Knowledge Graphs: A Roadmap | Wenliang Liang</title>
-    
-    <desc></desc>
-  </url>
-  
-  <url>
-    <loc>https://lwl1751.github.io/2024/06/25/%E7%A4%BE%E5%8C%BA%E5%8F%91%E7%8E%B0%E7%AE%97%E6%B3%95/</loc>
-    
-    <lastmod>2024-06-29T07:59:13.455Z</lastmod>
-    
-    <date>1719305414000</date>
-    <title>社区发现算法 | Wenliang Liang</title>
-    
-    <desc></desc>
-  </url>
-  
-  <url>
     <loc>https://lwl1751.github.io/2024/06/05/LLM%20%E5%A2%9E%E9%87%8F%E9%A2%84%E8%AE%AD%E7%BB%83/</loc>
     
     <lastmod>2024-06-26T13:01:02.056Z</lastmod>
     
     <date>1717575709000</date>
     <title>LLM训练 | Wenliang Liang</title>
-    
-    <desc></desc>
-  </url>
-  
-  <url>
-    <loc>https://lwl1751.github.io/2024/06/24/%E5%9B%BE%E7%9A%84%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</loc>
-    
-    <lastmod>2024-06-25T08:51:12.737Z</lastmod>
-    
-    <date>1719239147000</date>
-    <title>图的基础知识 | Wenliang Liang</title>
-    
-    <desc></desc>
-  </url>
-  
-  <url>
-    <loc>https://lwl1751.github.io/2024/05/31/%E7%BE%A4%E4%BD%93%E6%99%BA%E8%83%BD/</loc>
-    
-    <lastmod>2024-06-02T16:32:09.918Z</lastmod>
-    
-    <date>1717140733000</date>
-    <title>群体智能 | Wenliang Liang</title>
     
     <desc></desc>
   </url>
@@ -244,50 +321,6 @@
   </url>
   
   <url>
-    <loc>https://lwl1751.github.io/2024/06/01/%E6%95%B0%E5%80%BC%E5%8C%96%E7%9F%A5%E8%AF%86%E8%A1%A8%E7%A4%BA/</loc>
-    
-    <lastmod>2024-06-01T13:40:47.682Z</lastmod>
-    
-    <date>1717237704000</date>
-    <title>数值化知识表示 | Wenliang Liang</title>
-    
-    <desc></desc>
-  </url>
-  
-  <url>
-    <loc>https://lwl1751.github.io/2024/06/01/%E7%AC%A6%E5%8F%B7%E5%8C%96%E7%9F%A5%E8%AF%86%E8%A1%A8%E7%A4%BA/</loc>
-    
-    <lastmod>2024-06-01T12:44:11.979Z</lastmod>
-    
-    <date>1717237704000</date>
-    <title>符号化知识表示 | Wenliang Liang</title>
-    
-    <desc></desc>
-  </url>
-  
-  <url>
-    <loc>https://lwl1751.github.io/2024/05/15/%E6%B7%B1%E5%BA%A6%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/</loc>
-    
-    <lastmod>2024-05-30T15:43:38.310Z</lastmod>
-    
-    <date>1715752874000</date>
-    <title>深度强化学习 | Wenliang Liang</title>
-    
-    <desc>强化学习从深度学习角度出发的挑战： 强化学习的奖励信号是有延迟的，而深度学习的输入输出是直接联系的 强化学习的序贯决策序列有很高的相关性，而深度学习的假设数据是独立同分布 强化学习的数据分布是会随着学习发生变化的，而深度学习的假设是底层分布固定的</desc>
-  </url>
-  
-  <url>
-    <loc>https://lwl1751.github.io/2024/05/15/%E5%9F%BA%E4%BA%8E%E7%AD%96%E7%95%A5%E6%A2%AF%E5%BA%A6%E7%9A%84%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/</loc>
-    
-    <lastmod>2024-05-30T12:21:28.527Z</lastmod>
-    
-    <date>1715752691000</date>
-    <title>基于策略梯度的强化学习 | Wenliang Liang</title>
-    
-    <desc>强化学习可分为两大类： value-based method(DP,MC,TD) 通过价值函数求解最优策略，求解出来的策略是确定性的，虽然可以通过\(\epsilon\)-贪心策略来获取一定的随机性。要求动作空间离散。 policy-based method 适用场景：随机策略；动作空间连续。 优点：具有更好的收敛性质。 缺点：通常会收敛到局部最优而非全局最优；评估一个策略通常不够高效并且具有较大</desc>
-  </url>
-  
-  <url>
     <loc>https://lwl1751.github.io/2024/05/15/%E6%97%A0%E6%A8%A1%E5%9E%8B%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/</loc>
     
     <lastmod>2024-05-30T12:01:26.698Z</lastmod>
@@ -296,39 +329,6 @@
     <title>无模型强化学习 | Wenliang Liang</title>
     
     <desc>知识点 1.无模型价值学习评估 蒙特卡洛方法 时序差分学习 TD(𝝀) 2.无模型策略优化控制 蒙特卡洛策略迭代 时序差分策略迭代（SARSA） Q值迭代 (Q-learning)</desc>
-  </url>
-  
-  <url>
-    <loc>https://lwl1751.github.io/2024/05/15/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</loc>
-    
-    <lastmod>2024-05-30T09:00:54.762Z</lastmod>
-    
-    <date>1715752741000</date>
-    <title>强化学习基础知识 | Wenliang Liang</title>
-    
-    <desc>知识点：马尔科夫决策过程，动态规划。</desc>
-  </url>
-  
-  <url>
-    <loc>https://lwl1751.github.io/2024/05/15/%E8%BF%9E%E7%BB%AD%E7%8A%B6%E6%80%81%E7%B3%BB%E7%BB%9F%E5%9F%BA%E4%BA%8E%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/</loc>
-    
-    <lastmod>2024-05-30T07:06:13.475Z</lastmod>
-    
-    <date>1715752850000</date>
-    <title>连续状态系统基于模型的强化学习 | Wenliang Liang</title>
-    
-    <desc>对于大规模的MDP问题，不希望使用查表（Table Lookup）的方式，通过函数近似来估计实际的价值函数的方式，既节约了资源，又能达到泛化的效果。 \(\hat{v}(s,w) = v_\pi (s)\) \(\hat{q}(s,a,w) = q_\pi (s,a)\) \(\hat{\pi}(a,s,w) = \pi (a|s)\) 函数近似器 特征的线性组合 神经网络 决策树 最近邻方法 傅</desc>
-  </url>
-  
-  <url>
-    <loc>https://lwl1751.github.io/2024/05/15/%E5%A4%9A%E6%A8%A1%E6%80%81%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E5%BA%94%E7%94%A8/</loc>
-    
-    <lastmod>2024-05-30T06:29:42.295Z</lastmod>
-    
-    <date>1715758324000</date>
-    <title>多模态知识图谱应用 | Wenliang Liang</title>
-    
-    <desc>相比于单模态知识图谱，多模态知识图谱能够综合多种类型的数据，从而可以让智能体更深入的感知和理解真实的数据场景，因而多模态知识图谱在各个领域都有广泛的应用。如图像检索、模型推理与生成、模型预训练等。以电子商务为例，通过多模态产品图谱，可以对产品进行更细致的表示，再通过预训练，可以增强大型模型对电子商务领域的多模态知识理解，从而推动电子商务平台的发展。</desc>
   </url>
   
   <url>

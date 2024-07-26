@@ -23,67 +23,78 @@
     <url>/2024/05/15/%E5%9F%BA%E4%BA%8E%E7%AD%96%E7%95%A5%E6%A2%AF%E5%BA%A6%E7%9A%84%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/</url>
     <content><![CDATA[<p>强化学习可分为两大类：</p>
 <ul>
-<li><p><strong>value-based method</strong>(DP,MC,TD)</p>
-<p>通过价值函数求解最优策略，求解出来的策略是确定性的，虽然可以通过<span class="math inline">\(\epsilon\)</span>-贪心策略来获取一定的随机性。要求动作空间离散。</p></li>
-<li><p><strong>policy-based method</strong></p>
+<li>
+<p><strong>value-based method</strong>(DP,MC,TD)</p>
+<p>通过价值函数求解最优策略，求解出来的策略是确定性的，虽然可以通过$\epsilon$-贪心策略来获取一定的随机性。要求动作空间离散。</p>
+</li>
+<li>
+<p><strong>policy-based method</strong></p>
 <p>适用场景：随机策略；动作空间连续。</p>
 <p>优点：具有更好的收敛性质。</p>
-<p>缺点：通常会收敛到局部最优而非全局最优；评估一个策略通常不够高效并且具有较大的方差。</p></li>
+<p>缺点：通常会收敛到局部最优而非全局最优；评估一个策略通常不够高效并且具有较大的方差。</p>
+</li>
 </ul>
 <span id="more"></span>
-<h2 id="基本原理">1.基本原理</h2>
-<p>由于策略实际上是一个概率分布，可以将策略参数化 <span class="math inline">\(\pi(a|s,\theta)\)</span> ，其中<span class="math inline">\(\theta\)</span>
-是策略的参数。通过这种方式，可以将可见的已知状态泛化到未知的状态上。</p>
-<h3 id="策略目标函数">1.1 策略目标函数</h3>
+<h2 id="1-基本原理">1.基本原理</h2>
+<p>由于策略实际上是一个概率分布，可以将策略参数化 $\pi(a|s,\theta)$ ，其中$\theta$ 是策略的参数。通过这种方式，可以将可见的已知状态泛化到未知的状态上。</p>
+<h3 id="1-1-策略目标函数">1.1 策略目标函数</h3>
 <p>在片段式的环境中，使用每个经历片段(episode)的平均总回报。在连续性的环境中，使用每一步的平均奖励。</p>
-<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/策略目标函数1.png" alt="图片1"> <img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/策略目标函数2.png" alt="图片2"></p>
-<p>希望能够找到最大化<span class="math inline">\(J(\theta)\)</span>的<span class="math inline">\(\theta\)</span>，属于最优化问题，求解方法如下：</p>
+<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E7%AD%96%E7%95%A5%E7%9B%AE%E6%A0%87%E5%87%BD%E6%95%B01.png" alt="图1"><br>
+<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E7%AD%96%E7%95%A5%E7%9B%AE%E6%A0%87%E5%87%BD%E6%95%B02.png" alt="图2"></p>
+<p>希望能够找到最大化$J(\theta)$的$\theta$，属于最优化问题，求解方法如下：</p>
 <ul>
 <li>不使用梯度的方法(Hill climbing, Simplex, 模拟退火, 遗传算法)</li>
 <li>使用梯度的方法更高效(梯度下降, 共轭梯度, 拟牛顿法)</li>
 </ul>
-<h3 id="策略函数">1.2 策略函数</h3>
+<h3 id="1-2-策略函数">1.2 策略函数</h3>
 <ul>
 <li>softmax策略，离散型动作空间</li>
 <li>高斯函数策略，连续型动作空间</li>
-<li>线性函数策略，连续型动作空间，表示给定状态下确定性的动作，<span class="math inline">\(a=\pi(s,\theta)\)</span></li>
+<li>线性函数策略，连续型动作空间，表示给定状态下确定性的动作，$a=\pi(s,\theta)$</li>
 </ul>
-<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/score函数.png" alt="图片1"> <img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/softmax策略2.png" alt="图片2"> <img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/softmax策略.png" alt="图片1"> <img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/高斯策略.png" alt="图片2"></p>
-<h3 id="单步马尔可夫决策过程">1.3 单步马尔可夫决策过程</h3>
-<p>从一个分布d(s)中采样得到一个状态s，从s开始，按照策略𝜋采取一个行为a，得到即时奖励<span class="math inline">\(r=R_{s,a}\)</span>。由于是单步过程，目标函数为
-<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/单步马尔可夫决策公式.png" alt="图片"></p>
-<h2 id="策略梯度定理">2.策略梯度定理</h2>
-<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/策略推理1.png" alt="图片"> <img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/策略推理2.png" alt="图片"></p>
+<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/score%E5%87%BD%E6%95%B0.png" alt="图3"><br>
+<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/softmax%E7%AD%96%E7%95%A52.png" alt="图4"><br>
+<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/softmax%E7%AD%96%E7%95%A5.png" alt="图5"><br>
+<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E9%AB%98%E6%96%AF%E7%AD%96%E7%95%A5.png" alt="图6"></p>
+<h3 id="1-3-单步马尔可夫决策过程">1.3 单步马尔可夫决策过程</h3>
+<p>从一个分布d(s)中采样得到一个状态s，从s开始，按照策略𝜋采取一个行为a，得到即时奖励$r=R_{s,a}$。由于是单步过程，目标函数为<br>
+<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E5%8D%95%E6%AD%A5%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB%E5%86%B3%E7%AD%96%E5%85%AC%E5%BC%8F.png" alt="图7"></p>
+<h2 id="2-策略梯度定理">2.策略梯度定理</h2>
+<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E7%AD%96%E7%95%A5%E6%8E%A8%E7%90%861.png" alt="图8"><br>
+<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E7%AD%96%E7%95%A5%E6%8E%A8%E7%90%862.png" alt="图9"></p>
 <p>由于状态转移函数的存在，虽然训练用的轨迹都是由同一个策略生成的，但其两两差异仍十分显著，并且显然轨迹越长差异越大，决策中每一个微小的差异累积起来都会导致最后结果的极大差异。也就是数据有着较大的方差，这会导致使用均值计算期望的效果变差，并使算法难以收敛。</p>
 <p><strong>改进方法：使用时序因果关系；加入基线。</strong></p>
-<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/时间连续性1.png" alt="图片1"> <img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/时间连续性2.png" alt="图片2"> <img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/加入基线1.png" alt="图片"> <img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/加入基线2.png" alt="图片"></p>
-<h2 id="蒙特卡洛策略梯度reinforce">3.蒙特卡洛策略梯度(REINFORCE)</h2>
-<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/REINFORCE-1.png" alt="图片"> <img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/REINFORCE2.png" alt="图片"></p>
-<h2 id="actor-critic-算法">4. Actor-Critic 算法</h2>
+<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E6%97%B6%E9%97%B4%E8%BF%9E%E7%BB%AD%E6%80%A71.png" alt="图10"><br>
+<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E6%97%B6%E9%97%B4%E8%BF%9E%E7%BB%AD%E6%80%A72.png" alt="图11"><br>
+<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E5%8A%A0%E5%85%A5%E5%9F%BA%E7%BA%BF1.png" alt="图12"><br>
+<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E5%8A%A0%E5%85%A5%E5%9F%BA%E7%BA%BF2.png" alt="图13"></p>
+<h2 id="3-蒙特卡洛策略梯度-REINFORCE">3.蒙特卡洛策略梯度(REINFORCE)</h2>
+<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/REINFORCE-1.png" alt="图14"><br>
+<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/REINFORCE2.png" alt="图15"></p>
+<h2 id="4-Actor-Critic-算法">4. Actor-Critic 算法</h2>
 <p><strong>actor --&gt; policy network</strong>，决定采取哪个动作</p>
 <ul>
-<li><span class="math inline">\(\pi(a|s;\theta)\)</span></li>
+<li>$\pi(a|s;\theta)$</li>
 <li>input: state s</li>
 <li>output: probability distribution over the actions</li>
 <li>训练目标： 增加状态值函数 state-value</li>
 </ul>
-<p>c<strong>ritic --&gt; value
-network</strong>，只负责评估动作的好坏</p>
+<p>c<strong>ritic --&gt; value network</strong>，只负责评估动作的好坏</p>
 <ul>
-<li><span class="math inline">\(q(s,a;w)\)</span></li>
+<li>$q(s,a;w)$</li>
 <li>input: state s and action a</li>
 <li>output: approximate action-value(scalar)</li>
 <li>训练目标： 使价值评估的更精准，接近于实际环境的return</li>
 </ul>
-<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/A3C-1.png" alt="图片"> <img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/A3C-2.png" alt="图片"></p>
+<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/A3C-1.png" alt="图16"><br>
+<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/A3C-2.png" alt="图17"></p>
 <p><strong>参考资料</strong>：</p>
 <p>中国科学院大学林姝老师 强化学习课程课件</p>
 <p>深度强化学习：基础、研究与应用 (董豪 等)</p>
-<p><a href="https://www.bilibili.com/video/BV16Y411f7Hp/?spm_id_from=333.337.search-card.all.click&amp;vd_source=514a3ed3ac370caf4facad7d6f4e1a2d" class="uri">https://www.bilibili.com/video/BV16Y411f7Hp/?spm_id_from=333.337.search-card.all.click&amp;vd_source=514a3ed3ac370caf4facad7d6f4e1a2d</a></p>
-<p><a href="https://mp.weixin.qq.com/s/y1Rj3fIaXkNjEyakCqRSIg" class="uri">https://mp.weixin.qq.com/s/y1Rj3fIaXkNjEyakCqRSIg</a></p>
-<p>Reinforcement Learning An Introduction (Adaptive Computation and
-Machine Learning series) (Sutton, Richard S., Barto, Andrew G.)</p>
-<p><a href="https://www.bilibili.com/video/BV1Sq4y1q7sw/?spm_id_from=333.337.search-card.all.click&amp;vd_source=514a3ed3ac370caf4facad7d6f4e1a2d" class="uri">https://www.bilibili.com/video/BV1Sq4y1q7sw/?spm_id_from=333.337.search-card.all.click&amp;vd_source=514a3ed3ac370caf4facad7d6f4e1a2d</a></p>
+<p><a href="https://www.bilibili.com/video/BV16Y411f7Hp/?spm_id_from=333.337.search-card.all.click&amp;vd_source=514a3ed3ac370caf4facad7d6f4e1a2d">https://www.bilibili.com/video/BV16Y411f7Hp/?spm_id_from=333.337.search-card.all.click&amp;vd_source=514a3ed3ac370caf4facad7d6f4e1a2d</a></p>
+<p><a href="https://mp.weixin.qq.com/s/y1Rj3fIaXkNjEyakCqRSIg">https://mp.weixin.qq.com/s/y1Rj3fIaXkNjEyakCqRSIg</a></p>
+<p>Reinforcement Learning An Introduction (Adaptive Computation and Machine Learning series) (Sutton, Richard S., Barto, Andrew G.)</p>
+<p><a href="https://www.bilibili.com/video/BV1Sq4y1q7sw/?spm_id_from=333.337.search-card.all.click&amp;vd_source=514a3ed3ac370caf4facad7d6f4e1a2d">https://www.bilibili.com/video/BV1Sq4y1q7sw/?spm_id_from=333.337.search-card.all.click&amp;vd_source=514a3ed3ac370caf4facad7d6f4e1a2d</a></p>
 ]]></content>
       <tags>
         <tag>强化学习</tag>
@@ -94,33 +105,18 @@ Machine Learning series) (Sutton, Richard S., Barto, Andrew G.)</p>
     <url>/2024/05/15/%E5%A4%9A%E6%A8%A1%E6%80%81%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E5%BA%94%E7%94%A8/</url>
     <content><![CDATA[<p>相比于单模态知识图谱，多模态知识图谱能够综合多种类型的数据，从而可以让智能体更深入的感知和理解真实的数据场景，因而多模态知识图谱在各个领域都有广泛的应用。如图像检索、模型推理与生成、模型预训练等。以电子商务为例，通过多模态产品图谱，可以对产品进行更细致的表示，再通过预训练，可以增强大型模型对电子商务领域的多模态知识理解，从而推动电子商务平台的发展。</p>
 <span id="more"></span>
-<figure>
-<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/多模态知识图谱应用1.png" alt="图片">
-<figcaption aria-hidden="true">图片</figcaption>
-</figure>
-<p>AliMe
-MKG是阿里提出的一种面向直播的知识图谱，与传统的知识图谱不同，它的目标是向顾客种草某一产品，而非解决顾客的问题。因此，它需要构建逻辑思维链，引导用户需求。例如，在该左图1的知识图谱示例中，"熬夜"导致"皮肤暗沉"问题，这就需要"皮肤白皙"，而含有"甘草酸二钾"成分的"面膜"产品适合相应的用户。</p>
+<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E5%A4%9A%E6%A8%A1%E6%80%81%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E5%BA%94%E7%94%A81.png" alt="图1"></p>
+<p>AliMe MKG是阿里提出的一种面向直播的知识图谱，与传统的知识图谱不同，它的目标是向顾客种草某一产品，而非解决顾客的问题。因此，它需要构建逻辑思维链，引导用户需求。例如，在该左图1的知识图谱示例中，“熬夜&quot;导致&quot;皮肤暗沉&quot;问题，这就需要&quot;皮肤白皙”，而含有&quot;甘草酸二钾&quot;成分的&quot;面膜&quot;产品适合相应的用户。</p>
 <p>在电商直播领域，这种知识图谱有两种应用：智能辅播和虚拟主播。智能辅播是在真人直播间构造了一个智能助理机器人，来协助主播去做商品介绍。比如说用户问的是口红，直播间内有多个口红，智能辅播就会将相关的信息展示出来给用户进行浏览，当用户点击确认，选择一个感兴趣的口红之后，辅播就会从知识图谱中抽取相应信息，以商品卡片信息的方式让用户和图片进行交互。除此之外，智能辅播还可以回答用户丰富的产品相关问题。比如用户问尺码的时候，辅播可以去推出文本介绍和对应的尺码图，用文本及图片来回答用户的咨询。</p>
 <p>虚拟主播则是一个智能的直播间虚拟人，通过自动生成图文剧本介绍商品，生成具有吸引力和认知的知识型短视频，从而可以影响客户的购买决策。因此，多模态的知识图谱可以促进电商的发展。</p>
-<figure>
-<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/多模态知识图谱应用2.png" alt="图片">
-<figcaption aria-hidden="true">图片</figcaption>
-</figure>
+<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E5%A4%9A%E6%A8%A1%E6%80%81%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E5%BA%94%E7%94%A82.png" alt="图2"></p>
 <p>另一个是医疗诊断的案例，这是一个基于多模态知识图谱的医疗健康问答系统示例。它首先利用多种方法获取用户提交数据的关键信息，并确定用户查询的主题意图，建立用户的知识需求模型。在知识匹配阶段，我们计算用户需求与医疗健康知识的相关度，并消除可能的歧义，最终向用户提供匹配度高的医疗健康知识。</p>
-<figure>
-<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/多模态知识图谱应用3.png" alt="图片">
-<figcaption aria-hidden="true">图片</figcaption>
-</figure>
+<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E5%A4%9A%E6%A8%A1%E6%80%81%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E5%BA%94%E7%94%A83.png" alt="图3"></p>
 <p><strong>参考资料</strong>:</p>
-<p>Chen Z, Zhang Y, Fang Y, et al. Knowledge Graphs Meet Multi-Modal
-Learning: A Comprehensive Survey[J]. arXiv preprint arXiv:2402.05391,
-2024.</p>
-<p>Xu G, Chen H, Li F L, et al. Alime mkg: A multi-modal knowledge graph
-for live-streaming e-commerce[C]//Proceedings of the 30th ACM
-International Conference on Information &amp; Knowledge Management.
-2021: 4808-4812.</p>
-<p><a href="https://mp.weixin.qq.com/s/rW9ezfkAgOHAsICYuiPq6A" class="uri">https://mp.weixin.qq.com/s/rW9ezfkAgOHAsICYuiPq6A</a></p>
-<p><a href="https://mp.weixin.qq.com/s/bTqr5EEQD5_rModP8NR99g" class="uri">https://mp.weixin.qq.com/s/bTqr5EEQD5_rModP8NR99g</a></p>
+<p>Chen Z, Zhang Y, Fang Y, et al. Knowledge Graphs Meet Multi-Modal Learning: A Comprehensive Survey[J]. arXiv preprint arXiv:2402.05391, 2024.</p>
+<p>Xu G, Chen H, Li F L, et al. Alime mkg: A multi-modal knowledge graph for live-streaming e-commerce[C]//Proceedings of the 30th ACM International Conference on Information &amp; Knowledge Management. 2021: 4808-4812.</p>
+<p><a href="https://mp.weixin.qq.com/s/rW9ezfkAgOHAsICYuiPq6A">https://mp.weixin.qq.com/s/rW9ezfkAgOHAsICYuiPq6A</a></p>
+<p><a href="https://mp.weixin.qq.com/s/bTqr5EEQD5_rModP8NR99g">https://mp.weixin.qq.com/s/bTqr5EEQD5_rModP8NR99g</a></p>
 <p>韩普,叶东宇,陈文祺,等.面向多模态医疗健康数据的知识组织模式研究[J].现代情报,2023,43(10):27-34+151.</p>
 ]]></content>
       <tags>
@@ -238,80 +234,60 @@ Tools, NeurIPS 2023。</li>
 <hr>
 <span id="more"></span>
 <h2 id="马尔科夫决策过程">马尔科夫决策过程</h2>
-<p><strong><span style="color:purple;">马尔科夫过程</span></strong>:
-一个具备马尔科夫性质的离散随机过程。</p>
-<p><strong><span style="color:purple;">马尔科夫性</span></strong>:
-下一时刻的状态只与当前状态有关。即<span class="math inline">\(P[S_{t+1}|S_{1},...,S_{t}]=P[S_{t+1}|S_{t}]\)</span></p>
-<p><strong><span style="color:purple;">马尔科夫奖励函数</span></strong>:
-把马尔科夫过程从 &lt;S, P&gt; 拓展到 &lt;S, P, R, γ&gt;。其中P
-为状态转移矩阵，R 和 γ
-分别表示奖励函数和奖励折扣因子。折扣因子越大，代表了智能体对长期性能指标考虑的程度越高（远视）；折扣因子越小，代表了智能体对长期性能指标考虑的程度越低（近视）。</p>
-<p><strong><span style="color:purple;">回报</span></strong>:
-回报是一个轨迹的累积奖励，<span class="math inline">\(G_{t} = R_{t+1} +
-\gamma R_{t+2} = \sum_{k=0}^{\infty } \gamma ^{k}R_{t+k+1}\)</span></p>
-<p><strong><span style="color:purple;">价值函数</span></strong>：状态s的期望回报，<span class="math inline">\(V(s) = E[G_{t}|S_{t}=s]\)</span>。</p>
-<p><strong><span style="color:purple;">马尔科夫决策过程</span></strong>:
-马尔可夫奖励过程的立即奖励只取决于状态(奖励值在节点上)，而马尔可夫决策过程的立即奖励与状态和动作都有关。即把马尔科夫过程从
-&lt;S, P, R, γ&gt; 拓展到 &lt;S, A, P, R, γ&gt;。A是有限动作的集合。</p>
-<p><strong><span style="color:purple;">动作价值函数</span></strong>:
-依赖于状态和刚刚执行的动作，是基于状态和动作的期望回报。<span class="math inline">\(Q(s,a) = E[G_{t}|S_{t}=s,
-A_{t}=a]\)</span>。易知<span class="math inline">\(V(s)=E_{a}[Q(s,a)]\)</span>。</p>
-<p><strong><span style="color:purple;">策略</span></strong>:
-状态到行为的映射。</p>
+<p><strong><span style="color:purple;">马尔科夫过程</span></strong>: 一个具备马尔科夫性质的离散随机过程。</p>
+<p><strong><span style="color:purple;">马尔科夫性</span></strong>: 下一时刻的状态只与当前状态有关。即$P[S_{t+1}|S_{1},…,S_{t}]=P[S_{t+1}|S_{t}]$</p>
+<p><strong><span style="color:purple;">马尔科夫奖励函数</span></strong>: 把马尔科夫过程从 &lt;S, P&gt; 拓展到 &lt;S, P, R, γ&gt;。其中P 为状态转移矩阵，R 和 γ 分别表示奖励函数和奖励折扣因子。折扣因子越大，代表了智能体对长期性能指标考虑的程度越高（远视）；折扣因子越小，代表了智能体对长期性能指标考虑的程度越低（近视）。</p>
+<p><strong><span style="color:purple;">回报</span></strong>: 回报是一个轨迹的累积奖励，$G_{t} = R_{t+1} + \gamma R_{t+2} = \sum_{k=0}^{\infty } \gamma ^{k}R_{t+k+1}$</p>
+<p><strong><span style="color:purple;">价值函数</span></strong>：状态s的期望回报，$V(s) = E[G_{t}|S_{t}=s]$。</p>
+<p><strong><span style="color:purple;">马尔科夫决策过程</span></strong>: 马尔可夫奖励过程的立即奖励只取决于状态(奖励值在节点上)，而马尔可夫决策过程的立即奖励与状态和动作都有关。即把马尔科夫过程从 &lt;S, P, R, γ&gt; 拓展到 &lt;S, A, P, R, γ&gt;。A是有限动作的集合。</p>
+<p><strong><span style="color:purple;">动作价值函数</span></strong>: 依赖于状态和刚刚执行的动作，是基于状态和动作的期望回报。$Q(s,a) = E[G_{t}|S_{t}=s, A_{t}=a]$。易知$V(s)=E_{a}[Q(s,a)]$。</p>
+<p><strong><span style="color:purple;">策略</span></strong>: 状态到行为的映射。</p>
 <blockquote>
 <p>对于任何马尔科夫决策过程：</p>
 <ul>
-<li>总是存在一个最优策略<span class="math inline">\(\pi^*\)</span>，比任何其他策略更好或至少相等。</li>
+<li>总是存在一个最优策略$\pi^*$，比任何其他策略更好或至少相等。</li>
 <li>所有的最优策略有相同且最优的价值。</li>
 <li>所有的最优策略具有相同且最优的动作价值。</li>
 </ul>
 </blockquote>
-<p><strong><span style="color:purple;">贝尔曼方程</span></strong>：用于计算给定策略 π
-时价值函数在策略指引下所采轨迹上的期望。</p>
-<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/截屏2024-05-16%2013.18.14.png" alt="图片1"> <img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/截屏2024-05-16%2013.18.34.png" alt="图片2"> <img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/截屏2024-05-16%2013.27.29.png" alt="图片3"> <img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/截屏2024-05-16%2013.27.43.png" alt="图片4"></p>
+<p><strong><span style="color:purple;">贝尔曼方程</span></strong>：用于计算给定策略 π 时价值函数在策略指引下所采轨迹上的期望。</p>
+<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E6%88%AA%E5%B1%8F2024-05-16%2013.18.14.png" alt="图1"><br>
+<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E6%88%AA%E5%B1%8F2024-05-16%2013.18.34.png" alt="图2"><br>
+<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E6%88%AA%E5%B1%8F2024-05-16%2013.27.29.png" alt="图3"><br>
+<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E6%88%AA%E5%B1%8F2024-05-16%2013.27.43.png" alt="图4"></p>
 <p><strong><span style="color:purple;">最优价值函数</span></strong>:</p>
 <p>即使是在相同的状态和动作集合上，不同的策略也将会带来不同的价值函数。定义最优价值函数为</p>
-<p><span class="math display">\[v_*(s) = \max_{π} v_π(s), ∀s ∈
-S\]</span></p>
+<p>$$v_*(s) = \max_{π} v_π(s), ∀s ∈ S$$</p>
 <p>最优动作价值函数：</p>
-<p><span class="math display">\[q_*(s,a) = \max_{\pi} q_π(s,a), ∀s ∈ S,
-a ∈ A\]</span></p>
+<p>$$q_*(s,a) = \max_{\pi} q_π(s,a), ∀s ∈ S, a ∈ A$$</p>
 <p>则</p>
-<p><span class="math display">\[v*(s) = \max_{a\sim \mathbf{A}} q_*(s,
-a)\]</span></p>
-<p><span class="math display">\[q_*(s, a) = E[R_t + γv_*(S_{t+1}) | S_t
-= s, A_t = a]\]</span></p>
+<p>$$v*(s) = \max_{a\sim \mathbf{A}} q_*(s, a)$$</p>
+<p>$$q_<em>(s, a) = E[R_t + γv_</em>(S_{t+1}) | S_t = s, A_t = a]$$</p>
 <p><strong><span style="color:purple;">逆矩阵法求解贝尔曼方程</span></strong>：</p>
-<p><span class="math display">\[\mathbf{v}  = \mathbf{r} + γP\mathbf{v}
-\]</span></p>
-<p>其中 <strong>v</strong> 和 <strong>r</strong>
-矢量，P是状态转移概率矩阵。求解如下：</p>
-<p><span class="math display">\[\mathbf{v} = (I − γP
-)^{-1}\mathbf{r}\]</span></p>
-<p>复杂度为<span class="math inline">\(O(n^{3})\)</span>，考虑其他方法进行求解，如<span style="color:red;">动态规划、蒙特卡洛估计、时序差分法</span>等。</p>
+<p>$$\mathbf{v}  = \mathbf{r} + γP\mathbf{v} $$</p>
+<p>其中 <strong>v</strong> 和 <strong>r</strong> 矢量，P是状态转移概率矩阵。求解如下：</p>
+<p>$$\mathbf{v} = (I − γP )^{-1}\mathbf{r}$$</p>
+<p>复杂度为$O(n^{3})$，考虑其他方法进行求解，如<span style="color:red;">动态规划、蒙特卡洛估计、时序差分法</span>等。</p>
 <h2 id="动态规划">动态规划</h2>
-<p>用动态规划算法在
-能够获取MDP完整的环境信息（包括状态动作空间、转移矩阵、奖励等）的基础上
-求解最优策略。</p>
-<p><strong><span style="color:purple;">预测</span></strong>：给定一个MDP
-&lt;𝒮, 𝒜, 𝒫, ℛ, 𝛾&gt;和策略𝜋，输出基于当前策略𝜋的价值函数v。</p>
-<p><strong><span style="color:purple;">控制</span></strong>：给定一个MDP
-&lt;𝒮, 𝒜, 𝒫, ℛ, 𝛾&gt;，输出最优价值函数𝑣∗以及最优策略𝜋∗</p>
-<p><strong><span style="color:purple;">迭代策略评估</span></strong>：
-预测问题，评估一个给定的策略<span class="math inline">\(\pi\)</span>。</p>
-<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/迭代策略评估.png" alt="图片"> <img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/动态规划策略评估.png" alt="图片"></p>
+<p>用动态规划算法在 能够获取MDP完整的环境信息（包括状态动作空间、转移矩阵、奖励等）的基础上 求解最优策略。</p>
+<p><strong><span style="color:purple;">预测</span></strong>：给定一个MDP &lt;𝒮, 𝒜, 𝒫, ℛ, 𝛾&gt;和策略𝜋，输出基于当前策略𝜋的价值函数v。</p>
+<p><strong><span style="color:purple;">控制</span></strong>：给定一个MDP &lt;𝒮, 𝒜, 𝒫, ℛ, 𝛾&gt;，输出最优价值函数𝑣∗以及最优策略𝜋∗</p>
+<p><strong><span style="color:purple;">迭代策略评估</span></strong>： 预测问题，评估一个给定的策略$\pi$。</p>
+<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E8%BF%AD%E4%BB%A3%E7%AD%96%E7%95%A5%E8%AF%84%E4%BC%B0.png" alt="图5"><br>
+<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%AD%96%E7%95%A5%E8%AF%84%E4%BC%B0.png" alt="图6"></p>
 <p><strong><span style="color:purple;">策略迭代</span></strong>：</p>
 <ul>
 <li>策略评估，在当前策略𝜋上迭代地计算𝑣值</li>
 <li>策略更新，根据𝑣值贪婪地更新策略</li>
-<li>如此反复多次，最终得到最优策略𝜋∗和最优状态价值函数𝑣∗ <img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/动态规划策略迭代.png" alt="图片"></li>
+<li>如此反复多次，最终得到最优策略𝜋∗和最优状态价值函数𝑣∗<br>
+<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%AD%96%E7%95%A5%E8%BF%AD%E4%BB%A3.png" alt="图7"></li>
 </ul>
-<p><strong><span style="color:purple;">价值迭代</span></strong>： <img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/动态规划价值迭代.png" alt="图片"></p>
+<p><strong><span style="color:purple;">价值迭代</span></strong>：<br>
+<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E4%BB%B7%E5%80%BC%E8%BF%AD%E4%BB%A3.png" alt="图8"></p>
 <p><strong>参考资料</strong>：</p>
 <p>中国科学院大学 林姝老师 强化学习课程课件</p>
 <p>深度强化学习：基础、研究与应用 (董豪 等)</p>
-<p>Reinforcement Learning An Introduction (Adaptive Computation and
-Machine Learning series) (Sutton, Richard S., Barto, Andrew G.)</p>
+<p>Reinforcement Learning An Introduction (Adaptive Computation and Machine Learning series) (Sutton, Richard S., Barto, Andrew G.)</p>
 ]]></content>
       <tags>
         <tag>强化学习</tag>
@@ -513,28 +489,20 @@ Machine Learning series) (Sutton, Richard S., Barto, Andrew G.)</p>
 <li>强化学习的数据分布是会随着学习发生变化的，而深度学习的假设是底层分布固定的</li>
 </ul>
 <span id="more"></span>
-<h2 id="dqn算法">1. DQN算法</h2>
-<figure>
-<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/DQN-4.png" alt="图片">
-<figcaption aria-hidden="true">图片</figcaption>
-</figure>
-<h3 id="dqn">1.1 DQN</h3>
-<p>Deep Q-learning: DQN, <strong>Approximate <span class="math inline">\(Q^*(s,a)\)</span> by DQN,<span class="math inline">\(Q(s,a;w)\)</span></strong></p>
-<p><strong>经历回放</strong>(experience replay): 在每个时间步t
-中，DQN先将智能体获得的经验<span class="math inline">\((S_t, A_t, R_t,
-S_{t+1})\)</span>存入回放缓存中，然后从该缓存中均匀采样小批样本用于
-Q-Learning
-更新。主要作用是<strong>解决数据的相关性和非静态分布问题</strong>。</p>
-<p>DQN2015的改进：<strong>增加目标网络</strong>。目标网络通过使用旧参数生成
-Q-Learning
-目标，使目标值的产生不受最新参数的影响，从而大大减少发散和震荡的情况。</p>
-<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/DQN-1.png" alt="图片"> <img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/DQN-2.png" alt="图片"> <img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/DQN-3.png" alt="图片"></p>
-<h3 id="double-dqn-ddqn">1.2 Double-DQN, DDQN</h3>
-<p>Double DQN 是对 DQN
-在减少过拟合方面的改进。这是由于DQN对动作值函数的max操作会引入一个正向的偏差，导致下一时刻的目标值存在过估计。</p>
-<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/DQN-5.png" alt="图片"> <img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/DQN-6.png" alt="图片"></p>
-<h3 id="prioritized-experience-replay-优先经验回放">1.3 Prioritized
-Experience Replay, 优先经验回放</h3>
+<h2 id="1-DQN算法">1. DQN算法</h2>
+<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/DQN-4.png" alt="图1"></p>
+<h3 id="1-1-DQN">1.1 DQN</h3>
+<p>Deep Q-learning: DQN, <strong>Approximate $Q^*(s,a)$ by DQN,$Q(s,a;w)$</strong></p>
+<p><strong>经历回放</strong>(experience replay): 在每个时间步t 中，DQN先将智能体获得的经验$(S_t, A_t, R_t, S_{t+1})$存入回放缓存中，然后从该缓存中均匀采样小批样本用于 Q-Learning 更新。主要作用是<strong>解决数据的相关性和非静态分布问题</strong>。</p>
+<p>DQN2015的改进：<strong>增加目标网络</strong>。目标网络通过使用旧参数生成 Q-Learning 目标，使目标值的产生不受最新参数的影响，从而大大减少发散和震荡的情况。</p>
+<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/DQN-1.png" alt="图2"><br>
+<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/DQN-2.png" alt="图3"><br>
+<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/DQN-3.png" alt="图4"></p>
+<h3 id="1-2-Double-DQN-DDQN">1.2 Double-DQN, DDQN</h3>
+<p>Double DQN 是对 DQN 在减少过拟合方面的改进。这是由于DQN对动作值函数的max操作会引入一个正向的偏差，导致下一时刻的目标值存在过估计。</p>
+<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/DQN-5.png" alt="图5"><br>
+<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/DQN-6.png" alt="图6"></p>
+<h3 id="1-3-Prioritized-Experience-Replay-优先经验回放">1.3 Prioritized Experience Replay, 优先经验回放</h3>
 <p>采用优先级采样达到收敛所需的更新次数相比均匀采样要小很多，这也是进行优先经验池回放的原因。</p>
 <p><strong>1.3.1 样本优先级</strong>:</p>
 <p>样本优先级应满足两个条件：</p>
@@ -543,10 +511,7 @@ Experience Replay, 优先经验回放</h3>
 <li>优先级数值应大于0，这是为了保证每一个样本都有机会被抽样，即抽样概率大于0。</li>
 </ul>
 <p>优先级可以分为<strong>基于比例的样本优先级</strong>，<strong>基于排序的样本优先级</strong>。如下图所示：</p>
-<figure>
-<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/DQN-7.png" alt="图片">
-<figcaption aria-hidden="true">图片</figcaption>
-</figure>
+<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/DQN-7.png" alt="图7"></p>
 <p><strong>1.3.2 随机优先级采样</strong>:</p>
 <p>采样方法：</p>
 <ul>
@@ -561,49 +526,33 @@ Experience Replay, 优先经验回放</h3>
 </ul>
 <p>Sum-Tree随机优先级采样，属于基于比例的样本优先级：</p>
 <p>重要性采样: 用一个分布来计算当前分布的期望。</p>
-<figure>
-<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/DQN-8.png" alt="图片">
-<figcaption aria-hidden="true">图片</figcaption>
-</figure>
-<h3 id="dueling-dqn">1.4 Dueling-DQN</h3>
-<p>算法原理：将动作值的计算分解成状态值和优势函数，<span class="math inline">\(Q(s,a)=V(s)+A(s,a)\)</span>。</p>
-<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/DQN-9.png" alt="图片"> <img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/DQN-10.png" alt="图片"></p>
-<h2 id="策略梯度方法ddpg">2. 策略梯度方法DDPG</h2>
-<h3 id="dpg-deterministic-policy-gradient-确定性策略梯度">2.1 DPG,
-(Deterministic Policy Gradient) 确定性策略梯度</h3>
-<p>确定性策略：每一步的动作都是确定的，即<span class="math inline">\(a=\mu_\theta(s)\)</span>。确定性策略梯度算法正是使用了确定性策略的策略梯度算法。</p>
-<h3 id="ddpg-deep-deterministic-policy-gradient">2.2 DDPG, (Deep
-Deterministic Policy Gradient)</h3>
-<figure>
-<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/DDPG-1.png" alt="图片">
-<figcaption aria-hidden="true">图片</figcaption>
-</figure>
+<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/DQN-8.png" alt="图8"></p>
+<h3 id="1-4-Dueling-DQN">1.4 Dueling-DQN</h3>
+<p>算法原理：将动作值的计算分解成状态值和优势函数，$Q(s,a)=V(s)+A(s,a)$。</p>
+<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/DQN-9.png" alt="图9"><br>
+<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/DQN-10.png" alt="图10"></p>
+<h2 id="2-策略梯度方法DDPG">2. 策略梯度方法DDPG</h2>
+<h3 id="2-1-DPG-Deterministic-Policy-Gradient-确定性策略梯度">2.1 DPG, (Deterministic Policy Gradient) 确定性策略梯度</h3>
+<p>确定性策略：每一步的动作都是确定的，即$a=\mu_\theta(s)$。确定性策略梯度算法正是使用了确定性策略的策略梯度算法。</p>
+<h3 id="2-2-DDPG-Deep-Deterministic-Policy-Gradient">2.2 DDPG, (Deep Deterministic Policy Gradient)</h3>
+<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/DDPG-1.png" alt="图11"></p>
 <p>几个trick：</p>
 <ul>
-<li><span class="math inline">\(\mu^{\prime}(s_t)=\mu(s_t|\theta_{t}^{\mu} +
-N)\)</span>
-添加了一个随迭代次数衰减的随机噪声，增加了动作空间的探索</li>
+<li>$\mu^{\prime}(s_t)=\mu(s_t|\theta_{t}^{\mu} + N)$ 添加了一个随迭代次数衰减的随机噪声，增加了动作空间的探索</li>
 <li>目标网络缓慢更新保证了训练的稳定性</li>
 <li>batch normalization 使得可以在不同的环境中获取的特征统一</li>
 </ul>
 <p>问题：值函数过估计；自举造成的偏差传播</p>
-<h3 id="ppo">2.3 PPO</h3>
-<figure>
-<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/PPO-1.png" alt="图片">
-<figcaption aria-hidden="true">图片</figcaption>
-</figure>
-<h3 id="sac-soft-actoe-critic">2.4 SAC, (Soft Actoe Critic)</h3>
+<h3 id="2-3-PPO">2.3 PPO</h3>
+<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/PPO-1.png" alt="图12"></p>
+<h3 id="2-4-SAC-Soft-Actoe-Critic">2.4 SAC, (Soft Actoe Critic)</h3>
 <p>熵：随机变量取各值时信息量的期望。</p>
-<figure>
-<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/SAC.png" alt="图片">
-<figcaption aria-hidden="true">图片</figcaption>
-</figure>
+<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/SAC.png" alt="图13"></p>
 <p><strong>参考资料</strong>：</p>
 <p>中国科学院大学林姝老师 强化学习课程课件</p>
 <p>深度强化学习：基础、研究与应用 (董豪 等)</p>
-<p>Reinforcement Learning An Introduction (Adaptive Computation and
-Machine Learning series) (Sutton, Richard S., Barto, Andrew G.)</p>
-<p><a href="https://github.com/QiangLong2017/Deep-Reiforcement-Learning" class="uri">https://github.com/QiangLong2017/Deep-Reiforcement-Learning</a></p>
+<p>Reinforcement Learning An Introduction (Adaptive Computation and Machine Learning series) (Sutton, Richard S., Barto, Andrew G.)</p>
+<p><a href="https://github.com/QiangLong2017/Deep-Reiforcement-Learning">https://github.com/QiangLong2017/Deep-Reiforcement-Learning</a></p>
 ]]></content>
       <tags>
         <tag>强化学习</tag>
@@ -954,14 +903,11 @@ Parents(X_i))\)</span>，量化其父结点对该结点的影响。所有条件�
     <title>连续状态系统基于模型的强化学习</title>
     <url>/2024/05/15/%E8%BF%9E%E7%BB%AD%E7%8A%B6%E6%80%81%E7%B3%BB%E7%BB%9F%E5%9F%BA%E4%BA%8E%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/</url>
     <content><![CDATA[<blockquote>
-<p>对于大规模的MDP问题，不希望使用查表（Table
-Lookup）的方式，通过<strong>函数近似</strong>来估计实际的价值函数的方式，既节约了资源，又能达到泛化的效果。</p>
+<p>对于大规模的MDP问题，不希望使用查表（Table Lookup）的方式，通过<strong>函数近似</strong>来估计实际的价值函数的方式，既节约了资源，又能达到泛化的效果。</p>
 <ul>
-<li><span class="math inline">\(\hat{v}(s,w) = v_\pi (s)\)</span></li>
-<li><span class="math inline">\(\hat{q}(s,a,w) = q_\pi
-(s,a)\)</span></li>
-<li><span class="math inline">\(\hat{\pi}(a,s,w) = \pi
-(a|s)\)</span></li>
+<li>$\hat{v}(s,w) = v_\pi (s)$</li>
+<li>$\hat{q}(s,a,w) = q_\pi (s,a)$</li>
+<li>$\hat{\pi}(a,s,w) = \pi (a|s)$</li>
 </ul>
 <p><strong>函数近似器</strong></p>
 <ul>
@@ -969,40 +915,32 @@ Lookup）的方式，通过<strong>函数近似</strong>来估计实际的价值
 <li>神经网络</li>
 <li>决策树</li>
 <li>最近邻方法</li>
-<li>傅立叶/小波变换 <span id="more"></span></li>
+<li>傅立叶/小波变换</li>
 </ul>
 </blockquote>
-<h2 id="价值函数近似-value-fuction-approximation-vfa">1. 价值函数近似,
-Value Fuction Approximation, VFA</h2>
+<span id="more"></span>
+<h2 id="1-价值函数近似-Value-Fuction-Approximation-VFA">1. 价值函数近似, Value Fuction Approximation, VFA</h2>
 <p>近似函数逼近的类型：</p>
 <ul>
-<li>input: s, output: <span class="math inline">\(\hat{v}(s,w)\)</span></li>
-<li>input: s, output: <span class="math inline">\(\hat{q}(s,a,w)\)</span></li>
-<li>input: s, output: <span class="math inline">\(\hat{q}(s,a_1,w),\dots,\hat{q}(s,a_m,w)\)</span></li>
+<li>input: s, output: $\hat{v}(s,w)$</li>
+<li>input: s, output: $\hat{q}(s,a,w)$</li>
+<li>input: s, output: $\hat{q}(s,a_1,w),\dots,\hat{q}(s,a_m,w)$</li>
 </ul>
-<h3 id="线性函数近似">1.1 线性函数近似</h3>
-<p>近似价值函数: <span class="math inline">\(\hat{v}(s,w)=x(s)^Tw\)</span></p>
-<p>目标函数:
-均方误差。由于实际的价值函数不可知，用样本近似期望损失。</p>
-<figure>
-<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/值函数近似2.png" alt="图片">
-<figcaption aria-hidden="true">图片</figcaption>
-</figure>
-<h3 id="神经网络值函数近似">1.2 神经网络值函数近似</h3>
+<h3 id="1-1-线性函数近似">1.1 线性函数近似</h3>
+<p>近似价值函数: $\hat{v}(s,w)=x(s)^Tw$</p>
+<p>目标函数: 均方误差。由于实际的价值函数不可知，用样本近似期望损失。</p>
+<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E5%80%BC%E5%87%BD%E6%95%B0%E8%BF%91%E4%BC%BC2.png" alt="图1"></p>
+<h3 id="1-2-神经网络值函数近似">1.2 神经网络值函数近似</h3>
 <p>参看 深度强化学习 部分。</p>
-<h3 id="基于模型的近似值迭代算法">1.3 基于模型的近似值迭代算法</h3>
-<h3 id="模型无关的近似值迭代算法">1.4 模型无关的近似值迭代算法</h3>
-<h2 id="近似策略迭代">2. 近似策略迭代</h2>
-<figure>
-<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/值函数近似1.png" alt="图片">
-<figcaption aria-hidden="true">图片</figcaption>
-</figure>
+<h3 id="1-3-基于模型的近似值迭代算法">1.3 基于模型的近似值迭代算法</h3>
+<h3 id="1-4-模型无关的近似值迭代算法">1.4 模型无关的近似值迭代算法</h3>
+<h2 id="2-近似策略迭代">2. 近似策略迭代</h2>
+<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E5%80%BC%E5%87%BD%E6%95%B0%E8%BF%91%E4%BC%BC1.png" alt="图2"></p>
 <p><strong>参考资料</strong>：</p>
 <p>中国科学院大学林姝老师 强化学习课程课件</p>
 <p>深度强化学习：基础、研究与应用 (董豪 等)</p>
-<p>Reinforcement Learning An Introduction (Adaptive Computation and
-Machine Learning series) (Sutton, Richard S., Barto, Andrew G.)</p>
-<p><a href="https://www.bilibili.com/video/BV11V411f7bi/?spm_id_from=333.337.search-card.all.click&amp;vd_source=514a3ed3ac370caf4facad7d6f4e1a2d" class="uri">https://www.bilibili.com/video/BV11V411f7bi/?spm_id_from=333.337.search-card.all.click&amp;vd_source=514a3ed3ac370caf4facad7d6f4e1a2d</a></p>
+<p>Reinforcement Learning An Introduction (Adaptive Computation and Machine Learning series) (Sutton, Richard S., Barto, Andrew G.)</p>
+<p><a href="https://www.bilibili.com/video/BV11V411f7bi/?spm_id_from=333.337.search-card.all.click&amp;vd_source=514a3ed3ac370caf4facad7d6f4e1a2d">https://www.bilibili.com/video/BV11V411f7bi/?spm_id_from=333.337.search-card.all.click&amp;vd_source=514a3ed3ac370caf4facad7d6f4e1a2d</a></p>
 ]]></content>
       <tags>
         <tag>强化学习</tag>
@@ -1019,11 +957,9 @@ Machine Learning series) (Sutton, Richard S., Barto, Andrew G.)</p>
 <li>课程复习使用</li>
 </ul>
 </blockquote>
-<h2 id="一.-群体智能">一. 群体智能</h2>
-<p><strong>群体智能</strong>：Social/Colletive Intelligence,
-“无智能”或者仅具有相对简单智能的个体通过合作表现出更高智能行为的特性。其中的“无智能”/简单智能并不是绝对意义上的智能，而是相对于群体表现出来的相对智能。（众人拾材火焰高）</p>
-<p><strong>集群智能</strong>：Swarm Intelligence,
-众多无智能的个体，通过相互之间的简单合作，所表现出来的智能行为。
+<h2 id="一-群体智能">一. 群体智能</h2>
+<p><strong>群体智能</strong>：Social/Colletive Intelligence, “无智能”或者仅具有相对简单智能的个体通过合作表现出更高智能行为的特性。其中的“无智能”/简单智能并不是绝对意义上的智能，而是相对于群体表现出来的相对智能。（众人拾材火焰高）</p>
+<p><strong>集群智能</strong>：Swarm Intelligence, 众多无智能的个体，通过相互之间的简单合作，所表现出来的智能行为。<br>
 特点：</p>
 <ul>
 <li>分布式，无中心控制</li>
@@ -1032,46 +968,31 @@ Machine Learning series) (Sutton, Richard S., Barto, Andrew G.)</p>
 <li>正反馈，个体好的尝试会对个体产生正反馈</li>
 <li>自发涌现，会在群体层面涌现出一种智能</li>
 </ul>
-<p><strong>博弈</strong>： Game Theory,
-具备一定智能的理性个体，按照某种机制行动，群体层面表现出的智能。</p>
-<p><strong>众包</strong>：Crowdsourcing,
-设计合适的机制，激励个体参与，从而实现单个个体不具备的社会智能。</p>
-<h2 id="二.-演化计算">二. 演化计算</h2>
-<h3 id="蚁群优化算法">2.1 蚁群优化算法</h3>
-<p>Ant Colony Optimization, AOC.
-<strong>在图上寻找最优路径问题</strong>。</p>
-<p><strong>形式化</strong>：蚂蚁(智能体)
-依据一定的概率选择位置进行移动，途中会留下信息素，信息素会随时间挥发，且信息素浓度与该位置被选择的概率成正相关。</p>
+<p><strong>博弈</strong>： Game Theory, 具备一定智能的理性个体，按照某种机制行动，群体层面表现出的智能。</p>
+<p><strong>众包</strong>：Crowdsourcing, 设计合适的机制，激励个体参与，从而实现单个个体不具备的社会智能。</p>
+<h2 id="二-演化计算">二. 演化计算</h2>
+<h3 id="2-1-蚁群优化算法">2.1 蚁群优化算法</h3>
+<p>Ant Colony Optimization, AOC. <strong>在图上寻找最优路径问题</strong>。</p>
+<p><strong>形式化</strong>：蚂蚁(智能体) 依据一定的概率选择位置进行移动，途中会留下信息素，信息素会随时间挥发，且信息素浓度与该位置被选择的概率成正相关。</p>
 <p><span style="color:purple;">用蚁群优化算法求解TSP问题</span>：</p>
 <ul>
 <li><strong>TSP问题描述</strong>：给定n个城市及每对城市之间的距离，求解访问每个城市一次、并回到起点的最短回路。</li>
-<li><strong>符号表示</strong>：n个城市的有向图<span class="math inline">\(G = (V,E)\)</span>，其中 <span class="math inline">\(V={1,2,\dots,n}\)</span>,<span class="math inline">\(E={(i,j)|i,j\in V}\)</span>,<span class="math inline">\(d_{ij}\)</span>为节点之间的距离</li>
-<li><strong>目标函数</strong>：<span class="math inline">\(min
-f(w)=\sum_{l=1}^{n} d_{i_{l}i_{l+1}}\)</span>,其中，<span class="math inline">\(s=(i_{1},\dots,i_{n})\)</span></li>
+<li><strong>符号表示</strong>：n个城市的有向图$G = (V,E)$，其中 $V={1,2,\dots,n}$,$E={(i,j)|i,j\in V}$,$d_{ij}$为节点之间的距离</li>
+<li><strong>目标函数</strong>：$min f(w)=\sum_{l=1}^{n} d_{i_{l}i_{l+1}}$,其中，$s=(i_{1},\dots,i_{n})$</li>
 <li><strong>根据信息素来选择下一个城市的概率计算为</strong>：</li>
 </ul>
-<p><span class="math display">\[
-p_{i j}^{k}(t)=\left\{\begin{array}{ll}
-\frac{\left(\tau_{i j}(t)\right)^{\alpha}\left(\eta_{i
-j}(t)\right)^{\beta}}{\sum_{k \in \text { allowed }}\left(\tau_{i
-k}(t)\right)^{\alpha}\left(\eta_{i k}(t)\right)^{\beta}} &amp; j \in
-\text { allowed } \\
-0, &amp; \text { otherwise }
-\end{array}\right.
-\]</span></p>
-<p>其中，i为当前城市,j为下一城市，<span class="math inline">\(\tau_{i
-j}(t)\)</span>为边<span class="math inline">\((i,j)\)</span>上的信息素浓度, <span class="math inline">\(\eta_{i j}(t)=1/d_{i
-j}\)</span>是根据距离定义的启发式函数，<span class="math inline">\(\alpha\)</span>，<span class="math inline">\(\beta\)</span>反映了信息素与启发信息的相对重要性。</p>
+<p>$$<br>
+p_{i j}^{k}(t)=\left{\begin{array}{ll}<br>
+\frac{\left(\tau_{i j}(t)\right)^{\alpha}\left(\eta_{i j}(t)\right)^{\beta}}{\sum_{k \in \text { allowed }}\left(\tau_{i k}(t)\right)^{\alpha}\left(\eta_{i k}(t)\right)^{\beta}} &amp; j \in \text { allowed } \<br>
+0, &amp; \text { otherwise }<br>
+\end{array}\right.<br>
+$$</p>
+<p>其中，i为当前城市,j为下一城市，$\tau_{i j}(t)$为边$(i,j)$上的信息素浓度, $\eta_{i j}(t)=1/d_{i j}$是根据距离定义的启发式函数，$\alpha$，$\beta$反映了信息素与启发信息的相对重要性。</p>
 <ul>
 <li><strong>信息素更新</strong></li>
 </ul>
-<p><span class="math display">\[\begin{array}{l}\Delta \tau_{i
-j}^{k}=f(x)=\left\{\begin{array}{cc}\frac{Q}{L_{k}}, &amp; (i, j) \in
-w_{k} \\0, &amp; \text { otherwise }\end{array}\right. \\\tau_{i
-j}(t+1)=\rho \cdot \tau_{i j}(t+1)+\Delta \tau_{i j} \\\Delta \tau_{i
-j}=\sum_{k=1}^{m} \Delta \tau_{i j}^{k}\end{array}\]</span></p>
-<p>其中：<span class="math inline">\(Q\)</span> 为常数，<span class="math inline">\(w_k\)</span> 表示第 <span class="math inline">\(k\)</span> 只蚂蚁在本轮迭代中走过的路径，<span class="math inline">\(L_k\)</span> 为路径长度，<span class="math inline">\(\rho\)</span> 为小于 1
-的常数，反映信息素挥发速度。即路径越长，信息素越小。</p>
+<p>$$\begin{array}{l}\Delta \tau_{i j}^{k}=f(x)=\left{\begin{array}{cc}\frac{Q}{L_{k}}, &amp; (i, j) \in w_{k} \0, &amp; \text { otherwise }\end{array}\right. \\tau_{i j}(t+1)=\rho \cdot \tau_{i j}(t+1)+\Delta \tau_{i j} \\Delta \tau_{i j}=\sum_{k=1}^{m} \Delta \tau_{i j}^{k}\end{array}$$</p>
+<p>其中：$Q$ 为常数，$w_k$ 表示第 $k$ 只蚂蚁在本轮迭代中走过的路径，$L_k$ 为路径长度，$\rho$ 为小于 1 的常数，反映信息素挥发速度。即路径越长，信息素越小。</p>
 <ul>
 <li><strong>算法流程</strong></li>
 </ul>
@@ -1079,112 +1000,117 @@ j}=\sum_{k=1}^{m} \Delta \tau_{i j}^{k}\end{array}\]</span></p>
 <ul>
 <li><strong>缺点</strong>：收敛速度慢（与m,n取值相关），容易陷入局部最优解(探索与开发的平衡)，不适于求解连续空间的优化问题。</li>
 </ul>
-<h3 id="粒子群优化算法">1.2 粒子群优化算法</h3>
-<p>Particle Swarm Optimization, PSO.
-求解<strong>连续解空间</strong>的优化问题，主要启发来源于对⻦群群体运动行为的研究。</p>
+<h3 id="1-2-粒子群优化算法">1.2 粒子群优化算法</h3>
+<p>Particle Swarm Optimization, PSO. 求解<strong>连续解空间</strong>的优化问题，主要启发来源于对⻦群群体运动行为的研究。</p>
 <ul>
-<li><strong>形式化</strong>：每一只鸟(称为粒子，代表一个可行解解)
-都有自己的状态信息：位置与速度，同时可以获得领域内其它鸟的信息，根据这些信息不断的改变自己的状态，去更好的适应环境，最终能找到最近最优解。</li>
+<li><strong>形式化</strong>：每一只鸟(称为粒子，代表一个可行解解) 都有自己的状态信息：位置与速度，同时可以获得领域内其它鸟的信息，根据这些信息不断的改变自己的状态，去更好的适应环境，最终能找到最近最优解。</li>
 <li><strong>算法流程</strong></li>
 </ul>
-<figure>
-<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/粒子群算法1.png" alt="图片">
-<figcaption aria-hidden="true">图片</figcaption>
-</figure>
-<p>其中，<span class="math inline">\(x_{n}^{(i)}\)</span>为粒子i 在第 n
-轮的位置，<span class="math inline">\(v_{n}^{(i)}\)</span>为粒子i 在第 n
-轮的速度，<span class="math inline">\(p_{best}^{(i)}\)</span>为粒子i
-的历史最好位置,<span class="math inline">\(g_{best}^{(i)}\)</span>全局最好的历史位置。</p>
+<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E7%B2%92%E5%AD%90%E7%BE%A4%E7%AE%97%E6%B3%951.png" alt="图1"></p>
+<p>其中，$x_{n}^{(i)}$为粒子i 在第 n 轮的位置，$v_{n}^{(i)}$为粒子i 在第 n 轮的速度，$p_{best}^{(i)}$为粒子i 的历史最好位置,$g_{best}^{(i)}$全局最好的历史位置。</p>
 <p>速度更新公式包含三项，第一项为<strong>惯性项</strong>（保持原速度不变的倾向），第二项为<strong>记忆项</strong>（回到历史最好位置的倾向），第三项为<strong>社会项</strong>（走向粒子群全局最好位置的倾向）。</p>
-<figure>
-<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/粒子群算法2.png" alt="图片">
-<figcaption aria-hidden="true">图片</figcaption>
-</figure>
+<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E7%B2%92%E5%AD%90%E7%BE%A4%E7%AE%97%E6%B3%952.png" alt="图2"></p>
 <ul>
-<li><p><strong>算法终止条件</strong>：迭代次数，最佳位置连续为更新的次数，适应度函数的值达到预期要求。</p></li>
-<li><p><strong>优化</strong>：对惯性项加上一个权重</p></li>
-<li><p><strong>优点</strong>：收敛速度快，所需微粒群规模较小</p></li>
-<li><p><strong>缺点</strong>：不保证收敛到全局最优解</p>
-<p>蚁群算法和粒子群算法的相同点：都基于自然界的生物行为；都使用多个个体（蚂蚁或粒子）组成的群体来寻找全局最优解；都可用于解决各种优化问题；都是不确定算法。</p></li>
+<li>
+<p><strong>算法终止条件</strong>：迭代次数，最佳位置连续为更新的次数，适应度函数的值达到预期要求。</p>
+</li>
+<li>
+<p><strong>优化</strong>：对惯性项加上一个权重</p>
+</li>
+<li>
+<p><strong>优点</strong>：收敛速度快，所需微粒群规模较小</p>
+</li>
+<li>
+<p><strong>缺点</strong>：不保证收敛到全局最优解</p>
+<p>蚁群算法和粒子群算法的相同点：都基于自然界的生物行为；都使用多个个体（蚂蚁或粒子）组成的群体来寻找全局最优解；都可用于解决各种优化问题；都是不确定算法。</p>
+</li>
 </ul>
-<figure>
-<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/粒子群算法3.png" alt="图片">
-<figcaption aria-hidden="true">图片</figcaption>
-</figure>
-<h2 id="三.-博弈">三. 博弈</h2>
+<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E7%B2%92%E5%AD%90%E7%BE%A4%E7%AE%97%E6%B3%953.png" alt="图3"></p>
+<h2 id="三-博弈">三. 博弈</h2>
 <ul>
-<li><p><strong>局中人</strong>：在博弈中有权决定自己行动方案的博弈参加者。重要假设：局中人是自私的理性人。</p></li>
-<li><p><strong>策略</strong>：博弈中可供局中人选择的行动方案。</p></li>
-<li><p><strong>策略集合</strong>：局中人可以选择的策略的集合。</p></li>
-<li><p><strong>局势</strong>：所有局中人选择的策略形成的策略组。</p></li>
-<li><p><strong>博弈类型</strong></p>
+<li>
+<p><strong>局中人</strong>：在博弈中有权决定自己行动方案的博弈参加者。重要假设：局中人是自私的理性人。</p>
+</li>
+<li>
+<p><strong>策略</strong>：博弈中可供局中人选择的行动方案。</p>
+</li>
+<li>
+<p><strong>策略集合</strong>：局中人可以选择的策略的集合。</p>
+</li>
+<li>
+<p><strong>局势</strong>：所有局中人选择的策略形成的策略组。</p>
+</li>
+<li>
+<p><strong>博弈类型</strong></p>
 <p>静态博弈（同时选择策略） vs 动态博弈（按顺序选择策略）</p>
 <p>竞争博弈（炒股） vs 合作博弈（结盟）</p>
-<p>完全信息博弈（每个局中人对所有局中人的策略及效用充分了解） vs
-不完全信息博弈</p></li>
-<li><p><strong>效用函数</strong>，payoff，通常用<span class="math inline">\(U\)</span>来表示，是局势、时间（动态博弈中）的函数。每个局中人都有自己的效用函数。希望效用函数越大越好。</p></li>
-<li><p><strong>最佳应对</strong>：对局中人1，若 <span class="math inline">\(U_1(s,t) \ge U_1(s&#39;,t)\)</span> ，其中 s'
-是局中人除 s 外的其它策略，t 为局中人2的策略，<span class="math inline">\(U_{1}(s,t)\)</span>为局中人1
-从这组决策中获得的收益，则称策略 𝑠 是局中人1对局中人2的策略 t
-的最佳应对。</p></li>
-<li><p><strong>最优策略</strong>：如果一个局中人的某个策略对其它局中人的任何策略都是最佳应对，那么这个策略就是该局中人的占优策略。</p></li>
-<li><p><strong>纳什均衡</strong>：如果一个局势下，每个局中人的策略都是相对其他局中人当前策略的最佳应对，则称该局势是一个纳什均衡。也就是博弈进入了僵局。不存在纯策略的纳什均衡。</p></li>
+<p>完全信息博弈（每个局中人对所有局中人的策略及效用充分了解） vs 不完全信息博弈</p>
+</li>
+<li>
+<p><strong>效用函数</strong>，payoff，通常用$U$来表示，是局势、时间（动态博弈中）的函数。每个局中人都有自己的效用函数。希望效用函数越大越好。</p>
+</li>
+<li>
+<p><strong>最佳应对</strong>：对局中人1，若 $U_1(s,t) \ge U_1(s’,t)$ ，其中 s’ 是局中人除 s 外的其它策略，t 为局中人2的策略，$U_{1}(s,t)$为局中人1 从这组决策中获得的收益，则称策略 𝑠 是局中人1对局中人2的策略 t 的最佳应对。</p>
+</li>
+<li>
+<p><strong>最优策略</strong>：如果一个局中人的某个策略对其它局中人的任何策略都是最佳应对，那么这个策略就是该局中人的占优策略。</p>
+</li>
+<li>
+<p><strong>纳什均衡</strong>：如果一个局势下，每个局中人的策略都是相对其他局中人当前策略的最佳应对，则称该局势是一个纳什均衡。也就是博弈进入了僵局。不存在纯策略的纳什均衡。</p>
+</li>
 </ul>
-<figure>
-<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/博弈7.png" alt="图片">
-<figcaption aria-hidden="true">图片</figcaption>
-</figure>
+<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E5%8D%9A%E5%BC%887.png" alt="图4"></p>
 <ul>
 <li><strong>混合策略</strong>：每个局中人以某个概率分布在其策略集合中选择策略。</li>
-<li><strong>混合策略纳什均衡</strong>：给定其他局中人的策略选择概率分布的情况下，
-当前局中人选择任意一个(纯)策略获得的期望效用相等。</li>
+<li><strong>混合策略纳什均衡</strong>：给定其他局中人的策略选择概率分布的情况下， 当前局中人选择任意一个(纯)策略获得的期望效用相等。</li>
 <li><strong>纳什定理</strong>：任何有限博弈都至少存在一个纳什均衡。但寻找博弈的纳什均衡是困难的。</li>
 </ul>
-<figure>
-<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/博弈6.png" alt="图片">
-<figcaption aria-hidden="true">图片</figcaption>
-</figure>
+<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E5%8D%9A%E5%BC%886.png" alt="图5"></p>
 <ul>
-<li><strong>帕累托最优</strong>：对于一组策略选择(局势)，若不存在其他策略选择
-使<strong>所有参与者</strong>得到至少和目前一样高的回报，且至少一个参与者会得到严格较高的回报，则这组策略选择为帕累托最优。</li>
+<li><strong>帕累托最优</strong>：对于一组策略选择(局势)，若不存在其他策略选择 使<strong>所有参与者</strong>得到至少和目前一样高的回报，且至少一个参与者会得到严格较高的回报，则这组策略选择为帕累托最优。</li>
 <li><strong>社会最优</strong>：使参与者的回报之和最大的策略选择(局势)。社会最优的结果一定也是帕累托最优的结果，但帕累托最优不一定是社会最优。</li>
 </ul>
-<figure>
-<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/博弈5.png" alt="图片">
-<figcaption aria-hidden="true">图片</figcaption>
-</figure>
+<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E5%8D%9A%E5%BC%885.png" alt="图6"></p>
 <ul>
-<li><p><strong>机制设计</strong>：设计一个博弈，使其达到预期结果，如实现社会最优。</p></li>
-<li><p><strong>maxmin策略</strong>，以我为主，最小化损失，抑制风险 <img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/博弈1.png" alt="图片"></p></li>
-<li><p><strong>minmax策略</strong>，抑制对手 <img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/博弈2.png" alt="图片"></p></li>
-<li><p><strong>匹配市场</strong></p>
+<li>
+<p><strong>机制设计</strong>：设计一个博弈，使其达到预期结果，如实现社会最优。</p>
+</li>
+<li>
+<p><strong>maxmin策略</strong>，以我为主，最小化损失，抑制风险<br>
+<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E5%8D%9A%E5%BC%881.png" alt="图7"></p>
+</li>
+<li>
+<p><strong>minmax策略</strong>，抑制对手<br>
+<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E5%8D%9A%E5%BC%882.png" alt="图8"></p>
+</li>
+<li>
+<p><strong>匹配市场</strong></p>
 <p>匹配定理：对于左右两部节点数相同的二部图，如果其不存在完全匹配（刚好一一对应），那么该二部图一定包含一个受限集。</p>
 <p>匹配的效用：成功匹配的估价之和，称为匹配的效用。</p>
 <p>最优匹配：效用最大的匹配。最优匹配对于个体而言不一定是最优的，甚至是最差的。</p>
-<p>市场结清：每个卖方和买方都成交了。市场结清价格总是存在，且使得买卖双方总效用最优。
-<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/博弈3.png" alt="图片"></p></li>
-<li><p><strong>中介市场</strong></p>
-<p>买方和卖方通过中介交易。竞争不充分的地方，中介垄断价格。竞争充分的地方，中介的收益趋近于0。</p></li>
+<p>市场结清：每个卖方和买方都成交了。市场结清价格总是存在，且使得买卖双方总效用最优。<br>
+<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E5%8D%9A%E5%BC%883.png" alt="图9"></p>
+</li>
+<li>
+<p><strong>中介市场</strong></p>
+<p>买方和卖方通过中介交易。竞争不充分的地方，中介垄断价格。竞争充分的地方，中介的收益趋近于0。</p>
+</li>
 </ul>
-<figure>
-<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/博弈4.png" alt="图片">
-<figcaption aria-hidden="true">图片</figcaption>
-</figure>
+<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E5%8D%9A%E5%BC%884.png" alt="图10"></p>
 <ul>
-<li><p><strong>议价权</strong></p>
+<li>
+<p><strong>议价权</strong></p>
 <p>问题描述：给定一个网络，每个节点代表一个人，达成议价约定的两个人可以分配价值为1的东西。</p>
 <p>不稳定边：对于结局中未参与配对的边，如果边的两个端点获得的收益之和小于1，则称这条边为不稳定边。</p>
 <p>稳定结局：不存在不稳定边。</p>
-<p>有备选项的议价：A、B两人议价，确定分配比例。A的备选项收益为x
-，B的备选项为y 。要求 <span class="math inline">\(x+y\le
-1\)</span>，否则A和B达不成交易。则定义剩余价值为<span class="math inline">\(s=1-x-y\)</span>。</p>
-<p>纳什议价解：A的收益 <span class="math inline">\(x+\frac{s}{2}=\frac{1+x-y}{2}\)</span>, B的收益
-<span class="math inline">\(y+\frac{s}{2}=\frac{1-x+y}{2}\)</span>。</p>
-<p>均衡结局：结局中的任意一个参与配对的边都满足纳什议价解的条件。</p></li>
+<p>有备选项的议价：A、B两人议价，确定分配比例。A的备选项收益为x ，B的备选项为y 。要求 $x+y\le 1$，否则A和B达不成交易。则定义剩余价值为$s=1-x-y$。</p>
+<p>纳什议价解：A的收益 $x+\frac{s}{2}=\frac{1+x-y}{2}$, B的收益 $y+\frac{s}{2}=\frac{1-x+y}{2}$。</p>
+<p>均衡结局：结局中的任意一个参与配对的边都满足纳什议价解的条件。</p>
+</li>
 </ul>
-<h2 id="四.-参考资料">四. 参考资料</h2>
+<h2 id="四-参考资料">四. 参考资料</h2>
 <p>中国科学院大学 计院高级人工智能课程课件</p>
-<p><a href="https://www.zhihu.com/question/633226340/answer/3466364119" class="uri">https://www.zhihu.com/question/633226340/answer/3466364119</a></p>
+<p><a href="https://www.zhihu.com/question/633226340/answer/3466364119">https://www.zhihu.com/question/633226340/answer/3466364119</a></p>
 ]]></content>
       <tags>
         <tag>高级人工智能</tag>
@@ -1210,7 +1136,7 @@ j}=\sum_{k=1}^{m} \Delta \tau_{i j}^{k}\end{array}\]</span></p>
 </li>
 </ul>
 <h2 id="二-知识的分布表示">二. 知识的分布表示</h2>
-<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E6%95%B0%E5%80%BC%E5%8C%96%E7%9F%A5%E8%AF%86%E8%A1%A8%E7%A4%BA1.png" alt="图片"></p>
+<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E6%95%B0%E5%80%BC%E5%8C%96%E7%9F%A5%E8%AF%86%E8%A1%A8%E7%A4%BA1.png" alt="图1"></p>
 <ul>
 <li>
 <p>打分函数：</p>
@@ -1230,15 +1156,15 @@ j}=\sum_{k=1}^{m} \Delta \tau_{i j}^{k}\end{array}\]</span></p>
 <li>GPT: Generative Pre-Training,transformer结构的decoder。</li>
 <li>In-context learning, CoT, few-shot learning, SFT, RLHF。由于对llm 部分比较了解，此处省略。</li>
 </ul>
-<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E6%95%B0%E5%80%BC%E5%8C%96%E7%9F%A5%E8%AF%86%E8%A1%A8%E7%A4%BA2.png" alt="图片"></p>
+<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E6%95%B0%E5%80%BC%E5%8C%96%E7%9F%A5%E8%AF%86%E8%A1%A8%E7%A4%BA2.png" alt="图2"></p>
 <h2 id="四-讨论：预训练语言模型能否作为世界模型">四. 讨论：预训练语言模型能否作为世界模型</h2>
-<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E6%95%B0%E5%80%BC%E5%8C%96%E7%9F%A5%E8%AF%86%E8%A1%A8%E7%A4%BA3.png" alt="图片"></p>
+<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E6%95%B0%E5%80%BC%E5%8C%96%E7%9F%A5%E8%AF%86%E8%A1%A8%E7%A4%BA3.png" alt="图3"></p>
 <p>相关论文：</p>
 <p>Language Models Represent Space and Time, ICLR2024, MIT.</p>
 <p>Reasoning with Language Model is Planning with World Model, EMNLP 2023, US San Diego.</p>
 <p>Language Models Meet World Models, AAAI 2024, UC San Diego</p>
 <h2 id="五-讨论：预训练语言模型能否作为知识库">五. 讨论：预训练语言模型能否作为知识库</h2>
-<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E6%95%B0%E5%80%BC%E5%8C%96%E7%9F%A5%E8%AF%86%E8%A1%A8%E7%A4%BA4.png" alt="图片"></p>
+<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E6%95%B0%E5%80%BC%E5%8C%96%E7%9F%A5%E8%AF%86%E8%A1%A8%E7%A4%BA4.png" alt="图4"></p>
 <h2 id="六-参考文献">六. 参考文献</h2>
 <p>中国科学院大学赵军老师 知识工程 课程课件</p>
 ]]></content>
@@ -1250,19 +1176,26 @@ j}=\sum_{k=1}^{m} \Delta \tau_{i j}^{k}\end{array}\]</span></p>
     <title>符号化知识表示</title>
     <url>/2024/06/01/%E7%AC%A6%E5%8F%B7%E5%8C%96%E7%9F%A5%E8%AF%86%E8%A1%A8%E7%A4%BA/</url>
     <content><![CDATA[<blockquote>
-<p>四种知识建模方式：严格结构化符号表示，松散结构化/自由形式
-符号表示，数值化表示，数值与符号融合表示。</p>
+<p>四种知识建模方式：严格结构化符号表示，松散结构化/自由形式 符号表示，数值化表示，数值与符号融合表示。</p>
 <p>表示方法的衡量：表达能力、推理能力、计算能力、可读性。</p>
 <p>目前的语义网革命并不是在科学上有革命性的突破，而大部分是工程上的挑战，其中标准化、规模化、系统开发与集成、用户交互等都是语义网技术面临的挑战。</p>
 <p>课程复习使用。</p>
 </blockquote>
-<h2 id="一.-经典知识表示理论">一. 经典知识表示理论</h2>
-<h3 id="产生式规则">1.1 产生式规则</h3>
+<h2 id="一-经典知识表示理论">一. 经典知识表示理论</h2>
+<h3 id="1-1-产生式规则">1.1 产生式规则</h3>
 <ul>
-<li><p><strong>产生式规则</strong>：用于表示事物之间的因果关系。</p></li>
-<li><p><strong>确定性规则</strong>：P-&gt;Q。</p></li>
-<li><p><strong>不确定性规则</strong>：P-&gt;Q(置信度)。当事实与前提条件不能精确匹配时，按照置信度的要求模糊匹配，并按特定算法将不确定性传递到结论。</p></li>
-<li><p><strong>产生式系统</strong>：由数据库、规则库和推理机三部分组成。</p></li>
+<li>
+<p><strong>产生式规则</strong>：用于表示事物之间的因果关系。</p>
+</li>
+<li>
+<p><strong>确定性规则</strong>：P-&gt;Q。</p>
+</li>
+<li>
+<p><strong>不确定性规则</strong>：P-&gt;Q(置信度)。当事实与前提条件不能精确匹配时，按照置信度的要求模糊匹配，并按特定算法将不确定性传递到结论。</p>
+</li>
+<li>
+<p><strong>产生式系统</strong>：由数据库、规则库和推理机三部分组成。</p>
+</li>
 </ul>
 <blockquote>
 <p>数据库：用来存放问题的初始状态、已知事实、推理的中间结果和最终结论等。</p>
@@ -1271,20 +1204,26 @@ j}=\sum_{k=1}^{m} \Delta \tau_{i j}^{k}\end{array}\]</span></p>
 <p>正向推理：类似于命题逻辑（查看<a href="https://lwl1751.github.io/2024/05/15/%E7%9F%A5%E8%AF%86%E8%AE%A1%E7%AE%97/">知识计算</a>）中的前向链接，从事实出发，通过规则获取结论。</p>
 <p>反向推理：类似于命题逻辑中的反向链接，从目标出发，反向使用规则，求得已知事实</p>
 </blockquote>
-<figure>
-<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/知识表示1.png" alt="图片">
-<figcaption aria-hidden="true">图片</figcaption>
-</figure>
-<h3 id="语义网络">1.2 语义网络</h3>
+<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E7%9F%A5%E8%AF%86%E8%A1%A8%E7%A4%BA1.png" alt="图1"></p>
+<h3 id="1-2-语义网络">1.2 语义网络</h3>
 <ul>
-<li><p><strong>语义网络</strong>：一种将相关概念联系起来的 有向图表示的
-知识系统。</p></li>
-<li><p><strong>语义基元</strong>：语义网络中最基本的语义单元，用三元组形式表示，&lt;节点1，关系，节点2&gt;。</p></li>
-<li><p><strong>语义网络系统</strong>：由知识库和推理机组成。</p></li>
-<li><p><strong>优点</strong>：使用直观的图结构来描述知识，表达自然，而且方便于计算机的存储和检索，有较为成熟的应用。</p></li>
-<li><p><strong>缺点</strong>：由于缺少形式化的语义定义，不同的语义网络之间难以互相操作，表示不完善。推理过程复杂。</p></li>
+<li>
+<p><strong>语义网络</strong>：一种将相关概念联系起来的 有向图表示的 知识系统。</p>
+</li>
+<li>
+<p><strong>语义基元</strong>：语义网络中最基本的语义单元，用三元组形式表示，&lt;节点1，关系，节点2&gt;。</p>
+</li>
+<li>
+<p><strong>语义网络系统</strong>：由知识库和推理机组成。</p>
+</li>
+<li>
+<p><strong>优点</strong>：使用直观的图结构来描述知识，表达自然，而且方便于计算机的存储和检索，有较为成熟的应用。</p>
+</li>
+<li>
+<p><strong>缺点</strong>：由于缺少形式化的语义定义，不同的语义网络之间难以互相操作，表示不完善。推理过程复杂。</p>
+</li>
 </ul>
-<h3 id="框架">1.3 框架</h3>
+<h3 id="1-3-框架">1.3 框架</h3>
 <p>框架是一种描述所论对象属性的数据结构。</p>
 <ul>
 <li><strong>框架名</strong>：用来指代某一类或某一个对象。</li>
@@ -1292,54 +1231,54 @@ j}=\sum_{k=1}^{m} \Delta \tau_{i j}^{k}\end{array}\]</span></p>
 <li><strong>侧面</strong>：从不同侧面描述某个属性。</li>
 <li><strong>值</strong>：槽/侧面的取值。</li>
 <li><strong>类型</strong>：类框架，实例框架。</li>
-<li><strong>层次结构</strong>：子类-subclass of-&gt;父类，示例-instance
-of-&gt;类。</li>
+<li><strong>层次结构</strong>：子类-subclass of-&gt;父类，示例-instance of-&gt;类。</li>
 <li><strong>推理</strong>：继承推理（下层框架继承上层框架的信息），匹配推理（安装条件进行推理）。</li>
 </ul>
-<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/知识表示2.png" alt="图片"> <img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/知识表示3.png" alt="图片"></p>
-<h3 id="脚本">1.4 脚本</h3>
+<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E7%9F%A5%E8%AF%86%E8%A1%A8%E7%A4%BA2.png" alt="图2"><br>
+<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E7%9F%A5%E8%AF%86%E8%A1%A8%E7%A4%BA3.png" alt="图3"></p>
+<h3 id="1-4-脚本">1.4 脚本</h3>
 <p>脚本与框架类似，由一组槽组成，用来表示特定领域内一些事件的发生序列。但脚本表示的知识有明确的时间或因果顺序，因此它描述的是一个<strong>过程</strong>而非静态知识。</p>
 <p>脚本的结构化表示包括：进入条件，角色，道具，场景，结果。</p>
-<h3 id="一阶谓词逻辑">1.5 一阶谓词逻辑</h3>
+<h3 id="1-5-一阶谓词逻辑">1.5 一阶谓词逻辑</h3>
 <p>由于语义网络、框架、脚本缺少形式化定义，不同网络之间难以相互操作，且推理过程复杂。因此引入了一阶谓词逻辑。参看<a href="https://lwl1751.github.io/2024/05/15/%E7%9F%A5%E8%AF%86%E8%AE%A1%E7%AE%97/">知识计算</a>。</p>
-<figure>
-<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/知识表示4.png" alt="图片">
-<figcaption aria-hidden="true">图片</figcaption>
-</figure>
-<h3 id="描述逻辑">1.6 描述逻辑</h3>
+<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E7%9F%A5%E8%AF%86%E8%A1%A8%E7%A4%BA4.png" alt="图4"></p>
+<h3 id="1-6-描述逻辑">1.6 描述逻辑</h3>
 <p>通过<strong>概念类别</strong>来描述物理世界，没有一阶谓词逻辑中变量和谓词的概念，但具有形式化定义。描述逻辑有概念描述、属性、个体三个基础部分组成。</p>
 <ul>
 <li><strong>概念描述</strong>：表示一类事物。</li>
 <li><strong>概念构造器</strong>：用两个概念描述构造出一个新的概念，有交集构造器、并集构造器、否定构造器。</li>
-<li><strong>属性</strong>：作用于概念，必须搭配全称量词 <span class="math inline">\(\forall\)</span>，或存在量词 <span class="math inline">\(\exists\)</span>使用。</li>
+<li><strong>属性</strong>：作用于概念，必须搭配全称量词 $\forall$，或存在量词 $\exists$使用。</li>
 <li><strong>个体</strong>：概念示例。</li>
 <li><strong>知识库</strong>：包括术语（TBox，描述概念定义、公理），断言（ABox，描述个体知识）两部分。</li>
 </ul>
-<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/知识表示5.png" alt="图片"> <img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/知识表示6.png" alt="图片"></p>
-<h2 id="二.语义网的知识描述体系">二.语义网的知识描述体系</h2>
+<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E7%9F%A5%E8%AF%86%E8%A1%A8%E7%A4%BA5.png" alt="图5"><br>
+<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E7%9F%A5%E8%AF%86%E8%A1%A8%E7%A4%BA6.png" alt="图6"></p>
+<h2 id="二-语义网的知识描述体系">二.语义网的知识描述体系</h2>
 <ul>
 <li><strong>本质</strong>：以Web数据的内容（即语义）为核心，用机器能够理解和处理的方式链接起来的海量分布式数据库。</li>
 <li><strong>特征</strong>：Web上的事物拥有唯一的URI（通用资源标识符），事物之间存在显示链接，事物链接又具有不同的语义类型。</li>
 </ul>
-<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/知识表示7.png" alt="图片"> <img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/知识表示8.png" alt="图片"></p>
+<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E7%9F%A5%E8%AF%86%E8%A1%A8%E7%A4%BA7.png" alt="图7"><br>
+<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E7%9F%A5%E8%AF%86%E8%A1%A8%E7%A4%BA8.png" alt="图8"></p>
 <ul>
 <li><strong>XML</strong>：由起始标签、元素内容和结尾标签构成，并且元素具有嵌套结构，同时没有约束嵌套的深度。</li>
-<li><strong>RDF</strong>：Resource Description
-Framework。由于XML只定义了文档结构和数据类型，没有定义数据的语义，机器仍然无法理解文档的内容。为了让应用程序理解数据的语义，定义了RDF。RDF利用Web标识符（URI）来标识事物，并通过指定的属性和相应的值描述资源的性质或资源之间的关系。</li>
+<li><strong>RDF</strong>：Resource Description Framework。由于XML只定义了文档结构和数据类型，没有定义数据的语义，机器仍然无法理解文档的内容。为了让应用程序理解数据的语义，定义了RDF。RDF利用Web标识符（URI）来标识事物，并通过指定的属性和相应的值描述资源的性质或资源之间的关系。</li>
 </ul>
-<figure>
-<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/知识表示9.png" alt="图片">
-<figcaption aria-hidden="true">图片</figcaption>
-</figure>
+<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E7%9F%A5%E8%AF%86%E8%A1%A8%E7%A4%BA9.png" alt="图9"></p>
 <p>注意：RDF并不是一种语言，只是一种书写规范。</p>
 <ul>
-<li><p><strong>RDFs</strong> <img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/知识表示10.png" alt="图片"></p></li>
-<li><p><strong>OWL</strong>: Web Ontology
-Language，相比于RDFS，添加了更多用于描述类和属性的建模原语，支持更加丰富的语义表达并支持推理。</p></li>
-<li><p><strong>RIF</strong>: Rule Interchange
-Format，一种不同的规则语言和推理引擎之间的交换格式。</p></li>
+<li>
+<p><strong>RDFs</strong><br>
+<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E7%9F%A5%E8%AF%86%E8%A1%A8%E7%A4%BA10.png" alt="图10"></p>
+</li>
+<li>
+<p><strong>OWL</strong>: Web Ontology Language，相比于RDFS，添加了更多用于描述类和属性的建模原语，支持更加丰富的语义表达并支持推理。</p>
+</li>
+<li>
+<p><strong>RIF</strong>: Rule Interchange Format，一种不同的规则语言和推理引擎之间的交换格式。</p>
+</li>
 </ul>
-<h2 id="三.-参考资料">三. 参考资料</h2>
+<h2 id="三-参考资料">三. 参考资料</h2>
 <p>中国科学院大学陈玉博老师 知识工程 课程课件</p>
 ]]></content>
       <tags>
@@ -1453,8 +1392,8 @@ Format，一种不同的规则语言和推理引擎之间的交换格式。</p><
 <ul>
 <li>定义：𝐺(𝑁, 𝑝)，𝑁为图中节点总数，$p$为任意两个节点之间连边的概率。</li>
 <li>生成算法：首先生成$N$ 个节点，对每个节点的除它以外的$N-1$ 个节点，都以概率$p$ 连边。<br>
-<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E5%9B%BE%E7%9A%84%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%862.png" alt="图片"><br>
-<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E5%9B%BE%E7%9A%84%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%861.png" alt="图片"></li>
+<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E5%9B%BE%E7%9A%84%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%862.png" alt="图1"><br>
+<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E5%9B%BE%E7%9A%84%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%861.png" alt="图2"></li>
 </ul>
 <h3 id="3-2Watts–Strogatz-小世界模型">3.2Watts–Strogatz 小世界模型</h3>
 <ul>
@@ -1484,14 +1423,18 @@ Format，一种不同的规则语言和推理引擎之间的交换格式。</p><
     <title>社区发现算法</title>
     <url>/2024/06/25/%E7%A4%BE%E5%8C%BA%E5%8F%91%E7%8E%B0%E7%AE%97%E6%B3%95/</url>
     <content><![CDATA[<pre><code>课程知识复习使用。
-</code></pre><p>图中的社区是指一张图中的一些子图。这些子图内部顶点直接紧密相连，而子图内部节点与外部节点之间连接是稀疏的。社区发现算法是需要找到图中所有的社区，可以分为基于层级聚类的方法和基于边介数的方法。</p>
-<h2 id="1-基于层级聚类的方法"><a href="#1-基于层级聚类的方法" class="headerlink" title="1. 基于层级聚类的方法"></a>1. 基于层级聚类的方法</h2><ul>
-<li>点关联强度：衡量两点间的关联强度。<ul>
+</code></pre>
+<p>图中的社区是指一张图中的一些子图。这些子图内部顶点直接紧密相连，而子图内部节点与外部节点之间连接是稀疏的。社区发现算法是需要找到图中所有的社区，可以分为基于层级聚类的方法和基于边介数的方法。</p>
+<h2 id="1-基于层级聚类的方法">1. 基于层级聚类的方法</h2>
+<ul>
+<li>点关联强度：衡量两点间的关联强度。
+<ul>
 <li>两点间独立路径数：能够连接两点的所有互不相交(没有公共节点)的简单路径总数，即为割点数目。</li>
 <li>全路径融合强度：认为节点间的关联强度与所有路径都相关，路径长度越小，强度越大。</li>
 </ul>
 </li>
-<li>算法流程<ul>
+<li>算法流程
+<ul>
 <li>选定并计算关联强度</li>
 <li>初始化每个顶点为单个社区</li>
 <li>定义两个社区的关联强度为其间<strong>所有点对的关键强度平均值</strong></li>
@@ -1501,11 +1444,14 @@ Format，一种不同的规则语言和推理引擎之间的交换格式。</p><
 </li>
 <li>衡量标准：模块度，是评估社区结果质量高低的度量方法。模块度Q 计算如下：</li>
 </ul>
-<script type="math/tex; mode=display">Q \propto  \sum_{s\in S} [ 社区s内部的实际边数 - 社区s内部的期望边数 ]</script><p>模块度取值范围为[-1,1]，实践中，模块度达到0.3到0.7之间就说明划分质量很好。</p>
+<p>$$Q \propto  \sum_{s\in S} [ 社区s内部的实际边数 - 社区s内部的期望边数 ] $$</p>
+<p>模块度取值范围为[-1,1]，实践中，模块度达到0.3到0.7之间就说明划分质量很好。</p>
 <p>不足：对度数低的点的社区分配不友好。例如一个顶点如果只有一条边，则这个顶点理应分配在其唯一邻居所在的社区，然后基于层级聚类的方法中，该点同邻居的关联强度低，很容易被排斥在邻居所属社区之外。</p>
-<h2 id="2-基于边介数的方法"><a href="#2-基于边介数的方法" class="headerlink" title="2. 基于边介数的方法"></a>2. 基于边介数的方法</h2><ul>
+<h2 id="2-基于边介数的方法">2. 基于边介数的方法</h2>
+<ul>
 <li>边介数：对于图上的一条边 $e$ 而言，$e$ 的介数是指图中所有点对的最短路径中，要经$e$ 的路径比例总和。</li>
-<li>算法流程：<ul>
+<li>算法流程：
+<ul>
 <li>计算所有边的介数</li>
 <li>移除介数最高边</li>
 <li>重新计算所有边的介数</li>
@@ -1513,23 +1459,40 @@ Format，一种不同的规则语言和推理引擎之间的交换格式。</p><
 </ul>
 </li>
 </ul>
-<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/社区发现算法1.png" alt="图片"></p>
-<h2 id="3-其它社区发现算法：BK-k-clique-k-core"><a href="#3-其它社区发现算法：BK-k-clique-k-core" class="headerlink" title="3. 其它社区发现算法：BK,k-clique,k-core"></a>3. 其它社区发现算法：BK,k-clique,k-core</h2><ul>
-<li>团（完全图）：任意两个节点间都连接有边。</li>
-<li>最大团：一个图中顶点数最多的团</li>
-<li>极大团：加入任何其它顶点都无法在图中构成更大的完全子图的团</li>
-<li><p>BK算法求解极大团：<br><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/社区发现算法2.png" alt="图片"></p>
+<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E7%A4%BE%E5%8C%BA%E5%8F%91%E7%8E%B0%E7%AE%97%E6%B3%951.png" alt="图1"></p>
+<h2 id="3-其它社区发现算法：BK-k-clique-k-core">3. 其它社区发现算法：BK,k-clique,k-core</h2>
+<ul>
+<li>
+<p>团（完全图）：任意两个节点间都连接有边。</p>
 </li>
-<li><p>k-clique算法，允许社区重叠，将发现的社区定义为团联。给定一个大于1的正整数k，由一系列k-团(节点数目为k的团)互相连接形成的子图称为k-团联。<br><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/社区发现算法3.png" alt="图片"></p>
+<li>
+<p>最大团：一个图中顶点数最多的团</p>
 </li>
-<li><p>k-core算法：子图是连通的，且每个节点的度数均不小于k。<br><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/社区发现算法4.png" alt="图片"></p>
+<li>
+<p>极大团：加入任何其它顶点都无法在图中构成更大的完全子图的团</p>
+</li>
+<li>
+<p>BK算法求解极大团：<br>
+<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E7%A4%BE%E5%8C%BA%E5%8F%91%E7%8E%B0%E7%AE%97%E6%B3%952.png" alt="图2"></p>
+</li>
+<li>
+<p>k-clique算法，允许社区重叠，将发现的社区定义为团联。给定一个大于1的正整数k，由一系列k-团(节点数目为k的团)互相连接形成的子图称为k-团联。<br>
+<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E7%A4%BE%E5%8C%BA%E5%8F%91%E7%8E%B0%E7%AE%97%E6%B3%953.png" alt="图3"></p>
+</li>
+<li>
+<p>k-core算法：子图是连通的，且每个节点的度数均不小于k。<br>
+<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E7%A4%BE%E5%8C%BA%E5%8F%91%E7%8E%B0%E7%AE%97%E6%B3%954.png" alt="图4"></p>
 </li>
 </ul>
-<h2 id="4-社区搜索"><a href="#4-社区搜索" class="headerlink" title="4. 社区搜索"></a>4. 社区搜索</h2><p>社区发现是为了找到图G中所有的社区，然而社区搜索只需找到用户所关心的社区，如找到包含用户输入的查询点/查询点集合的社区。即在图G中找到一个连通子图H，且$f(H)$在所有可能子图的得分函数中值最大。得分函数$f(H)$定义为H中最小的节点度数。</p>
+<h2 id="4-社区搜索">4. 社区搜索</h2>
+<p>社区发现是为了找到图G中所有的社区，然而社区搜索只需找到用户所关心的社区，如找到包含用户输入的查询点/查询点集合的社区。即在图G中找到一个连通子图H，且$f(H)$在所有可能子图的得分函数中值最大。得分函数$f(H)$定义为H中最小的节点度数。</p>
 <ul>
-<li><p>贪心算法<br><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/社区发现算法5.png" alt="图片"></p>
+<li>
+<p>贪心算法<br>
+<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E7%A4%BE%E5%8C%BA%E5%8F%91%E7%8E%B0%E7%AE%97%E6%B3%955.png" alt="图5"></p>
 </li>
-<li><p>K-Truss算法：K-Truss要求子图H中任意一条边都被包含在至少(k-2)个不同的三角形中。</p>
+<li>
+<p>K-Truss算法：K-Truss要求子图H中任意一条边都被包含在至少(k-2)个不同的三角形中。</p>
 <ul>
 <li>支持度,$sup(e,G)$：包含e的三⻆形数目</li>
 <li>子图 Trussness：子图H中所有边的最小支持度</li>
@@ -1538,11 +1501,15 @@ Format，一种不同的规则语言和推理引擎之间的交换格式。</p><
 </ul>
 </li>
 </ul>
-<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/社区发现算法6.png" alt="图片"><br><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/社区发现算法7.png" alt="图片"></p>
-<h3 id="5-图划分"><a href="#5-图划分" class="headerlink" title="5. 图划分"></a>5. 图划分</h3><p>图的划分是将图切分为多个不相交的子集，每个子集称为一个分割，并希望各个子图的大小要相对均衡。</p>
-<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/社区发现算法8.png" alt="图片"><br><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/社区发现算法9.png" alt="图片"></p>
+<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E7%A4%BE%E5%8C%BA%E5%8F%91%E7%8E%B0%E7%AE%97%E6%B3%956.png" alt="图6"><br>
+<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E7%A4%BE%E5%8C%BA%E5%8F%91%E7%8E%B0%E7%AE%97%E6%B3%957.png" alt="图7"></p>
+<h3 id="5-图划分">5. 图划分</h3>
+<p>图的划分是将图切分为多个不相交的子集，每个子集称为一个分割，并希望各个子图的大小要相对均衡。</p>
+<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E7%A4%BE%E5%8C%BA%E5%8F%91%E7%8E%B0%E7%AE%97%E6%B3%958.png" alt="图8"><br>
+<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/%E7%A4%BE%E5%8C%BA%E5%8F%91%E7%8E%B0%E7%AE%97%E6%B3%959.png" alt="图9"></p>
 <p>KL 算法最大的问题是可扩展性太差，对于大图考虑所有可能的节点置换的时间复杂性太高。一种改进的算法则是METIS 算法: 通过对基于点边的融合来不断压缩原始图，当原图小到一定程度之后，再进行KL 等图分割算法，最后基于分割结果进行原图恢复。</p>
-<h2 id="6-参考资料"><a href="#6-参考资料" class="headerlink" title="6.参考资料"></a>6.参考资料</h2><p>中国科学院大学邹磊老师，图数据管理与应用课程课件</p>
+<h2 id="6-参考资料">6.参考资料</h2>
+<p>中国科学院大学邹磊老师，图数据管理与应用课程课件</p>
 ]]></content>
       <tags>
         <tag>图</tag>
@@ -1551,47 +1518,35 @@ Format，一种不同的规则语言和推理引擎之间的交换格式。</p><
   <entry>
     <title>Unifying Large Language Models and Knowledge Graphs: A Roadmap</title>
     <url>/2024/07/06/Unifying-Large-Language-Models-and-Knowledge-Graphs-A-Roadmap/</url>
-    <content><![CDATA[<pre><code>类型：文献综述
-第一作者：Shirui Pan
-作者单位：Griffith University
-发表时间：2024/07
-发表期刊：IEEE TRANSACTIONS ON KNOWLEDGE AND DATA ENGINEERING
-关键内容：对 KG-enhanced LLMs, LLM-augmented KGs, Synergized LLMs + KGs 三种框架进行介绍</code></pre>
-<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/unifying_llm_kgs18.png" alt="图片"> <img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/unifying_llm_kgs4.png" alt="图片"></p>
-<h2 id="background">1. background</h2>
+    <content><![CDATA[<blockquote>
+<p>类型：文献综述</p>
+<p>第一作者：Shirui Pan</p>
+<p>作者单位：Griffith University</p>
+<p>发表时间：2024/07</p>
+<p>发表期刊：IEEE TRANSACTIONS ON KNOWLEDGE AND DATA ENGINEERING</p>
+<p>键内容：对 KG-enhanced LLMs, LLM-augmented KGs, Synergized LLMs + KGs 三种框架进行介绍</p>
+</blockquote>
+<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/unifying_llm_kgs18.png" alt="图片"><br>
+<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/unifying_llm_kgs4.png" alt="图片"></p>
+<h2 id="1-background">1. background</h2>
 <p>KGs的四种分类：百科全书式知识图谱、常识知识图谱、特定领域知识图谱和多模态知识图谱。</p>
-<figure>
-<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/unifying_llm_kgs2.png" alt="图片">
-<figcaption aria-hidden="true">图片</figcaption>
-</figure>
+<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/unifying_llm_kgs2.png" alt="图片"></p>
 <p>LLM 与 KGs 的优缺点对比：</p>
-<figure>
-<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/unifying_llm_kgs1.png" alt="图片">
-<figcaption aria-hidden="true">图片</figcaption>
-</figure>
-<p>其中，KGs 的缺点 Unseen
-Facts：知识图谱无法有效地对看不见的实体进行建模并表示新的事实知识。此外，知识图谱中丰富的文本信息常被忽略。</p>
+<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/unifying_llm_kgs1.png" alt="图片"></p>
+<p>其中，KGs 的缺点 Unseen Facts：知识图谱无法有效地对看不见的实体进行建模并表示新的事实知识。此外，知识图谱中丰富的文本信息常被忽略。</p>
 <p>LLM 与 KGs 的应用示例：</p>
-<figure>
-<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/unifying_llm_kgs3.png" alt="图片">
-<figcaption aria-hidden="true">图片</figcaption>
-</figure>
-<h2 id="kg-enhanced-llms">2. KG-enhanced LLMs</h2>
-<h3 id="kg-enhanced-llm-pre-training">2.1 KG-Enhanced LLM
-Pre-Training</h3>
+<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/unifying_llm_kgs3.png" alt="图片"></p>
+<h2 id="2-KG-enhanced-LLMs">2. KG-enhanced LLMs</h2>
+<h3 id="2-1-KG-Enhanced-LLM-Pre-Training">2.1 KG-Enhanced LLM Pre-Training</h3>
 <blockquote>
-<p><strong>2.1.1 Integrating KGs into training objective</strong></p>
+<p><strong>2.1.1  Integrating KGs into training objective</strong></p>
 </blockquote>
 <p>两种方式：</p>
 <ul>
 <li>在预训练中暴露更多的实体，通过改变词语的掩码概率实现。如GLM中，假定在知识图谱中一定跳数内可以到达的实体是较为重要的实体，并且在预训练期间会给予它们更高的掩码概率。而在SKEP中，通过词语的情感分配不同的掩码概率。</li>
-<li>更改训练训练的目标函数。如对ERNIE，目标为tokens到entity的对齐链接，如下图所示。对WKLM，首先用其他相同类型的实体替换文本中的实体，然后将它们输入
-LLM，训练目标为区分实体是否已被替换。</li>
+<li>更改训练训练的目标函数。如对ERNIE，目标为tokens到entity的对齐链接，如下图所示。对WKLM，首先用其他相同类型的实体替换文本中的实体，然后将它们输入 LLM，训练目标为区分实体是否已被替换。</li>
 </ul>
-<figure>
-<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/unifying_llm_kgs5.png" alt="图片">
-<figcaption aria-hidden="true">图片</figcaption>
-</figure>
+<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/unifying_llm_kgs5.png" alt="图片"></p>
 <blockquote>
 <p><strong>2.1.2 Integrating KGs into LLM inputs</strong></p>
 </blockquote>
@@ -1601,56 +1556,38 @@ LLM，训练目标为区分实体是否已被替换。</li>
 <li>输入句子的 tokens 形成了完全图</li>
 <li>更多的关注热门实体，而忽视了低频和长尾实体。</li>
 </ul>
-<figure>
-<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/unifying_llm_kgs6.png" alt="图片">
-<figcaption aria-hidden="true">图片</figcaption>
-</figure>
+<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/unifying_llm_kgs6.png" alt="图片"></p>
 <blockquote>
 <p><strong>2.1.3 KGs Instruction-tuning</strong></p>
 </blockquote>
-<p>KG指令微调的目的不是向LLM注入事实知识，而是让LLM更好的理解KG的结构。具体分析见
-KG指令微调部分。</p>
-<h3 id="kg-enhanced-llm-inference">2.2 KG-Enhanced LLM Inference</h3>
-<p>虽然通过训练确实可以为LLM注入大量的知识，但是这些知识缺乏时效性，且模型训练需要消耗大量资源，因此可以借助KGs
-在LLM推理时注入知识。两种方式：</p>
+<p>KG指令微调的目的不是向LLM注入事实知识，而是让LLM更好的理解KG的结构。具体分析见 KG指令微调部分。</p>
+<h3 id="2-2-KG-Enhanced-LLM-Inference">2.2 KG-Enhanced LLM Inference</h3>
+<p>虽然通过训练确实可以为LLM注入大量的知识，但是这些知识缺乏时效性，且模型训练需要消耗大量资源，因此可以借助KGs 在LLM推理时注入知识。两种方式：</p>
 <ul>
-<li>RAG，Retrieval-Augmented Knowledge Fusion <img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/unifying_llm_kgs7.png" alt="图片"></li>
-<li>KGs
-Prompting，设计提示，将结构化的知识图谱转换为文本序列，然后将其作为上下文输入到LLM中。但通常设计提示需要耗费大量人力。</li>
+<li>RAG，Retrieval-Augmented Knowledge Fusion<br>
+<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/unifying_llm_kgs7.png" alt="图片"></li>
+<li>KGs Prompting，设计提示，将结构化的知识图谱转换为文本序列，然后将其作为上下文输入到LLM中。但通常设计提示需要耗费大量人力。</li>
 </ul>
-<h3 id="kg-enhanced-llm-interpretability">2.3 KG-Enhanced LLM
-Interpretability</h3>
-<p>LLM
-可解释性是指对其内部工作和决策过程的理解和解释。研究人员试图利用知识图谱来提高LLM的可解释性，大致可以分为两类：1）用于语言模型探测的知识图谱，2）用于语言模型分析的知识图谱。</p>
+<h3 id="2-3-KG-Enhanced-LLM-Interpretability">2.3 KG-Enhanced LLM Interpretability</h3>
+<p>LLM 可解释性是指对其内部工作和决策过程的理解和解释。研究人员试图利用知识图谱来提高LLM的可解释性，大致可以分为两类：1）用于语言模型探测的知识图谱，2）用于语言模型分析的知识图谱。</p>
 <blockquote>
 <p>KGs for LLM Probing，旨在理解 LLM 中存储的知识</p>
 </blockquote>
-<p>下图为LAMA 使用 KGs 对 LLM
-进行知识探测的示例图，首先通过预定义的提示模板将 KG
-中的事实转换为完形填空语句，然后使用 LLM
-来预测缺失的实体。预测结果用于评估 LLM 中存储的知识。 <img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/unifying_llm_kgs8.png" alt="图片"></p>
-<p>注意：可以通过优化提示来更准确的评估 LLM 中包含的知识，且研究发现 LLM
-对低频/尾部事实知识的掌握较差。</p>
+<p>下图为LAMA 使用 KGs 对 LLM 进行知识探测的示例图，首先通过预定义的提示模板将 KG 中的事实转换为完形填空语句，然后使用 LLM 来预测缺失的实体。预测结果用于评估 LLM 中存储的知识。<br>
+<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/unifying_llm_kgs8.png" alt="图片"></p>
+<p>注意：可以通过优化提示来更准确的评估 LLM 中包含的知识，且研究发现 LLM 对低频/尾部事实知识的掌握较差。</p>
 <blockquote>
-<p>KGs for LLM Analysis，旨在分析 LLM 中的推理过程，如 LLM
-如何生成结果，LLM 的功能和结构如何工作等。</p>
+<p>KGs for LLM Analysis，旨在分析 LLM 中的推理过程，如 LLM 如何生成结果，LLM 的功能和结构如何工作等。</p>
 </blockquote>
-<p>一种方式是将 LLM
-在每个推理步骤中生成的结果都以知识图谱为基础。这样，LLM的推理过程就可以通过从KG中提取图结构来解释，如下所示。
+<p>一种方式是将 LLM 在每个推理步骤中生成的结果都以知识图谱为基础。这样，LLM的推理过程就可以通过从KG中提取图结构来解释，如下所示。<br>
 <img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/unifying_llm_kgs9.png" alt="图片"></p>
-<h2 id="llm-augmented-kgs">3. LLM-AUGMENTED KGS</h2>
-<h3 id="llm-augmented-kg-embedding">3.1 LLM-Augmented KG Embedding</h3>
-<p>知识图嵌入（KGE）旨在将每个实体和关系映射到低维向量空间，这些嵌入包含知识图谱的语义和结构信息。通常有两种方式：1）采用
-LLM 通过对实体和关系的文本描述进行编码来丰富KG的表示，2）使用 LLM
-将图结构和文本信息同时合并到嵌入空间中。</p>
-<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/unifying_llm_kgs10.png" alt="图片"> <img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/unifying_llm_kgs11.png" alt="图片"></p>
-<h3 id="llm-augmented-kg-completion">3.2 LLM-Augmented KG
-Completion</h3>
-<p>知识图补全（KGC）旨在推断给定知识图谱中缺失的事实。与KGE类似，传统的KGC方法主要关注KG的结构，而没有考虑广泛的文本信息。然而，LLM
-的集成使 KGC 方法能够编码文本或生成事实，以获得更好的 KGC
-性能。这些方法根据其使用方式分为两个不同的类别：1）LLM
-作为编码器（PaE），2）LLM 作为生成器（PaG）。顾名思义，将 LLM 分别作为
-encoder, decoder。</p>
+<h2 id="3-LLM-AUGMENTED-KGS">3. LLM-AUGMENTED KGS</h2>
+<h3 id="3-1-LLM-Augmented-KG-Embedding">3.1 LLM-Augmented KG Embedding</h3>
+<p>知识图嵌入（KGE）旨在将每个实体和关系映射到低维向量空间，这些嵌入包含知识图谱的语义和结构信息。通常有两种方式：1）采用 LLM 通过对实体和关系的文本描述进行编码来丰富KG的表示，2）使用 LLM 将图结构和文本信息同时合并到嵌入空间中。</p>
+<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/unifying_llm_kgs10.png" alt="图片"><br>
+<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/unifying_llm_kgs11.png" alt="图片"></p>
+<h3 id="3-2-LLM-Augmented-KG-Completion">3.2 LLM-Augmented KG Completion</h3>
+<p>知识图补全（KGC）旨在推断给定知识图谱中缺失的事实。与KGE类似，传统的KGC方法主要关注KG的结构，而没有考虑广泛的文本信息。然而，LLM 的集成使 KGC 方法能够编码文本或生成事实，以获得更好的 KGC 性能。这些方法根据其使用方式分为两个不同的类别：1）LLM 作为编码器（PaE），2）LLM 作为生成器（PaG）。顾名思义，将 LLM 分别作为 encoder, decoder。</p>
 <blockquote>
 <p>LLM as Encoders (PaE)</p>
 </blockquote>
@@ -1668,78 +1605,38 @@ encoder, decoder。</p>
 <blockquote>
 <p>LLM as Generators (PaG)</p>
 </blockquote>
-<figure>
-<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/unifying_llm_kgs12.png" alt="图片">
-<figcaption aria-hidden="true">图片</figcaption>
-</figure>
+<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/unifying_llm_kgs12.png" alt="图片"></p>
 <p>优点：无需微调，能泛化到未见过的实体</p>
 <p>缺点：生成的实体可能不在KGs 中，设计有效的提示需要耗费大量人力</p>
-<h3 id="llm-augmented-kg-construction">3.3 LLM-Augmented KG
-Construction</h3>
+<h3 id="3-3-LLM-Augmented-KG-Construction">3.3 LLM-Augmented KG Construction</h3>
 <p>知识图谱构建通常包含以下几个步骤：实体抽取，共指消解，关系抽取。</p>
-<figure>
-<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/unifying_llm_kgs13.png" alt="图片">
-<figcaption aria-hidden="true">图片</figcaption>
-</figure>
-<h3 id="llm-augmented-kg-to-text-generation">3.4 LLM-Augmented
-KG-to-Text Generation</h3>
-<p>旨在生成准确一致地描述输入知识图谱信息的高质量文本，但收集大量图文并行数据具有挑战性且成本高昂，导致训练不足和生成质量差。有两种方法：1）利用
-LLM 的知识，如下图所示，线性遍历知识图谱作为输入，用 LLM
-获取文本输出，但存在问题是 LLM
-的无监督预训练目标不一定与知识图谱到文本生成的任务很好地契合，2）构建大规模弱监督知识图谱文本语料库。</p>
-<figure>
-<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/unifying_llm_kgs14.png" alt="图片">
-<figcaption aria-hidden="true">图片</figcaption>
-</figure>
-<h3 id="llm-augmented-kg-question-answering">3.5 LLM-Augmented KG
-Question Answering</h3>
+<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/unifying_llm_kgs13.png" alt="图片"></p>
+<h3 id="3-4-LLM-Augmented-KG-to-Text-Generation">3.4 LLM-Augmented KG-to-Text Generation</h3>
+<p>旨在生成准确一致地描述输入知识图谱信息的高质量文本，但收集大量图文并行数据具有挑战性且成本高昂，导致训练不足和生成质量差。有两种方法：1）利用 LLM 的知识，如下图所示，线性遍历知识图谱作为输入，用 LLM 获取文本输出，但存在问题是 LLM 的无监督预训练目标不一定与知识图谱到文本生成的任务很好地契合，2）构建大规模弱监督知识图谱文本语料库。</p>
+<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/unifying_llm_kgs14.png" alt="图片"></p>
+<h3 id="3-5-LLM-Augmented-KG-Question-Answering">3.5 LLM-Augmented KG Question Answering</h3>
 <p>知识图谱问答（KGQA）旨在根据知识图谱中存储的结构化事实找到自然语言问题的答案。可以将LLM作为实体/关系的抽取器，或是答案推理器，即根据检索到的事实进行推理。</p>
-<h2 id="synergized-llms-kgs">4. SYNERGIZED LLMS +KGS</h2>
+<h2 id="4-SYNERGIZED-LLMS-KGS">4. SYNERGIZED LLMS +KGS</h2>
 <p>主要可以分为协同知识表示，协同推理两部分。</p>
-<h3 id="synergized-knowledge-representation">4.1 Synergized Knowledge
-Representation</h3>
-<p>文本语料库和知识图谱都蕴藏着海量的知识。然而，文本语料库中的知识通常是隐式的、非结构化的，而知识图谱中的知识是显性的、结构化的。协同知识表示旨在设计一个协同模型，可以有效地表示来自
-LLM 和 KG
-的知识。协同模型可以更好地理解两个来源的知识，使其对许多下游任务有价值。</p>
-<figure>
-<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/unifying_llm_kgs15.png" alt="图片">
-<figcaption aria-hidden="true">图片</figcaption>
-</figure>
-<h3 id="synergized-reasoning">4.2 Synergized Reasoning</h3>
-<p>可以分为 LLM-KG 融合推理（使用两个独立的 LLM 和 KG 编码器来处理文本和
-KG 输入），LLM 代理推理（使用 LLM 作为与 KG 交互进行推理的
-代理）两部分。</p>
-<figure>
-<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/unifying_llm_kgs16.png" alt="图片">
-<figcaption aria-hidden="true">图片</figcaption>
-</figure>
-<h2 id="future-directions-and-milestones">5. FUTURE DIRECTIONS AND
-MILESTONES</h2>
+<h3 id="4-1-Synergized-Knowledge-Representation">4.1 Synergized Knowledge Representation</h3>
+<p>文本语料库和知识图谱都蕴藏着海量的知识。然而，文本语料库中的知识通常是隐式的、非结构化的，而知识图谱中的知识是显性的、结构化的。协同知识表示旨在设计一个协同模型，可以有效地表示来自 LLM 和 KG 的知识。协同模型可以更好地理解两个来源的知识，使其对许多下游任务有价值。</p>
+<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/unifying_llm_kgs15.png" alt="图片"></p>
+<h3 id="4-2-Synergized-Reasoning">4.2 Synergized Reasoning</h3>
+<p>可以分为 LLM-KG 融合推理（使用两个独立的 LLM 和 KG 编码器来处理文本和 KG 输入），LLM 代理推理（使用 LLM 作为与 KG 交互进行推理的 代理）两部分。</p>
+<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/unifying_llm_kgs16.png" alt="图片"></p>
+<h2 id="5-FUTURE-DIRECTIONS-AND-MILESTONES">5. FUTURE DIRECTIONS AND MILESTONES</h2>
 <ul>
 <li>KGs for Hallucination Detection in LLMs</li>
-<li>KGs for Editing Knowledge in LLMs，尽管 LLM
-能够存储海量的现实世界知识，但他们无法随着现实世界情况的变化而快速更新其内部知识。有研究人员提出了一些研究工作来编辑
-LLM
-的知识，而无需重新训练整个模型。然而，此类解决方案仍然存在性能不佳或计算开销过大的问题。现有研究还表明，编辑单个事实会对其他相关知识产生连锁反应。因此，有必要开发一种更高效、更有效的方法来编辑
-LLM 知识。最近，研究人员尝试利用知识图谱来有效地编辑 LLM 的知识。</li>
+<li>KGs for Editing Knowledge in LLMs，尽管 LLM 能够存储海量的现实世界知识，但他们无法随着现实世界情况的变化而快速更新其内部知识。有研究人员提出了一些研究工作来编辑 LLM 的知识，而无需重新训练整个模型。然而，此类解决方案仍然存在性能不佳或计算开销过大的问题。现有研究还表明，编辑单个事实会对其他相关知识产生连锁反应。因此，有必要开发一种更高效、更有效的方法来编辑 LLM 知识。最近，研究人员尝试利用知识图谱来有效地编辑 LLM 的知识。</li>
 <li>KGs for Black-Box LLMs Knowledge Injection</li>
 <li>Multi-Modal LLMs for KGs</li>
-<li>LLMs for Understanding KG Structure，基于纯文本数据训练的 LLM
-并非旨在理解知识图等结构化数据。因此， LLM
-可能无法完全掌握或理解知识图谱结构传达的信息。一种直接的方法是将结构化数据线性化为
-LLM
-可以理解的句子。然而，知识图谱的规模使得不可能将整个知识图谱线性化为输入。此外，线性化过程可能会丢失知识图谱中的一些底层信息。因此，有必要开发能够直接理解KG结构并对其进行推理的LLM。</li>
+<li>LLMs for Understanding KG Structure，基于纯文本数据训练的 LLM 并非旨在理解知识图等结构化数据。因此， LLM 可能无法完全掌握或理解知识图谱结构传达的信息。一种直接的方法是将结构化数据线性化为 LLM 可以理解的句子。然而，知识图谱的规模使得不可能将整个知识图谱线性化为输入。此外，线性化过程可能会丢失知识图谱中的一些底层信息。因此，有必要开发能够直接理解KG结构并对其进行推理的LLM。</li>
 <li>Synergized LLMs and KGs for Birectional Reasoning</li>
 </ul>
-<h2 id="conclusion">6. CONCLUSION</h2>
-<figure>
-<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/unifying_llm_kgs17.png" alt="图片">
-<figcaption aria-hidden="true">图片</figcaption>
-</figure>
-<h2 id="参考论文">7. 参考论文</h2>
-<p>Pan S, Luo L, Wang Y, et al. Unifying large language models and
-knowledge graphs: A roadmap[J]. IEEE Transactions on Knowledge and Data
-Engineering, 2024.</p>
+<h2 id="6-CONCLUSION">6. CONCLUSION</h2>
+<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/unifying_llm_kgs17.png" alt="图片"></p>
+<h2 id="7-参考论文">7. 参考论文</h2>
+<p>Pan S, Luo L, Wang Y, et al. Unifying large language models and knowledge graphs: A roadmap[J]. IEEE Transactions on Knowledge and Data Engineering, 2024.</p>
 ]]></content>
       <tags>
         <tag>知识图谱</tag>
@@ -1838,12 +1735,13 @@ Engineering, 2024.</p>
   <entry>
     <title>Ontology-enhanced Prompt-tuning for Few-shot Learning</title>
     <url>/2024/07/08/Ontology-enhanced-Prompt-tuning-for-Few-shot-Learning/</url>
-    <content><![CDATA[<pre><code>第一作者：Hongbin Ye, Ningyu Zhang
-作者单位：浙江大学
-发表时间：2022/4
-发表期刊：Proceedings of the ACM Web Conference 2022
-关键内容：探索如何更好的使用预训练语言模型进行 few-shot learning 知识注入，并提出本体增强提示调优（OntoPrompt）。如何优化：将KG的本体知识转化为文本用于模型训练，并修改注意力机制以减小知识噪声，最后，对本体嵌入向量也进行参数训练。
-</code></pre>
+    <content><![CDATA[<blockquote>
+<p>第一作者：Hongbin Ye, Ningyu Zhang</p>
+<p>作者单位：浙江大学</p>
+<p>发表时间：2022/4</p>
+<p>发表期刊：Proceedings of the ACM Web Conference 2022</p>
+<p>关键内容：探索如何更好的使用预训练语言模型进行 few-shot learning 知识注入，并提出本体增强提示调优（OntoPrompt）。如何优化：将KG的本体知识转化为文本用于模型训练，并修改注意力机制以减小知识噪声，最后，对本体嵌入向量也进行参数训练。</p>
+</blockquote>
 <p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/OntoPrompt1.png" alt="图1"></p>
 <h2 id="1-INTRODUCTION">1. INTRODUCTION</h2>
 <p>few-shot learning 中存在的三个问题：</p>
@@ -1905,12 +1803,13 @@ Engineering, 2024.</p>
   <entry>
     <title>ChatKBQA: A Generate-then-Retrieve Framework for Knowledge Base Question Answering with Fine-tuned Large Language Models</title>
     <url>/2024/07/20/ChatKBQA-A-Generate-then-Retrieve-Framework-for-Knowledge-Base-Question-Answering-with-Fine-tuned-Large-Language-Models/</url>
-    <content><![CDATA[<pre><code>第一作者：Haoran Luo, Haihong E
-作者单位：北京邮电大学
-发表时间：2024/5
-发表期刊：ACL 2024
-关键内容：将知识图谱与大模型结合。亮点：通常是先利用知识图谱进行检索，检索结果作为prompt的一部分输入到模型中。而ChatKBQA是先利用LLM生成逻辑形式，再通过无监督方法对实体和关系进行检索替换，从而提升答案的准确率。
-</code></pre>
+    <content><![CDATA[<blockquote>
+<p>第一作者：Haoran Luo, Haihong E</p>
+<p>作者单位：北京邮电大学</p>
+<p>发表时间：2024/5</p>
+<p>发表期刊：ACL 2024</p>
+<p>关键内容：将知识图谱与大模型结合。亮点：通常是先利用知识图谱进行检索，检索结果作为prompt的一部分输入到模型中。而ChatKBQA是先利用LLM生成逻辑形式，再通过无监督方法对实体和关系进行检索替换，从而提升答案的准确率。</p>
+</blockquote>
 <p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/ChatKBQA_3.png" alt="图1"></p>
 <h2 id="1-引言">1.引言</h2>
 <p>KBQA(Knowledge Base Question Answering) 主要有两个核心问题：知识检索、语义解析。</p>
@@ -1994,8 +1893,50 @@ Topk指标：前k个预测结果中有一个为正确即为正确。结果分析
   <entry>
     <title>REASONING ON GRAPHS: FAITHFUL AND INTERPRETABLE LARGE LANGUAGE MODEL REASONING</title>
     <url>/2024/07/26/REASONING-ON-GRAPHS-FAITHFUL-AND-INTERPRETABLE-LARGE-LANGUAGE-MODEL-REASONING/</url>
-    <content><![CDATA[
+    <content><![CDATA[<blockquote>
+<p>第一作者：Linhao Luo</p>
+<p>作者单位：Monash University</p>
+<p>发表时间：2024/2</p>
+<p>发表期刊：ICLR 2024</p>
+<p>关键内容：先利用LLM 生成与问题回答 有关的关系路径，再到KGs中进行检索（实体来自问题句子，关系来自LLM生成的关系），再利用检索到的推理路径进行模型推理。亮点在于：知识图谱中的实体会动态变化，而实体间的关系是较为稳定的，通过对KG中关系路径的检索得到可靠的知识作为模型的上下文输入。</p>
+</blockquote>
+<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/RoG1.png" alt="图1"></p>
+<h2 id="1-引言">1.引言</h2>
+<p>先前使用 KGs 和 LLMs 进行推理的方法有以下两种：</p>
+<ul>
+<li>语义解析，通过 LLMs 将问题转化为逻辑查询，在KGs中进行查询，与<a href="https://lwl1751.github.io/2024/07/20/ChatKBQA-A-Generate-then-Retrieve-Framework-for-Knowledge-Base-Question-Answering-with-Fine-tuned-Large-Language-Models/">ChatKBQA</a>类似。这种方法的缺点在于生成的逻辑查询不一定是可执行的。（因此，ChatKBQA会对逻辑查询中的实体/关系进行无监督检索替换，以确保逻辑查询的可执行性）</li>
+<li>RAG。将KGs作为LLM推理的事实知识库，没有充分利用KGs结构信息。For instance, as shown in Figure 1, a relation path, which is a sequence of relations, “child of -&gt; has son” can be used to obtain answers to the question “Who is the brother of Justin Bieber?”.</li>
+</ul>
+<p>因此，不同于ChatKBQA中利用LLM生成逻辑查询，RoG是先通过LLM生成关系路径，再对KGs进行检索，最后将检索得到的推理路径作为上下文输入到LLM中进行推理。</p>
+<h2 id="2-实验">2.实验</h2>
+<ul>
+<li>
+<p>RoG与其它模型比较，其中，type 为LLM的模型并没有进行微调，同时为zero shot inference。RoG的基座模型为 LLaMA2-Chat-7B，微调数据集为WebQSP、CWQ、Freebase。<br>
+<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/RoG2.png" alt="图2"></p>
+</li>
+<li>
+<p>消融实验。w/ random plan，从KGs中随机检索推理路径，并将其输入到推理模块中；w/ vote reasoning，采用多数投票，从检索到的推理路径中选择前5个答案。</p>
+</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/RoG4.png" alt="图3"></p>
+<ul>
+<li>
+<p>探究超参数——关系路径数量的影响。关键路径数量越多，召回率越高，但也引入更多噪声，精确度下降。<br>
+<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/RoG3.png" alt="图4"></p>
+</li>
+<li>
+<p>PLUG-AND-PLAY ROG PLANNING MODULE 的验证<br>
+<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/RoG5.png" alt="图5"></p>
+</li>
+</ul>
+<h2 id="3-参考文献">3. 参考文献</h2>
+<p>Luo L, Li Y F, Haffari G, et al. Reasoning on graphs: Faithful and interpretable large language model reasoning[J]. arXiv preprint arXiv:2310.01061, 2023.</p>
 ]]></content>
+      <tags>
+        <tag>知识图谱</tag>
+        <tag>大模型</tag>
+        <tag>文献笔记</tag>
+      </tags>
   </entry>
   <entry>
     <title>HeCiX: Integrating Knowledge Graphs and Large Language Models for Biomedical Research</title>
