@@ -2,6 +2,39 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://lwl1751.github.io/2024/07/27/TnT-LLM-Text-Mining-at-Scale-with-Large-Language-Models/</loc>
+    
+    <lastmod>2024-07-27T07:48:22.942Z</lastmod>
+    
+    <date>1722066502000</date>
+    <title>TnT-LLM: Text Mining at Scale with Large Language Models | Wenliang Liang</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
+    <loc>https://lwl1751.github.io/2024/07/27/Understanding-the-planning-of-LLM-agents-A-survey/</loc>
+    
+    <lastmod>2024-07-27T07:47:53.224Z</lastmod>
+    
+    <date>1722066473000</date>
+    <title>Understanding the planning of LLM agents: A survey | Wenliang Liang</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
+    <loc>https://lwl1751.github.io/2024/07/27/Large-Language-Models-for-Generative-Information-Extraction-A-Survey/</loc>
+    
+    <lastmod>2024-07-27T07:47:33.876Z</lastmod>
+    
+    <date>1722066453000</date>
+    <title>Large Language Models for Generative Information Extraction: A Survey | Wenliang Liang</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
     <loc>https://lwl1751.github.io/2024/07/26/UniMEL-A-Unified-Framework-for-Multimodal-Entity-Linkingwith-Large-Language-Models/</loc>
     
     <lastmod>2024-07-27T07:14:53.673Z</lastmod>
