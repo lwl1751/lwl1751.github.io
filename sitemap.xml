@@ -2,9 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://lwl1751.github.io/2024/07/26/UniMEL-A-Unified-Framework-for-Multimodal-Entity-Linkingwith-Large-Language-Models/</loc>
+    
+    <lastmod>2024-07-27T07:14:53.673Z</lastmod>
+    
+    <date>1721971548000</date>
+    <title>UniMEL: A Unified Framework for Multimodal Entity Linking with Large Language Models | Wenliang Liang</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
     <loc>https://lwl1751.github.io/2024/07/26/Self-Distillation-Bridges-Distribution-Gap-in-Language-Model-Fine-Tuning/</loc>
     
-    <lastmod>2024-07-26T09:46:05.330Z</lastmod>
+    <lastmod>2024-07-26T10:52:02.078Z</lastmod>
     
     <date>1721971358000</date>
     <title>Self-Distillation Bridges Distribution Gap in Language Model Fine-Tuning | Wenliang Liang</title>
@@ -173,17 +184,6 @@
     
     <date>1720425882000</date>
     <title>Ontology-enhanced Prompt-tuning for Few-shot Learning | Wenliang Liang</title>
-    
-    <desc></desc>
-  </url>
-  
-  <url>
-    <loc>https://lwl1751.github.io/2024/07/26/UniMEL-A-Unified-Framework-for-Multimodal-Entity-Linkingwith-Large-Language-Models/</loc>
-    
-    <lastmod>2024-07-26T05:25:48.173Z</lastmod>
-    
-    <date>1721971548000</date>
-    <title>UniMEL: A Unified Framework for Multimodal Entity Linking with Large Language Models | Wenliang Liang</title>
     
     <desc></desc>
   </url>
