@@ -2,6 +2,61 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://lwl1751.github.io/2024/07/26/Agent-Pro-Learning-to-Evolve-via-Policy-Level-Reflection-and-Optimization/</loc>
+    
+    <lastmod>2024-07-28T11:58:39.192Z</lastmod>
+    
+    <date>1721971415000</date>
+    <title>Agent-Pro: Learning to Evolve via Policy-Level Reflection and Optimization | Wenliang Liang</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
+    <loc>https://lwl1751.github.io/2024/07/28/Fine-Tuning-Large-Vision-Language-Models-as-Decision-Making-Agents-via-Reinforcement-Learning/</loc>
+    
+    <lastmod>2024-07-28T06:55:20.925Z</lastmod>
+    
+    <date>1722149720000</date>
+    <title>Fine-Tuning Large Vision-Language Models as Decision-Making Agents via Reinforcement Learning | Wenliang Liang</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
+    <loc>https://lwl1751.github.io/2024/07/28/UHGEval-Benchmarking-the-Hallucination-of-Chinese-Large-Language-Models-via-Unconstrained-Generation/</loc>
+    
+    <lastmod>2024-07-28T06:53:52.107Z</lastmod>
+    
+    <date>1722149632000</date>
+    <title>UHGEval: Benchmarking the Hallucination of Chinese Large Language Models via Unconstrained Generation | Wenliang Liang</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
+    <loc>https://lwl1751.github.io/2024/07/28/Survey-on-Large-Language-Model-Enhanced-Reinforcement-Learning-Concept-Taxonomy-and-Methods/</loc>
+    
+    <lastmod>2024-07-28T06:49:43.230Z</lastmod>
+    
+    <date>1722149383000</date>
+    <title>Survey on Large Language Model-Enhanced Reinforcement Learning: Concept, Taxonomy, and Methods  | Wenliang Liang</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
+    <loc>https://lwl1751.github.io/2024/07/28/IEPile-Unearthing-Large-Scale-Schema-Based-Information-Extraction-Corpus/</loc>
+    
+    <lastmod>2024-07-28T06:46:57.530Z</lastmod>
+    
+    <date>1722149217000</date>
+    <title>IEPile: Unearthing Large-Scale Schema-Based Information Extraction Corpus | Wenliang Liang</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
     <loc>https://lwl1751.github.io/2024/07/27/TnT-LLM-Text-Mining-at-Scale-with-Large-Language-Models/</loc>
     
     <lastmod>2024-07-27T07:48:22.942Z</lastmod>
@@ -217,17 +272,6 @@
     
     <date>1720425882000</date>
     <title>Ontology-enhanced Prompt-tuning for Few-shot Learning | Wenliang Liang</title>
-    
-    <desc></desc>
-  </url>
-  
-  <url>
-    <loc>https://lwl1751.github.io/2024/07/26/Agent-Pro-Learning-to-Evolve-via-Policy-Level-Reflection-and-Optimization/</loc>
-    
-    <lastmod>2024-07-26T05:23:35.628Z</lastmod>
-    
-    <date>1721971415000</date>
-    <title>Agent-Pro: Learning to Evolve via Policy-Level Reflection and Optimization | Wenliang Liang</title>
     
     <desc></desc>
   </url>
