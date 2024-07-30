@@ -2221,7 +2221,52 @@ arXiv:2402.13669, 2024.</p>
   <entry>
     <title>Understanding the planning of LLM agents: A survey</title>
     <url>/2024/07/27/Understanding-the-planning-of-LLM-agents-A-survey/</url>
-    <content><![CDATA[]]></content>
+    <content><![CDATA[<blockquote>
+<p>第一作者：Xu Huang</p>
+<p>作者单位：中国科学技术大学</p>
+<p>发表时间：2024/2</p>
+<p>发表期刊：</p>
+<p>关键内容：对LLM agentd 的 planning 进行分类：task decomposition, multi-plan selection, external module-aided planning, reflection and refinement, memory-augmented planning。</p>
+</blockquote>
+<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/agent_planning2.png" alt="图1"></p>
+<h2 id="1-Introduction">1. Introduction</h2>
+<p>Agent 的定义：Autonomous agents have been recognized as intelligent entities capable of accomplishing specific tasks, via perceiving the environment, planning, and executing actions.</p>
+<p>规划(planning)：生成一系列行动的过程：</p>
+<p>$$p=\left(a_{0}, a_{1}, \cdots, a_{t}\right)=\operatorname{plan}(E, g ; \Theta, \mathcal{P})$$</p>
+<p>其中，$a$未所采取的行动，$E$为环境，$g$为目标任务，$\Theta$为LLM参数，$P$为prompt。</p>
+<h2 id="2-Taxonomy">2. Taxonomy</h2>
+<ul>
+<li>Task Decomposition. 将任务分解为多个子任务。
+<ul>
+<li>decomposition-first method
+<ul>
+<li>子任务与原始任务之间的关联性更强，降低任务遗忘和幻觉的风险</li>
+<li>容错率更低，因为子任务一开始就被确定好，需要额外的调整机制，否则某个步骤中的一个错误会导致任务失败</li>
+</ul>
+</li>
+<li>Interleaved Decomposition Methods
+<ul>
+<li>容错率更高，根据环境动态调整分解</li>
+<li>对于复杂任务，过长的轨迹可能会导致LLM产生幻觉，在后续的子任务和子规划中偏离最初的目标</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/agent_planing1.png" alt="图2"></p>
+<ul>
+<li>Multi-plan Selection. This kind of method focuses on leading the LLM to “think” more, generating various alternative plans for a task. Then a task-related search algorithm is employed to select one plan to execute. 即为一个任务生成多种规划，再搜索选择其一，面临资源和探索的trade-off。</li>
+<li>External Planner-Aided Planning. This methodology is crafted to employ an external planner to elevate the planning procedure, aiming to address the issues of efficiency and infeasibility of generated plans, while the LLM mainly plays the role in formalizing the tasks. 即调用外部工具辅助生成规划。</li>
+<li>Reflection and Refinement. It encourages LLM to reflect on failures and then refine the plan. 强化学习思想类似，对先前的规划进行反思及优化。</li>
+<li>Memory-augmented Planning. 增加外部记忆模块，可以通过RAG、Embodied Memory（对模型进行微调）等技术增加模型的规划能力。</li>
+</ul>
+<h2 id="3-参考文献">3. 参考文献</h2>
+<p>Huang X, Liu W, Chen X, et al. Understanding the planning of LLM agents: A survey[J]. arXiv preprint arXiv:2402.02716, 2024.</p>
+]]></content>
+      <tags>
+        <tag>大模型</tag>
+        <tag>文献笔记</tag>
+      </tags>
   </entry>
   <entry>
     <title>IEPile: Unearthing Large-Scale Schema-Based Information Extraction Corpus</title>
