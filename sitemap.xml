@@ -2,6 +2,50 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://lwl1751.github.io/2024/08/01/%E5%9F%BA%E4%BA%8E%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E7%9A%84%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%8E%A8%E7%90%86%E5%A2%9E%E5%BC%BA/</loc>
+    
+    <lastmod>2024-08-01T07:17:39.711Z</lastmod>
+    
+    <date>1722496523000</date>
+    <title>基于知识图谱的大模型推理增强 | Wenliang Liang</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
+    <loc>https://lwl1751.github.io/2024/07/30/Large-language-models-as-commonsense-knowledge-for-large-scale-task-planning/</loc>
+    
+    <lastmod>2024-07-30T07:39:54.160Z</lastmod>
+    
+    <date>1722325194000</date>
+    <title>Large language models as commonsense knowledge for large-scale task planning | Wenliang Liang</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
+    <loc>https://lwl1751.github.io/2024/07/30/Graph-of-Thoughts-Solving-Elaborate-Problems-with-Large-Language-Models/</loc>
+    
+    <lastmod>2024-07-30T07:39:43.636Z</lastmod>
+    
+    <date>1722325183000</date>
+    <title>Graph of Thoughts: Solving Elaborate Problems with Large Language Models | Wenliang Liang</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
+    <loc>https://lwl1751.github.io/2024/07/30/Tree-of-Thoughts-Deliberate-Problem-Solving-with-Large-Language-Models/</loc>
+    
+    <lastmod>2024-07-30T07:39:33.967Z</lastmod>
+    
+    <date>1722325173000</date>
+    <title>Tree of Thoughts: Deliberate Problem Solving with Large Language Models | Wenliang Liang</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
     <loc>https://lwl1751.github.io/2024/07/27/Understanding-the-planning-of-LLM-agents-A-survey/</loc>
     
     <lastmod>2024-07-30T07:29:06.588Z</lastmod>
