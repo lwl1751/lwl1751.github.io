@@ -2509,8 +2509,48 @@ arXiv:2402.13669, 2024.</p>
   <entry>
     <title>Structured information extraction from scientific text with large language models</title>
     <url>/2024/09/05/Structured-information-extraction-from-scientific-text-with-large-language-models/</url>
-    <content><![CDATA[
+    <content><![CDATA[<blockquote>
+<p>第一作者：John Dagdelen</p>
+<p>作者单位：Lawrence Berkeley National Laboratory</p>
+<p>发表时间：2024/2</p>
+<p>发表期刊：Nature Communications</p>
+<p>关键内容：针对材料领域，使用少量数据对模型进行微调，完成命名实体识别和关系抽取任务。关键是定义了输出格式。</p>
+</blockquote>
+<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/NERRE1.png" alt="图1"></p>
+<h2 id="1-引言">1.引言</h2>
+<p>启发：根据不同任务定义了不同的Schema、Completion format。此外，可以参照它们所使用的数据量。</p>
+<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/NERRE2.png" alt="图2"></p>
+<ul>
+<li>Doping: identify host materials, dopants, and potentially additional related information from text passages (sentences).</li>
+<li>MOFs: identify chemical formulae, applications, guest species, and further descriptions of MOF materials from text (materials science abstracts).</li>
+<li>General Materials: identify inorganic materials, their formulae, acronyms, applications, phase labels, and other descriptive information from text (materials science abstracts).</li>
+</ul>
+<h2 id="2-实验结果">2.实验结果</h2>
+<p>Schema 框架：<br>
+<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/NERRE7.png" alt="图7"><br>
+<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/NERRE8.png" alt="图8"></p>
+<p>数据标注：先利用少量样本进行训练，得到中间模型，使用中间模型对一部分数据进行标注，人工校准，得到的这部分数据又可以用于模型训练，重复这个过程。<br>
+<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/NERRE5.png" alt="图5"><br>
+<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/NERRE6.png" alt="图6"></p>
+<p>测试集：</p>
+<ul>
+<li>掺杂数据集：训练集由162篇摘要组成，包含413个相关句子；测试集包含232句（77 relevant by regex）。</li>
+<li>一般材料数据集：训练集由约650个条目组成，使用10%的随机样本进行验证，重复了五次。</li>
+<li>金属有机框架数据集：训练集由507篇摘要组成，使用重复随机拆分进行评估。</li>
+</ul>
+<p>实验结果：第一张图为精确匹配的结果，即target与output中的实体取值完全一致时才判对，但由于LLM的总结能力，output中的实体取值与target不一定一致，即使它们表达的是同一个意思。第二张为人工评估的结果。<br>
+<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/NERRE3.png" alt="图3"><br>
+<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/NERRE4.png" alt="图4"></p>
+<p>prompt + output示例：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">Instruction: <span class="string">&quot;Your current task is to extract data from materials science research paper abstracts. Here is the JSON schema you MUST use. Only output the extracted data in this schema. Do not fill in any information that is not explicitly in the abstract. If you don’t know something from the context, just leave that spot blank (don’t guess!) Make a list of JSON objects. One for each individual material in the abstract. What is a material? A material is a chemical compound such as ’titania’, ’SiO2’, or ’graphene’. A material is NOT a device (e.g. ’valve-regulated lead/acid battery’. That would be an application). For composite materials, make one entry for each part of the composite and put the fact it’s a composite (and what composite) as one element in the description.&quot;</span> </span><br><span class="line"></span><br><span class="line">SCHEMA: [ </span><br><span class="line">  &#123; <span class="string">&quot;name&quot;</span>: (string) The material ’s English name <span class="keyword">or</span> other identifier (eg. copper oxide , poly -propylene , BB-<span class="number">1</span>, etc). NOT THE FORMULA OR ACRONYM!, </span><br><span class="line">  <span class="string">&quot;formula&quot;</span>: (string) The chemical formula <span class="keyword">for</span> the material (e.g. BiSTiO3). NOT THE NAME OR ACRONYM!, </span><br><span class="line">  <span class="string">&quot;acronym&quot;</span>: (string) <span class="type">Any</span> acronym used to refer to a material (e.g. PEO <span class="keyword">for</span> polyethylene oxide). NOT THE NAME OR FORMULA!, </span><br><span class="line">  <span class="string">&quot;description&quot;</span>: (<span class="built_in">list</span> of string) Descriptions of the material sample. For example , <span class="keyword">if</span> it <span class="keyword">is</span> a thin film , nanoparticles , doped <span class="keyword">with</span> an impurity , etc. </span><br><span class="line">  <span class="string">&quot;structure_or_phase&quot;</span>: (<span class="built_in">list</span> of string) <span class="type">Any</span> information that indicates the materials crystal structure <span class="keyword">or</span> phase (e.g. ’cubic ’, ’rocksalt ’, ’HCP’, ’ alpha -phase ’, etc), Also extract lattice constants <span class="keyword">and</span> angles here , <span class="keyword">if</span> present. (DO NOT put things like </span><br><span class="line">  <span class="string">&quot;nanoporous&quot;</span> that describe the physical structure. Those are descriptions .) </span><br><span class="line">  <span class="string">&quot;applications&quot;</span>: (<span class="built_in">list</span> of string) Applications the material <span class="keyword">is</span> being studied/used <span class="keyword">for</span> (e.g. ’Li-ion batteries ’, ’cathode ’, ’catalyst ’, etc) If the material <span class="keyword">is</span> a catalyst , include the reaction it catalyzes. &#125;, </span><br><span class="line">  ... </span><br><span class="line">  ]</span><br><span class="line"></span><br><span class="line">Model output:</span><br><span class="line">[ &#123; <span class="string">&quot;acronym&quot;</span>: <span class="string">&quot;&quot;</span>, </span><br><span class="line">  <span class="string">&quot;applications&quot;</span>: [ <span class="string">&quot;photovoltaics&quot;</span>, <span class="string">&quot;optoelectronics&quot;</span>, <span class="string">&quot;photodetectors&quot;</span> ], </span><br><span class="line">  <span class="string">&quot;name&quot;</span>: <span class="string">&quot;CH3NH3PbI3&quot;</span>, </span><br><span class="line">  <span class="string">&quot;formula&quot;</span>: <span class="string">&quot;&quot;</span>, </span><br><span class="line">  <span class="string">&quot;structure_or_phase&quot;</span>: [ <span class="string">&quot;perovskite&quot;</span> ], </span><br><span class="line">  <span class="string">&quot;description&quot;</span>: [ <span class="string">&quot;single crystal&quot;</span>, <span class="string">&quot;photodetectors&quot;</span> ] &#125; </span><br><span class="line">]  </span><br></pre></td></tr></table></figure>
+<h2 id="3-参考文献">3.参考文献</h2>
+<p>Dagdelen J, Dunn A, Lee S, et al. Structured information extraction from scientific text with large language models[J]. Nature Communications, 2024, 15(1): 1418.</p>
 ]]></content>
+      <tags>
+        <tag>知识图谱</tag>
+        <tag>大模型</tag>
+        <tag>文献笔记</tag>
+      </tags>
   </entry>
   <entry>
     <title>Training Language Models to Generate Text with Citations via Fine-grained Rewards</title>
