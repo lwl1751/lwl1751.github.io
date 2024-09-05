@@ -2,6 +2,226 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://lwl1751.github.io/2024/09/05/Training-Language-Models-to-Generate-Text-with-Citations-via-Fine-grained-Rewards/</loc>
+    
+    <lastmod>2024-09-05T08:54:02.410Z</lastmod>
+    
+    <date>1725526442000</date>
+    <title>Training Language Models to Generate Text with Citations via Fine-grained Rewards | Wenliang Liang</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
+    <loc>https://lwl1751.github.io/2024/09/05/Self-Consistency-Improves-Chain-of-Thought-Reasoning-in-Language-Models/</loc>
+    
+    <lastmod>2024-09-05T08:53:49.853Z</lastmod>
+    
+    <date>1725526429000</date>
+    <title>Self-Consistency Improves Chain of Thought Reasoning in Language Models | Wenliang Liang</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
+    <loc>https://lwl1751.github.io/2024/09/05/ReWOO-Decoupling-Reasoning-from-Observations-for-Efficient-Augmented-Language-Models/</loc>
+    
+    <lastmod>2024-09-05T08:53:40.826Z</lastmod>
+    
+    <date>1725526420000</date>
+    <title>ReWOO: Decoupling Reasoning from Observations for Efficient Augmented Language Models | Wenliang Liang</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
+    <loc>https://lwl1751.github.io/2024/09/05/Reflexion-Language-Agents-with-Verbal-Reinforcement-Learning/</loc>
+    
+    <lastmod>2024-09-05T08:53:32.112Z</lastmod>
+    
+    <date>1725526412000</date>
+    <title>Reflexion: Language Agents with Verbal Reinforcement Learning | Wenliang Liang</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
+    <loc>https://lwl1751.github.io/2024/09/05/ReAct-Synergizing-Reasoning-and-Acting-in-Language-Models/</loc>
+    
+    <lastmod>2024-09-05T08:53:23.418Z</lastmod>
+    
+    <date>1725526403000</date>
+    <title>ReAct: Synergizing Reasoning and Acting in Language Models | Wenliang Liang</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
+    <loc>https://lwl1751.github.io/2024/09/05/Large-Language-Models-Cannot-Self-Correct-Reasoning-Yet/</loc>
+    
+    <lastmod>2024-09-05T08:53:14.210Z</lastmod>
+    
+    <date>1725526394000</date>
+    <title>Large Language Models Cannot Self-Correct Reasoning Yet | Wenliang Liang</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
+    <loc>https://lwl1751.github.io/2024/09/05/FireAct-Toward-Language-Agent-Fine-tuning/</loc>
+    
+    <lastmod>2024-09-05T08:53:02.084Z</lastmod>
+    
+    <date>1725526382000</date>
+    <title>FireAct: Toward Language Agent Fine-tuning | Wenliang Liang</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
+    <loc>https://lwl1751.github.io/2024/09/05/Fine-Grained-Human-Feedback-Gives-Better-Rewards-for-Language-Model-Training/</loc>
+    
+    <lastmod>2024-09-05T08:52:50.323Z</lastmod>
+    
+    <date>1725526370000</date>
+    <title>Fine-Grained Human Feedback Gives Better Rewards for Language Model Training | Wenliang Liang</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
+    <loc>https://lwl1751.github.io/2024/09/05/Enabling-Large-Language-Models-to-Generate-Text-with-Citations/</loc>
+    
+    <lastmod>2024-09-05T08:52:37.246Z</lastmod>
+    
+    <date>1725526357000</date>
+    <title>Enabling Large Language Models to Generate Text with Citations | Wenliang Liang</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
+    <loc>https://lwl1751.github.io/2024/09/05/Chameleon-Plug-and-Play-Compositional-Reasoning-with-Large-Language-Models/</loc>
+    
+    <lastmod>2024-09-05T08:50:36.241Z</lastmod>
+    
+    <date>1725526236000</date>
+    <title>Chameleon: Plug-and-Play Compositional Reasoning with Large Language Models | Wenliang Liang</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
+    <loc>https://lwl1751.github.io/2024/09/05/CAMEL-Communicative-Agents-for-Mind-Exploration-of-Large-Language-Model-Society/</loc>
+    
+    <lastmod>2024-09-05T08:48:53.316Z</lastmod>
+    
+    <date>1725526133000</date>
+    <title>CAMEL: Communicative Agents for "Mind" Exploration of Large Language Model Society | Wenliang Liang</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
+    <loc>https://lwl1751.github.io/2024/09/05/BOLAA-Benchmarking-and-Orchestrating-LLM-augmented-Autonomous-Agents/</loc>
+    
+    <lastmod>2024-09-05T08:48:43.202Z</lastmod>
+    
+    <date>1725526123000</date>
+    <title>BOLAA: Benchmarking and Orchestrating LLM-augmented Autonomous Agents | Wenliang Liang</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
+    <loc>https://lwl1751.github.io/2024/09/05/AutoAct-Automatic-Agent-Learning-from-Scratch-for-QA-via-Self-Planning/</loc>
+    
+    <lastmod>2024-09-05T08:47:55.062Z</lastmod>
+    
+    <date>1725526075000</date>
+    <title>AutoAct: Automatic Agent Learning from Scratch for QA via Self-Planning | Wenliang Liang</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
+    <loc>https://lwl1751.github.io/2024/09/05/AgentVerse-Facilitating-Multi-Agent-Collaboration-and-Exploring-Emergent-Behaviors/</loc>
+    
+    <lastmod>2024-09-05T08:47:44.619Z</lastmod>
+    
+    <date>1725526064000</date>
+    <title>AgentVerse: Facilitating Multi-Agent Collaboration and Exploring Emergent Behaviors | Wenliang Liang</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
+    <loc>https://lwl1751.github.io/2024/09/05/AgentTuning-Enabling-Generalized-Agent-Abilities-for-LLMs/</loc>
+    
+    <lastmod>2024-09-05T08:47:36.254Z</lastmod>
+    
+    <date>1725526056000</date>
+    <title>AgentTuning: Enabling Generalized Agent Abilities for LLMs | Wenliang Liang</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
+    <loc>https://lwl1751.github.io/2024/09/05/Agents-An-Open-source-Framework-for-Autonomous-Language-Agents/</loc>
+    
+    <lastmod>2024-09-05T08:47:27.157Z</lastmod>
+    
+    <date>1725526047000</date>
+    <title>Agents: An Open-source Framework for Autonomous Language Agents | Wenliang Liang</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
+    <loc>https://lwl1751.github.io/2024/09/05/Agent-Q-Advanced-Reasoning-and-Learning-for-Autonomous-AI-Agents/</loc>
+    
+    <lastmod>2024-09-05T08:47:15.552Z</lastmod>
+    
+    <date>1725526035000</date>
+    <title>Agent Q: Advanced Reasoning and Learning for Autonomous AI Agents | Wenliang Liang</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
+    <loc>https://lwl1751.github.io/2024/09/05/Agent-Lumos-Unified-and-Modular-Training-for-Open-Source-Language-Agents/</loc>
+    
+    <lastmod>2024-09-05T08:47:03.444Z</lastmod>
+    
+    <date>1725526023000</date>
+    <title>Agent Lumos: Unified and Modular Training for Open-Source Language Agents | Wenliang Liang</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
+    <loc>https://lwl1751.github.io/2024/09/05/From-Text-to-Insight-Large-Language-Models-for-Materials-Science-Data-Extraction/</loc>
+    
+    <lastmod>2024-09-05T08:46:45.887Z</lastmod>
+    
+    <date>1725526005000</date>
+    <title>From Text to Insight: Large Language Models for Materials Science Data Extraction | Wenliang Liang</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
+    <loc>https://lwl1751.github.io/2024/09/05/Structured-information-extraction-from-scientific-text-with-large-language-models/</loc>
+    
+    <lastmod>2024-09-05T08:46:35.046Z</lastmod>
+    
+    <date>1725525995000</date>
+    <title>Structured information extraction from scientific text with large language models | Wenliang Liang</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
     <loc>https://lwl1751.github.io/2024/07/27/TnT-LLM-Text-Mining-at-Scale-with-Large-Language-Models/</loc>
     
     <lastmod>2024-08-02T09:32:32.224Z</lastmod>
