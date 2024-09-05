@@ -2,9 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://lwl1751.github.io/2024/09/05/From-Text-to-Insight-Large-Language-Models-for-Materials-Science-Data-Extraction/</loc>
+    
+    <lastmod>2024-09-05T13:45:46.335Z</lastmod>
+    
+    <date>1725526005000</date>
+    <title>From Text to Insight: Large Language Models for Materials Science Data Extraction | Wenliang Liang</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
     <loc>https://lwl1751.github.io/2024/09/05/Structured-information-extraction-from-scientific-text-with-large-language-models/</loc>
     
-    <lastmod>2024-09-05T10:35:50.877Z</lastmod>
+    <lastmod>2024-09-05T13:21:22.540Z</lastmod>
     
     <date>1725525995000</date>
     <title>Structured information extraction from scientific text with large language models | Wenliang Liang</title>
@@ -206,17 +217,6 @@
     
     <date>1725526023000</date>
     <title>Agent Lumos: Unified and Modular Training for Open-Source Language Agents | Wenliang Liang</title>
-    
-    <desc></desc>
-  </url>
-  
-  <url>
-    <loc>https://lwl1751.github.io/2024/09/05/From-Text-to-Insight-Large-Language-Models-for-Materials-Science-Data-Extraction/</loc>
-    
-    <lastmod>2024-09-05T08:46:45.887Z</lastmod>
-    
-    <date>1725526005000</date>
-    <title>From Text to Insight: Large Language Models for Materials Science Data Extraction | Wenliang Liang</title>
     
     <desc></desc>
   </url>

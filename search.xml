@@ -2467,8 +2467,28 @@ arXiv:2402.13669, 2024.</p>
   <entry>
     <title>From Text to Insight: Large Language Models for Materials Science Data Extraction</title>
     <url>/2024/09/05/From-Text-to-Insight-Large-Language-Models-for-Materials-Science-Data-Extraction/</url>
-    <content><![CDATA[
+    <content><![CDATA[<blockquote>
+<p>第一作者：Schilling-Wilhelmi M, Ríos-García M</p>
+<p>作者单位：Friedrich Schiller University Jena, Institute of Carbon Science and Technology (INCAR)</p>
+<p>发表时间：2024/7</p>
+<p>发表期刊：</p>
+<p>关键内容：对材料科学中基于LLM的结构化数据抽取进行了全面的综述，综合了当前的知识并概述了未来的发展方向。</p>
+</blockquote>
+<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/from_text_to_insight1.png" alt="图1"></p>
+<p>Dealing with finite context: 处理文本长度，因为上下文窗口长度有限。</p>
+<p>Beyond text: 除文本外其它类型数据。</p>
+<h2 id="1-Overview-of-the-working-principles-of-LLMs">1. Overview of the working principles of LLMs</h2>
+<p>对于结构化数据提取任务，温度值为0的工作通常是最好的，因为这将导致具有最相关信息的确定性输出。</p>
+<h2 id="2-Structured-data-extraction-workflow">2. Structured data extraction workflow</h2>
+<p>“A simple example of a system prompt for the data extraction task can be: “You are a material expert assistant and your task is to extract certain information from a given text fragment. If no information is provided for some variables, return NULL”.”</p>
+<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/from_text_to_insight3.png" alt="图2"></p>
+<h2 id="3-参考文献">3. 参考文献</h2>
+<p>Schilling-Wilhelmi M, Ríos-García M, Shabih S, et al. From Text to Insight: Large Language Models for Materials Science Data Extraction[J]. arXiv preprint arXiv:2407.16867, 2024.</p>
 ]]></content>
+      <tags>
+        <tag>大模型</tag>
+        <tag>文献笔记</tag>
+      </tags>
   </entry>
   <entry>
     <title>Large Language Models Cannot Self-Correct Reasoning Yet</title>
@@ -2529,7 +2549,7 @@ arXiv:2402.13669, 2024.</p>
 <p>Schema 框架：<br>
 <img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/NERRE7.png" alt="图7"><br>
 <img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/NERRE8.png" alt="图8"></p>
-<p>数据标注：先利用少量样本进行训练，得到中间模型，使用中间模型对一部分数据进行标注，人工校准，得到的这部分数据又可以用于模型训练，重复这个过程。<br>
+<p>数据标注：Human-in-the-loop annotation，先利用少量样本进行训练，得到中间模型，使用中间模型对一部分数据进行标注，人工校准，得到的这部分数据又可以用于模型训练，重复这个过程。<br>
 <img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/NERRE5.png" alt="图5"><br>
 <img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/NERRE6.png" alt="图6"></p>
 <p>测试集：</p>
@@ -2547,7 +2567,6 @@ arXiv:2402.13669, 2024.</p>
 <p>Dagdelen J, Dunn A, Lee S, et al. Structured information extraction from scientific text with large language models[J]. Nature Communications, 2024, 15(1): 1418.</p>
 ]]></content>
       <tags>
-        <tag>知识图谱</tag>
         <tag>大模型</tag>
         <tag>文献笔记</tag>
       </tags>
