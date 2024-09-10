@@ -2,6 +2,105 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://lwl1751.github.io/2024/09/10/UniKP-a-unified-framework-for-the-prediction-of-enzyme-kinetic-parameters/</loc>
+    
+    <lastmod>2024-09-10T13:14:51.333Z</lastmod>
+    
+    <date>1725974091000</date>
+    <title>UniKP: a unified framework for the prediction of enzyme kinetic parameters | Wenliang Liang</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
+    <loc>https://lwl1751.github.io/2024/09/10/MLMD-a-programming-free-AI-platform-to-predict-and-design-materials/</loc>
+    
+    <lastmod>2024-09-10T13:14:42.916Z</lastmod>
+    
+    <date>1725974082000</date>
+    <title>MLMD: a programming-free AI platform to predict and design materials | Wenliang Liang</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
+    <loc>https://lwl1751.github.io/2024/09/10/Machine-Learning-and-Deep-Learning-Strategies-for-Chinese-Hamster-Ovary-Cell-Bioprocess-Optimization/</loc>
+    
+    <lastmod>2024-09-10T13:14:34.427Z</lastmod>
+    
+    <date>1725974074000</date>
+    <title>Machine Learning and Deep Learning Strategies for Chinese Hamster Ovary Cell Bioprocess Optimization | Wenliang Liang</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
+    <loc>https://lwl1751.github.io/2024/09/10/Improved-prediction-of-protein-protein-interactions-using-AlphaFold2/</loc>
+    
+    <lastmod>2024-09-10T13:14:24.846Z</lastmod>
+    
+    <date>1725974064000</date>
+    <title>Improved prediction of protein-protein interactions using AlphaFold2 | Wenliang Liang</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
+    <loc>https://lwl1751.github.io/2024/09/10/Harnessing-the-potential-of-machine-learning-for-advancing-%E2%80%9CQuality-by-Design%E2%80%9D-in-biomanufacturing/</loc>
+    
+    <lastmod>2024-09-10T13:14:15.745Z</lastmod>
+    
+    <date>1725974055000</date>
+    <title>Harnessing the potential of machine learning for advancing “Quality by Design” in biomanufacturing | Wenliang Liang</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
+    <loc>https://lwl1751.github.io/2024/09/10/Data%E2%80%90driven-prediction-models-for-forecasting-multistep-ahead-profiles-of-mammalian-cell-culture-toward-bioprocess-digital-twins/</loc>
+    
+    <lastmod>2024-09-10T13:14:07.483Z</lastmod>
+    
+    <date>1725974047000</date>
+    <title>Data‐driven prediction models for forecasting multistep ahead profiles of mammalian cell culture toward bioprocess digital twins | Wenliang Liang</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
+    <loc>https://lwl1751.github.io/2024/09/10/Accurate-structure-prediction-of-biomolecular-interactions-with-AlphaFold-3/</loc>
+    
+    <lastmod>2024-09-10T13:13:58.229Z</lastmod>
+    
+    <date>1725974038000</date>
+    <title>Accurate structure prediction of biomolecular interactions with AlphaFold 3 | Wenliang Liang</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
+    <loc>https://lwl1751.github.io/2024/09/10/OpenResearcher-Unleashing-AI-for-Accelerated-Scientific-Research/</loc>
+    
+    <lastmod>2024-09-10T13:13:45.351Z</lastmod>
+    
+    <date>1725974025000</date>
+    <title>OpenResearcher: Unleashing AI for Accelerated Scientific Research | Wenliang Liang</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
+    <loc>https://lwl1751.github.io/2024/09/10/Assessing-bioartificial-organ-function-the-3P-model-framework-and-its-validation/</loc>
+    
+    <lastmod>2024-09-10T13:13:21.470Z</lastmod>
+    
+    <date>1725974001000</date>
+    <title>Assessing bioartificial organ function: the 3P model framework and its validation | Wenliang Liang</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
     <loc>https://lwl1751.github.io/2024/09/05/From-Text-to-Insight-Large-Language-Models-for-Materials-Science-Data-Extraction/</loc>
     
     <lastmod>2024-09-05T13:45:46.335Z</lastmod>
