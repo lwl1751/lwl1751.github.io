@@ -2,6 +2,39 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://lwl1751.github.io/2024/09/12/Machine-learning-to-predict-morphology-topography-and-mechanical-properties-of-sustainable-gelatin%E2%80%91based-electrospun-scaffolds/</loc>
+    
+    <lastmod>2024-09-12T09:40:49.657Z</lastmod>
+    
+    <date>1726134049000</date>
+    <title>Machine learning to predict morphology, topography and mechanical properties of sustainable gelatin‑based electrospun scaffolds | Wenliang Liang</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
+    <loc>https://lwl1751.github.io/2024/09/12/Electrospun-nanofiber-membrane-diameter-prediction-using-a-combined-response-surface-methodology-and-machine-learning-approach/</loc>
+    
+    <lastmod>2024-09-12T09:40:36.592Z</lastmod>
+    
+    <date>1726134036000</date>
+    <title>Electrospun nanofiber membrane diameter prediction using a combined response surface methodology and machine learning approach | Wenliang Liang</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
+    <loc>https://lwl1751.github.io/2024/09/10/Harnessing-the-potential-of-machine-learning-for-advancing-%E2%80%9CQuality-by-Design%E2%80%9D-in-biomanufacturing/</loc>
+    
+    <lastmod>2024-09-12T09:29:54.721Z</lastmod>
+    
+    <date>1725974055000</date>
+    <title>Harnessing the potential of machine learning for advancing “Quality by Design” in biomanufacturing | Wenliang Liang</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
     <loc>https://lwl1751.github.io/2024/09/10/UniKP-a-unified-framework-for-the-prediction-of-enzyme-kinetic-parameters/</loc>
     
     <lastmod>2024-09-10T13:14:51.333Z</lastmod>
@@ -30,28 +63,6 @@
     
     <date>1725974074000</date>
     <title>Machine Learning and Deep Learning Strategies for Chinese Hamster Ovary Cell Bioprocess Optimization | Wenliang Liang</title>
-    
-    <desc></desc>
-  </url>
-  
-  <url>
-    <loc>https://lwl1751.github.io/2024/09/10/Improved-prediction-of-protein-protein-interactions-using-AlphaFold2/</loc>
-    
-    <lastmod>2024-09-10T13:14:24.846Z</lastmod>
-    
-    <date>1725974064000</date>
-    <title>Improved prediction of protein-protein interactions using AlphaFold2 | Wenliang Liang</title>
-    
-    <desc></desc>
-  </url>
-  
-  <url>
-    <loc>https://lwl1751.github.io/2024/09/10/Harnessing-the-potential-of-machine-learning-for-advancing-%E2%80%9CQuality-by-Design%E2%80%9D-in-biomanufacturing/</loc>
-    
-    <lastmod>2024-09-10T13:14:15.745Z</lastmod>
-    
-    <date>1725974055000</date>
-    <title>Harnessing the potential of machine learning for advancing “Quality by Design” in biomanufacturing | Wenliang Liang</title>
     
     <desc></desc>
   </url>

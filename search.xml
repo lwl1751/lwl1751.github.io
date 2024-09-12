@@ -2595,12 +2595,36 @@ arXiv:2402.13669, 2024.</p>
   <entry>
     <title>Harnessing the potential of machine learning for advancing “Quality by Design” in biomanufacturing</title>
     <url>/2024/09/10/Harnessing-the-potential-of-machine-learning-for-advancing-%E2%80%9CQuality-by-Design%E2%80%9D-in-biomanufacturing/</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title>Improved prediction of protein-protein interactions using AlphaFold2</title>
-    <url>/2024/09/10/Improved-prediction-of-protein-protein-interactions-using-AlphaFold2/</url>
-    <content><![CDATA[]]></content>
+    <content><![CDATA[<blockquote>
+<p>第一作者：Ian Walsha, Matthew Myinta</p>
+<p>作者单位：Microsoft Corporation</p>
+<p>发表时间：Bioprocessing Technology Institute, Agency for Science,
+Technology and Research (A*STAR), Singapore</p>
+<p>发表期刊：mAbs (2区)</p>
+<p>关键内容：介绍一些根据关键工艺参数去预测器官制造相关性能(使用ML)的文献。</p>
+</blockquote>
+<h2 id="引言">1. 引言</h2>
+<p>概念介绍：Qbd, MVDA, DoE</p>
+<ul>
+<li>Qbd: Quality by
+Design，质量源于设计。一种系统化的药品开发方法，强调通过理解产品和过程来确保药品的质量。它要求在设计阶段就明确产品的质量属性，并通过工艺设计确保这些属性满足要求。</li>
+<li>MVDA: Multivariate Data
+Analysis，多元数据分析。一种用于分析和解释具有多个变量的数据集的统计方法。与单变量分析不同，MVDA可以同时处理多个变量之间的相互关系，提供更全面的见解。如PCA,PLS(偏最小二乘回归)。</li>
+<li>DoE: Design of
+Experiments，实验设计。一种用于规划实验并通过最少的实验次数来获得最大信息的方法。它帮助研究者系统地探索多个因素的相互作用及其对结果的影响。</li>
+</ul>
+<h2 id="图表">2. 图表</h2>
+<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/10.1080_19420862.2021.2013593_1.png" alt="图1"> <img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/10.1080_19420862.2021.2013593_2.png" alt="图2"> <img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/10.1080_19420862.2021.2013593_3.png" alt="图3"> <img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/10.1080_19420862.2021.2013593_4.png" alt="图4"></p>
+<h2 id="参考文献">3. 参考文献</h2>
+<p>Walsh I, Myint M, Nguyen-Khuong T, et al. Harnessing the potential of
+machine learning for advancing “quality by design” in
+biomanufacturing[C]//MAbs. Taylor &amp; Francis, 2022, 14(1):
+2013593.</p>
+]]></content>
+      <tags>
+        <tag>文献笔记</tag>
+        <tag>参数预测</tag>
+      </tags>
   </entry>
   <entry>
     <title>MLMD: a programming-free AI platform to predict and design materials</title>
@@ -2621,5 +2645,17 @@ arXiv:2402.13669, 2024.</p>
     <title>UniKP: a unified framework for the prediction of enzyme kinetic parameters</title>
     <url>/2024/09/10/UniKP-a-unified-framework-for-the-prediction-of-enzyme-kinetic-parameters/</url>
     <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>Electrospun nanofiber membrane diameter prediction using a combined response surface methodology and machine learning approach</title>
+    <url>/2024/09/12/Electrospun-nanofiber-membrane-diameter-prediction-using-a-combined-response-surface-methodology-and-machine-learning-approach/</url>
+    <content><![CDATA[
+]]></content>
+  </entry>
+  <entry>
+    <title>Machine learning to predict morphology, topography and mechanical properties of sustainable gelatin‑based electrospun scaffolds</title>
+    <url>/2024/09/12/Machine-learning-to-predict-morphology-topography-and-mechanical-properties-of-sustainable-gelatin%E2%80%91based-electrospun-scaffolds/</url>
+    <content><![CDATA[
+]]></content>
   </entry>
 </search>
