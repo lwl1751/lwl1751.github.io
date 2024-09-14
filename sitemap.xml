@@ -2,6 +2,72 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://lwl1751.github.io/2024/09/14/catboost/</loc>
+    
+    <lastmod>2024-09-14T09:46:34.332Z</lastmod>
+    
+    <date>1726295829000</date>
+    <title>catboost | Wenliang Liang</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
+    <loc>https://lwl1751.github.io/2024/09/14/lightGBM/</loc>
+    
+    <lastmod>2024-09-14T08:57:09.943Z</lastmod>
+    
+    <date>1726295820000</date>
+    <title>lightGBM | Wenliang Liang</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
+    <loc>https://lwl1751.github.io/2024/09/12/XGBoost/</loc>
+    
+    <lastmod>2024-09-14T07:21:36.953Z</lastmod>
+    
+    <date>1726144303000</date>
+    <title>XGBoost | Wenliang Liang</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
+    <loc>https://lwl1751.github.io/2024/09/12/GBDT/</loc>
+    
+    <lastmod>2024-09-14T06:58:50.463Z</lastmod>
+    
+    <date>1726144272000</date>
+    <title>GBDT | Wenliang Liang</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
+    <loc>https://lwl1751.github.io/2024/09/13/Adaboost/</loc>
+    
+    <lastmod>2024-09-14T06:30:12.094Z</lastmod>
+    
+    <date>1726203544000</date>
+    <title>Adaboost | Wenliang Liang</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
+    <loc>https://lwl1751.github.io/2024/09/12/RF/</loc>
+    
+    <lastmod>2024-09-14T06:14:38.845Z</lastmod>
+    
+    <date>1726144204000</date>
+    <title>RF | Wenliang Liang</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
     <loc>https://lwl1751.github.io/2024/09/13/Bayesian-Optimization/</loc>
     
     <lastmod>2024-09-13T12:52:24.980Z</lastmod>
@@ -19,28 +85,6 @@
     
     <date>1726144260000</date>
     <title>GPR | Wenliang Liang</title>
-    
-    <desc></desc>
-  </url>
-  
-  <url>
-    <loc>https://lwl1751.github.io/2024/09/13/Adaboost/</loc>
-    
-    <lastmod>2024-09-13T04:59:04.114Z</lastmod>
-    
-    <date>1726203544000</date>
-    <title>Adaboost | Wenliang Liang</title>
-    
-    <desc></desc>
-  </url>
-  
-  <url>
-    <loc>https://lwl1751.github.io/2024/09/12/XGBoost/</loc>
-    
-    <lastmod>2024-09-12T12:31:43.925Z</lastmod>
-    
-    <date>1726144303000</date>
-    <title>XGBoost | Wenliang Liang</title>
     
     <desc></desc>
   </url>
@@ -68,34 +112,12 @@
   </url>
   
   <url>
-    <loc>https://lwl1751.github.io/2024/09/12/GBDT/</loc>
-    
-    <lastmod>2024-09-12T12:31:12.782Z</lastmod>
-    
-    <date>1726144272000</date>
-    <title>GBDT | Wenliang Liang</title>
-    
-    <desc></desc>
-  </url>
-  
-  <url>
     <loc>https://lwl1751.github.io/2024/09/12/SVM/</loc>
     
     <lastmod>2024-09-12T12:30:24.809Z</lastmod>
     
     <date>1726144224000</date>
     <title>SVM | Wenliang Liang</title>
-    
-    <desc></desc>
-  </url>
-  
-  <url>
-    <loc>https://lwl1751.github.io/2024/09/12/RF/</loc>
-    
-    <lastmod>2024-09-12T12:30:04.037Z</lastmod>
-    
-    <date>1726144204000</date>
-    <title>RF | Wenliang Liang</title>
     
     <desc></desc>
   </url>

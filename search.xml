@@ -2685,8 +2685,70 @@ biomanufacturing[C]//MAbs. Taylor &amp; Francis, 2022, 14(1):
   <entry>
     <title>GBDT</title>
     <url>/2024/09/12/GBDT/</url>
-    <content><![CDATA[
+    <content><![CDATA[<p>Gradient boosting Decision Tree。</p>
+<h2 id="核心思想">1. 核心思想</h2>
+<p>GBDT 是一种迭代的决策树算法，它由多棵决策树组成。GBDT
+的核心在于将所有决策树的输出累加作为最终结果，因此 GBDT 中的每一棵树都是
+<strong>回归树</strong>，即每棵树拟合的是之前模型的残差。每次迭代都会训练一个新的树来优化先前的误差，通过这种方式，不断提升模型的整体预测能力。</p>
+<h2 id="算法步骤">2. 算法步骤</h2>
+<ol type="1">
+<li><p><strong>初始化模型</strong>：使用常数函数初始化模型，比如将目标变量的均值作为初始预测值。</p></li>
+<li><p><strong>计算残差</strong>：对于每一个样本，计算当前模型的残差，即目标值与当前预测值的差异。</p></li>
+<li><p><strong>拟合残差</strong>：训练一棵决策树，使其能够拟合上一步的残差（拟合负梯度）。</p></li>
+<li><p><strong>更新模型</strong>：将新树的预测结果乘上学习率（缩放系数），然后将其加到当前模型的预测值中。</p></li>
+</ol>
+<p><span class="math display">\[
+F_m(x) = F_{m-1}(x) + \alpha h_m(x)
+\]</span></p>
+<p>其中，<span class="math inline">\(F_m(x)\)</span> 表示第 <span class="math inline">\(m\)</span> 次迭代后的模型，<span class="math inline">\(F_{m-1}(x)\)</span> 是前一次迭代的模型，<span class="math inline">\(h_m(x)\)</span> 是当前树的输出，<span class="math inline">\(\alpha\)</span> 是学习率。</p>
+<ol start="5" type="1">
+<li><strong>重复步骤
+2-4</strong>：直到达到指定的迭代次数或误差收敛。</li>
+</ol>
+<h2 id="损失函数">3. 损失函数</h2>
+<p>GBDT 可以处理 <strong>回归问题</strong> 和
+<strong>分类问题</strong>，因此对应的损失函数根据任务的不同而变化：</p>
+<ul>
+<li><strong>回归问题</strong>：使用 <strong>均方误差（MSE, Mean Squared
+Error）</strong> 作为损失函数，公式如下：</li>
+</ul>
+<p><span class="math display">\[
+L = \frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y_i})^2
+\]</span></p>
+<ul>
+<li><strong>分类问题</strong>：可以使用 <strong>对数损失函数</strong> 或
+<strong>交叉熵损失函数</strong>：</li>
+</ul>
+<p><span class="math display">\[
+L = - \sum_{i=1}^{n} y_i \log(\hat{y_i}) + (1 - y_i) \log(1 - \hat{y_i})
+\]</span></p>
+<p>GBDT
+通过负梯度来估计损失函数的残差，并逐步拟合这个负梯度，从而不断减少误差。</p>
+<h2 id="优势">4. 优势</h2>
+<ol type="1">
+<li><p><strong>高精度</strong>：GBDT 在各种任务中都有很好的表现，尤其是
+<strong>回归任务</strong> 和 <strong>二分类任务</strong>。</p></li>
+<li><p><strong>处理复杂非线性问题</strong>：GBDT
+通过多棵回归树累积，可以处理复杂的非线性关系。</p></li>
+<li><p><strong>灵活性</strong>：GBDT
+可以灵活地适用于回归和分类问题，损失函数可以根据具体问题自定义。</p></li>
+<li><p><strong>可扩展性</strong>：可以与其他模型（如神经网络）结合使用，增强模型的性能。</p></li>
+</ol>
+<h2 id="缺点">5. 缺点</h2>
+<ol type="1">
+<li><p><strong>训练时间较长</strong>：由于 GBDT
+是一种逐步迭代的算法，且每次迭代需要构建一棵新的决策树，因此训练时间较长。</p></li>
+<li><p><strong>难以并行化</strong>：由于 GBDT
+每次迭代都依赖于前一次迭代的结果，无法像随机森林那样轻松地并行化处理。</p></li>
+<li><p><strong>容易过拟合</strong>：如果树的深度过大或者迭代次数过多，GBDT
+容易过拟合。</p></li>
+<li><p><strong>对缺失值敏感</strong>：GBDT
+不能像一些其他算法一样自适应处理缺失值，因此数据预处理较为重要。</p></li>
+</ol>
 ]]></content>
+      <tags>
+        <tag>ML</tag>
+      </tags>
   </entry>
   <entry>
     <title>GLM</title>
@@ -2718,8 +2780,84 @@ biomanufacturing[C]//MAbs. Taylor &amp; Francis, 2022, 14(1):
   <entry>
     <title>RF</title>
     <url>/2024/09/12/RF/</url>
-    <content><![CDATA[
+    <content><![CDATA[<p>Random forest，随机森林。</p>
+<h2 id="决策树">1. 决策树</h2>
+<p>一种<strong>树形结构</strong>，通过学习数据中的特征，逐层对数据进行划分。每一个节点代表一个特征的决策条件，叶子节点代表最终的分类结果或回归值。</p>
+<h3 id="构建步骤">1.1 构建步骤</h3>
+<ol type="1">
+<li>从特征中选择最优特征作为节点进行数据集划分（如基尼指数或信息增益）。</li>
+<li>对每个子数据集递归地构建决策树，直到满足终止条件（如树的深度、叶子节点数等）。</li>
+<li>决策树会根据训练样本中学到的规则，给出分类或回归的结果。</li>
+</ol>
+<h3 id="信息增益information-gain">1.2 信息增益（Information Gain）</h3>
+<p>信息增益衡量的是某个特征对样本的分类效果，特征对数据集进行划分后，信息的不确定性减少的程度。</p>
+<p>计算公式：</p>
+<p><span class="math display">\[
+Gain(D, A) = Entropy(D) - \sum_{v=1}^{V} \frac{|D_v|}{|D|} Entropy(D_v)
+\]</span></p>
+<p>其中： <span class="math inline">\(Gain(D, A)\)</span>是特征<span class="math inline">\(A\)</span>对数据集<span class="math inline">\(D\)</span>的信息增益， <span class="math inline">\(Entropy(D)\)</span>是数据集<span class="math inline">\(D\)</span>的熵，计算公式为：</p>
+<p><span class="math display">\[
+Entropy(D) = - \sum_{i=1}^{k} p_i \log_2 p_i
+\]</span></p>
+<p>其中： <span class="math inline">\(p_i\)</span>是第<span class="math inline">\(i\)</span>类的样本在数据集<span class="math inline">\(D\)</span>中的比例， <span class="math inline">\(k\)</span>是类别的数量。</p>
+<p>信息增益的目标是通过最大化 <strong>信息增益</strong>
+来选择用于分裂的特征。</p>
+<h3 id="基尼指数gini-impurity">1.3 基尼指数（Gini Impurity）</h3>
+<p>基尼指数用于衡量一个节点的不纯度程度，数值越高表示样本的不纯度越高。其计算公式如下：</p>
+<p><span class="math display">\[
+G(p) = 1 - \sum_{i=1}^{k} p_i^2
+\]</span></p>
+<p>其中： <span class="math inline">\(p_i\)</span>是属于第<span class="math inline">\(i\)</span>类的样本所占的比例。 <span class="math inline">\(k\)</span>是类别的总数。</p>
+<p>对于某个特征<span class="math inline">\(A\)</span>的基尼指数计算公式为：</p>
+<p><span class="math display">\[
+Gini(D, A) = \sum_{v=1}^{V} \frac{|D_v|}{|D|} G(D_v)
+\]</span></p>
+<p>其中： <span class="math inline">\(D\)</span>是数据集， <span class="math inline">\(D_v\)</span>是特征<span class="math inline">\(A\)</span>取值为<span class="math inline">\(v\)</span>的子数据集， <span class="math inline">\(V\)</span>是特征<span class="math inline">\(A\)</span>的取值个数， <span class="math inline">\(G(D_v)\)</span>是子集<span class="math inline">\(D_v\)</span>的基尼指数。</p>
+<h2 id="核心思想">2. 核心思想</h2>
+<p>随机森林通过<strong>多棵决策树的集成</strong>来提升模型的性能。<strong>每棵树</strong>是在<strong>随机子集</strong>上构建的，这里的随机性包括以下两点：</p>
+<ol type="1">
+<li><strong>数据采样</strong>：使用<strong>有放回的随机抽样</strong>（即
+Bootstrap）从训练数据集中采样，生成多个不同的子数据集。每棵决策树在不同的数据子集上进行训练。</li>
+<li><strong>特征选择</strong>：每个节点进行决策时，从所有特征中<strong>随机选择一部分特征</strong>，然后在这些特征中选择最佳的分裂点。这一随机性避免了所有决策树过于依赖某些特定的强特征。</li>
+</ol>
+<h2 id="算法步骤">3. 算法步骤</h2>
+<ol type="1">
+<li><strong>数据随机采样</strong>：从训练集中通过<strong>Bootstrap方法</strong>随机采样，生成若干个包含放回采样的数据子集。</li>
+<li><strong>训练决策树</strong>：在每个数据子集上训练一棵决策树，每次节点分裂时，随机选择部分特征进行决策。</li>
+<li><strong>集成决策树</strong>：将所有训练得到的决策树组成森林，作为最终的模型。</li>
+<li><strong>投票或平均</strong>：对新样本输入森林时，所有树各自给出预测结果，分类问题通过<strong>投票法</strong>确定最终类别，回归问题通过<strong>平均法</strong>确定最终值。</li>
+</ol>
+<h2 id="损失函数">4. 损失函数</h2>
+<p>随机森林的损失函数依赖于具体任务：</p>
+<ul>
+<li><p>*<strong>分类问题</strong>：随机森林通常最小化<strong>基尼不纯度</strong>或<strong>信息增益</strong>，即在构建决策树时，选择能够最大化类别纯度的特征进行划分：
+<span class="math display">\[
+G(p) = 1 - \sum_{i=1}^{k} p_i^2
+\]</span> 其中，<span class="math inline">\(p_i\)</span>是当前节点中属于第<span class="math inline">\(i\)</span>类的样本比例，<span class="math inline">\(k\)</span>是类别数量。</p></li>
+<li><p><strong>回归问题</strong>：随机森林最小化的是<strong>均方误差</strong>（MSE），用来衡量预测值与真实值的差距：
+<span class="math display">\[
+MSE = \frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2
+\]</span> 其中，<span class="math inline">\(y_i\)</span>是真实值，<span class="math inline">\(\hat{y}_i\)</span>是预测值，<span class="math inline">\(n\)</span>是样本数量。</p></li>
+</ul>
+<h2 id="优势">优势</h2>
+<ol type="1">
+<li><strong>高准确率</strong>：通过集成多棵决策树，随机森林显著提高了模型的准确性，特别是在分类和回归任务中。</li>
+<li><strong>抗过拟合</strong>：决策树易过拟合，但随机森林通过对多个树的集成以及引入随机性，减少了过拟合的风险。</li>
+<li><strong>处理高维数据</strong>：随机森林能够很好地处理高维数据，并且在特征选择中具有较好的表现。</li>
+<li><strong>处理缺失值</strong>：它可以自动处理缺失数据，并能够通过投票或平均来进行处理。</li>
+<li><strong>可并行化</strong>：由于每棵树是独立训练的，因此随机森林易于并行化，训练速度快。</li>
+</ol>
+<h2 id="缺点">缺点</h2>
+<ol type="1">
+<li><strong>模型复杂度高</strong>：随机森林由许多决策树组成，模型的复杂度较高，训练和预测的时间成本较大。</li>
+<li><strong>解释性差</strong>：随机森林虽然性能优异，但由于其集成了大量决策树，整体模型较为复杂，难以解释各个特征的重要性和决策路径。</li>
+<li><strong>计算开销大</strong>：训练大量的决策树需要较高的计算资源，尤其是在处理大规模数据时，训练时间较长，内存开销大。</li>
+<li><strong>对高噪声数据敏感</strong>：随机森林对噪声数据的鲁棒性不足，可能导致过多无效的树，影响整体预测效果。</li>
+</ol>
 ]]></content>
+      <tags>
+        <tag>ML</tag>
+      </tags>
   </entry>
   <entry>
     <title>SVM</title>
@@ -2736,14 +2874,234 @@ biomanufacturing[C]//MAbs. Taylor &amp; Francis, 2022, 14(1):
   <entry>
     <title>XGBoost</title>
     <url>/2024/09/12/XGBoost/</url>
-    <content><![CDATA[
+    <content><![CDATA[<p>Extreme Gradient Boosting，对GBDT的优化实现。</p>
+<h2 id="核心思想">1. 核心思想</h2>
+<p>XGBoost 继承了 GBDT
+的基本思想，即通过构建多个决策树来逐步优化模型的预测能力。XGBoost
+的优化改进：</p>
+<ul>
+<li><strong>损失函数的优化</strong>：XGBoost
+使用二阶导数（Hessian）信息来优化损失函数，提升模型在拟合时的鲁棒性和精确度。</li>
+<li><strong>目标函数的优化</strong>：XGBoost
+不仅考虑了损失函数，还在目标函数中加入了正则化项，用来控制模型的复杂度，防止过拟合。</li>
+</ul>
+<h2 id="算法步骤">2. 算法步骤</h2>
+<p>XGBoost 的算法流程与 GBDT 类似，包含以下步骤：</p>
+<ol type="1">
+<li><p><strong>初始化模型</strong>：开始时，模型初始化为常数值。通常使用目标变量的均值来初始化模型。</p></li>
+<li><p><strong>逐步添加树</strong>：</p>
+<ul>
+<li>每一轮迭代时，基于上一轮的残差，训练一个新的回归树。</li>
+<li>XGBoost
+使用损失函数的<strong>一阶导数</strong>（梯度）和<strong>二阶导数</strong>（Hessian）来生成新树。</li>
+</ul></li>
+<li><p><strong>目标函数优化</strong>：</p>
+<ul>
+<li>对每棵树，XGBoost
+构建时通过最小化目标函数来决定分裂节点的最佳方式。</li>
+<li>目标函数考虑了模型的误差和正则化项。1</li>
+</ul></li>
+<li><p><strong>加法模型</strong>：</p>
+<ul>
+<li>新的决策树模型与之前的树累加，形成最终的模型。</li>
+</ul></li>
+<li><p><strong>更新预测值</strong>：</p>
+<ul>
+<li>根据当前的决策树，更新模型的预测值，并继续进行下一轮迭代，直到达到指定的树数或误差停止下降。</li>
+</ul></li>
+</ol>
+<h2 id="目标函数">3. 目标函数</h2>
+<p>XGBoost 的目标函数包括两个部分：损失函数和正则化项。</p>
+<p><span class="math display">\[
+\text{Obj}(\theta) = \sum_{i=1}^{n} L(y_i, \hat{y}_i) + \sum_{k=1}^{K}
+\Omega(f_k)
+\]</span></p>
+<p>其中：</p>
+<ul>
+<li><span class="math inline">\(L(y_i, \hat{y}_i)\)</span>
+是模型的损失函数，用于衡量模型预测值 <span class="math inline">\(\hat{y}_i\)</span> 和真实值 <span class="math inline">\(y_i\)</span> 之间的差异。
+<ul>
+<li>对于<strong>分类问题</strong>，常用的损失函数是<strong>对数损失</strong>：
+<span class="math display">\[
+L(y_i, \hat{y}_i) = - \sum_{i} y_i \log(\hat{y}_i)
+\]</span></li>
+<li>对于<strong>回归问题</strong>，通常使用的损失函数是<strong>均方误差</strong>（MSE）：
+<span class="math display">\[
+L(y_i, \hat{y}_i) = \frac{1}{2}(y_i - \hat{y}_i)^2
+\]</span></li>
+</ul></li>
+<li><span class="math inline">\(\Omega(f_k)\)</span>
+是正则化项，用于控制模型的复杂度，防止过拟合。具体公式为： <span class="math display">\[
+\Omega(f_k) = \gamma T + \frac{1}{2} \lambda \sum_j w_j^2
+\]</span> 其中：
+<ul>
+<li><span class="math inline">\(T\)</span> 是树的叶子节点数。</li>
+<li><span class="math inline">\(w_j\)</span>
+是叶子节点的权重，表示每个叶子节点的输出值，<span class="math inline">\(w_j\)</span> 通过最小化目标函数导出的公式计算：
+<span class="math display">\[
+w_j = -\frac{\sum_{i \in \text{leaf } j} g_i}{\sum_{i \in \text{leaf }
+j} h_i + \lambda}
+\]</span> 其中 <span class="math inline">\(g_i\)</span> 和 <span class="math inline">\(h_i\)</span> 分别是一阶导数和二阶导数。</li>
+<li><span class="math inline">\(\lambda\)</span>
+是用于控制权重大小的正则化参数。</li>
+<li><span class="math inline">\(\gamma\)</span>
+控制树的叶子节点数量。</li>
+</ul></li>
+</ul>
+<p>XGBoost
+使用二阶泰勒展开对损失函数进行近似来优化树结构，具体公式为：</p>
+<p><span class="math display">\[
+\text{Obj}(\theta) \approx \sum_{i=1}^{n} \left[ g_i \cdot f(x_i) +
+\frac{1}{2} h_i \cdot f(x_i)^2 \right] + \Omega(f)
+\]</span></p>
+<p>其中：</p>
+<ul>
+<li><span class="math inline">\(g_i\)</span>
+是损失函数的<strong>一阶导数</strong>（梯度），用于表示预测值与真实值的误差方向。</li>
+<li><span class="math inline">\(h_i\)</span>
+是损失函数的<strong>二阶导数</strong>（Hessian），用于描述误差变化的程度。</li>
+</ul>
+<h2 id="优势">4. 优势</h2>
+<p>XGBoost 相较于传统的 GBDT，在多个方面进行了优化，具有以下优势：</p>
+<ol type="1">
+<li><strong>速度快</strong>：
+<ul>
+<li>XGBoost 在树构建过程中使用了<strong>按列块分裂</strong>（Column
+Block Splitting），通过并行计算提升了训练速度。</li>
+<li>通过缓存加速（Out<em>of</em>core
+Computation）支持处理超大规模数据集。</li>
+</ul></li>
+<li><strong>精度高</strong>：
+<ul>
+<li>使用了<strong>二阶导数</strong>来优化树的构建，使模型能够更精确地拟合训练数据。</li>
+<li>正则化项有效防止过拟合，保证模型泛化能力。</li>
+</ul></li>
+<li><strong>支持多种损失函数</strong>：
+<ul>
+<li>除了支持常见的回归和分类损失函数，XGBoost
+还允许用户自定义损失函数，具有高度的灵活性。</li>
+</ul></li>
+<li><strong>处理缺失值</strong>：
+<ul>
+<li>XGBoost
+具备自动处理缺失值的功能，在构建决策树时，它会学习到缺失值的默认路径，而不需要额外的数据预处理。</li>
+</ul></li>
+<li><strong>树的剪枝</strong>：
+<ul>
+<li>XGBoost
+使用<strong>最大增益剪枝</strong>算法（Shrinkage），通过限制树的深度以及叶子节点数，进一步防止过拟合。</li>
+</ul></li>
+<li><strong>支持早停机制</strong>：
+<ul>
+<li>XGBoost 可以通过早停机制（Early
+Stopping）在训练过程中动态判断是否需要停止训练，防止过拟合和无效的计算。</li>
+</ul></li>
+</ol>
+<h2 id="缺点">5. 缺点</h2>
+<p>尽管 XGBoost 优势众多，但它也存在一些缺点：</p>
+<ol type="1">
+<li><strong>对超参数敏感</strong>：
+<ul>
+<li>XGBoost
+拥有众多超参数，如学习率、最大深度、最小分裂样本数等，模型性能高度依赖于这些超参数的调优。</li>
+<li>超参数调优复杂且耗时，通常需要使用网格搜索或随机搜索来寻找最佳参数组合。</li>
+</ul></li>
+<li><strong>难以解释</strong>：
+<ul>
+<li>由于 XGBoost
+使用了多个决策树的集成结果，虽然有一定的解释性，但相比于线性模型或单棵树，模型的可解释性较低。</li>
+</ul></li>
+<li><strong>计算资源要求高</strong>：
+<ul>
+<li>尽管 XGBoost
+在速度上做了很多优化，但在大规模数据集上，它的训练仍然需要大量的计算资源，尤其是在进行参数调优时。</li>
+</ul></li>
+<li><strong>易受噪声影响</strong>：
+<ul>
+<li>如果数据中存在较多的噪声，XGBoost
+可能会过度拟合噪声，导致模型泛化能力下降。</li>
+</ul></li>
+</ol>
 ]]></content>
+      <tags>
+        <tag>ML</tag>
+      </tags>
   </entry>
   <entry>
     <title>Adaboost</title>
     <url>/2024/09/13/Adaboost/</url>
-    <content><![CDATA[
+    <content><![CDATA[<p>Adaptive Boosting，自适应增强。</p>
+<h2 id="核心思想">1. 核心思想</h2>
+<p>通过逐轮训练弱分类器，每一轮根据分类器的表现调整样本权重，最终将这些弱分类器进行加权组合，形成一个强分类器。弱分类器可以是任何表现略优于随机猜测的模型。</p>
+<h2 id="算法步骤">2. 算法步骤</h2>
+<ol type="1">
+<li><p><strong>初始化训练样本的权值分布</strong>：最开始对每个训练样本赋予相同的权重：
+<span class="math display">\[w_i^{(1)} = \frac{1}{N}, \quad
+i=1,2,\dots,N\]</span> 其中，<span class="math inline">\(N\)</span>为训练样本的总数，<span class="math inline">\(w_i^{(1)}\)</span>为第 <span class="math inline">\(i\)</span>个样本在初始阶段的权重。</p></li>
+<li><p><strong>训练弱分类器</strong>：在每一轮迭代中，用当前的权值分布训练一个弱分类器
+<span class="math inline">\(h_t\)</span>。对于训练样本集 <span class="math inline">\(X = \{x_1, x_2, \dots, x_N\}\)</span>，若弱分类器
+<span class="math inline">\(h_t\)</span>对样本 <span class="math inline">\(x_i\)</span>分类错误，权重 <span class="math inline">\(w_i\)</span>就会增加；若分类正确，则 <span class="math inline">\(w_i\)</span>减少。</p></li>
+<li><p><strong>计算弱分类器的误差率</strong>：分类器 <span class="math inline">\(h_t\)</span>的分类误差率 <span class="math inline">\(\epsilon_t\)</span>为： <span class="math display">\[
+\epsilon_t = \frac{\sum_{i=1}^{N} w_i^{(t)} \cdot \mathbb{I}(h_t(x_i)
+\neq y_i)}{\sum_{i=1}^{N} w_i^{(t)}}
+\]</span> 其中，<span class="math inline">\(\mathbb{I}(\cdot)\)</span>是指示函数，当 <span class="math inline">\(h_t(x_i) \neq y_i\)</span>时取值为 1，否则为
+0。<span class="math inline">\(y_i\)</span>为样本 <span class="math inline">\(x_i\)</span>的真实标签。</p></li>
+<li><p><strong>计算弱分类器的权重</strong>：根据分类误差率 <span class="math inline">\(\epsilon_t\)</span>，计算该弱分类器的权重 <span class="math inline">\(\alpha_t\)</span>，权重越高，表示该分类器的效果越好：
+<span class="math display">\[
+\alpha_t = \frac{1}{2} \ln \left( \frac{1 - \epsilon_t}{\epsilon_t}
+\right)
+\]</span> 其中，<span class="math inline">\(\alpha_t\)</span>反映了该分类器在最终组合分类器中的重要性。</p></li>
+<li><p><strong>更新样本权重</strong>：为了让下一个弱分类器更多关注分类错误的样本，更新样本权重。更新公式为：
+<span class="math display">\[
+w_i^{(t+1)} = w_i^{(t)} \cdot \exp\left( \alpha_t \cdot
+\mathbb{I}(h_t(x_i) \neq y_i) \right)
+\]</span> 经过归一化处理后，使得所有权重之和仍然为 1： <span class="math display">\[
+w_i^{(t+1)} = \frac{w_i^{(t+1)}}{\sum_{i=1}^{N} w_i^{(t+1)}}
+\]</span></p></li>
+<li><p><strong>构建最终分类器</strong>：在所有弱分类器训练完成后，将每个弱分类器按其权重
+<span class="math inline">\(\alpha_t\)</span>进行加权投票，得到最终的强分类器：
+<span class="math display">\[
+H(x) = \text{sign}\left( \sum_{t=1}^{T} \alpha_t h_t(x) \right)
+\]</span> 其中，<span class="math inline">\(T\)</span>是弱分类器的总数，<span class="math inline">\(\text{sign}(\cdot)\)</span>是符号函数，用于确定最终分类的正负。</p></li>
+</ol>
+<h2 id="损失函数">3. 损失函数</h2>
+<h3 id="指数损失函数">3.1 指数损失函数</h3>
+<p>在 <strong>Adaboost</strong> 中，分类问题常使用
+<strong>指数损失函数</strong> 来计算损失：</p>
+<p><span class="math display">\[
+L(x_i) = \exp(-y_i f(x_i))
+\]</span></p>
+<p>其中： <span class="math inline">\(x_i\)</span>是样本数据， <span class="math inline">\(y_i\)</span>是样本的真实标签（+1 或 -1）， <span class="math inline">\(f(x_i)\)</span>是通过弱分类器的加权组合形成的决策函数。</p>
+<p>当 <span class="math inline">\(y_i \cdot
+f(x_i)\)</span>较大时，表示分类正确，损失较小；而当 <span class="math inline">\(y_i \cdot
+f(x_i)\)</span>较小时，表示分类错误，损失会快速增加。</p>
+<h3 id="均方误差">3.2 均方误差</h3>
+<p>在 <strong>回归问题</strong> 中，常用的损失函数是
+<strong>均方误差（MSE, Mean Squared Error）</strong>，其公式为：</p>
+<p><span class="math display">\[
+L = \frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y_i})^2
+\]</span></p>
+<p>其中： <span class="math inline">\(y_i\)</span>是真实值， <span class="math inline">\(\hat{y_i}\)</span>是预测值。</p>
+<h2 id="优势">4. 优势</h2>
+<ol type="1">
+<li><strong>自适应性</strong>：Adaboost
+通过动态调整样本权重，使得后续分类器重点关注难以分类的样本。</li>
+<li><strong>理论保障</strong>：Adaboost
+有较强的理论支持，尤其是在误分类率低的情况下，能够显著提升分类性能。</li>
+<li><strong>不易过拟合</strong>：尽管 Adaboost
+会不断加强对误分类样本的关注，但在弱分类器性能有限的情况下，它不容易产生过拟合问题。</li>
+</ol>
+<h2 id="缺点">5. 缺点</h2>
+<ol type="1">
+<li><strong>对噪声敏感</strong>：Adaboost
+在处理含有噪声的数据时可能表现不佳，因为它会过度关注那些难以分类的样本，可能导致模型偏向噪声数据。</li>
+<li><strong>分类器局限</strong>：Adaboost 要求弱分类器的错误率要小于
+0.5，如果弱分类器过于弱或误差率高，整个模型的效果可能较差。</li>
+</ol>
 ]]></content>
+      <tags>
+        <tag>ML</tag>
+      </tags>
   </entry>
   <entry>
     <title>Bayesian Optimization</title>
@@ -2776,6 +3134,157 @@ Bound，通过平衡利用（即选择预测均值高的点）和探索（即选
 <p><a href="https://blog.51cto.com/u_16099249/8326101" class="uri">https://blog.51cto.com/u_16099249/8326101</a></p>
 <p><a href="https://blog.csdn.net/weixin_40056577/article/details/114222379?sharetype=blogdetail&amp;sharerId=114222379&amp;sharerefer=PC&amp;sharesource=weixin_46782903&amp;sharefrom=from_link" class="uri">https://blog.csdn.net/weixin_40056577/article/details/114222379?sharetype=blogdetail&amp;sharerId=114222379&amp;sharerefer=PC&amp;sharesource=weixin_46782903&amp;sharefrom=from_link</a></p>
 <p><a href="https://www.bilibili.com/video/BV1fY411t7hm/?spm_id_from=333.337.search-card.all.click&amp;vd_source=514a3ed3ac370caf4facad7d6f4e1a2d" class="uri">https://www.bilibili.com/video/BV1fY411t7hm/?spm_id_from=333.337.search-card.all.click&amp;vd_source=514a3ed3ac370caf4facad7d6f4e1a2d</a></p>
+]]></content>
+      <tags>
+        <tag>ML</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>catboost</title>
+    <url>/2024/09/14/catboost/</url>
+    <content><![CDATA[<p>Category Boosting, 对GBDT的优化实现。</p>
+<h2 id="核心思想">1. 核心思想</h2>
+<p>CatBoost的核心思想是在GBDT的基础上进行改进，主要通过以下几方面的优化：</p>
+<ol type="1">
+<li><p><strong>类别特征的高效处理</strong>：CatBoost可以直接处理类别特征，不需要进行独热编码（One-Hot
+Encoding），通过统计信息和基于目标值的编码技术减少了过拟合和信息泄漏的风险。</p></li>
+<li><p><strong>避免梯度偏差</strong>：在传统GBDT中，梯度计算可能带有偏差，而CatBoost通过引入基于排序的梯度提升方法来减少这种偏差，提升模型的泛化能力。</p></li>
+<li><p><strong>对称树结构</strong>：CatBoost构建对称的决策树，这意味着每个树的左右分支在相同的深度上分裂相同的特征。这种结构可以提升预测速度，并使得模型对数据顺序不敏感。</p></li>
+<li><p><strong>顺序提升算法</strong>：CatBoost在训练时使用顺序提升方法，通过逐步引入数据点来减少目标编码和梯度提升中的信息泄漏。</p></li>
+</ol>
+<h2 id="算法步骤">2. 算法步骤</h2>
+<p>CatBoost的算法步骤与传统的GBDT相似，但增加了对类别特征和数据顺序的特殊处理：</p>
+<ol type="1">
+<li><p><strong>初始化模型</strong>：选择初始预测值（通常是常数，如目标的均值）。</p></li>
+<li><p><strong>类别特征编码</strong>：对类别特征进行统计编码，使用平均目标值或基于排序的编码方法处理类别特征，确保没有信息泄漏。</p></li>
+<li><p><strong>构建对称树</strong>：基于顺序提升法和对称树结构构建决策树。在每次构建树时，CatBoost选择具有最大分裂增益的特征进行分裂。</p></li>
+<li><p><strong>计算梯度和更新模型</strong>：根据当前模型的预测误差，计算梯度并更新模型参数，构建新的树。</p></li>
+<li><p><strong>重复迭代</strong>：重复上述步骤，直到达到预设的树数或误差收敛。</p></li>
+</ol>
+<h2 id="损失函数">3. 损失函数</h2>
+<p>CatBoost与GBDT类似，使用的损失函数取决于任务类型：</p>
+<ul>
+<li><strong>回归任务</strong>：常用均方误差（MSE）或绝对误差（MAE）作为损失函数。</li>
+</ul>
+<p><span class="math display">\[
+  L(y, \hat{y}) = \frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2
+\]</span></p>
+<ul>
+<li><strong>分类任务</strong>：常用交叉熵损失函数（Logloss）来衡量模型预测的概率分布与真实标签之间的差异。</li>
+</ul>
+<p><span class="math display">\[
+  L(y, \hat{y}) = -\sum_{i=1}^{n} [y_i \log(\hat{y}_i) + (1 - y_i)
+\log(1 - \hat{y}_i)]
+\]</span></p>
+<p>CatBoost的损失函数可以通过参数调整适用于不同的任务，如二分类、多分类、回归等。</p>
+<h2 id="优势">4. 优势</h2>
+<p>CatBoost相较于其他GBDT实现有以下优势：</p>
+<ol type="1">
+<li><p><strong>直接处理类别特征</strong>：无需进行独热编码，减少了内存占用和计算复杂度，同时通过顺序编码技术避免了信息泄漏。</p></li>
+<li><p><strong>减少梯度偏差</strong>：使用基于排序的梯度提升方法，减少了梯度估计中的偏差，提高了模型的泛化能力。</p></li>
+<li><p><strong>高效训练与预测</strong>：由于采用了对称树结构，CatBoost在训练和预测过程中都具有较高的速度，尤其在预测阶段，能够显著降低推理时间。</p></li>
+<li><p><strong>对数据顺序不敏感</strong>：CatBoost采用顺序提升法，减少了训练数据的顺序对模型性能的影响，适合处理时序数据或随机排序的数据。</p></li>
+<li><p><strong>支持GPU加速</strong>：CatBoost原生支持GPU加速，能够显著加快大规模数据集的训练速度。</p></li>
+</ol>
+<h2 id="缺点">5. 缺点</h2>
+<ul>
+<li>对于类别特征的处理需要大量的内存和时间。</li>
+<li>不同随机数的设定对于模型预测结果有一定的影响。</li>
+</ul>
+<p>参考资料：</p>
+<p><a href="https://cloud.tencent.com/developer/article/1546808" class="uri">https://cloud.tencent.com/developer/article/1546808</a></p>
+]]></content>
+      <tags>
+        <tag>ML</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>lightGBM</title>
+    <url>/2024/09/14/lightGBM/</url>
+    <content><![CDATA[<p>Light Gradient Boosting Machine。lightGBM 和
+XGBoost一样，是对GBDT的优化实现，但比XGBoost更为优秀高效。GBDT
+在每一次迭代的时候，都需要遍历整个训练数据多次。如果把整个训练数据一次性装进内存，会明显限制训练数据的大小。如果不装进内存，反复地读写训练数据又会消耗非常大的时间。XGboost中使用的精确贪心算法也同样存在这个问题。</p>
+<p>参考资料（更加详细，有助于理解）：</p>
+<p><a href="https://github.com/ExpressGit/NLP_Study_Demo/blob/main/ML/LightGBM.ipynb" class="uri">https://github.com/ExpressGit/NLP_Study_Demo/blob/main/ML/LightGBM.ipynb</a></p>
+<p><a href="https://www.bilibili.com/video/BV1JK4y1L7ow/?spm_id_from=333.337.search-card.all.click&amp;vd_source=514a3ed3ac370caf4facad7d6f4e1a2d" class="uri">https://www.bilibili.com/video/BV1JK4y1L7ow/?spm_id_from=333.337.search-card.all.click&amp;vd_source=514a3ed3ac370caf4facad7d6f4e1a2d</a></p>
+<h2 id="核心思想">1. 核心思想</h2>
+<p>LightGBM是一种高效的梯度提升决策树（GBDT）实现，具有独特的优化策略以应对大规模数据和高维特征的挑战。其核心思想是通过引入基于直方图的决策树算法、梯度采样、特征捆绑等技术，优化模型的训练速度和内存使用，同时保持模型的准确性。</p>
+<h3 id="基于histogram的决策树算法">1.1 基于Histogram的决策树算法</h3>
+<p>LightGBM采用基于直方图的决策树算法，通过将连续特征值分桶（即构建直方图），极大地减少了寻找最佳分裂点时的计算量。同时，直方图算法的内存效率也显著提升，因为特征值只需要记录对应的分桶信息，而不必存储完整的特征值。</p>
+<p>注意：</p>
+<ul>
+<li>使用分桶 bin 替代原始数据相当于增加了正则化。</li>
+<li>使用分桶 bin
+意味着很多数据的细节特征丢失，相似的数据如果划分到相同的桶中，数据之间的差异就无法捕获了。</li>
+<li>分桶 bin 数量决定了正则化的程度，bin
+越少惩罚越严重，欠拟合风险越高。</li>
+<li>因为预先设定了 bin 的范围，构建直方图时不需要对数据进行排序。</li>
+<li>直方图保存「划分阈值」、「当前 bin 内样本数」、「当前 bin
+内所有样本的一阶梯度和」。</li>
+<li>阈值的选取是按照直方图从小到大遍历，使用了上面的一阶梯度和，目的是得到划分之后
+损失函数 最大的特征及阈值。</li>
+</ul>
+<h3 id="单边梯度采样goss-gradient-based-one-side-sampling-goss">1.2
+单边梯度采样GOSS, Gradient-based One-Side Sampling (GOSS)</h3>
+<p>GOSS是一种采样策略，旨在通过保留梯度较大的样本（即模型难以拟合的样本）来提高梯度提升的效率。GOSS会对梯度较小的样本进行下采样，减少计算量，同时保证对整体数据分布的准确把握，从而加快模型的训练速度。</p>
+<figure>
+<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/lightGBM1.jpeg" alt="图1">
+<figcaption aria-hidden="true">图1</figcaption>
+</figure>
+<h3 id="互斥特征捆绑-exclusive-feature-bundling">1.3 互斥特征捆绑
+Exclusive Feature Bundling</h3>
+<p>Exclusive Feature Bundling (EFB)
+是一种特征压缩技术，用于减少特征的维度。LightGBM会将一些<strong>互斥的稀疏特征</strong>（即在同一个样本中不同时为非零的特征）捆绑成一个特征，极大地减少了特征维度的数量，而不会影响模型的精度。</p>
+<p>算法步骤：</p>
+<ul>
+<li>将特征按照非零值的个数进行排序。</li>
+<li>计算不同特征之间的冲突比率。</li>
+<li>遍历每个特征并尝试合并特征，使冲突比率最小。</li>
+</ul>
+<h3 id="带深度限制的leaf-wise的叶子生长策略">1.4
+带深度限制的Leaf-wise的叶子生长策略</h3>
+<p>LightGBM采用叶子生长策略（Leaf-wise
+Growth），即在构建决策树时优先分裂增益最大的叶子节点，而不是逐层分裂。这种策略相比传统的逐层分裂方法（level-wise），能够更快地找到更优的分裂点，但也更容易出现过拟合。为此，LightGBM引入了深度限制，防止树结构过深。</p>
+<h3 id="直接支持类别特征">1.5 直接支持类别特征</h3>
+<p>LightGBM直接支持类别特征，不需要对其进行独热编码（one-hot
+encoding）。通过对类别特征的分裂优化，LightGBM能够在高效处理类别特征的同时减少内存和计算的开销。</p>
+<p>算法步骤：</p>
+<ul>
+<li>在枚举分割点之前，先把直方图按每个类别的均值进行排序。</li>
+<li>接着按照均值的结果依次枚举最优分割点。</li>
+</ul>
+<h3 id="支持高效并行">1.6 支持高效并行</h3>
+<p>LightGBM支持特征并行和数据并行两种高效的并行计算方式。在特征并行中，多个特征的分裂点搜索可以并行进行；在数据并行中，使用分散规约把直方图合并的任务分摊到不同的机器上。</p>
+<h3 id="cache命中率优化">1.7 Cache命中率优化</h3>
+<p>LightGBM 所使用直方图算法对 Cache 天生友好：</p>
+<p>首先，所有的特征都采用相同的方式获得梯度（区别于XGBoost的不同特征通过不同的索引获得梯度），只需要对梯度进行排序并可实现连续访问，大大提高了缓存命中率；
+其次，因为不需要存储行索引到叶子索引的数组，降低了存储消耗，而且也不存在
+Cache Miss的问题。</p>
+<h2 id="算法步骤">2. 算法步骤</h2>
+<p>LightGBM的基本算法流程如下：</p>
+<ol type="1">
+<li><p><strong>初始化</strong>：初始化模型参数，将所有样本的预测值设定为常数值（如均值）。</p></li>
+<li><p><strong>构建决策树</strong>：根据残差更新样本的梯度信息，采用基于直方图的分裂方法，找到最佳分裂点。</p></li>
+<li><p><strong>更新预测值</strong>：根据新构建的树，更新所有样本的预测值。</p></li>
+<li><p><strong>迭代重复</strong>：根据更新后的预测值继续构建新树，重复该过程直到达到设定的迭代次数或满足早停条件。</p></li>
+</ol>
+<h2 id="目标函数">3. 目标函数</h2>
+<p>LightGBM 的目标函数由损失函数和正则化项组成：</p>
+<ul>
+<li><p><strong>损失函数</strong>：通常是平方误差（用于回归问题）或交叉熵损失（用于分类问题），用于衡量模型预测值与真实值的差异。</p>
+<p><span class="math display">\[
+L(\theta) = \sum_i \ell(y_i, f(x_i))
+\]</span></p></li>
+<li><p><strong>正则化项</strong>：为了防止模型过拟合，LightGBM引入了树结构复杂度和叶子节点权重的正则化项：</p>
+<p><span class="math display">\[
+\Omega(f) = \gamma T + \frac{1}{2} \lambda \sum_j w_j^2
+\]</span></p></li>
+</ul>
+<p>各参数含义与XGboost中的相同。</p>
+<h2 id="优点">4. 优点</h2>
+<p>速度快，占用内存少。</p>
+<h2 id="缺点">5. 缺点</h2>
+<p>LightGBM是基于偏差的算法，所以会对噪点较为敏感。在寻找最优解时，依据的是最优切分变量，没有将最优解是全部特征的综合这一理念考虑进去；</p>
 ]]></content>
       <tags>
         <tag>ML</tag>
