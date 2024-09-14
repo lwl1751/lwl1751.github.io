@@ -2,6 +2,72 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://lwl1751.github.io/2024/09/12/GPR/</loc>
+    
+    <lastmod>2024-09-14T12:18:03.668Z</lastmod>
+    
+    <date>1726144260000</date>
+    <title>GPR | Wenliang Liang</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
+    <loc>https://lwl1751.github.io/2024/09/12/GAM/</loc>
+    
+    <lastmod>2024-09-14T12:14:26.347Z</lastmod>
+    
+    <date>1726144292000</date>
+    <title>GAM | Wenliang Liang</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
+    <loc>https://lwl1751.github.io/2024/09/12/GLM/</loc>
+    
+    <lastmod>2024-09-14T12:11:56.040Z</lastmod>
+    
+    <date>1726144281000</date>
+    <title>GLM | Wenliang Liang</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
+    <loc>https://lwl1751.github.io/2024/09/12/PCA/</loc>
+    
+    <lastmod>2024-09-14T12:08:38.843Z</lastmod>
+    
+    <date>1726144186000</date>
+    <title>PCA | Wenliang Liang</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
+    <loc>https://lwl1751.github.io/2024/09/12/PLSA/</loc>
+    
+    <lastmod>2024-09-14T12:00:37.543Z</lastmod>
+    
+    <date>1726144194000</date>
+    <title>PLS | Wenliang Liang</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
+    <loc>https://lwl1751.github.io/2024/09/12/SVM/</loc>
+    
+    <lastmod>2024-09-14T11:49:48.227Z</lastmod>
+    
+    <date>1726144224000</date>
+    <title>SVM | Wenliang Liang</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
     <loc>https://lwl1751.github.io/2024/09/14/catboost/</loc>
     
     <lastmod>2024-09-14T09:46:34.332Z</lastmod>
@@ -74,72 +140,6 @@
     
     <date>1726203781000</date>
     <title>Bayesian Optimization | Wenliang Liang</title>
-    
-    <desc></desc>
-  </url>
-  
-  <url>
-    <loc>https://lwl1751.github.io/2024/09/12/GPR/</loc>
-    
-    <lastmod>2024-09-13T11:39:43.184Z</lastmod>
-    
-    <date>1726144260000</date>
-    <title>GPR | Wenliang Liang</title>
-    
-    <desc></desc>
-  </url>
-  
-  <url>
-    <loc>https://lwl1751.github.io/2024/09/12/GAM/</loc>
-    
-    <lastmod>2024-09-12T12:31:32.076Z</lastmod>
-    
-    <date>1726144292000</date>
-    <title>GAM | Wenliang Liang</title>
-    
-    <desc></desc>
-  </url>
-  
-  <url>
-    <loc>https://lwl1751.github.io/2024/09/12/GLM/</loc>
-    
-    <lastmod>2024-09-12T12:31:21.465Z</lastmod>
-    
-    <date>1726144281000</date>
-    <title>GLM | Wenliang Liang</title>
-    
-    <desc></desc>
-  </url>
-  
-  <url>
-    <loc>https://lwl1751.github.io/2024/09/12/SVM/</loc>
-    
-    <lastmod>2024-09-12T12:30:24.809Z</lastmod>
-    
-    <date>1726144224000</date>
-    <title>SVM | Wenliang Liang</title>
-    
-    <desc></desc>
-  </url>
-  
-  <url>
-    <loc>https://lwl1751.github.io/2024/09/12/PLSA/</loc>
-    
-    <lastmod>2024-09-12T12:29:54.584Z</lastmod>
-    
-    <date>1726144194000</date>
-    <title>PLSA | Wenliang Liang</title>
-    
-    <desc></desc>
-  </url>
-  
-  <url>
-    <loc>https://lwl1751.github.io/2024/09/12/PCA/</loc>
-    
-    <lastmod>2024-09-12T12:29:46.463Z</lastmod>
-    
-    <date>1726144186000</date>
-    <title>PCA | Wenliang Liang</title>
     
     <desc></desc>
   </url>

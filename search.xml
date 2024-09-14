@@ -2679,8 +2679,79 @@ biomanufacturing[C]//MAbs. Taylor &amp; Francis, 2022, 14(1):
   <entry>
     <title>GAM</title>
     <url>/2024/09/12/GAM/</url>
-    <content><![CDATA[
+    <content><![CDATA[<p>Generalized Additive Models, 广义加性模型 GAM。</p>
+<p>通过对预测变量应用平滑函数来捕捉非线性关系。GAM
+扩展了传统的线性模型，使得每个预测变量对响应变量的影响可以通过非线性函数来建模。</p>
+<h2 id="gam-的基本组成">1. GAM 的基本组成</h2>
+<p>广义加性模型包括以下几个主要成分：</p>
+<ol type="1">
+<li><strong>响应变量</strong>：<span class="math inline">\(Y\)</span>
+是模型的目标变量。</li>
+<li><strong>预测变量</strong>：<span class="math inline">\(X = (X_1,
+X_2, \ldots, X_p)\)</span> 是自变量或特征。</li>
+<li><strong>平滑函数</strong>：<span class="math inline">\(f_i(X_i)\)</span> 是每个预测变量 <span class="math inline">\(X_i\)</span>
+对响应变量的影响，通过平滑函数建模。</li>
+<li><strong>线性预测器</strong>：将每个预测变量的平滑函数加总起来得到模型的线性预测器。</li>
+</ol>
+<h2 id="gam-的模型形式">2. GAM 的模型形式</h2>
+<p>GAM 的模型可以表示为： <span class="math display">\[
+g(\mathbb{E}[Y]) = \beta_0 + \sum_{i=1}^p f_i(X_i)
+\]</span> 其中：</p>
+<ul>
+<li><span class="math inline">\(g(\cdot)\)</span> 是链接函数，将期望值
+<span class="math inline">\(\mathbb{E}[Y]\)</span>
+与线性预测器联系起来。</li>
+<li><span class="math inline">\(\beta_0\)</span> 是截距项。</li>
+<li><span class="math inline">\(f_i(X_i)\)</span> 是对每个预测变量 <span class="math inline">\(X_i\)</span> 施加的平滑函数。</li>
+</ul>
+<h3 id="平滑函数">2.1 平滑函数</h3>
+<p>平滑函数 <span class="math inline">\(f_i(X_i)\)</span>
+通过使用平滑器来捕捉预测变量和响应变量之间的非线性关系。常用的平滑方法包括：</p>
+<ul>
+<li><strong>样条函数</strong>（Splines）</li>
+<li><strong>局部回归</strong>（Local Regression）</li>
+<li><strong>核平滑</strong>（Kernel Smoothing）</li>
+</ul>
+<h3 id="链接函数">2.2 链接函数</h3>
+<p>链接函数 <span class="math inline">\(g(\cdot)\)</span> 将期望值 <span class="math inline">\(\mathbb{E}[Y]\)</span> 映射到线性预测器 <span class="math inline">\(\eta\)</span>： <span class="math display">\[
+g(\mathbb{E}[Y]) = \eta
+\]</span> 常见的链接函数包括：</p>
+<ul>
+<li><strong>恒等链接函数</strong>：用于线性回归。</li>
+<li><strong>逻辑链接函数</strong>：用于逻辑回归。</li>
+<li><strong>对数链接函数</strong>：用于泊松回归。</li>
+</ul>
+<h2 id="gam-的模型推导">3. GAM 的模型推导</h2>
+<h3 id="建模步骤">3.1 建模步骤</h3>
+<ol type="1">
+<li><strong>选择链接函数</strong>：根据响应变量的分布选择合适的链接函数
+<span class="math inline">\(g(\cdot)\)</span>。</li>
+<li><strong>选择平滑函数</strong>：为每个预测变量选择适当的平滑函数
+<span class="math inline">\(f_i(X_i)\)</span>。</li>
+<li><strong>优化估计</strong>：通过最大似然估计或其他优化方法估计模型参数。</li>
+</ol>
+<h3 id="平滑函数的估计">3.2 平滑函数的估计</h3>
+<p>平滑函数的估计通常通过最小化以下目标函数来实现： <span class="math display">\[
+\text{Objective} = \text{Deviance} + \text{Penalized Smoothing Terms}
+\]</span> 其中，Deviance 是模型的拟合优度，Penalized Smoothing Terms
+是对平滑函数复杂度的惩罚，以防止过拟合。</p>
+<h3 id="参数估计">3.3 参数估计</h3>
+<p>通过最小化下述目标函数来估计模型参数： <span class="math display">\[
+\text{GAMLSS} = \sum_{i=1}^n \text{Log-Likelihood} + \text{Penalty
+Terms}
+\]</span> 其中，Penalty Terms
+用于控制平滑函数的复杂度，以避免过度拟合。</p>
+<h2 id="gam-的优点">4. GAM 的优点</h2>
+<ul>
+<li><strong>灵活性</strong>：GAM
+可以捕捉非线性关系，不需要对数据的具体形式做出强假设。</li>
+<li><strong>可解释性</strong>：每个预测变量的影响通过平滑函数明确表示，易于解释。</li>
+<li><strong>平滑</strong>：通过平滑函数处理噪声和非线性，增强模型的鲁棒性。</li>
+</ul>
 ]]></content>
+      <tags>
+        <tag>ML</tag>
+      </tags>
   </entry>
   <entry>
     <title>GBDT</title>
@@ -2753,13 +2824,185 @@ L = - \sum_{i=1}^{n} y_i \log(\hat{y_i}) + (1 - y_i) \log(1 - \hat{y_i})
   <entry>
     <title>GLM</title>
     <url>/2024/09/12/GLM/</url>
-    <content><![CDATA[
+    <content><![CDATA[<p>Generalized Linear Models, 广义线性模型GLM。</p>
+<p>一类灵活的统计模型，用于处理不同类型的数据。GLM
+扩展了传统的线性回归模型，允许响应变量（因变量）与预测变量（自变量）之间的关系通过各种分布来建模。GLM
+主要包括线性回归、逻辑回归、泊松回归等模型。</p>
+<h2 id="glm-的基本组成">1. GLM 的基本组成</h2>
+<p>广义线性模型由以下三部分组成：</p>
+<ol type="1">
+<li><strong>随机成分</strong>：响应变量 <span class="math inline">\(Y\)</span>
+的分布，通常假设为指数家族分布，如正态分布、二项分布、泊松分布等。</li>
+<li><strong>系统成分</strong>：线性预测器 <span class="math inline">\(\eta\)</span>，即自变量的线性组合： <span class="math display">\[
+\eta = X \beta
+\]</span> 其中，<span class="math inline">\(X\)</span> 是设计矩阵，<span class="math inline">\(\beta\)</span> 是回归系数。</li>
+<li><strong>链接函数</strong>：链接函数 <span class="math inline">\(g(\cdot)\)</span> 将线性预测器 <span class="math inline">\(\eta\)</span> 与响应变量的期望 <span class="math inline">\(\mu\)</span> 联系起来： <span class="math display">\[
+g(\mu) = \eta
+\]</span> 其中，<span class="math inline">\(\mu = \text{E}[Y]\)</span>
+是响应变量的期望。</li>
+</ol>
+<h2 id="glm-的数学推导">2. GLM 的数学推导</h2>
+<h3 id="随机成分">2.1 随机成分</h3>
+<p>假设响应变量 <span class="math inline">\(Y\)</span>
+的分布属于指数家族分布，其概率密度函数（或质量函数）可以表示为： <span class="math display">\[
+f(y|\theta, \phi) = \exp \left\{ \frac{y (\theta) - b(\theta)}{\phi} +
+c(y, \phi) \right\}
+\]</span> 其中，<span class="math inline">\(\theta\)</span>
+是自然参数，<span class="math inline">\(\phi\)</span>
+是分布的扩展参数（例如方差），<span class="math inline">\(b(\theta)\)</span> 和 <span class="math inline">\(c(y, \phi)\)</span> 是特定的函数。</p>
+<h3 id="系统成分">2.2 系统成分</h3>
+<p>线性预测器 <span class="math inline">\(\eta\)</span> 定义为： <span class="math display">\[
+\eta = X \beta
+\]</span> 其中，<span class="math inline">\(X\)</span>
+是设计矩阵，包含自变量，<span class="math inline">\(\beta\)</span>
+是回归系数。</p>
+<h3 id="链接函数">2.3 链接函数</h3>
+<p>链接函数 <span class="math inline">\(g(\cdot)\)</span>
+使得线性预测器与响应变量的期望 <span class="math inline">\(\mu\)</span>
+之间的关系为： <span class="math display">\[
+g(\mu) = \eta
+\]</span> 常见的链接函数包括：</p>
+<ul>
+<li><strong>对数链接函数</strong>：用于泊松回归，<span class="math inline">\(g(\mu) = \log(\mu)\)</span></li>
+<li><strong>逻辑链接函数</strong>：用于逻辑回归，<span class="math inline">\(g(\mu) = \log \left( \frac{\mu}{1 - \mu}
+\right)\)</span></li>
+<li><strong>恒等链接函数</strong>：用于线性回归，<span class="math inline">\(g(\mu) = \mu\)</span></li>
+</ul>
+<h3 id="估计和推断">2.4 估计和推断</h3>
+<p>GLM 的参数估计通常使用最大似然估计（MLE）。最大似然函数 <span class="math inline">\(L(\beta)\)</span> 为： <span class="math display">\[
+L(\beta) = \prod_{i=1}^n f(y_i|\theta_i, \phi)
+\]</span> 对数似然函数为： <span class="math display">\[
+\ell(\beta) = \sum_{i=1}^n \left[ \frac{y_i \theta_i -
+b(\theta_i)}{\phi} + c(y_i, \phi) \right]
+\]</span>
+通过对对数似然函数求导数并设置为零，可以得到参数的最大似然估计值。</p>
+<h2 id="glm-的模型示例">3. GLM 的模型示例</h2>
+<h3 id="线性回归">3.1 线性回归</h3>
+<p>线性回归模型属于 GLM 的特殊情况，其中响应变量 <span class="math inline">\(Y\)</span> 服从正态分布，链接函数为恒等函数：
+<span class="math display">\[
+Y \sim \text{N}(\mu, \sigma^2)
+\]</span> <span class="math display">\[
+g(\mu) = \mu = X \beta
+\]</span></p>
+<h3 id="逻辑回归">3.2 逻辑回归</h3>
+<p>逻辑回归用于二分类问题，响应变量 <span class="math inline">\(Y\)</span> 服从二项分布，链接函数为逻辑函数：
+<span class="math display">\[
+Y \sim \text{Binomial}(n, \mu)
+\]</span> <span class="math display">\[
+g(\mu) = \log \left( \frac{\mu}{1 - \mu} \right) = X \beta
+\]</span></p>
+<h3 id="泊松回归">3.3 泊松回归</h3>
+<p>泊松回归用于计数数据，响应变量 <span class="math inline">\(Y\)</span>
+服从泊松分布，链接函数为对数函数： <span class="math display">\[
+Y \sim \text{Poisson}(\mu)
+\]</span> <span class="math display">\[
+g(\mu) = \log(\mu) = X \beta
+\]</span></p>
 ]]></content>
+      <tags>
+        <tag>ML</tag>
+      </tags>
   </entry>
   <entry>
     <title>GPR</title>
     <url>/2024/09/12/GPR/</url>
-    <content><![CDATA[<p>Gaussian Process Regression.</p>
+    <content><![CDATA[<p>Gaussian Process Regression, 高斯过程回归。</p>
+<p>一种非参数的贝叶斯回归方法，用于建模和预测复杂的非线性函数。它利用高斯过程的先验分布来推断数据的分布，并生成预测的不确定性度量。</p>
+<h2 id="高斯过程回归的基本概念">1. 高斯过程回归的基本概念</h2>
+<h3 id="高斯过程">1.1 高斯过程</h3>
+<p>高斯过程（Gaussian Process,
+GP）是一种用于定义随机函数的统计模型，它可以看作是无穷维的高斯分布。一个高斯过程可以通过其均值函数
+<span class="math inline">\(m(x)\)</span> 和协方差函数 <span class="math inline">\(k(x, x&#39;)\)</span> 完全描述： <span class="math display">\[
+f(x) \sim \mathcal{GP}(m(x), k(x, x&#39;))
+\]</span> 其中：</p>
+<ul>
+<li><span class="math inline">\(m(x)\)</span> 是均值函数，表示在点 <span class="math inline">\(x\)</span> 的预测值的期望。</li>
+<li><span class="math inline">\(k(x, x&#39;)\)</span>
+是协方差函数，表示在点 <span class="math inline">\(x\)</span> 和 <span class="math inline">\(x&#39;\)</span> 之间的协方差。</li>
+</ul>
+<h3 id="协方差函数核函数">1.2 协方差函数（核函数）</h3>
+<p>协方差函数 <span class="math inline">\(k(x, x&#39;)\)</span>
+用于定义数据点之间的相关性。常见的协方差函数包括：</p>
+<ul>
+<li><strong>平方指数核（RBF核）</strong>： <span class="math display">\[
+k(x, x&#39;) = \sigma^2 \exp \left( -\frac{(x - x&#39;)^2}{2 l^2}
+\right)
+\]</span></li>
+<li><strong>线性核</strong>： <span class="math display">\[
+k(x, x&#39;) = \sigma^2 (x \cdot x&#39; + c)
+\]</span></li>
+<li><strong>马特恩核</strong>： <span class="math display">\[
+k(x, x&#39;) = \sigma^2 \left(1 + \frac{\sqrt{2 \nu} (x -
+x&#39;)^2}{l^2}\right)^{-\nu}
+\]</span></li>
+</ul>
+<h2 id="gpr-的模型构建">2. GPR 的模型构建</h2>
+<h3 id="训练数据">2.1 训练数据</h3>
+<p>假设我们有训练数据集 <span class="math inline">\(\{(x_i,
+y_i)\}_{i=1}^n\)</span>，其中 <span class="math inline">\(x_i\)</span>
+是输入，<span class="math inline">\(y_i\)</span> 是响应。我们希望通过
+GPR 来预测新的输入 <span class="math inline">\(x_*\)</span> 对应的响应
+<span class="math inline">\(y_*\)</span>。</p>
+<h3 id="先验分布">2.2 先验分布</h3>
+<p>假设训练数据的目标函数 <span class="math inline">\(f(x)\)</span>
+服从高斯过程： <span class="math display">\[
+f(x) \sim \mathcal{GP}(m(x), k(x, x&#39;))
+\]</span></p>
+<p>训练数据的联合分布可以表示为： <span class="math display">\[
+\begin{bmatrix}
+f(X) \\
+f(x_*)
+\end{bmatrix}
+\sim \mathcal{N} \left(
+\begin{bmatrix}
+m(X) \\
+m(x_*)
+\end{bmatrix},
+\begin{bmatrix}
+K(X, X) &amp; K(X, x_*) \\
+K(x_*, X) &amp; K(x_*, x_*)
+\end{bmatrix}
+\right)
+\]</span> 其中：</p>
+<ul>
+<li><span class="math inline">\(K(X, X)\)</span>
+是训练数据点之间的协方差矩阵。</li>
+<li><span class="math inline">\(K(X, x_*)\)</span>
+是训练数据点与测试点之间的协方差矩阵。</li>
+<li><span class="math inline">\(K(x_*, x_*)\)</span>
+是测试点之间的协方差矩阵。</li>
+</ul>
+<h3 id="后验分布">2.3 后验分布</h3>
+<p>给定训练数据 <span class="math inline">\(\{(x_i,
+y_i)\}_{i=1}^n\)</span>，我们可以得到目标函数在测试点 <span class="math inline">\(x_*\)</span> 的后验分布： <span class="math display">\[
+f(x_*) | X, y, x_* \sim \mathcal{N} (\bar{f}(x_*), \text{Cov}(f(x_*)))
+\]</span> 其中： <span class="math display">\[
+\bar{f}(x_*) = m(x_*) + K(x_*, X) \left[ K(X, X) + \sigma^2 I
+\right]^{-1} (y - m(X))
+\]</span> <span class="math display">\[
+\text{Cov}(f(x_*)) = K(x_*, x_*) - K(x_*, X) \left[ K(X, X) + \sigma^2 I
+\right]^{-1} K(X, x_*)
+\]</span></p>
+<h2 id="高斯过程回归的推导">3. 高斯过程回归的推导</h2>
+<h3 id="预测均值">3.1 预测均值</h3>
+<p>预测的均值 <span class="math inline">\(\bar{f}(x_*)\)</span>
+是对目标函数在测试点的预测值，它由训练数据的观测值加权得出： <span class="math display">\[
+\bar{f}(x_*) = m(x_*) + K(x_*, X) \left[ K(X, X) + \sigma^2 I
+\right]^{-1} (y - m(X))
+\]</span></p>
+<h3 id="预测方差">3.2 预测方差</h3>
+<p>预测的方差 <span class="math inline">\(\text{Cov}(f(x_*))\)</span>
+描述了预测的不确定性： <span class="math display">\[
+\text{Cov}(f(x_*)) = K(x_*, x_*) - K(x_*, X) \left[ K(X, X) + \sigma^2 I
+\right]^{-1} K(X, x_*)
+\]</span></p>
+<h3 id="超参数优化">3.3 超参数优化</h3>
+<p>高斯过程回归模型中的核函数通常包含超参数（如长度尺度 <span class="math inline">\(l\)</span> 和噪声方差 <span class="math inline">\(\sigma^2\)</span>），这些超参数可以通过最大化边际对数似然函数来优化：
+<span class="math display">\[
+\log p(y | X) = -\frac{1}{2} y^\top \left[ K(X, X) + \sigma^2 I
+\right]^{-1} y - \frac{1}{2} \log \left| K(X, X) + \sigma^2 I \right| -
+\frac{n}{2} \log 2 \pi
+\]</span></p>
 ]]></content>
       <tags>
         <tag>ML</tag>
@@ -2768,14 +3011,176 @@ L = - \sum_{i=1}^{n} y_i \log(\hat{y_i}) + (1 - y_i) \log(1 - \hat{y_i})
   <entry>
     <title>PCA</title>
     <url>/2024/09/12/PCA/</url>
-    <content><![CDATA[
+    <content><![CDATA[<p>Principal Component Analysis, 主成分分析。</p>
+<p>通过线性变换，将高维数据映射到低维空间，同时保留数据的主要方差信息。PCA
+的主要优势在于它可以在数据降维的同时减少噪声，简化数据结构，提升模型的可解释性。</p>
+<h2 id="pca-的基本思想">1. PCA 的基本思想</h2>
+<p>给定数据集 <span class="math inline">\(X \in \mathbb{R}^{n \times
+p}\)</span>，其中 <span class="math inline">\(n\)</span> 是样本数，<span class="math inline">\(p\)</span> 是特征数。PCA
+的目标是找到新的正交基（主成分），使得数据在这些新基上的投影尽可能解释原数据的方差。</p>
+<p>PCA 的核心步骤如下：</p>
+<ol type="1">
+<li><strong>数据中心化</strong>：将数据减去均值，使得每个特征的均值为
+0。</li>
+<li><strong>协方差矩阵</strong>：计算中心化数据的协方差矩阵，衡量各特征之间的线性关系。</li>
+<li><strong>特征分解</strong>：对协方差矩阵进行特征分解，得到特征值和特征向量。</li>
+<li><strong>主成分选择</strong>：选择特征值最大的前 <span class="math inline">\(k\)</span>
+个特征向量作为新的坐标轴（主成分），将数据投影到这些主成分上。</li>
+</ol>
+<h2 id="pca-的数学推导">2. PCA 的数学推导</h2>
+<h3 id="数据中心化">2.1 数据中心化</h3>
+<p>首先，对数据 <span class="math inline">\(X\)</span>
+进行中心化处理，将每个特征减去均值： <span class="math display">\[
+\tilde{X} = X - \bar{X}
+\]</span> 其中，<span class="math inline">\(\bar{X}\)</span> 是 <span class="math inline">\(X\)</span> 的均值向量。</p>
+<h3 id="协方差矩阵">2.2 协方差矩阵</h3>
+<p>对于中心化后的数据 <span class="math inline">\(\tilde{X}\)</span>，计算其协方差矩阵 <span class="math inline">\(\Sigma\)</span>： <span class="math display">\[
+\Sigma = \frac{1}{n-1} \tilde{X}^\top \tilde{X}
+\]</span> 协方差矩阵描述了不同特征之间的相关性。PCA
+的目的是通过选择适当的基，使得投影后的数据方差最大化。</p>
+<h3 id="特征分解">2.3 特征分解</h3>
+<p>通过对协方差矩阵 <span class="math inline">\(\Sigma\)</span>
+进行特征值分解，得到特征值和特征向量： <span class="math display">\[
+\Sigma v_i = \lambda_i v_i
+\]</span> 其中，<span class="math inline">\(\lambda_i\)</span>
+表示协方差矩阵的第 <span class="math inline">\(i\)</span>
+个特征值，<span class="math inline">\(v_i\)</span>
+表示对应的特征向量。</p>
+<ul>
+<li><strong>特征值</strong>：表示数据在对应特征向量方向上的方差大小。特征值越大，表示该方向上方差越大，信息量越多。</li>
+<li><strong>特征向量</strong>：表示主成分方向，也就是新的坐标轴。</li>
+</ul>
+<h3 id="主成分选择与投影">2.4 主成分选择与投影</h3>
+<p>根据特征值的大小，从大到小排列，选择前 <span class="math inline">\(k\)</span>
+个特征向量作为主成分，将数据投影到这些主成分方向上： <span class="math display">\[
+Z = \tilde{X} V_k
+\]</span> 其中，<span class="math inline">\(V_k\)</span> 是前 <span class="math inline">\(k\)</span> 个特征向量组成的矩阵，<span class="math inline">\(Z\)</span> 是降维后的数据矩阵。</p>
+<h2 id="pca-的几何解释">3. PCA 的几何解释</h2>
+<p>从几何角度来看，PCA
+是在寻找新的正交基，使得数据在这些基上的投影具有最大方差。特征向量代表新的基方向，特征值表示投影在该基方向上的方差大小。</p>
+<p>PCA
+的第一主成分对应于数据方差最大的方向，第二主成分则是与第一主成分正交并且方差次大的方向，以此类推。</p>
+<h2 id="pca-的步骤">4. PCA 的步骤</h2>
+<ol type="1">
+<li><strong>标准化数据</strong>：确保每个特征有相同的量纲。</li>
+<li><strong>计算协方差矩阵</strong>：通过公式 <span class="math inline">\(\Sigma = \frac{1}{n-1} \tilde{X}^\top
+\tilde{X}\)</span> 计算协方差矩阵。</li>
+<li><strong>特征值分解</strong>：对协方差矩阵进行特征值分解，得到特征值和特征向量。</li>
+<li><strong>选择主成分</strong>：根据特征值的大小选择前 <span class="math inline">\(k\)</span> 个主成分。</li>
+<li><strong>数据投影</strong>：将数据投影到所选主成分上，得到降维后的数据。</li>
+</ol>
 ]]></content>
+      <tags>
+        <tag>ML</tag>
+      </tags>
   </entry>
   <entry>
-    <title>PLSA</title>
+    <title>PLS</title>
     <url>/2024/09/12/PLSA/</url>
-    <content><![CDATA[
+    <content><![CDATA[<p>Partial least squares regression，偏最小二乘回归。</p>
+<p>PLS
+的基本思想是通过在输入数据（自变量）和输出数据（因变量）之间同时构建新变量（潜变量或成分），以便最大化输入与输出的协方差，同时解决高维数据中自变量之间的多重共线性问题。</p>
+<p>主成分回归（PCR）是通过主成分分析（PCA）来减少自变量维度，但它只关注自变量的方差，忽略了自变量和因变量之间的相关性。而
+PLS
+同时考虑自变量的方差和自变量-因变量的协方差，因此在解释能力上通常优于
+PCR。</p>
+<h2 id="基本思想与目标">1. 基本思想与目标</h2>
+<p>PLS 的目标是在输入矩阵 <span class="math inline">\(X\)</span>
+和输出矩阵 <span class="math inline">\(Y\)</span> 之间建立一个线性模型：
+<span class="math display">\[
+Y = X B + E
+\]</span> 其中：</p>
+<ul>
+<li><span class="math inline">\(X \in \mathbb{R}^{n \times p}\)</span>
+是自变量矩阵，有 <span class="math inline">\(n\)</span> 个样本和 <span class="math inline">\(p\)</span> 个自变量；</li>
+<li><span class="math inline">\(Y \in \mathbb{R}^{n \times q}\)</span>
+是因变量矩阵，有 <span class="math inline">\(q\)</span> 个因变量；</li>
+<li><span class="math inline">\(B \in \mathbb{R}^{p \times q}\)</span>
+是需要估计的回归系数矩阵；</li>
+<li><span class="math inline">\(E\)</span> 是误差矩阵。</li>
+</ul>
+<p>为了避免由于 <span class="math inline">\(X\)</span>
+中自变量之间的多重共线性而导致的回归不稳，PLS 将 <span class="math inline">\(X\)</span> 和 <span class="math inline">\(Y\)</span>
+投影到一组新的潜在变量（成分）上，通过最大化这些潜在变量的协方差来构建模型。</p>
+<h2 id="潜变量模型">2. 潜变量模型</h2>
+<p>PLS
+通过构建一组称为<strong>潜变量</strong>的变量来替代原始变量。这些潜变量是从自变量矩阵
+<span class="math inline">\(X\)</span> 和因变量矩阵 <span class="math inline">\(Y\)</span>
+中提取的，同时考虑两者之间的协方差。</p>
+<h3 id="自变量和因变量的线性分解">2.1 自变量和因变量的线性分解</h3>
+<p>首先，将 <span class="math inline">\(X\)</span> 和 <span class="math inline">\(Y\)</span> 表示为其主成分的线性组合： <span class="math display">\[
+X = T P^\top + E_X
+\]</span> <span class="math display">\[
+Y = U Q^\top + E_Y
+\]</span> 其中：</p>
+<ul>
+<li><span class="math inline">\(T \in \mathbb{R}^{n \times k}\)</span>
+是 <span class="math inline">\(X\)</span>
+的潜变量矩阵（得分矩阵），<span class="math inline">\(k\)</span>
+是成分数；</li>
+<li><span class="math inline">\(P \in \mathbb{R}^{p \times k}\)</span>
+是 <span class="math inline">\(X\)</span> 的加载矩阵；</li>
+<li><span class="math inline">\(U \in \mathbb{R}^{n \times k}\)</span>
+是 <span class="math inline">\(Y\)</span> 的潜变量矩阵；</li>
+<li><span class="math inline">\(Q \in \mathbb{R}^{q \times k}\)</span>
+是 <span class="math inline">\(Y\)</span> 的加载矩阵；</li>
+<li><span class="math inline">\(E_X\)</span> 和 <span class="math inline">\(E_Y\)</span> 是误差矩阵。</li>
+</ul>
+<h3 id="潜变量的构造">2.2 潜变量的构造</h3>
+<p>在 PLS 中，我们希望找到一组潜变量，使得它们能够解释 <span class="math inline">\(X\)</span> 中最多的方差，并且与 <span class="math inline">\(Y\)</span> 之间有最大的协方差。为此，PLS
+寻找潜变量 <span class="math inline">\(T\)</span> 和 <span class="math inline">\(U\)</span>，使得它们的协方差最大化： <span class="math display">\[
+\text{Cov}(T, U) = \max
+\]</span> 其中 <span class="math inline">\(T\)</span> 是从 <span class="math inline">\(X\)</span> 投影得到的，<span class="math inline">\(U\)</span> 是从 <span class="math inline">\(Y\)</span> 投影得到的。</p>
+<h3 id="线性回归模型">2.3 线性回归模型</h3>
+<p>PLS 的最终目标是通过潜变量 <span class="math inline">\(T\)</span> 对
+<span class="math inline">\(Y\)</span>
+进行回归，因此我们建立如下线性关系： <span class="math display">\[
+Y = T B + E_Y
+\]</span> 通过求解 <span class="math inline">\(T\)</span> 和 <span class="math inline">\(B\)</span>，我们就能够得到 <span class="math inline">\(Y\)</span> 的估计值。</p>
+<h2 id="pls-的推导过程">3. PLS 的推导过程</h2>
+<p>PLS 的推导过程可以分为以下几个步骤：</p>
+<h3 id="中心化数据">3.1 中心化数据</h3>
+<p>为了消除数据的尺度影响，我们通常在建模之前对 <span class="math inline">\(X\)</span> 和 <span class="math inline">\(Y\)</span> 进行中心化处理，即减去其均值： <span class="math display">\[
+\tilde{X} = X - \bar{X}, \quad \tilde{Y} = Y - \bar{Y}
+\]</span> 其中 <span class="math inline">\(\bar{X}\)</span> 和 <span class="math inline">\(\bar{Y}\)</span> 分别是 <span class="math inline">\(X\)</span> 和 <span class="math inline">\(Y\)</span> 的均值。</p>
+<h3 id="潜变量的构造-1">3.2 潜变量的构造</h3>
+<p>对于每个成分，我们依次从 <span class="math inline">\(X\)</span> 和
+<span class="math inline">\(Y\)</span>
+中提取潜变量。通常采用如下的迭代方法：</p>
+<ol type="1">
+<li><p>在第 <span class="math inline">\(i\)</span> 次迭代中，找到向量
+<span class="math inline">\(w_i\)</span> 和 <span class="math inline">\(c_i\)</span>，使得： <span class="math display">\[
+w_i = \arg\max_w \text{Cov}(X w, Y c)
+\]</span> 即最大化自变量和因变量之间的协方差。</p></li>
+<li><p>得到投影得分向量： <span class="math display">\[
+t_i = X w_i, \quad u_i = Y c_i
+\]</span></p></li>
+<li><p>更新矩阵 <span class="math inline">\(X\)</span> 和 <span class="math inline">\(Y\)</span>，去除已经提取的成分的影响： <span class="math display">\[
+X = X - t_i p_i^\top, \quad Y = Y - t_i q_i^\top
+\]</span> 其中 <span class="math inline">\(p_i\)</span> 和 <span class="math inline">\(q_i\)</span> 分别为对应的加载向量。</p></li>
+</ol>
+<h3 id="回归系数的计算">3.3 回归系数的计算</h3>
+<p>在构造了 <span class="math inline">\(T\)</span> 和 <span class="math inline">\(U\)</span> 之后，PLS 通过回归 <span class="math inline">\(Y\)</span> 对 <span class="math inline">\(T\)</span> 来得到回归系数 <span class="math inline">\(B\)</span>： <span class="math display">\[
+B = (T^\top T)^{-1} T^\top Y
+\]</span></p>
+<h3 id="最终模型">3.4 最终模型</h3>
+<p>通过潜变量的回归模型，最终的 PLS 模型为： <span class="math display">\[
+Y = X B + E_Y
+\]</span> 其中 <span class="math inline">\(B\)</span> 是通过 <span class="math inline">\(X\)</span> 的潜变量和 <span class="math inline">\(Y\)</span> 之间的回归系数计算得到的。</p>
+<h2 id="pls-的特点">4. PLS 的特点</h2>
+<ol type="1">
+<li><p><strong>处理多重共线性</strong>：PLS
+通过提取潜变量代替原始变量，有效解决了多重共线性的问题，尤其适用于当
+<span class="math inline">\(p \gg n\)</span> 时。</p></li>
+<li><p><strong>同时考虑 <span class="math inline">\(X\)</span> 和 <span class="math inline">\(Y\)</span> 的信息</strong>：PLS
+在寻找潜变量时，既考虑了自变量的方差最大化，也考虑了自变量和因变量之间的协方差，增强了模型的解释能力。</p></li>
+<li><p><strong>可解释性强</strong>：PLS
+的潜变量有明确的统计意义，能够通过加载矩阵解释原始变量的贡献。</p></li>
+</ol>
 ]]></content>
+      <tags>
+        <tag>ML</tag>
+      </tags>
   </entry>
   <entry>
     <title>RF</title>
@@ -2862,8 +3267,161 @@ MSE = \frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2
   <entry>
     <title>SVM</title>
     <url>/2024/09/12/SVM/</url>
-    <content><![CDATA[
+    <content><![CDATA[<p>Support Vector Machine.</p>
+<h2 id="线性svm分类原理">1. 线性SVM分类原理</h2>
+<p>线性SVM分类的核心思想是找到一个超平面，将不同类别的数据点分隔开，并且尽量使得分类边界到支持向量的距离最大。线性SVM适用于数据线性可分的场景。</p>
+<ul>
+<li><p><strong>超平面</strong>：假设我们有一组二维数据，SVM的目标是找到一条直线来分割这组数据。在高维空间中，这条直线就是超平面，定义为：</p>
+<p><span class="math display">\[
+w \cdot x + b = 0
+\]</span></p>
+<p>其中，<span class="math inline">\(w\)</span> 是超平面的法向量，<span class="math inline">\(x\)</span> 是输入数据，<span class="math inline">\(b\)</span> 是偏置。</p></li>
+<li><p><strong>分类边界</strong>：为了实现分类，SVM希望找到一个能最大化分类边界的超平面。理想情况下，不同类别的数据点位于超平面两侧，即：</p>
+<ul>
+<li><span class="math inline">\(w \cdot x_i + b \geq 1\)</span>
+对于正类样本</li>
+<li><span class="math inline">\(w \cdot x_i + b \leq -1\)</span>
+对于负类样本</li>
+</ul></li>
+<li><p><strong>边距最大化</strong>：SVM通过优化问题来最大化支持向量到超平面的边距，保证模型的泛化能力。优化问题为：</p>
+<p><span class="math display">\[
+\min \frac{1}{2} \|w\|^2
+\]</span></p>
+<p>同时满足约束条件： <span class="math display">\[
+y_i(w \cdot x_i + b) \geq 1 \quad \forall i
+\]</span></p></li>
+</ul>
+<p>其中，<span class="math inline">\(y_i\)</span> 是数据点 <span class="math inline">\(x_i\)</span>
+的类别标签（+1或-1），通过求解该优化问题得到的超平面能够最大化分类边界。</p>
+<h2 id="带松弛变量的svm">2. 带松弛变量的SVM</h2>
+<p>在实际问题中，数据通常是线性不可分的，可能会存在一些误分类的数据点。为了应对这种情况，SVM引入了松弛变量（slack
+variable）来允许一定程度的误分类，从而处理非线性可分的数据。</p>
+<ul>
+<li><p><strong>松弛变量 <span class="math inline">\(\xi_i\)</span></strong>：SVM通过引入松弛变量 <span class="math inline">\(\xi_i \geq 0\)</span>
+来度量误分类样本的程度。对于每个数据点，松弛变量允许分类边界与样本之间有一定误差。</p>
+<p>约束条件变为： <span class="math display">\[
+y_i(w \cdot x_i + b) \geq 1 - \xi_i \quad \forall i
+\]</span></p>
+<p>这样，SVM能够处理非线性可分的数据，同时通过优化问题最小化误分类。</p></li>
+<li><p><strong>目标函数</strong>：SVM的目标是同时最小化分类误差和边距。带松弛变量的SVM的优化问题为：
+<span class="math display">\[
+\min \frac{1}{2} \|w\|^2 + C \sum_{i=1}^n \xi_i
+\]</span></p>
+<p>其中，<span class="math inline">\(C\)</span>
+是惩罚参数，用来控制误分类样本的惩罚程度。较大的 <span class="math inline">\(C\)</span> 值会导致模型对误分类更敏感。</p></li>
+</ul>
+<h2 id="对偶问题">3. 对偶问题</h2>
+<p>对偶问题是优化问题的一种变换形式，通过将原始的优化问题（主问题）转化为对偶形式，简化计算。SVM的对偶问题引入拉格朗日乘子，用于将原问题转化为约束优化问题。</p>
+<p>拉格朗日函数 <span class="math inline">\(L(w, b, \alpha)\)</span>
+定义为：</p>
+<p><span class="math display">\[
+L(w, b, \alpha) = \frac{1}{2} \|w\|^2 - \sum_{i=1}^{n} \alpha_i [y_i (w
+\cdot x_i + b) - 1]
+\]</span></p>
+<p>其中，<span class="math inline">\(\alpha_i \geq 0\)</span>
+是对应于每个约束条件的拉格朗日乘子。为了最小化拉格朗日函数 <span class="math inline">\(L(w, b, \alpha)\)</span>，我们需要对 <span class="math inline">\(w\)</span> 和 <span class="math inline">\(b\)</span> 进行最优化。首先分别对 <span class="math inline">\(w\)</span> 和 <span class="math inline">\(b\)</span> 求偏导并令其等于0。</p>
+<p>对 <span class="math inline">\(w\)</span> 求导：</p>
+<p><span class="math display">\[
+\frac{\partial L(w, b, \alpha)}{\partial w} = w - \sum_{i=1}^{n}
+\alpha_i y_i x_i = 0
+\]</span></p>
+<p>解得：</p>
+<p><span class="math display">\[
+w = \sum_{i=1}^{n} \alpha_i y_i x_i
+\]</span></p>
+<p>这表明 <span class="math inline">\(w\)</span> 是所有支持向量（即
+<span class="math inline">\(\alpha_i &gt; 0\)</span>
+的数据点）的线性组合。</p>
+<p>对 <span class="math inline">\(b\)</span> 求导：</p>
+<p><span class="math display">\[
+\frac{\partial L(w, b, \alpha)}{\partial b} = - \sum_{i=1}^{n} \alpha_i
+y_i = 0
+\]</span></p>
+<p>因此有：</p>
+<p><span class="math display">\[
+\sum_{i=1}^{n} \alpha_i y_i = 0
+\]</span></p>
+<p>这表明支持向量的权重满足该等式。</p>
+<p>将 <span class="math inline">\(w = \sum_{i=1}^{n} \alpha_i y_i
+x_i\)</span> 代入拉格朗日函数 <span class="math inline">\(L(w, b,
+\alpha)\)</span>，消去 <span class="math inline">\(w\)</span> 和 <span class="math inline">\(b\)</span>，我们得到新的目标函数：</p>
+<p><span class="math display">\[
+L(\alpha) = \frac{1}{2} \sum_{i=1}^{n} \sum_{j=1}^{n} \alpha_i \alpha_j
+y_i y_j (x_i \cdot x_j) - \sum_{i=1}^{n} \alpha_i
+\]</span></p>
+<p>注意，此时我们将优化变量从 <span class="math inline">\(w\)</span> 和
+<span class="math inline">\(b\)</span> 转化为了 <span class="math inline">\(\alpha_i\)</span>。</p>
+<p>对偶问题的目标是最大化拉格朗日函数 <span class="math inline">\(L(\alpha)\)</span>，即：</p>
+<p><span class="math display">\[
+\max_{\alpha} \sum_{i=1}^{n} \alpha_i - \frac{1}{2} \sum_{i=1}^{n}
+\sum_{j=1}^{n} \alpha_i \alpha_j y_i y_j (x_i \cdot x_j)
+\]</span></p>
+<p>同时满足以下约束条件：</p>
+<p><span class="math display">\[
+\sum_{i=1}^{n} \alpha_i y_i = 0, \quad 0 \leq \alpha_i \leq C
+\]</span></p>
+<p>其中 <span class="math inline">\(C\)</span>
+是控制松弛变量的参数，在引入松弛变量时会用到。</p>
+<p>通过求解对偶问题，我们可以获得拉格朗日乘子 <span class="math inline">\(\alpha_i\)</span>。这些乘子对应的 <span class="math inline">\(\alpha_i &gt; 0\)</span>
+的样本就是<strong>支持向量</strong>，这些支持向量决定了最终的分类超平面。</p>
+<h2 id="核化svm模型">4. 核化SVM模型</h2>
+<p>核化SVM用于处理线性不可分的数据。通过核函数将数据从低维映射到高维空间，使得在高维空间中数据变得线性可分。</p>
+<p>核函数 <span class="math inline">\(K(x_i, x_j)\)</span>
+用来计算两个样本点在映射到高维空间后的内积。常见的核函数有：</p>
+<ul>
+<li>线性核（Linear Kernel
+<ul>
+<li>公式：<span class="math inline">\(K(x_i, x_j) = x_i \cdot
+x_j\)</span></li>
+<li>适用于线性可分的数据。</li>
+</ul></li>
+<li>多项式核（Polynomial Kernel
+<ul>
+<li>公式：<span class="math inline">\(K(x_i, x_j) = (x_i \cdot x_j +
+1)^d\)</span></li>
+<li>其中，<span class="math inline">\(d\)</span>
+是多项式的阶数。多项式核适用于处理非线性数据。</li>
+</ul></li>
+<li>径向基函数核（Radial Basis Function, RBF Kernel）
+<ul>
+<li>公式：<span class="math inline">\(K(x_i, x_j) = \exp(-\gamma \|x_i -
+x_j\|^2)\)</span></li>
+<li><span class="math inline">\(\gamma\)</span>
+是参数，控制高斯函数的宽度。RBF核用于处理局部模式的非线性数据，是SVM中常用的核函数。</li>
+</ul></li>
+<li>Sigmoid核（Sigmoid Kernel）
+<ul>
+<li>公式：<span class="math inline">\(K(x_i, x_j) = \tanh(\kappa x_i
+\cdot x_j + \theta)\)</span></li>
+<li>Sigmoid核类似于神经网络中的激活函数，适用于一些特殊的非线性数据。</li>
+</ul></li>
+</ul>
+<h2 id="smo序列最小优化算法">5. SMO序列最小优化算法</h2>
+<p>SMO（Sequential Minimal
+Optimization）是解决SVM对偶问题的高效算法，能够快速训练SVM模型。SMO通过将优化问题分解为一系列的二次子问题，并分别对两个拉格朗日乘子进行优化。</p>
+<p>基本步骤：</p>
+<ol type="1">
+<li><strong>选择两个拉格朗日乘子</strong>：每次选择两个乘子 <span class="math inline">\(\alpha_1\)</span> 和 <span class="math inline">\(\alpha_2\)</span> 进行优化。</li>
+<li><strong>优化这两个乘子</strong>：将其他乘子固定，对 <span class="math inline">\(\alpha_1\)</span> 和 <span class="math inline">\(\alpha_2\)</span> 进行优化更新。</li>
+<li><strong>更新模型参数</strong>：根据更新后的 <span class="math inline">\(\alpha_1\)</span> 和 <span class="math inline">\(\alpha_2\)</span> 计算新的超平面参数 <span class="math inline">\(w\)</span> 和 <span class="math inline">\(b\)</span>。</li>
+<li><strong>重复迭代</strong>：不断重复以上步骤，直到达到收敛条件。</li>
+</ol>
+<p>SMO算法的优点在于它避免了计算整个核矩阵，显著提高了大规模数据集上SVM的训练速度。</p>
+<h2 id="svr">6. SVR</h2>
+<p>SVM回归（SVR）通过寻找一个函数来预测连续变量，主要用于回归分析。与SVM分类类似，SVR通过控制误差边界来最小化预测误差。</p>
+<ul>
+<li><strong>ε-不敏感损失函数</strong>：SVR允许在误差范围内的预测值被忽略，使用不敏感损失函数控制误差。</li>
+<li><strong>目标函数</strong>：SVR的目标是最小化函数复杂度和预测误差，优化问题为：
+<span class="math display">\[
+\min \frac{1}{2} \|w\|^2 + C \sum_{i=1}^n (\xi_i + \xi_i^*)
+\]</span> 其中，<span class="math inline">\(\xi_i\)</span> 和 <span class="math inline">\(\xi_i^*\)</span>
+是松弛变量，表示上下边界的误差，<span class="math inline">\(ε\)</span>
+控制误差的范围。</li>
+</ul>
 ]]></content>
+      <tags>
+        <tag>ML</tag>
+      </tags>
   </entry>
   <entry>
     <title>Sustainable biofabrication: from bioprinting to AI-driven predictive methods</title>

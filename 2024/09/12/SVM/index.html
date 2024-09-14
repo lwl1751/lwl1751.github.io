@@ -1,12 +1,15 @@
-<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>SVM | Wenliang Liang</title><meta name="author" content="Wenliang Liang"><meta name="copyright" content="Wenliang Liang"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="referrer" content="no-referrer"><meta property="og:type" content="article">
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>SVM | Wenliang Liang</title><meta name="author" content="Wenliang Liang"><meta name="copyright" content="Wenliang Liang"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="referrer" content="no-referrer"><meta name="description" content="Support Vector Machine. 1. 线性SVM分类原理 线性SVM分类的核心思想是找到一个超平面，将不同类别的数据点分隔开，并且尽量使得分类边界到支持向量的距离最大。线性SVM适用于数据线性可分的场景。  超平面：假设我们有一组二维数据，SVM的目标是找到一条直线来分割这组数据。在高维空间中，这条直线就是超平面，定义为： \[ w \cdot x + b &#x3D; 0 \] 其中，\(">
+<meta property="og:type" content="article">
 <meta property="og:title" content="SVM">
 <meta property="og:url" content="https://lwl1751.github.io/2024/09/12/SVM/index.html">
 <meta property="og:site_name" content="Wenliang Liang">
+<meta property="og:description" content="Support Vector Machine. 1. 线性SVM分类原理 线性SVM分类的核心思想是找到一个超平面，将不同类别的数据点分隔开，并且尽量使得分类边界到支持向量的距离最大。线性SVM适用于数据线性可分的场景。  超平面：假设我们有一组二维数据，SVM的目标是找到一条直线来分割这组数据。在高维空间中，这条直线就是超平面，定义为： \[ w \cdot x + b &#x3D; 0 \] 其中，\(">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/WechatIMG6.jpg">
 <meta property="article:published_time" content="2024-09-12T12:30:24.000Z">
-<meta property="article:modified_time" content="2024-09-12T12:30:24.809Z">
+<meta property="article:modified_time" content="2024-09-14T11:49:48.227Z">
 <meta property="article:author" content="Wenliang Liang">
+<meta property="article:tag" content="ML">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/WechatIMG6.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://lwl1751.github.io/2024/09/12/SVM/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
   root: '/',
@@ -52,8 +55,8 @@
   isPost: true,
   isHome: false,
   isHighlightShrink: false,
-  isToc: false,
-  postUpdate: '2024-09-12 20:30:24'
+  isToc: true,
+  postUpdate: '2024-09-14 19:49:48'
 }</script><script>(win=>{
       win.saveToLocal = {
         set: (key, value, ttl) => {
@@ -150,8 +153,158 @@
         }
       }
       detectApple()
-    })(window)</script><meta name="generator" content="Hexo 7.2.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/WechatIMG6.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">90</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">12</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/2347912.webp')"><nav id="nav"><span id="blog-info"><a href="/" title="Wenliang Liang"><span class="site-name">Wenliang Liang</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">SVM</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2024-09-12T12:30:24.000Z" title="Created 2024-09-12 20:30:24">2024-09-12</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2024-09-12T12:30:24.809Z" title="Updated 2024-09-12 20:30:24">2024-09-12</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="SVM"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container">
-</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a href="https://lwl1751.github.io">Wenliang Liang</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a href="https://lwl1751.github.io/2024/09/12/SVM/">https://lwl1751.github.io/2024/09/12/SVM/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/WechatIMG6.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2024/09/12/GPR/" title="GPR"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous</div><div class="prev_info">GPR</div></div></a></div><div class="next-post pull-right"><a href="/2024/09/12/RF/" title="RF"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next</div><div class="next_info">RF</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/WechatIMG6.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Wenliang Liang</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">90</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">12</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/lwl1751"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/lwl1751" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:wl687234@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">雨浸风蚀的落寞与苍楚一定是水,静静地流过青春奋斗的日子和触摸理想的岁月。</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/09/14/catboost/" title="catboost">catboost</a><time datetime="2024-09-14T06:37:09.000Z" title="Created 2024-09-14 14:37:09">2024-09-14</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/09/14/lightGBM/" title="lightGBM">lightGBM</a><time datetime="2024-09-14T06:37:00.000Z" title="Created 2024-09-14 14:37:00">2024-09-14</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/09/13/Bayesian-Optimization/" title="Bayesian Optimization">Bayesian Optimization</a><time datetime="2024-09-13T05:03:01.000Z" title="Created 2024-09-13 13:03:01">2024-09-13</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/09/13/Adaboost/" title="Adaboost">Adaboost</a><time datetime="2024-09-13T04:59:04.000Z" title="Created 2024-09-13 12:59:04">2024-09-13</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/09/12/XGBoost/" title="XGBoost">XGBoost</a><time datetime="2024-09-12T12:31:43.000Z" title="Created 2024-09-12 20:31:43">2024-09-12</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Wenliang Liang</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+    })(window)</script><meta name="generator" content="Hexo 7.2.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/WechatIMG6.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">90</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">12</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/2347912.webp')"><nav id="nav"><span id="blog-info"><a href="/" title="Wenliang Liang"><span class="site-name">Wenliang Liang</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">SVM</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2024-09-12T12:30:24.000Z" title="Created 2024-09-12 20:30:24">2024-09-12</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2024-09-14T11:49:48.227Z" title="Updated 2024-09-14 19:49:48">2024-09-14</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="SVM"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>Support Vector Machine.</p>
+<h2 id="线性svm分类原理">1. 线性SVM分类原理</h2>
+<p>线性SVM分类的核心思想是找到一个超平面，将不同类别的数据点分隔开，并且尽量使得分类边界到支持向量的距离最大。线性SVM适用于数据线性可分的场景。</p>
+<ul>
+<li><p><strong>超平面</strong>：假设我们有一组二维数据，SVM的目标是找到一条直线来分割这组数据。在高维空间中，这条直线就是超平面，定义为：</p>
+<p><span class="math display">\[
+w \cdot x + b = 0
+\]</span></p>
+<p>其中，<span class="math inline">\(w\)</span> 是超平面的法向量，<span class="math inline">\(x\)</span> 是输入数据，<span class="math inline">\(b\)</span> 是偏置。</p></li>
+<li><p><strong>分类边界</strong>：为了实现分类，SVM希望找到一个能最大化分类边界的超平面。理想情况下，不同类别的数据点位于超平面两侧，即：</p>
+<ul>
+<li><span class="math inline">\(w \cdot x_i + b \geq 1\)</span>
+对于正类样本</li>
+<li><span class="math inline">\(w \cdot x_i + b \leq -1\)</span>
+对于负类样本</li>
+</ul></li>
+<li><p><strong>边距最大化</strong>：SVM通过优化问题来最大化支持向量到超平面的边距，保证模型的泛化能力。优化问题为：</p>
+<p><span class="math display">\[
+\min \frac{1}{2} \|w\|^2
+\]</span></p>
+<p>同时满足约束条件： <span class="math display">\[
+y_i(w \cdot x_i + b) \geq 1 \quad \forall i
+\]</span></p></li>
+</ul>
+<p>其中，<span class="math inline">\(y_i\)</span> 是数据点 <span class="math inline">\(x_i\)</span>
+的类别标签（+1或-1），通过求解该优化问题得到的超平面能够最大化分类边界。</p>
+<h2 id="带松弛变量的svm">2. 带松弛变量的SVM</h2>
+<p>在实际问题中，数据通常是线性不可分的，可能会存在一些误分类的数据点。为了应对这种情况，SVM引入了松弛变量（slack
+variable）来允许一定程度的误分类，从而处理非线性可分的数据。</p>
+<ul>
+<li><p><strong>松弛变量 <span class="math inline">\(\xi_i\)</span></strong>：SVM通过引入松弛变量 <span class="math inline">\(\xi_i \geq 0\)</span>
+来度量误分类样本的程度。对于每个数据点，松弛变量允许分类边界与样本之间有一定误差。</p>
+<p>约束条件变为： <span class="math display">\[
+y_i(w \cdot x_i + b) \geq 1 - \xi_i \quad \forall i
+\]</span></p>
+<p>这样，SVM能够处理非线性可分的数据，同时通过优化问题最小化误分类。</p></li>
+<li><p><strong>目标函数</strong>：SVM的目标是同时最小化分类误差和边距。带松弛变量的SVM的优化问题为：
+<span class="math display">\[
+\min \frac{1}{2} \|w\|^2 + C \sum_{i=1}^n \xi_i
+\]</span></p>
+<p>其中，<span class="math inline">\(C\)</span>
+是惩罚参数，用来控制误分类样本的惩罚程度。较大的 <span class="math inline">\(C\)</span> 值会导致模型对误分类更敏感。</p></li>
+</ul>
+<h2 id="对偶问题">3. 对偶问题</h2>
+<p>对偶问题是优化问题的一种变换形式，通过将原始的优化问题（主问题）转化为对偶形式，简化计算。SVM的对偶问题引入拉格朗日乘子，用于将原问题转化为约束优化问题。</p>
+<p>拉格朗日函数 <span class="math inline">\(L(w, b, \alpha)\)</span>
+定义为：</p>
+<p><span class="math display">\[
+L(w, b, \alpha) = \frac{1}{2} \|w\|^2 - \sum_{i=1}^{n} \alpha_i [y_i (w
+\cdot x_i + b) - 1]
+\]</span></p>
+<p>其中，<span class="math inline">\(\alpha_i \geq 0\)</span>
+是对应于每个约束条件的拉格朗日乘子。为了最小化拉格朗日函数 <span class="math inline">\(L(w, b, \alpha)\)</span>，我们需要对 <span class="math inline">\(w\)</span> 和 <span class="math inline">\(b\)</span> 进行最优化。首先分别对 <span class="math inline">\(w\)</span> 和 <span class="math inline">\(b\)</span> 求偏导并令其等于0。</p>
+<p>对 <span class="math inline">\(w\)</span> 求导：</p>
+<p><span class="math display">\[
+\frac{\partial L(w, b, \alpha)}{\partial w} = w - \sum_{i=1}^{n}
+\alpha_i y_i x_i = 0
+\]</span></p>
+<p>解得：</p>
+<p><span class="math display">\[
+w = \sum_{i=1}^{n} \alpha_i y_i x_i
+\]</span></p>
+<p>这表明 <span class="math inline">\(w\)</span> 是所有支持向量（即
+<span class="math inline">\(\alpha_i &gt; 0\)</span>
+的数据点）的线性组合。</p>
+<p>对 <span class="math inline">\(b\)</span> 求导：</p>
+<p><span class="math display">\[
+\frac{\partial L(w, b, \alpha)}{\partial b} = - \sum_{i=1}^{n} \alpha_i
+y_i = 0
+\]</span></p>
+<p>因此有：</p>
+<p><span class="math display">\[
+\sum_{i=1}^{n} \alpha_i y_i = 0
+\]</span></p>
+<p>这表明支持向量的权重满足该等式。</p>
+<p>将 <span class="math inline">\(w = \sum_{i=1}^{n} \alpha_i y_i
+x_i\)</span> 代入拉格朗日函数 <span class="math inline">\(L(w, b,
+\alpha)\)</span>，消去 <span class="math inline">\(w\)</span> 和 <span class="math inline">\(b\)</span>，我们得到新的目标函数：</p>
+<p><span class="math display">\[
+L(\alpha) = \frac{1}{2} \sum_{i=1}^{n} \sum_{j=1}^{n} \alpha_i \alpha_j
+y_i y_j (x_i \cdot x_j) - \sum_{i=1}^{n} \alpha_i
+\]</span></p>
+<p>注意，此时我们将优化变量从 <span class="math inline">\(w\)</span> 和
+<span class="math inline">\(b\)</span> 转化为了 <span class="math inline">\(\alpha_i\)</span>。</p>
+<p>对偶问题的目标是最大化拉格朗日函数 <span class="math inline">\(L(\alpha)\)</span>，即：</p>
+<p><span class="math display">\[
+\max_{\alpha} \sum_{i=1}^{n} \alpha_i - \frac{1}{2} \sum_{i=1}^{n}
+\sum_{j=1}^{n} \alpha_i \alpha_j y_i y_j (x_i \cdot x_j)
+\]</span></p>
+<p>同时满足以下约束条件：</p>
+<p><span class="math display">\[
+\sum_{i=1}^{n} \alpha_i y_i = 0, \quad 0 \leq \alpha_i \leq C
+\]</span></p>
+<p>其中 <span class="math inline">\(C\)</span>
+是控制松弛变量的参数，在引入松弛变量时会用到。</p>
+<p>通过求解对偶问题，我们可以获得拉格朗日乘子 <span class="math inline">\(\alpha_i\)</span>。这些乘子对应的 <span class="math inline">\(\alpha_i &gt; 0\)</span>
+的样本就是<strong>支持向量</strong>，这些支持向量决定了最终的分类超平面。</p>
+<h2 id="核化svm模型">4. 核化SVM模型</h2>
+<p>核化SVM用于处理线性不可分的数据。通过核函数将数据从低维映射到高维空间，使得在高维空间中数据变得线性可分。</p>
+<p>核函数 <span class="math inline">\(K(x_i, x_j)\)</span>
+用来计算两个样本点在映射到高维空间后的内积。常见的核函数有：</p>
+<ul>
+<li>线性核（Linear Kernel
+<ul>
+<li>公式：<span class="math inline">\(K(x_i, x_j) = x_i \cdot
+x_j\)</span></li>
+<li>适用于线性可分的数据。</li>
+</ul></li>
+<li>多项式核（Polynomial Kernel
+<ul>
+<li>公式：<span class="math inline">\(K(x_i, x_j) = (x_i \cdot x_j +
+1)^d\)</span></li>
+<li>其中，<span class="math inline">\(d\)</span>
+是多项式的阶数。多项式核适用于处理非线性数据。</li>
+</ul></li>
+<li>径向基函数核（Radial Basis Function, RBF Kernel）
+<ul>
+<li>公式：<span class="math inline">\(K(x_i, x_j) = \exp(-\gamma \|x_i -
+x_j\|^2)\)</span></li>
+<li><span class="math inline">\(\gamma\)</span>
+是参数，控制高斯函数的宽度。RBF核用于处理局部模式的非线性数据，是SVM中常用的核函数。</li>
+</ul></li>
+<li>Sigmoid核（Sigmoid Kernel）
+<ul>
+<li>公式：<span class="math inline">\(K(x_i, x_j) = \tanh(\kappa x_i
+\cdot x_j + \theta)\)</span></li>
+<li>Sigmoid核类似于神经网络中的激活函数，适用于一些特殊的非线性数据。</li>
+</ul></li>
+</ul>
+<h2 id="smo序列最小优化算法">5. SMO序列最小优化算法</h2>
+<p>SMO（Sequential Minimal
+Optimization）是解决SVM对偶问题的高效算法，能够快速训练SVM模型。SMO通过将优化问题分解为一系列的二次子问题，并分别对两个拉格朗日乘子进行优化。</p>
+<p>基本步骤：</p>
+<ol type="1">
+<li><strong>选择两个拉格朗日乘子</strong>：每次选择两个乘子 <span class="math inline">\(\alpha_1\)</span> 和 <span class="math inline">\(\alpha_2\)</span> 进行优化。</li>
+<li><strong>优化这两个乘子</strong>：将其他乘子固定，对 <span class="math inline">\(\alpha_1\)</span> 和 <span class="math inline">\(\alpha_2\)</span> 进行优化更新。</li>
+<li><strong>更新模型参数</strong>：根据更新后的 <span class="math inline">\(\alpha_1\)</span> 和 <span class="math inline">\(\alpha_2\)</span> 计算新的超平面参数 <span class="math inline">\(w\)</span> 和 <span class="math inline">\(b\)</span>。</li>
+<li><strong>重复迭代</strong>：不断重复以上步骤，直到达到收敛条件。</li>
+</ol>
+<p>SMO算法的优点在于它避免了计算整个核矩阵，显著提高了大规模数据集上SVM的训练速度。</p>
+<h2 id="svr">6. SVR</h2>
+<p>SVM回归（SVR）通过寻找一个函数来预测连续变量，主要用于回归分析。与SVM分类类似，SVR通过控制误差边界来最小化预测误差。</p>
+<ul>
+<li><strong>ε-不敏感损失函数</strong>：SVR允许在误差范围内的预测值被忽略，使用不敏感损失函数控制误差。</li>
+<li><strong>目标函数</strong>：SVR的目标是最小化函数复杂度和预测误差，优化问题为：
+<span class="math display">\[
+\min \frac{1}{2} \|w\|^2 + C \sum_{i=1}^n (\xi_i + \xi_i^*)
+\]</span> 其中，<span class="math inline">\(\xi_i\)</span> 和 <span class="math inline">\(\xi_i^*\)</span>
+是松弛变量，表示上下边界的误差，<span class="math inline">\(ε\)</span>
+控制误差的范围。</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a href="https://lwl1751.github.io">Wenliang Liang</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a href="https://lwl1751.github.io/2024/09/12/SVM/">https://lwl1751.github.io/2024/09/12/SVM/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/ML/">ML</a></div><div class="post_share"><div class="social-share" data-image="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/WechatIMG6.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2024/09/12/GPR/" title="GPR"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous</div><div class="prev_info">GPR</div></div></a></div><div class="next-post pull-right"><a href="/2024/09/12/RF/" title="RF"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next</div><div class="next_info">RF</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/2024/09/12/GAM/" title="GAM"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-09-12</div><div class="title">GAM</div></div></a></div><div><a href="/2024/09/12/GBDT/" title="GBDT"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-09-12</div><div class="title">GBDT</div></div></a></div><div><a href="/2024/09/12/GLM/" title="GLM"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-09-12</div><div class="title">GLM</div></div></a></div><div><a href="/2024/09/12/GPR/" title="GPR"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-09-12</div><div class="title">GPR</div></div></a></div><div><a href="/2024/09/12/PCA/" title="PCA"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-09-12</div><div class="title">PCA</div></div></a></div><div><a href="/2024/09/12/PLSA/" title="PLS"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-09-12</div><div class="title">PLS</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/WechatIMG6.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Wenliang Liang</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">90</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">12</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/lwl1751"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/lwl1751" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:wl687234@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">雨浸风蚀的落寞与苍楚一定是水,静静地流过青春奋斗的日子和触摸理想的岁月。</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%BF%E6%80%A7svm%E5%88%86%E7%B1%BB%E5%8E%9F%E7%90%86"><span class="toc-number">1.</span> <span class="toc-text">1. 线性SVM分类原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%A6%E6%9D%BE%E5%BC%9B%E5%8F%98%E9%87%8F%E7%9A%84svm"><span class="toc-number">2.</span> <span class="toc-text">2. 带松弛变量的SVM</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%B9%E5%81%B6%E9%97%AE%E9%A2%98"><span class="toc-number">3.</span> <span class="toc-text">3. 对偶问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%B8%E5%8C%96svm%E6%A8%A1%E5%9E%8B"><span class="toc-number">4.</span> <span class="toc-text">4. 核化SVM模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#smo%E5%BA%8F%E5%88%97%E6%9C%80%E5%B0%8F%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95"><span class="toc-number">5.</span> <span class="toc-text">5. SMO序列最小优化算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#svr"><span class="toc-number">6.</span> <span class="toc-text">6. SVR</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/09/14/catboost/" title="catboost">catboost</a><time datetime="2024-09-14T06:37:09.000Z" title="Created 2024-09-14 14:37:09">2024-09-14</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/09/14/lightGBM/" title="lightGBM">lightGBM</a><time datetime="2024-09-14T06:37:00.000Z" title="Created 2024-09-14 14:37:00">2024-09-14</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/09/13/Bayesian-Optimization/" title="Bayesian Optimization">Bayesian Optimization</a><time datetime="2024-09-13T05:03:01.000Z" title="Created 2024-09-13 13:03:01">2024-09-13</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/09/13/Adaboost/" title="Adaboost">Adaboost</a><time datetime="2024-09-13T04:59:04.000Z" title="Created 2024-09-13 12:59:04">2024-09-13</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/09/12/XGBoost/" title="XGBoost">XGBoost</a><time datetime="2024-09-12T12:31:43.000Z" title="Created 2024-09-12 20:31:43">2024-09-12</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Wenliang Liang</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
   window.MathJax = {
     tex: {
       inlineMath: [['$', '$'], ['\\(', '\\)']],
