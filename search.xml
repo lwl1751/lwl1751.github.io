@@ -1953,12 +1953,6 @@ Reasons: Reflect on why it lost to its opponents , which beliefs are problematic
       </tags>
   </entry>
   <entry>
-    <title>Augmenting large language models with chemistry tools</title>
-    <url>/2024/07/26/Augmenting-large-language-models-with-chemistry-tools/</url>
-    <content><![CDATA[
-]]></content>
-  </entry>
-  <entry>
     <title>REASONING ON GRAPHS: FAITHFUL AND INTERPRETABLE LARGE LANGUAGE MODEL REASONING</title>
     <url>/2024/07/26/REASONING-ON-GRAPHS-FAITHFUL-AND-INTERPRETABLE-LARGE-LANGUAGE-MODEL-REASONING/</url>
     <content><![CDATA[<blockquote>
@@ -2667,8 +2661,58 @@ biomanufacturing[C]//MAbs. Taylor &amp; Francis, 2022, 14(1):
   <entry>
     <title>Challenges in developing cell culture media using machine learning</title>
     <url>/2024/09/12/Challenges-in-developing-cell-culture-media-using-machine-learning/</url>
-    <content><![CDATA[
+    <content><![CDATA[<blockquote>
+<p>第一作者：Takamasa Hashizume</p>
+<p>作者单位：University of Tsukuba</p>
+<p>发表时间：2024/1</p>
+<p>发表期刊：Biotechnology Advances，1区</p>
+<p>关键内容：综述类型文章。介绍细胞培养工程中的机器学习技术。总共从实验设计、数据获取、模型构建、培养基预测、验证开发五个方面进行详细的介绍。主要亮点是：对41篇相关文献所用的技术进行了总结。</p>
+</blockquote>
+<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/10.1016_j.biotechadv.2023.108293_1.png" alt="图1"> <img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/10.1016_j.biotechadv.2023.108293_2.png" alt="图2"></p>
+<h2 id="数据获取">1. 数据获取</h2>
+<figure>
+<img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/10.1016_j.biotechadv.2023.108293_3.png" alt="图3">
+<figcaption aria-hidden="true">图3</figcaption>
+</figure>
+<h2 id="模型构建">2. 模型构建</h2>
+<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/10.1016_j.biotechadv.2023.108293_4.png" alt="图1"> <img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/10.1016_j.biotechadv.2023.108293_5.png" alt="图1"></p>
+<h2 id="培养基预测">3. 培养基预测</h2>
+<p>类比于模型超参数优化，通过搜索，找到影响模型输出（如细胞浓度或产率）的最重要的成分和最优浓度组合。</p>
+<ul>
+<li>Brute force approach,
+穷举搜索策略，逐一评估所有可能的组合，直到找到最佳结果。</li>
+<li>Surface plot,
+表面图，一种可视化工具，通常用于展示两个变量之间的关系。它生成一个三维图，显示两个变量（例如培养基成分浓度）如何影响模型输出（如细胞浓度或产率）。
+<ul>
+<li>在培养基优化过程中，表面图用于对模型进行敏感性分析。通过敏感性分析，可以确定对细胞培养有最大影响的培养基成分。然后保持其他成分的浓度不变，只改变两个主要成分的浓度，生成一个3D表面图，展示这两个变量的不同组合如何影响细胞培养结果。通过观察表面图，可以直观地找到最优浓度组合。</li>
+</ul></li>
+<li>Genetic algorithm, GA</li>
+<li>Particle swarm optimization, PSO</li>
+</ul>
+<p>其它方法：贝叶斯优化等。</p>
+<p><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/10.1016_j.biotechadv.2023.108293_6.png" alt="图6"> <img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/10.1016_j.biotechadv.2023.108293_7.png" alt="图7"></p>
+<h2 id="验证开发">4. 验证开发</h2>
+<p>主动学习的过程：</p>
+<ol type="1">
+<li>Build the ML model to predict culture results from medium
+combinations.</li>
+<li>Predict the cell culture by inputting the medium compositions.</li>
+<li>Select the medium combinations based on the predicted cell
+culture.</li>
+<li>Experimentally validate the selected medium combinations.</li>
+<li>Add the experimental results to the learning data.</li>
+</ol>
+<p>Steps 1 to 5 are repeateduntil the medium improves the ML model’s
+prediction accuracy. Even with a small dataset, the medium combinations
+could be finetunedto achieve high performance.</p>
+<h2 id="参考文献">5. 参考文献</h2>
+<p>Hashizume T, Ying B W. Challenges in developing cell culture media
+using machine learning[J]. Biotechnology Advances, 2023: 108293.</p>
 ]]></content>
+      <tags>
+        <tag>文献笔记</tag>
+        <tag>参数预测</tag>
+      </tags>
   </entry>
   <entry>
     <title>Discovering High Entropy Alloy Electrocatalysts in Vast Composition Spaces with Multiobjective Optimization</title>
@@ -2682,6 +2726,8 @@ biomanufacturing[C]//MAbs. Taylor &amp; Francis, 2022, 14(1):
     <content><![CDATA[<p>Generalized Additive Models, 广义加性模型 GAM。</p>
 <p>通过对预测变量应用平滑函数来捕捉非线性关系。GAM
 扩展了传统的线性模型，使得每个预测变量对响应变量的影响可以通过非线性函数来建模。</p>
+<p><a href="https://www.youtube.com/watch?v=wVGvhT151lg">GLM vs. GAM -
+Generalized Additive Models</a></p>
 <h2 id="gam-的基本组成">1. GAM 的基本组成</h2>
 <p>广义加性模型包括以下几个主要成分：</p>
 <ol type="1">
@@ -3443,6 +3489,7 @@ Optimization）是解决SVM对偶问题的高效算法，能够快速训练SVM�
 <li><strong>目标函数的优化</strong>：XGBoost
 不仅考虑了损失函数，还在目标函数中加入了正则化项，用来控制模型的复杂度，防止过拟合。</li>
 </ul>
+<h3 id="level-wise">1.1 level-wise</h3>
 <h2 id="算法步骤">2. 算法步骤</h2>
 <p>XGBoost 的算法流程与 GBDT 类似，包含以下步骤：</p>
 <ol type="1">
@@ -3519,6 +3566,12 @@ j} h_i + \lambda}
 <li><span class="math inline">\(h_i\)</span>
 是损失函数的<strong>二阶导数</strong>（Hessian），用于描述误差变化的程度。</li>
 </ul>
+<p>最终目标函数计算如下：</p>
+<p><span class="math display">\[
+\text{Obj}(\theta) = -\frac{1}{2} \sum_{j=1}^{T} \frac{\left( \sum_{i
+\in \text{leaf } j} g_i \right)^2}{\sum_{i \in \text{leaf } j} h_i +
+\lambda} + \gamma T
+\]</span></p>
 <h2 id="优势">4. 优势</h2>
 <p>XGBoost 相较于传统的 GBDT，在多个方面进行了优化，具有以下优势：</p>
 <ol type="1">
@@ -3704,8 +3757,17 @@ Bound，通过平衡利用（即选择预测均值高的点）和探索（即选
 <h2 id="核心思想">1. 核心思想</h2>
 <p>CatBoost的核心思想是在GBDT的基础上进行改进，主要通过以下几方面的优化：</p>
 <ol type="1">
-<li><p><strong>类别特征的高效处理</strong>：CatBoost可以直接处理类别特征，不需要进行独热编码（One-Hot
-Encoding），通过统计信息和基于目标值的编码技术减少了过拟合和信息泄漏的风险。</p></li>
+<li><strong>类别特征的高效处理</strong>：CatBoost可以直接处理类别特征，不需要进行独热编码（One-Hot
+Encoding），通过统计信息和基于目标值的编码技术减少了过拟合和信息泄漏的风险。使用<strong>Ordered
+Target Encoding</strong>。具体来说，假设我们正在处理一个样本 <span class="math inline">\(i\)</span>，并希望对其类别特征 <span class="math inline">\(A\)</span> 进行目标编码。CatBoost
+计算的编码是基于样本 <span class="math inline">\(i\)</span>
+之前的样本的目标变量：</li>
+</ol>
+<p><span class="math display">\[
+\text{Encoded}(A_i) = \frac{\sum_{j=1}^{i-1} y_j | A_j =
+A_i}{\text{count}(A_j = A_i, j &lt; i)}
+\]</span></p>
+<ol start="2" type="1">
 <li><p><strong>避免梯度偏差</strong>：在传统GBDT中，梯度计算可能带有偏差，而CatBoost通过引入基于排序的梯度提升方法来减少这种偏差，提升模型的泛化能力。</p></li>
 <li><p><strong>对称树结构</strong>：CatBoost构建对称的决策树，这意味着每个树的左右分支在相同的深度上分裂相同的特征。这种结构可以提升预测速度，并使得模型对数据顺序不敏感。</p></li>
 <li><p><strong>顺序提升算法</strong>：CatBoost在训练时使用顺序提升方法，通过逐步引入数据点来减少目标编码和梯度提升中的信息泄漏。</p></li>
@@ -3751,6 +3813,7 @@ Encoding），通过统计信息和基于目标值的编码技术减少了过拟
 </ul>
 <p>参考资料：</p>
 <p><a href="https://cloud.tencent.com/developer/article/1546808" class="uri">https://cloud.tencent.com/developer/article/1546808</a></p>
+<p><a href="https://www.youtube.com/watch?v=3Bg2XRFOTzg" class="uri">https://www.youtube.com/watch?v=3Bg2XRFOTzg</a></p>
 ]]></content>
       <tags>
         <tag>ML</tag>
