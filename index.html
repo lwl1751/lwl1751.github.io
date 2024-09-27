@@ -51,7 +51,7 @@
   isHome: true,
   isHighlightShrink: false,
   isToc: false,
-  postUpdate: '2024-09-23 14:04:24'
+  postUpdate: '2024-09-27 16:02:19'
 }</script><script>(win=>{
       win.saveToLocal = {
         set: (key, value, ttl) => {
@@ -148,188 +148,17 @@
         }
       }
       detectApple()
-    })(window)</script><meta name="generator" content="Hexo 7.2.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/WechatIMG6.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">89</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">12</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url('https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/2347912.webp')"><nav id="nav"><span id="blog-info"><a href="/" title="Wenliang Liang"><span class="site-name">Wenliang Liang</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">Wenliang Liang</h1><div id="site-subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="https://github.com/lwl1751" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:wl687234@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/09/14/catboost/" title="catboost">catboost</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-09-14T06:37:09.000Z" title="Created 2024-09-14 14:37:09">2024-09-14</time></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/ML/">ML</a></span></div><div class="content">Category Boosting, 对GBDT的优化实现。
-1. 核心思想
-CatBoost的核心思想是在GBDT的基础上进行改进，主要通过以下几方面的优化：
-
-类别特征的高效处理：CatBoost可以直接处理类别特征，不需要进行独热编码（One-Hot
-Encoding），通过统计信息和基于目标值的编码技术减少了过拟合和信息泄漏的风险。使用Ordered
-Target Encoding。具体来说，假设我们正在处理一个样本 \(i\)，并希望对其类别特征 \(A\) 进行目标编码。CatBoost
-计算的编码是基于样本 \(i\)
-之前的样本的目标变量：
-
-\[
-\text{Encoded}(A_i) = \frac{\sum_{j=1}^{i-1} y_j | A_j =
-A_i}{\text{count}(A_j = A_i, j &lt; i)}
-\]
-
-避免梯度偏差：在传统GBDT中，梯度计算可能带有偏差，而CatBoost通过引入基于排序的梯度提升方法来减少这种偏差，提升模型的泛化能力。
-对称树结构：CatBoost构建对称的决策树，这意味着每个树的左右分支在相同的深度上分 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/09/14/lightGBM/" title="lightGBM">lightGBM</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-09-14T06:37:00.000Z" title="Created 2024-09-14 14:37:00">2024-09-14</time></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/ML/">ML</a></span></div><div class="content">Light Gradient Boosting Machine。lightGBM 和
-XGBoost一样，是对GBDT的优化实现，但比XGBoost更为优秀高效。GBDT
-在每一次迭代的时候，都需要遍历整个训练数据多次。如果把整个训练数据一次性装进内存，会明显限制训练数据的大小。如果不装进内存，反复地读写训练数据又会消耗非常大的时间。XGboost中使用的精确贪心算法也同样存在这个问题。
-参考资料（更加详细，有助于理解）：
-https://github.com/ExpressGit/NLP_Study_Demo/blob/main/ML/LightGBM.ipynb
-https://www.bilibili.com/video/BV1JK4y1L7ow/?spm_id_from=333.337.search-card.all.click&amp;vd_source=514a3ed3ac370caf4facad7d6f4e1a2d
-1. 核心思想
-LightGBM是一种高效的梯度提升决策树（GBDT）实现，具有独特的优化策略以应对大规模数据和高维特征的挑战。其核心思想是通过引入基于直方图 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/09/13/Bayesian-Optimization/" title="Bayesian Optimization">Bayesian Optimization</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-09-13T05:03:01.000Z" title="Created 2024-09-13 13:03:01">2024-09-13</time></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/ML/">ML</a></span></div><div class="content">超参数优化算法。通过构建一个代理模型（通常是高斯过程，GP）来近似目标函数，并使用该模型的预测和不确定性信息来决定下一次评估目标函数的最优位置。实际上是优化对目标函数的估计，属于序贯模型优化(SMBO)的一种。
-SMBO：一类用于优化复杂、黑箱函数的策略，它通过构建代理模型来模拟目标函数，并通过不断更新模型来引导下一步的采样。
-1. 基本原理
-基本步骤：
-
-初始样本选择：首先通过随机或空间填充方法选择一些样本点，评估这些点的目标函数值f(x)。
-代理模型构建：基于已有的样本点，利用高斯过程构建目标函数的代理模型。高斯过程不仅可以预测目标函数的值，还能提供该预测的置信区间。
-采集函数选择：贝叶斯优化使用采集函数来决定下一个需要评估的点。采集函数平衡了探索（在高不确定性区域探索可能的最优点）和利用（在已知较优区域集中评估）。
-目标函数评估：根据采集函数选择的下一个点，评估目标函数，并将结果纳入已有样本集。
-模型更新：更新高斯过程模型，以包括新的采样点。
-重复迭代：不断重复步骤3-5，直到满足停止条件（例如达到设定的评估次数或优化精度）。
-
-注意：在超参数优化过程中，需要定义的f(x)一半是 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/09/13/Adaboost/" title="Adaboost">Adaboost</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-09-13T04:59:04.000Z" title="Created 2024-09-13 12:59:04">2024-09-13</time></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/ML/">ML</a></span></div><div class="content">Adaptive Boosting，自适应增强。
-1. 核心思想
-通过逐轮训练弱分类器，每一轮根据分类器的表现调整样本权重，最终将这些弱分类器进行加权组合，形成一个强分类器。弱分类器可以是任何表现略优于随机猜测的模型。
-2. 算法步骤
-
-初始化训练样本的权值分布：最开始对每个训练样本赋予相同的权重：
-\[w_i^{(1)} = \frac{1}{N}, \quad
-i=1,2,\dots,N\] 其中，\(N\)为训练样本的总数，\(w_i^{(1)}\)为第 \(i\)个样本在初始阶段的权重。
-训练弱分类器：在每一轮迭代中，用当前的权值分布训练一个弱分类器
-\(h_t\)。对于训练样本集 \(X = \{x_1, x_2, \dots, x_N\}\)，若弱分类器
-\(h_t\)对样本 \(x_i\)分类错误，权重 \(w_i\)就会增加；若分类正确，则 \(w_i\)减少。
-计算弱分类器的误差率：分类器 \(h_t\)的分类误差率 \(\epsilon_t\)为： \[
-\epsilon_t = \frac{\sum_{i=1}^{N} w_i^{(t)} \cdot \mathb ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/09/12/XGBoost/" title="XGBoost">XGBoost</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-09-12T12:31:43.000Z" title="Created 2024-09-12 20:31:43">2024-09-12</time></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/ML/">ML</a></span></div><div class="content">Extreme Gradient Boosting，对GBDT的优化实现。
-1. 核心思想
-XGBoost 继承了 GBDT
-的基本思想，即通过构建多个决策树来逐步优化模型的预测能力。XGBoost
-的优化改进：
-
-损失函数的优化：XGBoost
-使用二阶导数（Hessian）信息来优化损失函数，提升模型在拟合时的鲁棒性和精确度。
-目标函数的优化：XGBoost
-不仅考虑了损失函数，还在目标函数中加入了正则化项，用来控制模型的复杂度，防止过拟合。
-
-1.1 level-wise
-2. 算法步骤
-XGBoost 的算法流程与 GBDT 类似，包含以下步骤：
-
-初始化模型：开始时，模型初始化为常数值。通常使用目标变量的均值来初始化模型。
-逐步添加树：
-
-每一轮迭代时，基于上一轮的残差，训练一个新的回归树。
-XGBoost
-使用损失函数的一阶导数（梯度）和二阶导数（Hessian）来生成新树。
-
-目标函数优化：
-
-对每棵树，XGBoost
-构建时通过最小化目标函数来决定分裂节点的最佳方式。
-目标函数考虑了模型的误差和正则化项。1
-
-加法模型：
-
-新的决策树模型与之前的树累加，形成最终的模型。 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/09/12/GAM/" title="GAM">GAM</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-09-12T12:31:32.000Z" title="Created 2024-09-12 20:31:32">2024-09-12</time></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/ML/">ML</a></span></div><div class="content">Generalized Additive Models, 广义加性模型 GAM。
-通过对预测变量应用平滑函数来捕捉非线性关系。GAM
-扩展了传统的线性模型，使得每个预测变量对响应变量的影响可以通过非线性函数来建模。
-GLM vs. GAM -
-Generalized Additive Models
-1. GAM 的基本组成
-广义加性模型包括以下几个主要成分：
-
-响应变量：\(Y\)
-是模型的目标变量。
-预测变量：\(X = (X_1,
-X_2, \ldots, X_p)\) 是自变量或特征。
-平滑函数：\(f_i(X_i)\) 是每个预测变量 \(X_i\)
-对响应变量的影响，通过平滑函数建模。
-线性预测器：将每个预测变量的平滑函数加总起来得到模型的线性预测器。
-
-2. GAM 的模型形式
-GAM 的模型可以表示为： \[
-g(\mathbb{E}[Y]) = \beta_0 + \sum_{i=1}^p f_i(X_i)
-\] 其中：
-
-\(g(\cdot)\) 是链接函数，将期望值
-\(\mathbb{E}[Y]\)
-与线性预测器联系起来。
-\(\beta_0\) 是截距项。
-\( ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/09/12/GLM/" title="GLM">GLM</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-09-12T12:31:21.000Z" title="Created 2024-09-12 20:31:21">2024-09-12</time></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/ML/">ML</a></span></div><div class="content">Generalized Linear Models, 广义线性模型GLM。
-一类灵活的统计模型，用于处理不同类型的数据。GLM
-扩展了传统的线性回归模型，允许响应变量（因变量）与预测变量（自变量）之间的关系通过各种分布来建模。GLM
-主要包括线性回归、逻辑回归、泊松回归等模型。
-1. GLM 的基本组成
-广义线性模型由以下三部分组成：
-
-随机成分：响应变量 \(Y\)
-的分布，通常假设为指数家族分布，如正态分布、二项分布、泊松分布等。
-系统成分：线性预测器 \(\eta\)，即自变量的线性组合： \[
-\eta = X \beta
-\] 其中，\(X\) 是设计矩阵，\(\beta\) 是回归系数。
-链接函数：链接函数 \(g(\cdot)\) 将线性预测器 \(\eta\) 与响应变量的期望 \(\mu\) 联系起来： \[
-g(\mu) = \eta
-\] 其中，\(\mu = \text{E}[Y]\)
-是响应变量的期望。
-
-2. GLM 的数学推导
-2.1 随机成分
-假设响应变量 \(Y\)
-的分布属于指数家族分布，其概率密度函数（或质量函数）可以表示为： \[
-f(y|\th ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/09/12/GBDT/" title="GBDT">GBDT</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-09-12T12:31:12.000Z" title="Created 2024-09-12 20:31:12">2024-09-12</time></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/ML/">ML</a></span></div><div class="content">Gradient boosting Decision Tree。
-1. 核心思想
-GBDT 是一种迭代的决策树算法，它由多棵决策树组成。GBDT
-的核心在于将所有决策树的输出累加作为最终结果，因此 GBDT 中的每一棵树都是
-回归树，即每棵树拟合的是之前模型的残差。每次迭代都会训练一个新的树来优化先前的误差，通过这种方式，不断提升模型的整体预测能力。
-2. 算法步骤
-
-初始化模型：使用常数函数初始化模型，比如将目标变量的均值作为初始预测值。
-计算残差：对于每一个样本，计算当前模型的残差，即目标值与当前预测值的差异。
-拟合残差：训练一棵决策树，使其能够拟合上一步的残差（拟合负梯度）。
-更新模型：将新树的预测结果乘上学习率（缩放系数），然后将其加到当前模型的预测值中。
-
-\[
-F_m(x) = F_{m-1}(x) + \alpha h_m(x)
-\]
-其中，\(F_m(x)\) 表示第 \(m\) 次迭代后的模型，\(F_{m-1}(x)\) 是前一次迭代的模型，\(h_m(x)\) 是当前树的输出，\(\alpha\) 是学习率。
-
-重复步骤
-2-4：直到达到指定的迭代次数或误差收敛。 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/09/12/GPR/" title="GPR">GPR</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-09-12T12:31:00.000Z" title="Created 2024-09-12 20:31:00">2024-09-12</time></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/ML/">ML</a></span></div><div class="content">Gaussian Process Regression, 高斯过程回归。
-一种非参数的贝叶斯回归方法，用于建模和预测复杂的非线性函数。它利用高斯过程的先验分布来推断数据的分布，并生成预测的不确定性度量。
-1. 高斯过程回归的基本概念
-1.1 高斯过程
-高斯过程（Gaussian Process,
-GP）是一种用于定义随机函数的统计模型，它可以看作是无穷维的高斯分布。一个高斯过程可以通过其均值函数
-\(m(x)\) 和协方差函数 \(k(x, x&#39;)\) 完全描述： \[
-f(x) \sim \mathcal{GP}(m(x), k(x, x&#39;))
-\] 其中：
-
-\(m(x)\) 是均值函数，表示在点 \(x\) 的预测值的期望。
-\(k(x, x&#39;)\)
-是协方差函数，表示在点 \(x\) 和 \(x&#39;\) 之间的协方差。
-
-1.2 协方差函数（核函数）
-协方差函数 \(k(x, x&#39;)\)
-用于定义数据点之间的相关性。常见的协方差函数包括：
-
-平方指数核（RBF核）： \[
-k(x, x&#39;) = \sigma^2 \exp \left ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/09/12/SVM/" title="SVM">SVM</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-09-12T12:30:24.000Z" title="Created 2024-09-12 20:30:24">2024-09-12</time></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/ML/">ML</a></span></div><div class="content">Support Vector Machine.
-1. 线性SVM分类原理
-线性SVM分类的核心思想是找到一个超平面，将不同类别的数据点分隔开，并且尽量使得分类边界到支持向量的距离最大。线性SVM适用于数据线性可分的场景。
-
-超平面：假设我们有一组二维数据，SVM的目标是找到一条直线来分割这组数据。在高维空间中，这条直线就是超平面，定义为：
-\[
-w \cdot x + b = 0
-\]
-其中，\(w\) 是超平面的法向量，\(x\) 是输入数据，\(b\) 是偏置。
-分类边界：为了实现分类，SVM希望找到一个能最大化分类边界的超平面。理想情况下，不同类别的数据点位于超平面两侧，即：
-
-\(w \cdot x_i + b \geq 1\)
-对于正类样本
-\(w \cdot x_i + b \leq -1\)
-对于负类样本
-
-边距最大化：SVM通过优化问题来最大化支持向量到超平面的边距，保证模型的泛化能力。优化问题为：
-\[
-\min \frac{1}{2} \|w\|^2
-\]
-同时满足约束条件： \[
-y_i(w \cdot x_i + b) \geq 1 \quad \forall  ...</div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span><a class="page-number" href="/page/2/#content-inner">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/#content-inner">9</a><a class="extend next" rel="next" href="/page/2/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/WechatIMG6.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Wenliang Liang</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">89</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">12</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/lwl1751"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/lwl1751" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:wl687234@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">雨浸风蚀的落寞与苍楚一定是水,静静地流过青春奋斗的日子和触摸理想的岁月。</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/09/14/catboost/" title="catboost">catboost</a><time datetime="2024-09-14T06:37:09.000Z" title="Created 2024-09-14 14:37:09">2024-09-14</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/09/14/lightGBM/" title="lightGBM">lightGBM</a><time datetime="2024-09-14T06:37:00.000Z" title="Created 2024-09-14 14:37:00">2024-09-14</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/09/13/Bayesian-Optimization/" title="Bayesian Optimization">Bayesian Optimization</a><time datetime="2024-09-13T05:03:01.000Z" title="Created 2024-09-13 13:03:01">2024-09-13</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/09/13/Adaboost/" title="Adaboost">Adaboost</a><time datetime="2024-09-13T04:59:04.000Z" title="Created 2024-09-13 12:59:04">2024-09-13</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/09/12/XGBoost/" title="XGBoost">XGBoost</a><time datetime="2024-09-12T12:31:43.000Z" title="Created 2024-09-12 20:31:43">2024-09-12</time></div></div></div></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>Tags</span></div><div class="card-tag-cloud"><a href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B/" style="font-size: 1.5em; color: #99a9bf">大模型</a> <a href="/tags/%E5%A4%9A%E6%A8%A1%E6%80%81/" style="font-size: 1.16em; color: #999b9e">多模态</a> <a href="/tags/ML/" style="font-size: 1.39em; color: #99a4b4">ML</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/" style="font-size: 1.33em; color: #99a2af">知识图谱</a> <a href="/tags/%E5%8F%82%E6%95%B0%E9%A2%84%E6%B5%8B/" style="font-size: 1.16em; color: #999b9e">参数预测</a> <a href="/tags/%E6%90%9C%E7%B4%A2/" style="font-size: 1.1em; color: #999">搜索</a> <a href="/tags/%E4%BF%A1%E6%81%AF%E6%8A%BD%E5%8F%96/" style="font-size: 1.1em; color: #999">信息抽取</a> <a href="/tags/%E5%9B%BE/" style="font-size: 1.16em; color: #999b9e">图</a> <a href="/tags/%E9%AB%98%E7%BA%A7%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" style="font-size: 1.21em; color: #999ea4">高级人工智能</a> <a href="/tags/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" style="font-size: 1.27em; color: #99a0a9">强化学习</a> <a href="/tags/%E6%96%87%E7%8C%AE%E7%AC%94%E8%AE%B0/" style="font-size: 1.44em; color: #99a7ba">文献笔记</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E5%B7%A5%E7%A8%8B/" style="font-size: 1.33em; color: #99a2af">知识工程</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>Archives</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/09/"><span class="card-archive-list-date">September 2024</span><span class="card-archive-list-count">47</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/08/"><span class="card-archive-list-date">August 2024</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/07/"><span class="card-archive-list-date">July 2024</span><span class="card-archive-list-count">19</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/06/"><span class="card-archive-list-date">June 2024</span><span class="card-archive-list-count">6</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/05/"><span class="card-archive-list-date">May 2024</span><span class="card-archive-list-count">16</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">Article :</div><div class="item-count">89</div></div><div class="webinfo-item"><div class="item-name">UV :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">PV :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Last Update :</div><div class="item-count" id="last-push-date" data-lastPushDate="2024-09-23T06:04:24.813Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Wenliang Liang</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>window.typedJSFn = {
+    })(window)</script><meta name="generator" content="Hexo 7.2.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/WechatIMG6.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">99</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">12</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url('https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/2347912.webp')"><nav id="nav"><span id="blog-info"><a href="/" title="Wenliang Liang"><span class="site-name">Wenliang Liang</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">Wenliang Liang</h1><div id="site-subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="https://github.com/lwl1751" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:wl687234@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/09/27/Multi-perspective-Improvement-of-Knowledge-Graph-Completion-with-Large-Language-Models/" title="Multi-perspective Improvement of Knowledge Graph Completion with Large Language Models">Multi-perspective Improvement of Knowledge Graph Completion with Large Language Models</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-09-27T08:02:04.000Z" title="Created 2024-09-27 16:02:04">2024-09-27</time></span></div><div class="content">
+</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/09/27/Multimodal-Foundation-Models-From-Specialists-to-General-Purpose-Assistants/" title="Multimodal Foundation Models: From Specialists to General-Purpose Assistants">Multimodal Foundation Models: From Specialists to General-Purpose Assistants</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-09-27T07:46:12.000Z" title="Created 2024-09-27 15:46:12">2024-09-27</time></span></div><div class="content">
+</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/09/27/Graph-Intelligence-with-Large-Language-Models-and-Prompt-Learning/" title="Graph Intelligence with Large Language Models and Prompt Learning">Graph Intelligence with Large Language Models and Prompt Learning</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-09-27T07:42:26.000Z" title="Created 2024-09-27 15:42:26">2024-09-27</time></span></div><div class="content">
+</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/09/27/LLM-Prop-Predicting-Physical-And-Electronic-Properties-Of-Crystalline-Solids-From-Their-Text-Descriptions/" title="LLM-Prop: Predicting Physical And Electronic Properties Of Crystalline Solids From Their Text Descriptions">LLM-Prop: Predicting Physical And Electronic Properties Of Crystalline Solids From Their Text Descriptions</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-09-27T07:40:21.000Z" title="Created 2024-09-27 15:40:21">2024-09-27</time></span></div><div class="content">
+</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/09/27/Towards-Explainable-Traffic-Flow-Prediction-with-Large-Language-Models/" title="Towards Explainable Traffic Flow Prediction with Large Language Models">Towards Explainable Traffic Flow Prediction with Large Language Models</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-09-27T07:37:58.000Z" title="Created 2024-09-27 15:37:58">2024-09-27</time></span></div><div class="content">
+</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/09/27/Learning-Dynamic-User-Interest-Sequence-in-Knowledge-Graphs-for-Click-Through-Rate-Prediction/" title="Learning Dynamic User Interest Sequence in Knowledge Graphs for Click-Through Rate Prediction">Learning Dynamic User Interest Sequence in Knowledge Graphs for Click-Through Rate Prediction</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-09-27T07:33:41.000Z" title="Created 2024-09-27 15:33:41">2024-09-27</time></span></div><div class="content">
+</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/09/27/Link-Prediction-Based-on-Graph-Neural-Networks/" title="Link Prediction Based on Graph Neural Networks">Link Prediction Based on Graph Neural Networks</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-09-27T07:32:20.000Z" title="Created 2024-09-27 15:32:20">2024-09-27</time></span></div><div class="content">
+</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/09/27/GraphCare-Enhancing-Healthcare-Predictions-with-Personalized-Knowledge-Graphs/" title="GraphCare: Enhancing Healthcare Predictions with Personalized Knowledge Graphs">GraphCare: Enhancing Healthcare Predictions with Personalized Knowledge Graphs</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-09-27T07:30:49.000Z" title="Created 2024-09-27 15:30:49">2024-09-27</time></span></div><div class="content">
+</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/09/27/Leveraging-A-Medical-Knowledge-Graph-into-Large-Language-Modelsfor-Diagnosis-Prediction/" title="Leveraging A Medical Knowledge Graph into Large Language Modelsfor Diagnosis Prediction">Leveraging A Medical Knowledge Graph into Large Language Modelsfor Diagnosis Prediction</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-09-27T07:28:34.000Z" title="Created 2024-09-27 15:28:34">2024-09-27</time></span></div><div class="content">
+</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/09/27/RAM-EHR-Retrieval-Augmentation-Meets-Clinical-Predictions-on-Electronic-Health-Records/" title="RAM-EHR: Retrieval Augmentation Meets Clinical Predictions on Electronic Health Records">RAM-EHR: Retrieval Augmentation Meets Clinical Predictions on Electronic Health Records</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-09-27T07:22:20.000Z" title="Created 2024-09-27 15:22:20">2024-09-27</time></span></div><div class="content">
+</div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span><a class="page-number" href="/page/2/#content-inner">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/#content-inner">10</a><a class="extend next" rel="next" href="/page/2/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://raw.githubusercontent.com/lwl1751/Image_Hosting/main/img/WechatIMG6.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Wenliang Liang</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">99</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">12</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/lwl1751"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/lwl1751" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:wl687234@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">雨浸风蚀的落寞与苍楚一定是水,静静地流过青春奋斗的日子和触摸理想的岁月。</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/09/27/Multi-perspective-Improvement-of-Knowledge-Graph-Completion-with-Large-Language-Models/" title="Multi-perspective Improvement of Knowledge Graph Completion with Large Language Models">Multi-perspective Improvement of Knowledge Graph Completion with Large Language Models</a><time datetime="2024-09-27T08:02:04.000Z" title="Created 2024-09-27 16:02:04">2024-09-27</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/09/27/Multimodal-Foundation-Models-From-Specialists-to-General-Purpose-Assistants/" title="Multimodal Foundation Models: From Specialists to General-Purpose Assistants">Multimodal Foundation Models: From Specialists to General-Purpose Assistants</a><time datetime="2024-09-27T07:46:12.000Z" title="Created 2024-09-27 15:46:12">2024-09-27</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/09/27/Graph-Intelligence-with-Large-Language-Models-and-Prompt-Learning/" title="Graph Intelligence with Large Language Models and Prompt Learning">Graph Intelligence with Large Language Models and Prompt Learning</a><time datetime="2024-09-27T07:42:26.000Z" title="Created 2024-09-27 15:42:26">2024-09-27</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/09/27/LLM-Prop-Predicting-Physical-And-Electronic-Properties-Of-Crystalline-Solids-From-Their-Text-Descriptions/" title="LLM-Prop: Predicting Physical And Electronic Properties Of Crystalline Solids From Their Text Descriptions">LLM-Prop: Predicting Physical And Electronic Properties Of Crystalline Solids From Their Text Descriptions</a><time datetime="2024-09-27T07:40:21.000Z" title="Created 2024-09-27 15:40:21">2024-09-27</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/09/27/Towards-Explainable-Traffic-Flow-Prediction-with-Large-Language-Models/" title="Towards Explainable Traffic Flow Prediction with Large Language Models">Towards Explainable Traffic Flow Prediction with Large Language Models</a><time datetime="2024-09-27T07:37:58.000Z" title="Created 2024-09-27 15:37:58">2024-09-27</time></div></div></div></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>Tags</span></div><div class="card-tag-cloud"><a href="/tags/%E5%A4%9A%E6%A8%A1%E6%80%81/" style="font-size: 1.16em; color: #999b9e">多模态</a> <a href="/tags/%E6%90%9C%E7%B4%A2/" style="font-size: 1.1em; color: #999">搜索</a> <a href="/tags/%E5%9B%BE/" style="font-size: 1.16em; color: #999b9e">图</a> <a href="/tags/%E4%BF%A1%E6%81%AF%E6%8A%BD%E5%8F%96/" style="font-size: 1.1em; color: #999">信息抽取</a> <a href="/tags/ML/" style="font-size: 1.39em; color: #99a4b4">ML</a> <a href="/tags/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" style="font-size: 1.27em; color: #99a0a9">强化学习</a> <a href="/tags/%E6%96%87%E7%8C%AE%E7%AC%94%E8%AE%B0/" style="font-size: 1.44em; color: #99a7ba">文献笔记</a> <a href="/tags/%E5%8F%82%E6%95%B0%E9%A2%84%E6%B5%8B/" style="font-size: 1.16em; color: #999b9e">参数预测</a> <a href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B/" style="font-size: 1.5em; color: #99a9bf">大模型</a> <a href="/tags/%E9%AB%98%E7%BA%A7%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" style="font-size: 1.21em; color: #999ea4">高级人工智能</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E5%B7%A5%E7%A8%8B/" style="font-size: 1.33em; color: #99a2af">知识工程</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/" style="font-size: 1.33em; color: #99a2af">知识图谱</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>Archives</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/09/"><span class="card-archive-list-date">September 2024</span><span class="card-archive-list-count">57</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/08/"><span class="card-archive-list-date">August 2024</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/07/"><span class="card-archive-list-date">July 2024</span><span class="card-archive-list-count">19</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/06/"><span class="card-archive-list-date">June 2024</span><span class="card-archive-list-count">6</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/05/"><span class="card-archive-list-date">May 2024</span><span class="card-archive-list-count">16</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">Article :</div><div class="item-count">99</div></div><div class="webinfo-item"><div class="item-name">UV :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">PV :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Last Update :</div><div class="item-count" id="last-push-date" data-lastPushDate="2024-09-27T08:02:19.175Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Wenliang Liang</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>window.typedJSFn = {
   init: (str) => {
     window.typed = new Typed('#subtitle', Object.assign({
       strings: str,

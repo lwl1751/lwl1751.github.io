@@ -2,6 +2,116 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://lwl1751.github.io/2024/09/27/Multi-perspective-Improvement-of-Knowledge-Graph-Completion-with-Large-Language-Models/</loc>
+    
+    <lastmod>2024-09-27T08:02:04.236Z</lastmod>
+    
+    <date>1727424124000</date>
+    <title>Multi-perspective Improvement of Knowledge Graph Completion with Large Language Models | Wenliang Liang</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
+    <loc>https://lwl1751.github.io/2024/09/27/Multimodal-Foundation-Models-From-Specialists-to-General-Purpose-Assistants/</loc>
+    
+    <lastmod>2024-09-27T07:46:12.014Z</lastmod>
+    
+    <date>1727423172000</date>
+    <title>Multimodal Foundation Models: From Specialists to General-Purpose Assistants | Wenliang Liang</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
+    <loc>https://lwl1751.github.io/2024/09/27/Graph-Intelligence-with-Large-Language-Models-and-Prompt-Learning/</loc>
+    
+    <lastmod>2024-09-27T07:42:26.919Z</lastmod>
+    
+    <date>1727422946000</date>
+    <title>Graph Intelligence with Large Language Models and Prompt Learning | Wenliang Liang</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
+    <loc>https://lwl1751.github.io/2024/09/27/LLM-Prop-Predicting-Physical-And-Electronic-Properties-Of-Crystalline-Solids-From-Their-Text-Descriptions/</loc>
+    
+    <lastmod>2024-09-27T07:40:21.536Z</lastmod>
+    
+    <date>1727422821000</date>
+    <title>LLM-Prop: Predicting Physical And Electronic Properties Of Crystalline Solids From Their Text Descriptions | Wenliang Liang</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
+    <loc>https://lwl1751.github.io/2024/09/27/Towards-Explainable-Traffic-Flow-Prediction-with-Large-Language-Models/</loc>
+    
+    <lastmod>2024-09-27T07:37:58.302Z</lastmod>
+    
+    <date>1727422678000</date>
+    <title>Towards Explainable Traffic Flow Prediction with Large Language Models | Wenliang Liang</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
+    <loc>https://lwl1751.github.io/2024/09/27/Learning-Dynamic-User-Interest-Sequence-in-Knowledge-Graphs-for-Click-Through-Rate-Prediction/</loc>
+    
+    <lastmod>2024-09-27T07:33:41.181Z</lastmod>
+    
+    <date>1727422421000</date>
+    <title>Learning Dynamic User Interest Sequence in Knowledge Graphs for Click-Through Rate Prediction | Wenliang Liang</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
+    <loc>https://lwl1751.github.io/2024/09/27/Link-Prediction-Based-on-Graph-Neural-Networks/</loc>
+    
+    <lastmod>2024-09-27T07:32:20.532Z</lastmod>
+    
+    <date>1727422340000</date>
+    <title>Link Prediction Based on Graph Neural Networks | Wenliang Liang</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
+    <loc>https://lwl1751.github.io/2024/09/27/GraphCare-Enhancing-Healthcare-Predictions-with-Personalized-Knowledge-Graphs/</loc>
+    
+    <lastmod>2024-09-27T07:30:49.581Z</lastmod>
+    
+    <date>1727422249000</date>
+    <title>GraphCare: Enhancing Healthcare Predictions with Personalized Knowledge Graphs | Wenliang Liang</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
+    <loc>https://lwl1751.github.io/2024/09/27/Leveraging-A-Medical-Knowledge-Graph-into-Large-Language-Modelsfor-Diagnosis-Prediction/</loc>
+    
+    <lastmod>2024-09-27T07:28:34.537Z</lastmod>
+    
+    <date>1727422114000</date>
+    <title>Leveraging A Medical Knowledge Graph into Large Language Modelsfor Diagnosis Prediction | Wenliang Liang</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
+    <loc>https://lwl1751.github.io/2024/09/27/RAM-EHR-Retrieval-Augmentation-Meets-Clinical-Predictions-on-Electronic-Health-Records/</loc>
+    
+    <lastmod>2024-09-27T07:22:20.530Z</lastmod>
+    
+    <date>1727421740000</date>
+    <title>RAM-EHR: Retrieval Augmentation Meets Clinical Predictions on Electronic Health Records | Wenliang Liang</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
     <loc>https://lwl1751.github.io/2024/09/12/Challenges-in-developing-cell-culture-media-using-machine-learning/</loc>
     
     <lastmod>2024-09-18T09:59:30.869Z</lastmod>
