@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f7f8fc">
+<title>Agent 算法面试准备 · Wenliang Liang</title>
+<style>
+:root{--bg:#f7f8fc;--panel:#fff;--ink:#172033;--muted:#68738a;--line:#e7eaf1;--blue:#5268d9;--blue-soft:#eef0ff;--green:#16866a;--amber:#b7791f;--shadow:0 12px 36px rgba(30,43,75,.07)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif}a{color:inherit;text-decoration:none}button,input{font:inherit}.shell{max-width:1180px;margin:auto;padding:28px 24px 72px}.top{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:34px}.brand{font-weight:750;letter-spacing:.01em}.brand small{display:block;color:var(--muted);font-size:12px;font-weight:500}.top a.back{color:var(--muted);font-size:13px}.hero{padding:38px 40px;border:1px solid #e8eaff;border-radius:24px;background:linear-gradient(120deg,#fff 0%,#f0f2ff 100%);box-shadow:var(--shadow);position:relative;overflow:hidden}.eyebrow{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);font-weight:750}.hero h1{font-size:clamp(30px,5vw,46px);line-height:1.16;letter-spacing:-.04em;margin:12px 0}.hero p{color:var(--muted);max-width:660px;margin:0}.hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}.btn{border:0;border-radius:11px;padding:10px 16px;background:var(--blue);color:white;font-weight:650;cursor:pointer}.btn.secondary{background:#fff;color:var(--ink);border:1px solid var(--line)}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:18px 0 34px}.stat{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:17px 19px}.stat strong{font-size:25px;display:block;letter-spacing:-.04em}.stat span{color:var(--muted);font-size:12px}.progress{height:7px;background:#edf0f6;border-radius:10px;overflow:hidden;margin-top:12px}.progress i{display:block;height:100%;width:0;background:var(--blue);border-radius:10px;transition:width .25s}.section-head{display:flex;justify-content:space-between;align-items:end;gap:14px;margin:32px 0 15px}.section-head h2{font-size:21px;margin:0;letter-spacing:-.025em}.section-head p{margin:3px 0 0;color:var(--muted);font-size:13px}.search{width:min(310px,100%);padding:10px 13px;border:1px solid var(--line);border-radius:11px;background:#fff;outline:none}.search:focus{border-color:var(--blue)}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.module{background:#fff;border:1px solid var(--line);border-radius:17px;padding:19px 20px;transition:.2s;cursor:pointer}.module:hover{transform:translateY(-2px);box-shadow:var(--shadow);border-color:#d7dcfa}.module-top{display:flex;justify-content:space-between;align-items:center;gap:10px}.module-icon{width:38px;height:38px;border-radius:12px;display:grid;place-items:center;background:var(--blue-soft);color:var(--blue);font-size:18px}.tag{font-size:11px;color:var(--green);background:#eaf7f2;padding:4px 8px;border-radius:20px;white-space:nowrap}.module h3{font-size:17px;margin:13px 0 4px}.module p{font-size:13px;color:var(--muted);margin:0;min-height:42px}.module-foot{display:flex;justify-content:space-between;align-items:center;margin-top:15px;color:var(--muted);font-size:12px}.module-foot b{color:var(--ink);font-weight:650}.layout{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(260px,.8fr);gap:16px;margin-top:28px}.panel{background:#fff;border:1px solid var(--line);border-radius:17px;padding:21px}.panel h3{margin:0 0 12px;font-size:16px}.roadmap{display:grid;gap:0}.step{display:grid;grid-template-columns:26px 1fr;gap:12px;padding:11px 0;border-bottom:1px solid #f0f1f5}.step:last-child{border:0}.dot{width:23px;height:23px;border-radius:50%;display:grid;place-items:center;background:var(--blue-soft);color:var(--blue);font-size:11px;font-weight:750}.step strong{font-size:13px}.step p{margin:2px 0 0;color:var(--muted);font-size:12px}.checklist{display:grid;gap:11px}.check{display:flex;gap:9px;align-items:flex-start;font-size:13px}.check input{accent-color:var(--blue);margin-top:4px}.note{font-size:12px;color:var(--muted);margin-top:16px;padding:12px;background:#f8f9fc;border-radius:10px}.footer{text-align:center;color:var(--muted);font-size:12px;margin-top:38px}.empty{display:none;padding:25px;text-align:center;color:var(--muted);background:#fff;border:1px dashed var(--line);border-radius:15px}.module-detail{display:none;margin-top:18px;background:#fff;border:1px solid var(--line);border-radius:17px;padding:22px}.module-detail.active{display:block}.module-detail h2{margin:0 0 6px}.module-detail .desc{color:var(--muted);font-size:13px;margin:0 0 18px}.topic-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.topic{border:1px solid var(--line);border-radius:11px;padding:11px 12px;font-size:13px;display:flex;gap:9px;align-items:flex-start}.topic input{accent-color:var(--blue);margin-top:4px}.detail-actions{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:14px}.detail-actions button{border:1px solid var(--line);background:#fff;padding:7px 11px;border-radius:9px;cursor:pointer;font-size:12px}
+@media(max-width:760px){.shell{padding:18px 15px 50px}.hero{padding:28px 23px}.stats{gap:8px}.stat{padding:13px}.stat strong{font-size:21px}.grid,.layout{grid-template-columns:1fr}.section-head{align-items:stretch;flex-direction:column}.search{width:100%}.topic-list{grid-template-columns:1fr}.top{margin-bottom:22px}}
+</style>
+</head>
+<body>
+<div class="shell">
+  <header class="top"><div class="brand">WENLIANG · LEARNING SPACE<small>Personal knowledge base & interview preparation</small></div><a class="back" href="/">← 返回个人主页</a></header>
+  <section class="hero">
+    <div class="eyebrow">2026 · Interview roadmap</div>
+    <h1>Agent 算法面试准备</h1>
+    <p>把学习、理解、复习和面试表达沉淀在一个地方。以 Agent 算法岗位为主线，系统补齐大模型基础、Agent 架构、工具使用、评测与工程能力。</p>
+    <div class="hero-actions"><a class="btn" href="#modules">开始学习</a><a class="btn secondary" href="#roadmap">查看学习路线</a></div>
+  </section>
+  <section class="stats">
+    <div class="stat"><strong id="doneCount">0</strong><span>已掌握知识点</span><div class="progress"><i id="progressBar"></i></div></div>
+    <div class="stat"><strong>8</strong><span>知识模块</span></div>
+    <div class="stat"><strong>Agent</strong><span>目标岗位方向</span></div>
+  </section>
+  <div class="section-head" id="modules"><div><h2>知识模块</h2><p>点击模块，查看专题清单并记录掌握情况</p></div><input id="search" class="search" placeholder="搜索知识点或模块…" aria-label="搜索知识点或模块"></div>
+  <div class="grid" id="moduleGrid"></div><div class="empty" id="empty">没有找到匹配的内容。</div>
+  <section class="module-detail" id="detail"><div class="detail-actions"><span class="eyebrow">STUDY CHECKLIST</span><button id="closeDetail">收起 ×</button></div><h2 id="detailTitle"></h2><p class="desc" id="detailDesc"></p><div class="topic-list" id="topicList"></div><div class="note">勾选状态保存在当前浏览器中。每次我们学完一个专题，我会继续补充讲解、代码示例和面试问答内容。</div></section>
+  <section class="layout" id="roadmap">
+    <div class="panel"><h3>建议学习路线</h3><div class="roadmap">
+      <div class="step"><div class="dot">01</div><div><strong>Agent 核心原理</strong><p>Agent 架构、ReAct、Planning、Reflection、状态管理</p></div></div>
+      <div class="step"><div class="dot">02</div><div><strong>Tool Use、RAG 与 Memory</strong><p>Function Calling、MCP、检索、记忆与上下文工程</p></div></div>
+      <div class="step"><div class="dot">03</div><div><strong>LLM 与 Agent 训练</strong><p>Transformer、SFT、LoRA、DPO、PPO、GRPO</p></div></div>
+      <div class="step"><div class="dot">04</div><div><strong>评测与工程实践</strong><p>轨迹分析、Benchmark、异步并发、可靠性与成本</p></div></div>
+      <div class="step"><div class="dot">05</div><div><strong>项目复盘与模拟面试</strong><p>把科研经历转化为清晰、有证据的面试表达</p></div></div>
+    </div></div>
+    <aside class="panel"><h3>本阶段原则</h3><div class="checklist">
+      <label class="check"><input type="checkbox">先理解原理，再记面试答案</label>
+      <label class="check"><input type="checkbox">每个专题都准备至少一个追问</label>
+      <label class="check"><input type="checkbox">通过代码和例子验证理解</label>
+      <label class="check"><input type="checkbox">定期回顾错题与薄弱知识点</label>
+    </div><div class="note">知识库会随着我们的实际讨论逐步填充，不追求一次性堆满所有面经。</div></aside>
+  </section>
+  <footer class="footer">Wenliang Liang · Agent Interview Preparation · Built for continuous learning</footer>
+</div>
+<script>
+const modules=[
+{id:'ml',icon:'◈',name:'机器学习基础',tag:'基础补齐',desc:'经典机器学习、模型评估、损失函数与优化方法。',topics:['线性回归与逻辑回归','决策树、随机森林与 XGBoost','SVM、KNN 与 K-Means','过拟合、欠拟合与正则化','Bias-Variance Tradeoff','交叉验证与数据泄漏','常见损失函数与评价指标','梯度下降、SGD 与 Adam']},
+{id:'llm',icon:'✳',name:'深度学习与大模型',tag:'核心基础',desc:'从神经网络、Transformer 到模型训练、对齐和推理。',topics:['神经网络前向传播与反向传播','CNN、RNN 与 LSTM 基础','Self-Attention 计算过程','Multi-Head Attention','位置编码与 RoPE','Encoder、Decoder 与 GPT/BERT','预训练与 Scaling Law','SFT、LoRA 与 QLoRA','RLHF、PPO、DPO 与 GRPO','KV Cache、FlashAttention 与量化']},
+{id:'agent',icon:'⌘',name:'Agent 核心原理',tag:'主攻方向',desc:'理解 Agent 的决策闭环、规划方式、状态与协作机制。',topics:['Agent 与普通 LLM 应用的区别','Agent 基本架构与运行循环','ReAct：Reasoning + Acting','Plan-and-Execute','Reflection 与 Self-Refine','任务分解与动态规划','Agent 状态管理与终止条件','Single-Agent 与 Multi-Agent','Workflow Agent 与自主 Agent','Agent Harness 的组成与边界']},
+{id:'tools',icon:'↗',name:'Tool Use / RAG / Memory',tag:'主攻方向',desc:'掌握工具调用、知识检索、记忆和上下文管理。',topics:['Function Calling 完整流程','Tool Selection 与参数生成','工具错误、重试与超时处理','MCP 架构与调用流程','RAG 完整流程','Chunking 与 Embedding','向量检索、BM25 与 Hybrid Search','Reranker 与 Recall/Precision','短期记忆与长期记忆','Context Engineering 与上下文压缩']},
+{id:'training',icon:'⌁',name:'Agent 训练与优化',tag:'进阶专题',desc:'理解如何通过数据、奖励和训练改善 Agent 决策能力。',topics:['Agent Trajectory 数据结构','轨迹采集与数据清洗','SFT 数据构造','Reward Design','Outcome Reward 与 Process Reward','Agentic RL 基本范式','PPO 在 Agent 训练中的应用','DPO 与偏好数据','GRPO 基本思想','工具使用能力如何训练']},
+{id:'eval',icon:'◎',name:'Agent Evaluation',tag:'主攻方向',desc:'从任务成功率、工具调用到轨迹质量和成本进行评测。',topics:['Agent 评测与传统 NLP 评测的区别','Task Success Rate','Tool Call Accuracy','Trajectory Evaluation','LLM-as-a-Judge','GAIA、WebArena 与 SWE-bench','Benchmark 数据污染与泛化','失败案例分类与归因','Latency、Token Cost 与效率','可靠性、安全性与鲁棒性']},
+{id:'engineering',icon:'⌘',name:'工程实践',tag:'能力补充',desc:'补齐构建可运行、可观测、可靠 Agent 系统的工程基础。',topics:['Python 迭代器与生成器','async/await 与 asyncio','并发、线程与进程','HTTP API 与流式响应 SSE','日志、Tracing 与可观测性','Agent Runtime 与执行循环','状态持久化与检查点','Sandbox 与权限控制','缓存、限流与重试','部署、服务稳定性与成本优化']},
+{id:'leetcode',icon:'{ }',name:'LeetCode Hot 100',tag:'持续复习',desc:'以 Easy、Medium 为主，恢复独立解题与面试编码能力。',topics:['哈希表','双指针','滑动窗口与子串','普通数组与矩阵','链表','二叉树与 BST','栈与单调栈','二分查找','回溯','贪心','动态规划','图论','技巧与位运算']},
+{id:'projects',icon:'✧',name:'项目与面试复盘',tag:'个人优势',desc:'将科研项目整理成可讲述、可追问、可验证的面试案例。',topics:['个人项目介绍：背景、问题与贡献','Agentic BO 整体架构','多优化器协作与决策机制','工具状态共享与候选管理','实验设计、Baseline 与消融','失败案例与迭代过程','ProSearch：Benchmark 设计与价值','SCoPEL：跨语言实体链接方法','算法进化：设计空间与评价机制','项目深挖追问与模拟面试']}
+];
+const key='agentPrepProgressV1';let checked={};try{checked=JSON.parse(localStorage.getItem(key)||'{}')}catch(e){}
+const grid=document.getElementById('moduleGrid'),detail=document.getElementById('detail'),search=document.getElementById('search');
+function allTopics(){return modules.reduce((n,m)=>n+m.topics.length,0)}
+function doneTotal(){return Object.values(checked).filter(Boolean).length}
+function updateStats(){document.getElementById('doneCount').textContent=doneTotal();document.getElementById('progressBar').style.width=(doneTotal()/allTopics()*100)+'%'}
+function renderModules(q=''){grid.innerHTML='';let count=0;modules.forEach(m=>{let hits=m.topics.filter(t=>t.toLowerCase().includes(q.toLowerCase()));if(q&&!m.name.toLowerCase().includes(q.toLowerCase())&&!m.desc.toLowerCase().includes(q.toLowerCase())&&!hits.length)return;count++;let done=m.topics.filter(t=>checked[m.id+'::'+t]).length;let card=document.createElement('article');card.className='module';card.tabIndex=0;card.innerHTML='<div class="module-top"><div class="module-icon">'+m.icon+'</div><span class="tag">'+m.tag+'</span></div><h3>'+m.name+'</h3><p>'+m.desc+'</p><div class="module-foot"><span><b>'+done+'/'+m.topics.length+'</b> 已掌握</span><span>查看专题 →</span></div>';card.addEventListener('click',()=>openModule(m));card.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openModule(m)}});grid.appendChild(card)});document.getElementById('empty').style.display=count?'none':'block'}
+function openModule(m){document.getElementById('detailTitle').textContent=m.name;document.getElementById('detailDesc').textContent=m.desc+' · 勾选已掌握的知识点';let list=document.getElementById('topicList');list.innerHTML='';m.topics.forEach(t=>{let id=m.id+'::'+t,label=document.createElement('label');label.className='topic';let input=document.createElement('input');input.type='checkbox';input.checked=!!checked[id];input.addEventListener('change',()=>{checked[id]=input.checked;localStorage.setItem(key,JSON.stringify(checked));updateStats();renderModules(search.value)});let span=document.createElement('span');span.textContent=t;label.append(input,span);list.appendChild(label)});detail.classList.add('active');detail.scrollIntoView({behavior:'smooth',block:'start'})}
+document.getElementById('closeDetail').addEventListener('click',()=>detail.classList.remove('active'));search.addEventListener('input',()=>renderModules(search.value));renderModules();updateStats();
+</script>
+</body>
+</html>
